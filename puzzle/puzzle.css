@@ -1,0 +1,46 @@
+body{
+	margin: 25px;
+	background: #eee;
+
+	font-family: sans-serif;
+	font-size: 19px;
+	font-weight: 100;
+	line-height: 1.4em;
+}
+
+h2, h3{
+	margin-top: 0;
+}
+
+#content{
+	width:850px;
+	height:530px;
+	position: absolute;
+	margin: auto;
+	top:0; left:0; right:0; bottom:0;
+}
+#content_puzzle{
+	display: block;
+	float: right;
+	border:none;
+	/*border: 1px solid #ddd;*/
+}
+#content_words{
+	width: 325px;
+	float: left;
+}
+#next{
+	position: absolute;
+	width: 325px;
+	left:0; bottom:30px;
+	text-align: right;
+	font-size: 15px;
+}
+.icon{
+	height: 1em;
+	transform: translate(0,3px) scale(1.5, 1.5);
+}
+
+slide{
+	display:none;
+}

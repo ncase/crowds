@@ -1,0 +1,49 @@
+<!doctype>
+<html>
+<head>
+<style>
+body{
+	margin:0;
+	font-family: sans-serif;
+	font-size: 16px;
+	font-weight: 100;
+	line-height: 1.5em;
+}
+#sim_ui{
+	display: none;
+	width: 100%;
+	position: absolute;
+	bottom:0;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+	<canvas id="canvas"></canvas>
+
+	<div id="sim_ui">
+		simulation:
+		<span id="sim_is_not_running">
+			(not running)
+			<br>
+			<button id="sim_start">start sim</button>
+		</span>
+		<span id="sim_is_running">
+			(running! step <span id="sim_step"></span>)
+			<br>
+			<button id="sim_next">next step</button>
+			<button id="sim_stop">stop sim</button>
+		</span>
+	</div>
+
+</body>
+</html>
+
+<script src="js/Mouse.js"></script>
+<script src="js/Peep.js"></script>
+<script src="js/Connection.js"></script>
+<script src="js/Drawing.js"></script>
+<script src="js/Cursor.js"></script>
+<script src="js/Game.js"></script>
+<script src="js/main.js"></script>
