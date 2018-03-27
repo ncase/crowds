@@ -3,25 +3,33 @@ body{
 
 	font-family: "FuturaHandwritten";
 	font-size: 20px;
+	cursor: none !important;
 }
 
-#slideshow_container{
+/* SIMULATION and SLIDESHOW */
+#simulations_container, #slideshow_container{
 	position: absolute;
+	top:0; left:0;
 	width: 100%;
 	height: calc(100% - 60px);
 }
-#slideshow{
+#simulations, #slideshow{
 	position: absolute;
 	width: 960px;
 	height: 540px;
 	margin: auto;
 	top:0; left:0; right:0; bottom:0;
-	background: #eee;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
 }
-#slideshow div{
+#simulations canvas, #slideshow div{
 	position: absolute;
 }
 
+/* NAVIGATION */
 #navigation{
 	position: absolute;
 	bottom:0;
@@ -30,6 +38,15 @@ body{
 	height:60px;
 }
 
+/* PENCIL */
+#pencil{
+	position: absolute;
+	width:100px;
+	height:100px;
+	pointer-events: none;
+}
+
+/* THIS THING'S WORDS */
 words, bonus, glossary{
 	display: none;
 }

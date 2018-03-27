@@ -1,9 +1,12 @@
-//////////////////////////
-// THE SLIDESHOW, YO /////
-//////////////////////////
+/******************************************
+
+THE SLIDESHOW
+- background: fullscreen iframe (so can draw everywhere)
+- foreground: words & pictures
+
+******************************************/
 
 var SLIDES = [];
-var slideshow = new Slideshow();
 
 function Slideshow(){
 
@@ -21,6 +24,10 @@ function Slideshow(){
 
 		// Clear DOM
 		self.clear();
+
+		// Show simulations
+		slide.sims = slide.sims || [];
+		simulations.showSims(slide.sims);
 
 		// Add boxes
 		slide.boxes = slide.boxes || [];
@@ -52,8 +59,3 @@ function Slideshow(){
 	};
 
 }
-
-// On load, set slideshow to first slide
-window.addEventListener("load", function(){
-	slideshow.goto(0);
-});

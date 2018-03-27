@@ -1,5 +1,13 @@
 <!--
 
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+
+MY "WHY" FOR MAKING THIS:
++ to build a foundation for further curiosity about networks, group dynamics
++ to practice teaching with problem-solving, a pre-req for skills
++ to instill transcendent sense of "fundamentally people", of Humanity's Brain <3
+
 SLIDES: 
 Keep all words on index.html. This allows people to translate it to SAME repo!
 /de.html, etc etc
@@ -15,19 +23,47 @@ Cursor is allowed to flow EVERYWHERE though...
 		<link rel="stylesheet" type="text/css" href="index.css">
 	</head>
 	<body>
-		<div id="slideshow_container">
-			<div id="slideshow">
-			</div>
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
 		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+		
+		<!-- Navigation: Audio, Contents, Share, Translations -->
 		<div id="navigation">
 		</div>
+		
+		<canvas id="pencil"></canvas>
+
 	</body>
 </html>
-<script src="js/helpers.js"></script>
-<script src="js/Slideshow.js"></script>
-<script src="chapters/0_Introduction.js"></script>
 
-<!-- THE MAIN EXPLORABLE EXPLANATION -->
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+
+<script src="js/sim/Peep.js"></script>
+<script src="js/sim/Connection.js"></script>
+<!--script src="js/sim/Drawing.js"></script>
+<script src="js/sim/Game.js"></script-->
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/main.js"></script>
+
+<script src="js/chapters/0_Introduction.js"></script>
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
 
 <!-- 0. Introduction -->
 <words id="_0a">
@@ -36,6 +72,7 @@ in <i>different</i> groups, can be kind, cruel, smart, stupid?
 In this explorable explanation,
 I'll show how the <i>network</i> of a group itself
 can shape the people caught in its web.
+<button onclick="slideshow.next()">NEXT</button>
 </words>
 <words id="_0b">
 herp derp herp derp
@@ -57,11 +94,17 @@ herp derp herp derp herp derp
 
 <!-- 7. Credits --> 
 
+<!-- - - - - - - - - - - - - -->
 <!-- BONUS BOXES (footnotes) -->
+<!-- - - - - - - - - - - - - -->
+
 <bonus>
 </bonus>
 
-<!-- GLOSSARY -->
+<!-- - - - - - -->
+<!-- GLOSSARY  -->
+<!-- - - - - - -->
+
 <glossary>
 </glossary>
 
