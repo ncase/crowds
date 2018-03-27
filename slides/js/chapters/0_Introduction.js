@@ -7,9 +7,11 @@ SLIDES.push(
 	],
 	sims:[
 		{
+			x: 400,
+			y: 10,
 			network: {
 				contagion: 0.25,
-				peeps: [ [100,100],[200,200] ],
+				peeps: [ [100,100],[200,200],[400,150] ],
 				connections: [ [0,1] ]
 			}
 		}

@@ -14,7 +14,7 @@ function Connection(config){
 	// Draw
 	self.draw = function(ctx){
 		ctx.strokeStyle = "#444";
-		ctx.lineWidth = self.uncuttable ? 6 : 2; // thick=uncuttable
+		ctx.lineWidth = self.uncuttable ? 6 : 3; // thick=uncuttable
 		ctx.beginPath();
 		ctx.moveTo(self.from.x, self.from.y);
 		ctx.lineTo(self.to.x, self.to.y);

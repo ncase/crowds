@@ -58,4 +58,8 @@ function Slideshow(){
 		self.dom.innerHTML = "";
 	};
 
+	// Update
+	self.update = function(){
+	};
+
 }

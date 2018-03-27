@@ -36,3 +36,8 @@ function createCanvas(canvas, width, height){
 	return canvas;
 	
 }
+
+// Copy an object
+function cloneObject(obj){
+	return JSON.parse(JSON.stringify(obj));
+}

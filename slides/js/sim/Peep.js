@@ -3,13 +3,6 @@ var PEEP_STATE_COLORS = {
 	2: "#dd4040"
 };
 
-var _hack_SHOW_BOTH_STATES = false;
-var _hack_HIDE_BARS = false;
-var _hack_REINTEGRATION_PUZZLE = false;
-
-var testingImage = new Image();
-testingImage.src = "img/testing.png";
-
 function Peep(config){
 	
 	var self = this;
@@ -17,7 +10,8 @@ function Peep(config){
 	// Properties
 	self.x = config.x;
 	self.y = config.y;
-	self.state = config.state;
+	self.infected = config.infected;
+	self.sim = config.sim;
 
 	// Update:
 	self.numFriends = 0;
@@ -31,8 +25,8 @@ function Peep(config){
 
 		// Face position!
 		var faceVector = {
-			x: (Mouse.x-self.x)/5,
-			y: (Mouse.y-self.y)/5
+			x: (self.sim.mouse.x-self.x)/5,
+			y: (self.sim.mouse.y-self.y)/5
 		};
 		faceVector.mag = Math.sqrt(faceVector.x*faceVector.x + faceVector.y*faceVector.y);
 		var max_distance = 5;
@@ -51,17 +45,17 @@ function Peep(config){
 		}
 
 		// Friends connected... or infected
-		var friends = getConnected(self);
+		var friends = self.sim.getFriendsOf(self);
 		self.numFriends = friends.length;
 		self.numInfectedFriends = 0;
 		friends.forEach(function(friend){
-			if(friend.state==2) self.numInfectedFriends++;
+			if(friend.infected) self.numInfectedFriends++;
 		});
 
 	};
 
 	// Draw
-	var radius = 20;
+	var radius = 25;
 	var barWidth = 30;
 	var barHeight = 10;
 	self.draw = function(ctx){
@@ -70,8 +64,7 @@ function Peep(config){
 		ctx.translate(self.x, self.y);
 
 		// Circle
-		//ctx.fillStyle = (self.state==1) ? "#ccc" : "#dd4040"; //"#ffdf00";
-		var myColor = PEEP_STATE_COLORS[self.state];
+		var myColor = self.infected ? PEEP_STATE_COLORS[2] : PEEP_STATE_COLORS[1];
 		ctx.fillStyle = myColor;
 		ctx.beginPath();
 		ctx.arc(0, 0, radius, 0, Math.TAU, false);
@@ -88,6 +81,7 @@ function Peep(config){
 		// Face
 		ctx.save();
 		ctx.translate(self.faceX, self.faceY);
+		ctx.scale(1.25, 1.25);
 			ctx.fillStyle = "rgba(0,0,0,0.5)";
 			if(self.faceBlink){
 				ctx.beginPath();
@@ -113,7 +107,7 @@ function Peep(config){
 		// LABEL FOR INFECTED/FRIENDS, BAR, AND CONTAGION LEVEL //
 		//////////////////////////////////////////////////////////
 
-		if(!_hack_HIDE_BARS && !self._hack_TESTED){
+		//if(!_hack_HIDE_BARS && !self._hack_TESTED){
 
 			ctx.save();
 
@@ -143,36 +137,10 @@ function Peep(config){
 			
 			// The color fills
 			if(self.numFriends>0){
-				if(!_hack_SHOW_BOTH_STATES){
-					ctx.fillStyle = PEEP_STATE_COLORS[2]; // state = 2 infected
-					ctx.beginPath();
-					ctx.rect(-barWidth/2, -barHeight/2, barWidth*(self.numInfectedFriends/self.numFriends), barHeight);
-					ctx.fill();
-				}else{
-					var ratio = self.numInfectedFriends/self.numFriends;
-					if((!_hack_REINTEGRATION_PUZZLE && self.state==1)
-					|| (_hack_REINTEGRATION_PUZZLE && self.state==2)){
-						var w = barWidth*(1-ratio);
-						ctx.fillStyle = PEEP_STATE_COLORS[1];
-						ctx.beginPath();
-						ctx.rect(-barWidth/2, -barHeight/2, w, barHeight);
-						ctx.fill();
-						ctx.fillStyle = PEEP_STATE_COLORS[2];
-						ctx.beginPath();
-						ctx.rect(-barWidth/2+w, -barHeight/2, barWidth*(ratio), barHeight);
-						ctx.fill();
-					}else{
-						var w = barWidth*(ratio);
-						ctx.fillStyle = PEEP_STATE_COLORS[2];
-						ctx.beginPath();
-						ctx.rect(-barWidth/2, -barHeight/2, w, barHeight);
-						ctx.fill();
-						ctx.fillStyle = PEEP_STATE_COLORS[1];
-						ctx.beginPath();
-						ctx.rect(-barWidth/2+w, -barHeight/2, barWidth*(1-ratio), barHeight);
-						ctx.fill();
-					}
-				}
+				ctx.fillStyle = PEEP_STATE_COLORS[2]; // state = 2 infected
+				ctx.beginPath();
+				ctx.rect(-barWidth/2, -barHeight/2, barWidth*(self.numInfectedFriends/self.numFriends), barHeight);
+				ctx.fill();
 			}
 
 			// The outline
@@ -187,20 +155,7 @@ function Peep(config){
 
 			// a pointer for contagion level
 			ctx.translate(0, barHeight/2+2);
-			if(!_hack_REINTEGRATION_PUZZLE){
-				if(CONTAGION_THRESHOLD && CONTAGION_THRESHOLD>0){
-					self._drawThreshold(ctx, CONTAGION_THRESHOLD);
-				}
-				if(CONTAGION_THRESHOLD_2 && CONTAGION_THRESHOLD_2>0){
-					self._drawThreshold(ctx, CONTAGION_THRESHOLD_2);
-				}
-			}else{
-				if(self.state==1){
-					self._drawThreshold(ctx, 1/3);
-				}else{
-					self._drawThreshold(ctx, 2/3);
-				}
-			}
+			self._drawThreshold(ctx, self.sim.contagion);
 
 			// Percent
 			ctx.font = '8px sans-serif';
@@ -212,12 +167,7 @@ function Peep(config){
 
 			ctx.restore();
 
-		}
-
-		// AM I BEING TESTED
-		if(self._hack_TESTED){
-			ctx.drawImage(testingImage, -30, -85, 60, 60);
-		}
+		//}
 
 		ctx.restore();
 
@@ -248,8 +198,8 @@ function Peep(config){
 
 	// Infect
 	self.infect = function(){
-		self.state = 2;
-	}
+		self.infected = true;
+	};
 
 }
 function _mouseOverPeep(buffer){
@@ -258,13 +208,6 @@ function _mouseOverPeep(buffer){
 		if(peep.hitTest(Mouse.x, Mouse.y, buffer)) result=peep;
 	});
 	return result;
-}
-function addPeep(x,y, state){
-	var peep = new Peep({
-		x:x, y:y,
-		state: state ? state : 1
-	});
-	peeps.push(peep);
 }
 function removePeep(peep){
 	removeAllConnectedTo(peep); // remove connections first

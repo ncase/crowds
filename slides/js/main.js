@@ -8,12 +8,21 @@ window.onload = function(){
 	// Initializing the Mouse
 	Mouse.init(document.body);
 
-	// Animation loop IS update loop, whatever
+	// Animation loop IS update loop for now, whatever
 	function update(){
+
+		// Update
 		simulations.update();
 		slideshow.update();
 		pencil.update();
+		Mouse.update();
+
+		// Draw
+		simulations.draw();
+		pencil.draw();
+		
 		window.requestAnimationFrame(update);
+
 	}
 	window.requestAnimationFrame(update);
 

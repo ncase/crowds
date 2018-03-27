@@ -29,6 +29,11 @@ function Pencil(){
 		"#ff5555"
 	];
 
+	// Go to frame?
+	self.gotoFrame = function(frame){
+		self.sprite.gotoFrame(frame);
+	};
+
 	// Update
 	self.update = function(){
 
@@ -47,6 +52,11 @@ function Pencil(){
 		self.x = Mouse.x;
 		self.y = Mouse.y;
 
+	};
+
+	// Draw
+	self.draw = function(){
+		
 		// Move DOM there
 		self.canvas.style.left = self.x-_margin;
 		self.canvas.style.top = self.y-_size+_margin;
@@ -59,10 +69,13 @@ function Pencil(){
 
 			// Draw pencil's dot
 			if(!Mouse.pressed){
+				ctx.save();
 				ctx.fillStyle = self.colors[self.sprite.currentFrame];
 				ctx.beginPath();
-				ctx.arc(0, 0, 5, 0, Math.TAU);
+				ctx.globalAlpha = 0.5;
+				ctx.arc(0, 0, 8, 0, Math.TAU);
 				ctx.fill();
+				ctx.restore();
 			}
 
 			// Draw pencil

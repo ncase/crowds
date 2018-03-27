@@ -13,18 +13,35 @@ function Simulations(){
 
 	self.sims = [];
 
+	// Clear All Sims
 	self.clear = function(){
 		self.sims.forEach(function(sim){
 			self.dom.removeChild(sim.canvas);
 			sim.kill();
 		});
 	};
+
+	// Show Sims
 	self.showSims = function(simConfigs){
 		self.clear();
 		simConfigs.forEach(function(simConfig){
 			var sim = new Sim(simConfig);
 			self.dom.appendChild(sim.canvas);
 			self.sims.push(sim);
+		});
+	};
+
+	// Update
+	self.update = function(){
+		self.sims.forEach(function(sim){
+			sim.update();
+		});
+	};
+
+	// Draw
+	self.draw = function(){
+		self.sims.forEach(function(sim){
+			sim.draw();
 		});
 	};
 
@@ -38,7 +55,16 @@ function Sim(config){
 
 	// Canvas
 	self.canvas = createCanvas(500, 500);
+	self.canvas.style.left = config.x || 0;
+	self.canvas.style.top = config.y || 0;
+	self.canvas.style.border = "1px solid #ccc";
 	self.ctx = self.canvas.getContext('2d');
+
+	// Mouse, offset!
+	self.mouse = {x:0, y:0};
+
+	// Connector-Cutter
+	self.connectorCutter = new ConnectorCutter({sim:self});
 
 	// Networks... clear/init
 	self.clear = function(){
@@ -61,13 +87,71 @@ function Sim(config){
 
 		// Connections
 		self.networkConfig.connections.forEach(function(c){
-			var from = peeps[c[0]],
-				to = peeps[c[1]],
+			var from = self.peeps[c[0]],
+				to = self.peeps[c[1]],
 				uncuttable = c[2];
 			self.addConnection(from, to, uncuttable);
 		});
 
+		// Contagion
+		self.contagion = self.networkConfig.contagion;
+
 	};
+
+	// Update
+	self.update = function(){
+
+		// "Mouse", offset!
+		var canvasBounds = self.canvas.getBoundingClientRect();
+		self.mouse = cloneObject(Mouse);
+		self.mouse.x -= canvasBounds.x;
+		self.mouse.y -= canvasBounds.y;
+		self.mouse.lastX -= canvasBounds.x;
+		self.mouse.lastY -= canvasBounds.y;
+
+		// Connector-Cutter
+		self.connectorCutter.update();
+
+		// Connections & Peeps
+		self.connections.forEach(function(connection){
+			connection.update();
+		});
+		self.peeps.forEach(function(peep){
+			peep.update();
+		});
+
+	};
+
+	// Draw
+	self.draw = function(){
+
+		// Retina
+		var ctx = self.ctx;
+		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+		ctx.save();
+		ctx.scale(2,2);
+
+		// Draw all of it!
+		self.connectorCutter.draw(ctx);
+		self.connections.forEach(function(connection){
+			connection.draw(ctx);
+		});
+		self.peeps.forEach(function(peep){
+			peep.draw(ctx);
+		});
+
+		ctx.restore();
+
+	};
+
+	// Kill
+	self.kill = function(){
+		self.clear();
+	};
+
+	////////////////
+	// HELPERS... //
+	////////////////
 
 	// Add Peeps/Connections
 	self.addPeep = function(x, y, infected){
@@ -93,12 +177,33 @@ function Sim(config){
 		return connection;
 
 	};
-
-	// Update
-	self.update = function(){
+	self.getFriendsOf = function(peep){
+		var friends = [];
+		for(var i=0; i<self.connections.length; i++){ // in either direction
+			var c = self.connections[i];
+			if(c.from==peep) friends.push(c.to);
+			if(c.to==peep) friends.push(c.from);
+		}
+		return friends;
+	};
+	self.getHoveredPeep = function(mouseBuffer){
+		return self.peeps.find(function(peep){
+			return peep.hitTest(self.mouse.x, self.mouse.y, mouseBuffer);
+		});
+	};
+	self.tryCuttingConnections = function(line){
+		for(var i=self.connections.length-1; i>=0; i--){ // going BACKWARDS coz killing connections
+			var c = self.connections[i];
+			if(c.uncuttable) continue; // don't touch the UNCUTTABLES
+			if(c.hitTest(line)) self.connections.splice(i,1);
+		}
 	};
 
-	// INIT NOW
+
+	//////////////
+	// INIT NOW //
+	//////////////
+
 	self.init();
 
 }
