@@ -35,6 +35,20 @@ body{
 #simulations canvas, #slideshow div{
 	position: absolute;
 }
+#slideshow .box.image{
+	background-size: 100% 100%;
+}
+#slideshow .box.button{
+	width: 300px;
+    height: 20px;
+    padding: 40px 0;
+	background-image: url(sprites/button_large.png);
+	background-size: 100% auto;
+	text-align: center;
+}
+#slideshow .box.button:hover{
+	background-position: 0 -100px;
+}
 
 /* NAVIGATION */
 #navigation{

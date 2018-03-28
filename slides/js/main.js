@@ -1,7 +1,6 @@
 window.onload = function(){
 
 	// Setting up the main stuff
-	window.simulations = new Simulations();
 	window.slideshow = new Slideshow();
 	window.pencil = new Pencil();
 
@@ -12,13 +11,12 @@ window.onload = function(){
 	function update(){
 
 		// Update
-		simulations.update();
 		slideshow.update();
 		pencil.update();
 		Mouse.update();
 
 		// Draw
-		simulations.draw();
+		slideshow.draw();
 		pencil.draw();
 		
 		window.requestAnimationFrame(update);

@@ -15,32 +15,38 @@ function Slideshow(){
 	// The DOM & properties...
 	self.dom = $("#slideshow");
 	self.slideIndex = 0;
+	self.currentSlide = null;
+	self.currentState = null;
+
+	// My stuff...
+	self.boxes = new Boxes();
+	self.simulations = new Simulations();
 	
 	// GOTO and NEXT
 	self.goto = function(index){
 		
 		self.slideIndex = index;
-		var slide = SLIDES[index];
+		self.currentSlide = SLIDES[self.slideIndex];
+		var slide = self.currentSlide;
 
-		// Clear DOM
-		self.clear();
+		// Clear?
+		if(slide.clear) self.clear();
 
-		// Show simulations
-		slide.sims = slide.sims || [];
-		simulations.showSims(slide.sims);
-
-		// Add boxes
-		slide.boxes = slide.boxes || [];
-		slide.boxes.forEach(function(box){
-			var boxDOM = document.createElement("div");
-			boxDOM.className = "word_box";
-			if(box.words) boxDOM.innerHTML = $("words#"+box.words).innerHTML;
-			if(box.x) boxDOM.style.left = box.x;
-			if(box.y) boxDOM.style.top = box.y;
-			if(box.w) boxDOM.style.width = box.w;
-			if(box.h) boxDOM.style.height = box.h;
-			self.dom.appendChild(boxDOM);
+		// Add stuff
+		slide.add.forEach(function(childConfig){
+			switch(childConfig.type){
+				case "box":
+					self.boxes.add(childConfig);
+					break;
+				case "sim":
+					self.simulations.add(childConfig);
+					break;
+			}
 		});
+
+		// On start (if any)
+		self.currentState = {};
+		if(slide.onstart) slide.onstart(self, self.currentState);
 
 	};
 	self.gotoChapter = function(chapterID){
@@ -55,11 +61,21 @@ function Slideshow(){
 
 	// Clear out the DOM
 	self.clear = function(){
+		self.boxes.clear();
+		self.simulations.clear();
 		self.dom.innerHTML = "";
 	};
 
 	// Update
 	self.update = function(){
+		var slide = self.currentSlide;
+		self.simulations.update();
+		if(slide.onupdate) slide.onupdate(self, self.currentState);
 	};
+
+	// Draw
+	self.draw = function(){
+		self.simulations.draw();
+	}
 
 }

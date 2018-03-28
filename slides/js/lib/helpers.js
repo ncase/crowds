@@ -41,3 +41,8 @@ function createCanvas(canvas, width, height){
 function cloneObject(obj){
 	return JSON.parse(JSON.stringify(obj));
 }
+
+// Get words
+function getWords(wordsID){
+	return $("words#"+wordsID).innerHTML;
+}

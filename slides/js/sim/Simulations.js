@@ -19,16 +19,16 @@ function Simulations(){
 			self.dom.removeChild(sim.canvas);
 			sim.kill();
 		});
+		self.sims = [];
 	};
 
-	// Show Sims
-	self.showSims = function(simConfigs){
-		self.clear();
-		simConfigs.forEach(function(simConfig){
-			var sim = new Sim(simConfig);
-			self.dom.appendChild(sim.canvas);
-			self.sims.push(sim);
-		});
+	// Add Sims
+	self.add = function(config){
+		config = cloneObject(config);
+		config.container = self;
+		var sim = new Sim(config);
+		self.dom.appendChild(sim.canvas);
+		self.sims.push(sim);
 	};
 
 	// Update
@@ -52,12 +52,13 @@ function Sim(config){
 	var self = this;
 	self.config = config;
 	self.networkConfig = config.network;
+	self.container = config.container;
 
 	// Canvas
 	self.fullscreenOffset = {x:0, y:0};
 	if(config.fullscreen){
 		var container = $("#simulations_container");
-		var simOffset = simulations.dom.getBoundingClientRect();
+		var simOffset = self.container.dom.getBoundingClientRect();
 		self.canvas = createCanvas(container.clientWidth, container.clientHeight);
 		self.canvas.style.left = -simOffset.x;
 		self.canvas.style.top = -simOffset.y;
