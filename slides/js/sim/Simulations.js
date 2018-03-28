@@ -54,10 +54,21 @@ function Sim(config){
 	self.networkConfig = config.network;
 
 	// Canvas
-	self.canvas = createCanvas(500, 500);
-	self.canvas.style.left = config.x || 0;
-	self.canvas.style.top = config.y || 0;
-	self.canvas.style.border = "1px solid #ccc";
+	self.fullscreenOffset = {x:0, y:0};
+	if(config.fullscreen){
+		var container = $("#simulations_container");
+		var simOffset = simulations.dom.getBoundingClientRect();
+		self.canvas = createCanvas(container.clientWidth, container.clientHeight);
+		self.canvas.style.left = -simOffset.x;
+		self.canvas.style.top = -simOffset.y;
+		self.fullscreenOffset.x = config.x + simOffset.x;
+		self.fullscreenOffset.y = config.y + simOffset.y;
+	}else{
+		self.canvas = createCanvas(config.width||500, config.height||500);
+		self.canvas.style.left = config.x || 0;
+		self.canvas.style.top = config.y || 0;
+	}
+	//self.canvas.style.border = "1px solid #ccc";
 	self.ctx = self.canvas.getContext('2d');
 
 	// Mouse, offset!
@@ -88,10 +99,10 @@ function Sim(config){
 		// Connections
 		self.networkConfig.connections.forEach(function(c){
 			var from = self.peeps[c[0]],
-				to = self.peeps[c[1]],
-				uncuttable = c[2];
-			self.addConnection(from, to, uncuttable);
+				to = self.peeps[c[1]];
+			self.addConnection(from, to, false);
 		});
+		// todo: "start uncuttable"
 
 		// Contagion
 		self.contagion = self.networkConfig.contagion;
@@ -99,6 +110,7 @@ function Sim(config){
 	};
 
 	// Update
+	self.onupdate = config.onupdate || function(){};
 	self.update = function(){
 
 		// "Mouse", offset!
@@ -108,6 +120,12 @@ function Sim(config){
 		self.mouse.y -= canvasBounds.y;
 		self.mouse.lastX -= canvasBounds.x;
 		self.mouse.lastY -= canvasBounds.y;
+		if(config.fullscreen){
+			self.mouse.x -= self.fullscreenOffset.x;
+			self.mouse.y -= self.fullscreenOffset.y;
+			self.mouse.lastX -= self.fullscreenOffset.x;
+			self.mouse.lastY -= self.fullscreenOffset.y;
+		}
 
 		// Connector-Cutter
 		self.connectorCutter.update();
@@ -120,6 +138,16 @@ function Sim(config){
 			peep.update();
 		});
 
+		// secret editor...
+		// drag Peep
+		if(_draggingPeep){
+			_draggingPeep.x = self.mouse.x+_draggingOffset.x;
+			_draggingPeep.y = self.mouse.y+_draggingOffset.y;
+		}
+
+		// On update! (for arbitrary sim-specific logic)
+		self.onupdate(self);
+
 	};
 
 	// Draw
@@ -128,8 +156,12 @@ function Sim(config){
 		// Retina
 		var ctx = self.ctx;
 		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+		// todo: smarter redraw coz, wow, retina.
 		ctx.save();
 		ctx.scale(2,2);
+		if(config.fullscreen){
+			ctx.translate(self.fullscreenOffset.x, self.fullscreenOffset.y);
+		}
 
 		// Draw all of it!
 		self.connectorCutter.draw(ctx);
@@ -149,6 +181,61 @@ function Sim(config){
 		self.clear();
 	};
 
+	///////////////////////////////
+	// secret keyboard interface //
+	///////////////////////////////
+
+	// todo: active only when mouse is over MY CANVAS.
+
+	var _draggingPeep = null;
+	var _draggingOffset = {x:0,y:0};
+	subscribe("key/down/space",function(){
+		if(!_draggingPeep){ // prevent double-activation
+			var hoveredPeep = self.getHoveredPeep(0);
+			if(hoveredPeep){
+				_draggingPeep = hoveredPeep;
+				_draggingOffset.x = _draggingPeep.x-self.mouse.x;
+				_draggingOffset.y = _draggingPeep.y-self.mouse.y;
+			}
+		}
+	});
+	subscribe("key/up/space",function(){
+		_draggingPeep = null;
+	});
+	subscribe("key/down/1",function(){
+		_addPeepAtMouse(false);
+	});
+	subscribe("key/down/2",function(){
+		_addPeepAtMouse(true);
+	});
+	var _addPeepAtMouse = function(infected){
+		var overlapPeep = self.getHoveredPeep(20);
+		if(!overlapPeep){
+			self.addPeep(self.mouse.x, self.mouse.y, infected);
+		}
+	};
+	subscribe("key/down/delete",function(){
+		var toDeletePeep = self.getHoveredPeep(0);
+		if(toDeletePeep) self.removePeep(toDeletePeep);
+	});
+
+	self.save = function(){
+		var savedNetwork = {
+			contagion: self.contagion,
+			peeps: [],
+			connections: []
+		};
+		self.peeps.forEach(function(peep){
+			savedNetwork.peeps.push([Math.round(peep.x), Math.round(peep.y), peep.infected?1:0]);
+		});
+		self.connections.forEach(function(c){
+			var fromIndex = self.peeps.indexOf(c.from);
+			var toIndex = self.peeps.indexOf(c.to);
+			savedNetwork.connections.push([fromIndex, toIndex]);
+		});
+		return JSON.stringify(savedNetwork);
+	};
+
 	////////////////
 	// HELPERS... //
 	////////////////
@@ -158,6 +245,10 @@ function Sim(config){
 		var peep = new Peep({ x:x, y:y, infected:infected, sim:self });
 		self.peeps.push(peep);
 		return peep;
+	};
+	self.removePeep = function(peep){
+		self.removeAllConnectedTo(peep); // delete all connections
+		self.peeps.splice(self.peeps.indexOf(peep),1); // BYE peep
 	};
 	self.addConnection = function(from, to, uncuttable){
 
@@ -187,6 +278,7 @@ function Sim(config){
 		return friends;
 	};
 	self.getHoveredPeep = function(mouseBuffer){
+		mouseBuffer = mouseBuffer || 0;
 		return self.peeps.find(function(peep){
 			return peep.hitTest(self.mouse.x, self.mouse.y, mouseBuffer);
 		});
@@ -196,6 +288,14 @@ function Sim(config){
 			var c = self.connections[i];
 			if(c.uncuttable) continue; // don't touch the UNCUTTABLES
 			if(c.hitTest(line)) self.connections.splice(i,1);
+		}
+	};
+	self.removeAllConnectedTo = function(peep){
+		for(var i=self.connections.length-1; i>=0; i--){ // backwards index coz we're deleting
+			var c = self.connections[i];
+			if(c.from==peep || c.to==peep){ // in either direction
+				self.connections.splice(i,1); // remove!
+			}
 		}
 	};
 

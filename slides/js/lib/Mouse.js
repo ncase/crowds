@@ -6,22 +6,19 @@ var Mouse = {
 	x:0, y:0,
 	pressed:false
 };
-Mouse.ondown = function(){}; // add your own callback
-Mouse.onmove = function(){}; // add your own callback
-Mouse.onup = function(){}; // add your own callback
-Mouse._ondown = function(event){
+Mouse.ondown = function(event){
 	Mouse.pressed = true;
-	Mouse._onmove(event);
-	Mouse.ondown();
+	Mouse.onmove(event);
+	publish("mouse/down");
 };
-Mouse._onmove = function(event){
+Mouse.onmove = function(event){
 	Mouse.x = event.clientX;
 	Mouse.y = event.clientY;
-	Mouse.onmove();
+	publish("mouse/move");
 };
-Mouse._onup = function(event){
+Mouse.onup = function(event){
 	Mouse.pressed = false;
-	Mouse.onup();
+	publish("mouse/up");
 };
 Mouse.update = function(){
 
@@ -50,15 +47,15 @@ function _touchWrapper(callback){
 Mouse.init = function(target){
 
 	// Regular mouse
-	target.addEventListener("mousedown", Mouse._ondown);
-	target.addEventListener("mousemove", Mouse._onmove);
-	window.addEventListener("mouseup", Mouse._onup);
+	target.addEventListener("mousedown", Mouse.ondown);
+	target.addEventListener("mousemove", Mouse.onmove);
+	window.addEventListener("mouseup", Mouse.onup);
 
 	// Touch events
-	target.addEventListener("touchstart", _touchWrapper(Mouse._ondown), false);
-	target.addEventListener("touchmove", _touchWrapper(Mouse._onmove), false);
+	target.addEventListener("touchstart", _touchWrapper(Mouse.ondown), false);
+	target.addEventListener("touchmove", _touchWrapper(Mouse.onmove), false);
 	document.body.addEventListener("touchend", function(){
-		Mouse._onup();
+		Mouse.onup();
 	}, false);
 
 };

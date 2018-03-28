@@ -49,27 +49,3 @@ function Connection(config){
 	};
 
 }
-/*
-Connection.getConnected = function(peep){
-	var results = [];
-	for(var i=0; i<connections.length; i++){ // in either direction
-		var c = connections[i];
-		if(c.from==peep) results.push(c.to);
-		if(c.to==peep) results.push(c.from);
-	}
-	return results;
-}
-function removeAllConnectedTo(peep){
-	for(var i=connections.length-1; i>=0; i--){ // backwards index coz we're deleting
-		var c = connections[i];
-		if(c.from==peep || c.to==peep){ // in either direction
-			connections.splice(i,1); // remove!
-		}
-	}
-}
-function _makeUncuttable(arrayOfConnections){
-	for(var i=0; i<arrayOfConnections.length; i++){
-		arrayOfConnections[i].push(true);
-	}
-}
-*/

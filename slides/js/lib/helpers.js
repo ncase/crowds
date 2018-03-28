@@ -22,8 +22,8 @@ function createCanvas(canvas, width, height){
 
 	// The "canvas" arg not provided? make a new one!
 	if(arguments.length==2){
-		width = arguments[0];
 		height = arguments[1];
+		width = arguments[0];
 		canvas = document.createElement("canvas");
 	}
 

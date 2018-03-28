@@ -10,7 +10,7 @@ function Peep(config){
 	// Properties
 	self.x = config.x;
 	self.y = config.y;
-	self.infected = config.infected;
+	self.infected = !!config.infected;
 	self.sim = config.sim;
 
 	// Update:
@@ -107,7 +107,7 @@ function Peep(config){
 		// LABEL FOR INFECTED/FRIENDS, BAR, AND CONTAGION LEVEL //
 		//////////////////////////////////////////////////////////
 
-		//if(!_hack_HIDE_BARS && !self._hack_TESTED){
+		if(self.sim.contagion>0){
 
 			ctx.save();
 
@@ -167,7 +167,7 @@ function Peep(config){
 
 			ctx.restore();
 
-		//}
+		}
 
 		ctx.restore();
 
@@ -201,15 +201,4 @@ function Peep(config){
 		self.infected = true;
 	};
 
-}
-function _mouseOverPeep(buffer){
-	var result;
-	peeps.forEach(function(peep){
-		if(peep.hitTest(Mouse.x, Mouse.y, buffer)) result=peep;
-	});
-	return result;
-}
-function removePeep(peep){
-	removeAllConnectedTo(peep); // remove connections first
-	peeps.splice(peeps.indexOf(peep),1); // BYE peep
 }

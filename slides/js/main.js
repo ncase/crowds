@@ -27,6 +27,6 @@ window.onload = function(){
 	window.requestAnimationFrame(update);
 
 	// First slide!
-	slideshow.goto(0);
+	slideshow.gotoChapter("Networks");
 
 }

@@ -1,9 +1,14 @@
+html, body{
+	width:100%;
+	height:100%;
+	overflow: hidden;
+}
 body{
 	margin:0;
 
 	font-family: "FuturaHandwritten";
-	font-size: 20px;
-	cursor: none !important;
+	font-size: 22px;
+	cursor: none;
 }
 
 /* SIMULATION and SLIDESHOW */
@@ -12,6 +17,8 @@ body{
 	top:0; left:0;
 	width: 100%;
 	height: calc(100% - 60px);
+	overflow: hidden;
+	cursor: none;
 }
 #simulations, #slideshow{
 	position: absolute;
@@ -44,6 +51,7 @@ body{
 	width:100px;
 	height:100px;
 	pointer-events: none;
+	cursor: none;
 }
 
 /* THIS THING'S WORDS */
