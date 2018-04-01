@@ -1,8 +1,3 @@
-var PEEP_STATE_COLORS = {
-	1: "#ccc",
-	2: "#dd4040"
-};
-
 function Peep(config){
 	
 	var self = this;
@@ -52,6 +47,21 @@ function Peep(config){
 			if(friend.infected) self.numInfectedFriends++;
 		});
 
+		// Past threshold?
+		self.isPastThreshold = false;
+		if(self.sim.contagion==0){
+			// simple
+			if(self.numInfectedFriends>0) self.isPastThreshold = true;
+		}else{
+			// complex
+			if(self.numFriends>0){
+				var ratio = self.numInfectedFriends/self.numFriends;
+				if(ratio>=self.sim.contagion-0.0001){ // floating point errors
+					self.isPastThreshold = true;
+				}
+			}
+		}
+
 	};
 
 	// Body Sprite
@@ -61,22 +71,50 @@ function Peep(config){
 	});
 	self.sprite.pivotX = 100;
 	self.sprite.pivotY = 100;
-	self.sprite.scale = 0.3;
+	var _initSpriteScale = 0.3;
+	self.sprite.scale = _initSpriteScale;
 	//self.sprite.gotoFrame(1);
 
 	// Draw
 	var radius = 25;
-	var barWidth = 30;
+	var barWidth = radius*1.75;
 	var barHeight = 10;
 	var bodyRotation = Math.TAU*Math.random();
+	var PEEP_COLORS = [
+		"#B4B4B4", // gray
+		"#F73C50", // red
+		"#FEE576", // yellow
+		"#86F5FB", // blue
+		"#7DE74E", // green
+		"#FBCBDC" // pink
+	];
 	self.draw = function(ctx){
 
 		ctx.save();
 		ctx.translate(self.x, self.y);
 
+		var s;
+		if(s = self.sim.options.scale) ctx.scale(s,s);
+
 		// Circle
+		var infectedFrame = self.sim.options.infectedFrame || 1;
+		var infectedColor = PEEP_COLORS[infectedFrame];
+		var myFrame = self.infected ? infectedFrame : 0;
+		var myColor = PEEP_COLORS[myFrame];
 		self.sprite.rotation = bodyRotation;
-		self.sprite.gotoFrame(self.infected ? 1 : 0);
+		if(self.isPastThreshold){ // highlight!
+
+			ctx.globalAlpha = 0.4;
+			self.sprite.scale = _initSpriteScale*1.25;
+			
+			self.sprite.gotoFrame(infectedFrame);
+			self.sprite.draw(ctx);
+
+			ctx.globalAlpha = 1;
+			self.sprite.scale = _initSpriteScale;
+
+		}
+		self.sprite.gotoFrame(myFrame);
 		self.sprite.draw(ctx);
 
 		// Face
@@ -91,63 +129,57 @@ function Peep(config){
 		// LABEL FOR INFECTED/FRIENDS, BAR, AND CONTAGION LEVEL //
 		//////////////////////////////////////////////////////////
 
+		// DON'T show bar if simple contagion
 		if(self.sim.contagion>0){
 
 			ctx.save();
 
-			// Say: Infected/Friends
-			ctx.translate(0,-42);
-			var labelNum = self.numInfectedFriends+"/"+self.numFriends;
-			var labelPercent = "";
-			if(self.numFriends>0){
-				labelPercent = Math.round(100*(self.numInfectedFriends/self.numFriends)) + "%";
-			}
-			ctx.font = '12px sans-serif';
-			ctx.fillStyle = myColor;
-			ctx.textAlign = "center";
+			var bgColor = "#eee";
+			var uiColor = "#666";
+
+			// Say: Infected/Friends (% then n/n)
+			ctx.translate(0,-43);
+			ctx.font = '10px FuturaHandwritten';
+			ctx.fillStyle = uiColor;
 			ctx.textBaseline = "middle";
 			ctx.fontWeight = "bold";
-			ctx.fillText(labelNum, 0, 0);
+			ctx.textAlign = "center";
+			if(self.numFriends>0){
+				var labelNum = self.numInfectedFriends+"/"+self.numFriends;
+				var labelPercent = Math.round(100*(self.numInfectedFriends/self.numFriends)) + "%";
+				var label = labelNum + "=" + labelPercent;
+				ctx.fillText(label, 0, 0);
+			}else{
+				ctx.fillText("∅", 0, -1);
+			}
 
-			// A nice bar
-			ctx.translate(0,12);
-			ctx.lineWidth = 1;
-
-			// the white fill
-			ctx.fillStyle = "#fff";
+			// the gray bg
+			ctx.translate(0,10);
+			ctx.fillStyle = bgColor;
 			ctx.beginPath();
 			ctx.rect(-barWidth/2, -barHeight/2, barWidth, barHeight);
 			ctx.fill();
 			
-			// The color fills
+			// the color fill
 			if(self.numFriends>0){
-				ctx.fillStyle = PEEP_STATE_COLORS[2]; // state = 2 infected
+				ctx.fillStyle = infectedColor;
 				ctx.beginPath();
 				ctx.rect(-barWidth/2, -barHeight/2, barWidth*(self.numInfectedFriends/self.numFriends), barHeight);
 				ctx.fill();
 			}
 
-			// The outline
-			ctx.strokeStyle = myColor;
-			ctx.beginPath();
-			if(self.numFriends>0){
-				ctx.rect(-barWidth/2, -barHeight/2, barWidth, barHeight);
-			}else{
-				ctx.rect(-barWidth/2, 0, barWidth, 0);
-			}
-			ctx.stroke();
-
 			// a pointer for contagion level
-			ctx.translate(0, barHeight/2+2);
-			self._drawThreshold(ctx, self.sim.contagion);
-
-			// Percent
-			ctx.font = '8px sans-serif';
-			ctx.fillStyle = "rgba(0,0,0,0.8)";
-			ctx.textAlign = "center";
-			ctx.textBaseline = "middle";
-			ctx.fontWeight = "bold";
-			ctx.fillText(labelPercent, 0, -6);
+			ctx.translate(0, -barHeight/2);
+			ctx.save();
+				ctx.translate(barWidth*self.sim.contagion - barWidth/2, 0);
+				ctx.lineCap = "butt";
+				ctx.strokeStyle = uiColor;
+				ctx.lineWidth = 1;
+				ctx.beginPath();
+				ctx.moveTo(0,0);
+				ctx.lineTo(0,barHeight);
+				ctx.stroke();
+			ctx.restore();
 
 			ctx.restore();
 
@@ -156,19 +188,6 @@ function Peep(config){
 		ctx.restore();
 
 	};
-	self._drawThreshold = function(ctx, threshold){
-		ctx.save();
-		ctx.translate(barWidth*threshold - barWidth/2, 0);
-			
-		ctx.strokeStyle = "#000"; //PEEP_STATE_COLORS[2];
-		ctx.lineWidth = 1;
-		ctx.beginPath();
-		ctx.moveTo(0,0);
-		ctx.lineTo(0,-14);
-		ctx.stroke();
-
-		ctx.restore();
-	}
 
 	// Hit Test
 	self.hitTest = function(x,y,buffer){
@@ -177,6 +196,8 @@ function Peep(config){
 		var dy = self.y-y;
 		var dist2 = dx*dx+dy*dy;
 		var r = radius+buffer;
+		var s;
+		if(s = self.sim.options.scale) r*=s;
 		return (dist2<r*r);
 	};
 

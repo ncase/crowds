@@ -21,14 +21,9 @@ function Connection(config){
 
 	// Draw
 	self.draw = function(ctx){
-		/*
-		ctx.strokeStyle = "#444";
-		ctx.lineWidth = self.uncuttable ? 6 : 3; // thick=uncuttable
-		ctx.beginPath();
-		ctx.moveTo(self.from.x, self.from.y);
-		ctx.lineTo(self.to.x, self.to.y);
-		ctx.stroke();
-		*/
+
+		var s = self.sim.options.scale || 1;
+
 		ctx.save();
 		ctx.translate(self.from.x, self.from.y);
 		var dx = self.to.x - self.from.x;
@@ -37,9 +32,11 @@ function Connection(config){
 		var dist = Math.sqrt(dx*dx + dy*dy);
 		self.sprite.scaleX = dist/300;
 		self.sprite.scaleY = self.uncuttable ? 1 : 0.5; // thick=uncuttable
+		//self.sprite.scaleY *= s;
 		self.sprite.rotation = a;
 		self.sprite.draw(ctx);
 		ctx.restore();
+
 	};
 
 	// Hit Test with a LINE SEGMENT

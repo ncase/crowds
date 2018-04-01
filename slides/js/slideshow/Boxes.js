@@ -48,10 +48,21 @@ function Boxes(){
 			box.style.backgroundImage = "url("+config.img+")"
 		}
 
-		// button:
-		if(config.button){
-			box.classList.add("button");
-			if(config.onclick) box.onclick = config.onclick;
+		// Replace "next" buttons!
+		var next;
+		if(next = box.querySelector("next")){
+			
+			// Create next button
+			var nextButton = document.createElement("div");
+			nextButton.className = "next_button";
+			nextButton.innerHTML = next.innerHTML;
+			nextButton.onclick = function(){
+				slideshow.next();
+			};
+
+			// Replace it in parent!
+			next.parentNode.replaceChild(nextButton, next);
+
 		}
 
 		// Add to array
@@ -79,6 +90,11 @@ function Boxes(){
 	self.hideChildByID = function(id){
 		var toHide = self.getChildByID(id);
 		toHide.style.display = "none";
+	};
+	self.removeChildByID = function(id){
+		var removeBox = self.getChildByID(id);
+		self.dom.removeChild(removeBox);
+		removeFromArray(self.boxes, removeBox);
 	};
 
 }

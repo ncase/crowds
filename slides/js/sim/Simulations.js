@@ -45,6 +45,17 @@ function Simulations(){
 		});
 	};
 
+	///////////////////////
+	// HELPERS AND STUFF //
+	///////////////////////
+
+	// Get Child!
+	self.getChildByID = function(id){
+		return self.sims.find(function(sim){
+			return sim.id==id;
+		});
+	};
+
 }
 
 function Sim(config){
@@ -53,17 +64,17 @@ function Sim(config){
 	self.config = config;
 	self.networkConfig = config.network;
 	self.container = config.container;
+	self.options = config.options || {};
+
+	self.id = config.id;
 
 	// Canvas
-	self.fullscreenOffset = {x:0, y:0};
 	if(config.fullscreen){
 		var container = $("#simulations_container");
 		var simOffset = self.container.dom.getBoundingClientRect();
 		self.canvas = createCanvas(container.clientWidth, container.clientHeight);
 		self.canvas.style.left = -simOffset.x;
 		self.canvas.style.top = -simOffset.y;
-		self.fullscreenOffset.x = config.x + simOffset.x;
-		self.fullscreenOffset.y = config.y + simOffset.y;
 	}else{
 		self.canvas = createCanvas(config.width||500, config.height||500);
 		self.canvas.style.left = config.x || 0;
@@ -122,10 +133,12 @@ function Sim(config){
 		self.mouse.lastX -= canvasBounds.x;
 		self.mouse.lastY -= canvasBounds.y;
 		if(config.fullscreen){
-			self.mouse.x -= self.fullscreenOffset.x;
-			self.mouse.y -= self.fullscreenOffset.y;
-			self.mouse.lastX -= self.fullscreenOffset.x;
-			self.mouse.lastY -= self.fullscreenOffset.y;
+			var fullscreenOffsetX = config.x + simOffset.x;
+			var fullscreenOffsetY = config.y + simOffset.y;
+			self.mouse.x -= fullscreenOffsetX;
+			self.mouse.y -= fullscreenOffsetY;
+			self.mouse.lastX -= fullscreenOffsetX;
+			self.mouse.lastY -= fullscreenOffsetY;
 		}
 
 		// Connector-Cutter
@@ -161,7 +174,9 @@ function Sim(config){
 		ctx.save();
 		ctx.scale(2,2);
 		if(config.fullscreen){
-			ctx.translate(self.fullscreenOffset.x, self.fullscreenOffset.y);
+			var fullscreenOffsetX = config.x + simOffset.x;
+			var fullscreenOffsetY = config.y + simOffset.y;
+			ctx.translate(fullscreenOffsetX, fullscreenOffsetY);
 		}
 
 		// Draw all of it!
@@ -234,7 +249,11 @@ function Sim(config){
 			var toIndex = self.peeps.indexOf(c.to);
 			savedNetwork.connections.push([fromIndex, toIndex]);
 		});
-		return JSON.stringify(savedNetwork);
+		return '{\n'+
+		'\t"contagion":'+savedNetwork.contagion+",\n"+
+		'\t"peeps":'+JSON.stringify(savedNetwork.peeps)+",\n"+
+		'\t"connections":'+JSON.stringify(savedNetwork.connections)+",\n"+
+		'}';
 	};
 
 	////////////////
@@ -249,7 +268,7 @@ function Sim(config){
 	};
 	self.removePeep = function(peep){
 		self.removeAllConnectedTo(peep); // delete all connections
-		self.peeps.splice(self.peeps.indexOf(peep),1); // BYE peep
+		removeFromArray(self.peeps, peep); // BYE peep
 	};
 	self.addConnection = function(from, to, uncuttable){
 

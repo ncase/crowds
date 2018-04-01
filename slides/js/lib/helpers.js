@@ -46,3 +46,9 @@ function cloneObject(obj){
 function getWords(wordsID){
 	return $("words#"+wordsID).innerHTML;
 }
+
+// Remove from array
+function removeFromArray(array, item){
+	var index = array.indexOf(item);
+	if(index>=0) array.splice(index,1);
+}

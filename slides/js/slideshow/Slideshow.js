@@ -32,7 +32,36 @@ function Slideshow(){
 		// Clear?
 		if(slide.clear) self.clear();
 
+		// Remove stuff
+		slide.remove = slide.remove || [];
+		slide.remove.forEach(function(childConfig){
+			switch(childConfig.type){
+				case "box":
+					self.boxes.removeChildByID(childConfig.id);
+					break;
+				case "sim":
+					//self.simulations.removeChildByID(childConfig);
+					break;
+			}
+		});
+
+		// Move stuff
+		slide.move = slide.move || [];
+		slide.move.forEach(function(childConfig){
+			switch(childConfig.type){
+				case "box":
+					//self.boxes.add(childConfig);
+					break;
+				case "sim":
+					var sim = self.simulations.getChildByID(childConfig.id);
+					sim.config.x = (childConfig.x===undefined) ? sim.config.x : childConfig.x;
+					sim.config.y = (childConfig.y===undefined) ? sim.config.y : childConfig.y;
+					break;
+			}
+		});
+
 		// Add stuff
+		slide.add = slide.add || [];
 		slide.add.forEach(function(childConfig){
 			switch(childConfig.type){
 				case "box":
