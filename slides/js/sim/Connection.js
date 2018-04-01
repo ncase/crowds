@@ -8,17 +8,38 @@ function Connection(config){
 	self.uncuttable = config.uncuttable || false;
 	self.sim = config.sim;
 
+	// Sprite
+	self.sprite = new Sprite({
+		src: "sprites/line.png",
+		frames:1, sw:300, sh:20,
+	});
+	self.sprite.pivotX = 2.8;
+	self.sprite.pivotY = 10;
+
 	// Update
 	self.update = function(){};
 
 	// Draw
 	self.draw = function(ctx){
+		/*
 		ctx.strokeStyle = "#444";
 		ctx.lineWidth = self.uncuttable ? 6 : 3; // thick=uncuttable
 		ctx.beginPath();
 		ctx.moveTo(self.from.x, self.from.y);
 		ctx.lineTo(self.to.x, self.to.y);
 		ctx.stroke();
+		*/
+		ctx.save();
+		ctx.translate(self.from.x, self.from.y);
+		var dx = self.to.x - self.from.x;
+		var dy = self.to.y - self.from.y;
+		var a = Math.atan2(dy,dx);
+		var dist = Math.sqrt(dx*dx + dy*dy);
+		self.sprite.scaleX = dist/300;
+		self.sprite.scaleY = self.uncuttable ? 1 : 0.5; // thick=uncuttable
+		self.sprite.rotation = a;
+		self.sprite.draw(ctx);
+		ctx.restore();
 	};
 
 	// Hit Test with a LINE SEGMENT

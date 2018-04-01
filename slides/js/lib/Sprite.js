@@ -8,7 +8,9 @@ function Sprite(config){
 	self.y = 0;
 	self.pivotX = 0;
 	self.pivotY = 0;
-	self.scale = 1;
+	self.scale = null;
+	self.scaleX = 1;
+	self.scaleY = 1;
 	self.rotation = 0; // radians
 
 	// The image!
@@ -35,8 +37,12 @@ function Sprite(config){
 
 		ctx.save();
 		ctx.translate(self.x, self.y);
-		ctx.scale(self.scale, self.scale);
 		ctx.rotate(self.rotation);
+		if(self.scale){
+			ctx.scale(self.scale, self.scale);
+		}else{
+			ctx.scale(self.scaleX, self.scaleY);
+		}
 		ctx.translate(-self.pivotX, -self.pivotY);
 		ctx.drawImage(self.image, sx, sy, sw, sh, 0, 0, sw, sh);
 		ctx.restore();

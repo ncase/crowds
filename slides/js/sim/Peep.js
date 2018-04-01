@@ -41,7 +41,7 @@ function Peep(config){
 		if(!self.faceBlink){
 			if(Math.random()<0.002) self.faceBlink=true;
 		}else{
-			if(Math.random()<0.09) self.faceBlink=false;
+			if(Math.random()<0.07) self.faceBlink=false;
 		}
 
 		// Friends connected... or infected
@@ -54,53 +54,37 @@ function Peep(config){
 
 	};
 
+	// Body Sprite
+	self.sprite = new Sprite({
+		src: "sprites/peeps.png",
+		frames:6, sw:200, sh:200,
+	});
+	self.sprite.pivotX = 100;
+	self.sprite.pivotY = 100;
+	self.sprite.scale = 0.3;
+	//self.sprite.gotoFrame(1);
+
 	// Draw
 	var radius = 25;
 	var barWidth = 30;
 	var barHeight = 10;
+	var bodyRotation = Math.TAU*Math.random();
 	self.draw = function(ctx){
 
 		ctx.save();
 		ctx.translate(self.x, self.y);
 
 		// Circle
-		var myColor = self.infected ? PEEP_STATE_COLORS[2] : PEEP_STATE_COLORS[1];
-		ctx.fillStyle = myColor;
-		ctx.beginPath();
-		ctx.arc(0, 0, radius, 0, Math.TAU, false);
-		ctx.fill();
-
-		// INFECT ON NEXT TURN?
-		/*var infectOnNextTurn = (self.numFriends>0 && self.numInfectedFriends/self.numFriends>=CONTAGION_THRESHOLD);
-		if(infectOnNextTurn){
-			ctx.strokeStyle = PEEP_STATE_COLORS[2];
-			ctx.lineWidth = 2;
-			ctx.stroke();
-		}*/
+		self.sprite.rotation = bodyRotation;
+		self.sprite.gotoFrame(self.infected ? 1 : 0);
+		self.sprite.draw(ctx);
 
 		// Face
 		ctx.save();
 		ctx.translate(self.faceX, self.faceY);
-		ctx.scale(1.25, 1.25);
-			ctx.fillStyle = "rgba(0,0,0,0.5)";
-			if(self.faceBlink){
-				ctx.beginPath();
-				ctx.rect(-14, -1, 8, 2);
-				ctx.fill();
-				ctx.beginPath();
-				ctx.rect(6, -1, 8, 2);
-				ctx.fill();
-			}else{
-				ctx.beginPath();
-				ctx.arc(-10, -1, 3, 0, Math.TAU, false);
-				ctx.fill();
-				ctx.beginPath();
-				ctx.arc(10, -1, 3, 0, Math.TAU, false);
-				ctx.fill();
-			}
-			ctx.beginPath();
-			ctx.rect(-7, 4, 14, 2);
-			ctx.fill();
+		self.sprite.rotation = 0;
+		self.sprite.gotoFrame(self.faceBlink ? 7 : 6);
+		self.sprite.draw(ctx);
 		ctx.restore();
 
 		//////////////////////////////////////////////////////////

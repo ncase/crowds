@@ -95,12 +95,19 @@ function ConnectorCutter(config){
 
 		// Connecting!
 		if(self.state==1){
-			ctx.strokeStyle = "#ccc";
+			/*ctx.strokeStyle = "#ccc";
 			ctx.lineWidth = 3;
 			ctx.beginPath();
 			ctx.moveTo(self.connectFrom.x, self.connectFrom.y);
 			ctx.lineTo(self.connectTo.x, self.connectTo.y);
-			ctx.stroke();
+			ctx.stroke();*/
+			var tempConnection = new Connection({
+				from:self.connectFrom, to:self.connectTo
+			});
+			ctx.save();
+			ctx.globalAlpha = 0.5;
+			tempConnection.draw(ctx);
+			ctx.restore();
 		}
 
 		// Cutting!
