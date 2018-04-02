@@ -21,62 +21,93 @@ function Slideshow(){
 	// My stuff...
 	self.boxes = new Boxes();
 	self.simulations = new Simulations();
+	self.scratch = new Scratch();
 	
 	// GOTO and NEXT
+	var _delay = 300;
 	self.goto = function(index){
 		
 		self.slideIndex = index;
+		var isFirstSlide = (self.currentSlide==null);
 		self.currentSlide = SLIDES[self.slideIndex];
 		var slide = self.currentSlide;
 
 		// Clear?
-		if(slide.clear) self.clear();
+		var _delayNewSlide = 0;
+		if(slide.clear && !isFirstSlide){
+			_delayNewSlide = 700;
+			self.scratch.scratchOut(); // Scratch out
+		}
 
-		// Remove stuff
-		slide.remove = slide.remove || [];
-		slide.remove.forEach(function(childConfig){
-			switch(childConfig.type){
-				case "box":
-					self.boxes.removeChildByID(childConfig.id);
-					break;
-				case "sim":
-					//self.simulations.removeChildByID(childConfig);
-					break;
+		_setTimeout(function(){
+
+			// Scratch in?
+			if(_delayNewSlide>0){
+				self.clear();
+				self.scratch.scratchIn(); // Scratch in
 			}
-		});
 
-		// Move stuff
-		slide.move = slide.move || [];
-		slide.move.forEach(function(childConfig){
-			switch(childConfig.type){
-				case "box":
-					//self.boxes.add(childConfig);
-					break;
-				case "sim":
-					var sim = self.simulations.getChildByID(childConfig.id);
-					sim.config.x = (childConfig.x===undefined) ? sim.config.x : childConfig.x;
-					sim.config.y = (childConfig.y===undefined) ? sim.config.y : childConfig.y;
-					break;
-			}
-		});
+			// Remove stuff
+			slide.remove = slide.remove || [];
+			slide.remove.forEach(function(childConfig){
+				var withFade = true;
+				switch(childConfig.type){
+					case "box":
+						self.boxes.removeChildByID(childConfig.id, withFade);
+						break;
+					case "sim":
+						//self.simulations.removeChildByID(childConfig);
+						break;
+				}
+			});
 
-		// Add stuff
-		slide.add = slide.add || [];
-		slide.add.forEach(function(childConfig){
-			switch(childConfig.type){
-				case "box":
-					self.boxes.add(childConfig);
-					break;
-				case "sim":
-					self.simulations.add(childConfig);
-					break;
-			}
-		});
+			// Move stuff
+			slide.move = slide.move || [];
+			slide.move.forEach(function(childConfig){
+				switch(childConfig.type){
+					case "box":
+						//self.boxes.add(childConfig);
+						break;
+					case "sim":
+						var sim = self.simulations.getChildByID(childConfig.id);
+						var newPosition = {
+							x: (childConfig.x===undefined) ? sim.config.x : childConfig.x,
+							y: (childConfig.y===undefined) ? sim.config.y : childConfig.y
+						};
+						tweenPosition(sim.config, newPosition);
+						break;
+				}
+			});
 
-		// On start (if any)
-		self.currentState = {};
-		if(slide.onstart) slide.onstart(self, self.currentState);
+			// Add stuff
+			slide.add = slide.add || [];
+			var _delayAdd = ((slide.remove.length + slide.move.length)>0) ? _delay : 0;
+			_setTimeout(function(){
+				var withFade = ((slide.remove.length + slide.move.length)>0);
 
+				slide.add.forEach(function(childConfig){
+					switch(childConfig.type){
+						case "box":
+							self.boxes.add(childConfig, withFade);
+							break;
+						case "sim":
+							self.simulations.add(childConfig, withFade);
+							break;
+					}
+				})
+
+			}, _delayAdd);
+
+			// On start (if any)
+			self.currentState = {};
+			if(slide.onstart) slide.onstart(self, self.currentState);
+
+		}, _delayNewSlide);
+
+	};
+	var _setTimeout = function(callback, delay){
+		if(delay==0) return callback();
+		else setTimeout(callback, delay);
 	};
 	self.gotoChapter = function(chapterID){
 		var index = SLIDES.findIndex(function(slide){

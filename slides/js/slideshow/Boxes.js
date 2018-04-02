@@ -20,12 +20,16 @@ function Boxes(){
 	};
 
 	// Add Box
-	self.add = function(config){
+	self.add = function(config, withFade){
 
 		// Add to DOM
 		var box = document.createElement("div");
 		box.className = "box";
-		self.dom.appendChild(box);
+		if(!withFade){
+			self.dom.appendChild(box);
+		}else{
+			fadeIn(self.dom, box);
+		}
 
 		// Standard box properties...
 		if(config.id) box.id = config.id;
@@ -65,6 +69,9 @@ function Boxes(){
 
 		}
 
+		// Replace bonus boxes...
+		// TODO
+
 		// Add to array
 		self.boxes.push(box);
 
@@ -91,10 +98,16 @@ function Boxes(){
 		var toHide = self.getChildByID(id);
 		toHide.style.display = "none";
 	};
-	self.removeChildByID = function(id){
+	self.removeChildByID = function(id, withFade){
+		
 		var removeBox = self.getChildByID(id);
-		self.dom.removeChild(removeBox);
+		if(!withFade){
+			self.dom.removeChild(removeBox);
+		}else{
+			fadeOut(self.dom, removeBox);
+		}
 		removeFromArray(self.boxes, removeBox);
+
 	};
 
 }

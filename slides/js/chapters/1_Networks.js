@@ -182,11 +182,32 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"_1_puzzle_end",
-			text:"_1_puzzle_end", x:680, y:430, w:300, align:"center"
-			//hidden:true
+			text:"_1_puzzle_end", x:680, y:430, w:300, align:"center",
+			hidden:true
 		}
 
-	]
+	],
+
+	// Logic to fade in/out words & stuff
+	onupdate:function(slideshow, state){
+
+		// Win only if EVERYONE hits threshold
+		if(!state.won){
+
+			var sim = slideshow.simulations.sims[0];
+			var peepCount = 0;
+			sim.peeps.forEach(function(peep){
+				if(peep.isPastThreshold) peepCount++;
+			});
+			if(peepCount==9){
+				state.won = true;
+				slideshow.boxes.showChildByID("_1_puzzle_end");
+				sim.win();
+			}
+
+		}
+
+	}
 
 },
 

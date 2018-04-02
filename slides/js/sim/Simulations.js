@@ -114,7 +114,11 @@ function Sim(config){
 				to = self.peeps[c[1]];
 			self.addConnection(from, to, false);
 		});
-		// todo: "start uncuttable"
+		if(self.options.startUncuttable){
+			self.connections.forEach(function(c){
+				c.uncuttable = true;
+			});
+		}
 
 		// Contagion
 		self.contagion = self.networkConfig.contagion;
@@ -159,6 +163,26 @@ function Sim(config){
 			_draggingPeep.y = self.mouse.y+_draggingOffset.y;
 		}
 
+		// update confetti & winword...
+		self.confetti.forEach(function(confetti){
+
+			confetti.x += confetti.vx;
+			confetti.y += confetti.vy;
+			confetti.spin += confetti.spinSpeed;
+
+			confetti.vy += confetti.g;
+
+			confetti.vx *= 0.95;
+			confetti.vy *= 0.95;
+
+		});
+		if(self.winWord.ticker>=0){
+			self.winWord.ticker += 1/60;
+			if(self.winWord.ticker>5){
+				self.winWord.ticker = -1;
+			}
+		}
+
 		// On update! (for arbitrary sim-specific logic)
 		self.onupdate(self);
 
@@ -190,11 +214,106 @@ function Sim(config){
 
 		ctx.restore();
 
+		// Draw confetti - NOT AFFECTED BY TRANSFORMS.
+		ctx.fillStyle = "#dd4040";
+		self.confetti.forEach(function(confetti){
+			ctx.save();
+			var offsetX = -Math.sin(confetti.spin)*9;
+			ctx.translate(confetti.x+offsetX, confetti.y);
+			ctx.rotate(Math.sin(confetti.spin)*0.2);
+			ctx.beginPath();
+			ctx.rect(-20,-10,40,20);
+			ctx.fill();
+			ctx.restore();
+		});
+
+		// Draw WIN WORD
+		if(self.winWord.ticker>=0){
+
+			ctx.save();
+			ctx.translate(self.winWord.x, self.winWord.y);
+			ctx.scale(2,2); // retina
+
+			// expand
+			if(self.winWord.ticker<0.2){
+				var scale = self.winWord.ticker/0.2;
+				ctx.scale(scale,scale);
+			}
+
+			// fade away
+			if(self.winWord.ticker>4){
+				var alpha = -(self.winWord.ticker-5);
+				ctx.globalAlpha = alpha;
+			}
+
+			ctx.font = '80px FuturaHandwritten';
+			ctx.fillStyle = "#000";
+			ctx.textBaseline = "middle";
+			ctx.fontWeight = "bold";
+			ctx.textAlign = "center";
+			var label = getWords("WIN");
+			ctx.fillText(label, 0, 0);
+
+			ctx.restore();
+
+		}
+
 	};
 
 	// Kill
 	self.kill = function(){
 		self.clear();
+	};
+
+	///////////////////
+	// WINNER WINNER //
+	///////////////////
+
+	self.wonBefore = false;
+	self.confetti = [];
+	self.winWord = {x:0, y:0, ticker:-1};
+
+	self.win = function(){
+
+		// ONLY ONCE
+		if(self.wonBefore) return;
+		self.wonBefore = true;
+
+		// Get center of peeps
+		var fullscreenOffsetX = config.x + simOffset.x;
+		var fullscreenOffsetY = config.y + simOffset.y;
+		var bounds = getBoundsOfPoints(self.peeps);
+		var cx = bounds.x + bounds.width/2;
+		var cy = bounds.y + bounds.height/2;
+		cx += fullscreenOffsetX;
+		cy += fullscreenOffsetY;
+		cx *= 2; // retina
+		cy *= 2; // retina
+
+		// Place Win Word
+		self.winWord.x = cx;
+		self.winWord.y = cy;
+		self.winWord.ticker = 0;
+
+		// Place confetti
+		for(var i=0; i<100; i++){
+			var angle = Math.random()*Math.TAU;
+			var burst = bounds.width/15;
+			var frame = Math.floor(Math.random()*5);
+			var spinSpeed = 0.03+Math.random()*0.03;
+			var confetti = {
+				x: cx,
+				y: cy,
+				vx: Math.cos(angle)*Math.random()*burst,
+				vy: Math.sin(angle)*Math.random()*burst - burst*0.25,
+				frame: frame,
+				spinSpeed: spinSpeed,
+				spin: Math.random()*Math.TAU,
+				g: 0.05+Math.random()*0.10
+			};
+			self.confetti.push(confetti);
+		}
+
 	};
 
 	///////////////////////////////
@@ -252,7 +371,7 @@ function Sim(config){
 		return '{\n'+
 		'\t"contagion":'+savedNetwork.contagion+",\n"+
 		'\t"peeps":'+JSON.stringify(savedNetwork.peeps)+",\n"+
-		'\t"connections":'+JSON.stringify(savedNetwork.connections)+",\n"+
+		'\t"connections":'+JSON.stringify(savedNetwork.connections)+"\n"+
 		'}';
 	};
 

@@ -13,13 +13,20 @@ body{
 }
 
 /* SIMULATION and SLIDESHOW */
-#simulations_container, #slideshow_container{
+#container{
 	position: absolute;
 	top:0; left:0;
 	width: 100%;
 	height: calc(100% - 60px);
+}
+#container > div{
+	position: absolute;
+	width: 100%; height: 100%;
 	overflow: hidden;
 	cursor: none;
+}
+#simulations{
+	border: 1px solid #eee;
 }
 #simulations, #slideshow{
 	position: absolute;
@@ -52,6 +59,21 @@ body{
 }
 #slideshow .next_button:hover{
 	background-position: 0 -100px;
+}
+.fadeable{
+	transition: opacity 0.3s ease-in-out;
+}
+#scratch{
+	display: none;
+	pointer-events: none;
+	background-image: url(sprites/scratch.png); 
+	background-size: 200% 2000%;
+    background-position: 0% 0%;
+}
+
+/* MODAL */
+#modal{
+	display: none;
 }
 
 /* NAVIGATION */

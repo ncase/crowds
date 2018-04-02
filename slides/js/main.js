@@ -18,6 +18,9 @@ window.onload = function(){
 		// Draw
 		slideshow.draw();
 		pencil.draw();
+
+		// Update
+		publish("update");
 		
 		window.requestAnimationFrame(update);
 
@@ -25,6 +28,6 @@ window.onload = function(){
 	window.requestAnimationFrame(update);
 
 	// First slide!
-	slideshow.gotoChapter("Networks");
+	slideshow.gotoChapter("Complex");
 
 }

@@ -24,14 +24,24 @@ Cursor is allowed to flow EVERYWHERE though...
 	</head>
 	<body>
 
-		<!-- Simulation(s) in background -->
-		<div id="simulations_container">
-			<div id="simulations"></div>
-		</div>
+		<div id="container" class="fadeable">
 
-		<!-- Slideshow: words & buttons -->
-		<div id="slideshow_container">
-			<div id="slideshow"></div>
+			<!-- Simulation(s) in background -->
+			<div id="simulations_container">
+				<div id="simulations"></div>
+			</div>
+
+			<!-- Slideshow: words & buttons -->
+			<div id="slideshow_container">
+				<div id="slideshow"></div>
+			</div>
+
+			<!-- Scratch Transition -->
+			<div id="scratch"></div>
+
+			<!-- Modal -->
+			<div id="modal"></div>
+
 		</div>
 		
 		<!-- Navigation: Audio, Contents, Share, Translations -->
@@ -102,6 +112,7 @@ feel free to play around! when you're done,
 blah blah blah blah 
 blah blah blah blah 
 blah blah blah blah 
+<span bonus="herp"></span>
 blah blah blah blah 
 blah blah blah blah 
 thresholds NOT COUNTING THEMSELVES
@@ -170,7 +181,11 @@ reset sim
 <!-- BONUS BOXES (footnotes) -->
 <!-- - - - - - - - - - - - - -->
 
-<bonus>
+<bonus id="herp">
+	<title>HERP DERP</title>
+	<description>
+	Herp derp HERP derp derp? Herp derp DERP herp herp derp!
+	</description>
 </bonus>
 
 <!-- - - - - - -->
@@ -193,6 +208,7 @@ reset sim
 <script src="js/slideshow/Slideshow.js"></script>
 <script src="js/slideshow/Pencil.js"></script>
 <script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
 
 <script src="js/sim/Peep.js"></script>
 <script src="js/sim/Connection.js"></script>

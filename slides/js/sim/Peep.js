@@ -11,6 +11,7 @@ function Peep(config){
 	// Update:
 	self.numFriends = 0;
 	self.numInfectedFriends = 0;
+	self.isPastThreshold = false;
 	self.faceX = 0;
 	self.faceY = 0;
 	self.faceBlink = 0;
