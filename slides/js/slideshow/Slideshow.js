@@ -37,6 +37,7 @@ function Slideshow(){
 		if(slide.clear && !isFirstSlide){
 			_delayNewSlide = 700;
 			self.scratch.scratchOut(); // Scratch out
+			$("#container").removeAttribute("sim_is_running"); // remove that UI
 		}
 
 		_setTimeout(function(){

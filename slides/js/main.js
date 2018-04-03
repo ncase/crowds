@@ -28,6 +28,6 @@ window.onload = function(){
 	window.requestAnimationFrame(update);
 
 	// First slide!
-	slideshow.gotoChapter("Simple");
+	slideshow.gotoChapter("BB-Both");
 
 }

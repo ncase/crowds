@@ -19,6 +19,9 @@ body{
 	width: 100%;
 	height: calc(100% - 60px);
 }
+#container[sim_is_running]{
+	background: #eee;
+}
 #container > div{
 	position: absolute;
 	width: 100%; height: 100%;
@@ -44,7 +47,8 @@ body{
 	background-size: 100% 100%;
 }
 #slideshow .next_button{
-	margin: 0 auto;
+	display: inline-block;
+	/*margin: 0 auto;*/
 	position: relative;
 	top: -10px;
 	width: 300px;
@@ -58,7 +62,9 @@ body{
 	background-position: 0 -100px;
 }
 .transitionable{
-	transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out,
+			    left 0.3s ease-in-out,
+			    top 0.3s ease-in-out;
 }
 #scratch{
 	display: none;
@@ -68,7 +74,31 @@ body{
     background-position: 0% 0%;
 }
 .sim_button{
-
+	position: absolute;
+	width: 200px;
+	height: 100px;
+	border: none !important;
+}
+.sim_button > div{
+	position: absolute;
+	background: #dd4040;
+	color: #fff;
+	text-align: center;
+	border-radius: 10px;
+}
+.sim_button > #reset_button{
+	width: 150px;
+	left:25px;
+	top:0px;
+	font-size: 0.8em;
+	transition: top 0.3s ease-in-out;
+}
+.sim_button > #start_button{
+	width: 200px;
+	padding: 0.5em 0;
+}
+.sim_button[active] > #reset_button{
+	top:60px;
 }
 
 /* MODAL */

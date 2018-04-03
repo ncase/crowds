@@ -6,9 +6,9 @@ var CONTAGION_PUZZLE = {
 	"connections":[[0,1],[1,3],[3,2],[3,7],[7,8],[8,6],[6,4],[4,2],[6,5],[5,9]]
 };
 var CASCADE_PUZZLE = {
-	"peeps":[[34,63,1],[171,97,0],[311,179,0],[191,240,0],[309,312,0],[542,77,0],[450,164,0],[528,264,0],[654,229,0],[661,117,0],[869,295,0],[720,337,0],[926,428,0],[845,508,0],[706,464,0]],
-	"connections":[[0,1],[3,2],[2,4],[4,3],[6,7],[7,8],[8,9],[9,5],[5,6],[6,9],[9,7],[7,5],[5,8],[8,6],[11,10],[11,14],[14,13],[13,12],[12,10],[11,12],[12,14],[14,10],[10,13],[13,11]]
-};
+	"peeps":[[31,201,1],[148,238,0],[267,317,0],[166,392,0],[282,437,0],[481,202,0],[401,284,0],[472,367,0],[590,340,0],[602,236,0],[843,313,0],[719,376,0],[930,413,0],[846,514,0],[728,488,0]],
+	"connections":[[0,1,1],[3,2,1],[2,4,1],[4,3,1],[6,7,1],[7,8,1],[8,9,1],[9,5,1],[5,6,1],[6,9,1],[9,7,1],[7,5,1],[5,8,1],[8,6,1],[11,10,1],[11,14,1],[14,13,1],[13,12,1],[12,10,1],[11,12,1],[12,14,1],[14,10,1],[10,13,1],[13,11,1]]
+}
 
 SLIDES.push(
 {
@@ -16,6 +16,13 @@ SLIDES.push(
 	clear:true,
 
 	add:[
+
+		// Intro text
+		{
+			type:"box",
+			text:"_2_simple",
+			x:0, y:0, w:350, h:200
+		},
 
 		// Lil' contagion
 		{
@@ -36,11 +43,38 @@ SLIDES.push(
 		// UI for the simulation
 		{
 			type:"box",
-			x:380, y:180,
+			x:380, y:165,
 			sim_button:"red"
 		},
 
-	]
+		// Outro text
+		{
+			id:"end",
+			type:"box",
+			text:"_2_simple_end",
+			x:660, y:440, w:300, h:100,
+			hidden:true
+		}
+
+	],
+
+	onupdate:function(slideshow, state){
+
+		// Show end if EVERYONE is infected
+		if(!state.ended){
+			var sim = slideshow.simulations.sims[0];
+			var peepCount = 0;
+			sim.peeps.forEach(function(peep){
+				if(peep.infected) peepCount++;
+			});
+			if(peepCount==sim.peeps.length){
+				var boxes = slideshow.boxes;
+				boxes.showChildByID("end", true);
+				state.ended = true;
+			}
+		}
+
+	}
 
 },
 {
@@ -49,10 +83,10 @@ SLIDES.push(
 
 	add:[
 
-		// Lil' contagion
+		// Sim
 		{
 			type:"sim",
-			x:0, y:0,
+			x:0, y:-140,
 			fullscreen: true,
 			network: {
 				"contagion":0,
@@ -66,7 +100,49 @@ SLIDES.push(
 			}
 		},
 
-	]
+		// UI for the simulation
+		{
+			type:"box",
+			x:380, y:290,
+			sim_button:"red"
+		},
+
+		// Intro text
+		{
+			type:"box",
+			text:"_2_cascade",
+			x:0, y:400, w:600, h:140
+		},
+
+		// End text
+		{
+			id:"end",
+			type:"box",
+			text:"_2_cascade_end",
+			x:660, y:440, w:300, h:100,
+			hidden:true
+		},
+
+	],
+
+	onupdate:function(slideshow, state){
+
+		// Show end if EVERYONE is infected
+		if(!state.ended){
+			var sim = slideshow.simulations.sims[0];
+			var peepCount = 0;
+			sim.peeps.forEach(function(peep){
+				if(peep.infected) peepCount++;
+			});
+			if(peepCount==sim.peeps.length){
+				var boxes = slideshow.boxes;
+				boxes.showChildByID("end", true);
+				state.ended = true;
+				sim.win();
+			}
+		}
+
+	}
 
 },
 );

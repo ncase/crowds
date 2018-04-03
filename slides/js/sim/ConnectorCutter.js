@@ -16,40 +16,51 @@ function ConnectorCutter(config){
 
 		var mouse = self.sim.mouse;
 
-		// JUST CLICKED, and state=0... can either start connecting or cutting!
-		if(mouse.justPressed && self.state===0){
-			
-			// Clicked on a peep?
-			var peepClicked = self.sim.getHoveredPeep(0);
-			if(peepClicked){
-				self.state = 1; // START CONNECTING
-				self.connectFrom = peepClicked;
-			}else{
-				self.state = 2; // START ERASING
-			}
+		// only if sim is NOT RUNNING
+		if(!Simulations.IS_RUNNING){
 
-		}
-
-		// JUST RELEASED, and state!=0... can either stop connecting or cutting!
-		if(mouse.justReleased && self.state!==0){
-
-			// End connect?
-			if(self.state==1){
-				var peepReleased = self.sim.getHoveredPeep(20);
-				if(peepReleased){
-					self.sim.addConnection(self.connectFrom, peepReleased);
+			// JUST CLICKED, and state=0... can either start connecting or cutting!
+			if(mouse.justPressed && self.state===0){
+				
+				// Clicked on a peep?
+				var peepClicked = self.sim.getHoveredPeep(0);
+				if(peepClicked){
+					self.state = 1; // START CONNECTING
+					self.connectFrom = peepClicked;
+				}else{
+					self.state = 2; // START ERASING
 				}
+
 			}
 
-			// back to normal
-			self.state = 0; 
+			// JUST RELEASED, and state!=0... can either stop connecting or cutting!
+			if(mouse.justReleased && self.state!==0){
 
+				// End connect?
+				if(self.state==1){
+					var peepReleased = self.sim.getHoveredPeep(20);
+					if(peepReleased){
+						self.sim.addConnection(self.connectFrom, peepReleased);
+					}
+				}
+
+				// back to normal
+				self.state = 0; 
+
+			}
+
+		}else{
+			self.state = 0;
 		}
 
 		// In "NORMAL" state... tell Pencil what frame to go to
 		if(self.state==0){
-			var peepHovered = self.sim.getHoveredPeep(0);
-			pencil.gotoFrame( peepHovered ? 1 : 0 );
+			if(!Simulations.IS_RUNNING){
+				var peepHovered = self.sim.getHoveredPeep(0);
+				pencil.gotoFrame( peepHovered ? 1 : 0 );
+			}else{
+				pencil.gotoFrame(0);
+			}
 		}
 
 		// In "CONNECTING" state... show where to connect to

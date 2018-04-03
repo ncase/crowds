@@ -135,8 +135,8 @@ function Peep(config){
 
 			ctx.save();
 
-			var bgColor = "#eee";
-			var uiColor = "#666";
+			var bgColor = "#ddd";
+			var uiColor = "#333";
 
 			// Say: Infected/Friends (% then n/n)
 			ctx.translate(0,-43);

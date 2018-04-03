@@ -95,9 +95,13 @@ function Boxes(){
 			return box.id==id;
 		});
 	};
-	self.showChildByID = function(id){
+	self.showChildByID = function(id, withFade){
 		var toShow = self.getChildByID(id);
-		toShow.style.display = "block";
+		if(!withFade){
+			toShow.style.display = "block";
+		}else{
+			fadeIn(self.dom, toShow);
+		}
 	};
 	self.hideChildByID = function(id){
 		var toHide = self.getChildByID(id);
@@ -124,10 +128,11 @@ function SimButton(container, color){
 	self.container.classList.add("sim_button");
 
 	// RESET
-	var smallButton = document.createElement("div");
-	smallButton.innerHTML = getWords("sim_reset");
-	self.container.appendChild(smallButton);
-	smallButton.onclick = function(){
+	var resetButton = document.createElement("div");
+	resetButton.id = "reset_button";
+	resetButton.innerHTML = getWords("sim_reset");
+	self.container.appendChild(resetButton);
+	resetButton.onclick = function(){
 		if(Simulations.IS_RUNNING){
 			publish("sim/reset");
 			_updateButtonUI();
@@ -135,9 +140,10 @@ function SimButton(container, color){
 	};
 
 	// START / NEXT
-	var bigButton = document.createElement("div");
-	self.container.appendChild(bigButton);
-	bigButton.onclick = function(){
+	var startButton = document.createElement("div");
+	startButton.id = "start_button";
+	self.container.appendChild(startButton);
+	startButton.onclick = function(){
 		if(!Simulations.IS_RUNNING){
 			publish("sim/start");
 			_updateButtonUI();
@@ -149,9 +155,11 @@ function SimButton(container, color){
 	// Update button UI
 	var _updateButtonUI = function(){
 		if(!Simulations.IS_RUNNING){
-			bigButton.innerHTML = getWords("sim_start");
+			startButton.innerHTML = getWords("sim_start");
+			self.container.removeAttribute("active");
 		}else{
-			bigButton.innerHTML = getWords("sim_next");
+			startButton.innerHTML = getWords("sim_next");
+			self.container.setAttribute("active",true);
 		}
 	};
 	_updateButtonUI();

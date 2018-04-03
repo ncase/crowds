@@ -188,7 +188,6 @@ SLIDES.push(
 
 	],
 
-	// Logic to fade in/out words & stuff
 	onupdate:function(slideshow, state){
 
 		// Win only if EVERYONE hits threshold

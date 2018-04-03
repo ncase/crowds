@@ -57,7 +57,8 @@ function removeFromArray(array, item){
 function fadeIn(container, dom){
 	dom.style.opacity = 0;
 	dom.classList.add("transitionable");
-	container.appendChild(dom);
+	dom.style.display = "block";
+	if(!container.contains(dom)) container.appendChild(dom);
 	setTimeout(function(){
 		dom.style.opacity = 1;
 	},50);
@@ -66,7 +67,7 @@ function fadeOut(container, dom){
 	dom.classList.add("transitionable");
 	dom.style.opacity = 0;
 	setTimeout(function(){
-		container.removeChild(dom);
+		if(container.contains(dom)) container.removeChild(dom);
 	},300);
 }
 

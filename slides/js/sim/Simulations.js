@@ -15,11 +15,16 @@ function Simulations(){
 
 	// Clear All Sims
 	self.clear = function(){
+		
+		Simulations.IS_RUNNING = false;
+		$("#container").removeAttribute("sim_is_running");
+
 		self.sims.forEach(function(sim){
 			self.dom.removeChild(sim.canvas);
 			sim.kill();
 		});
 		self.sims = [];
+		
 	};
 
 	// Add Sims
@@ -49,18 +54,27 @@ function Simulations(){
 	// SIMULATION RUNNING //
 	////////////////////////
 
+
 	subscribe("sim/start", function(){
+
 		Simulations.IS_RUNNING = true;
+		$("#container").setAttribute("sim_is_running",true);
+		
 		self.sims.forEach(function(sim){
 			sim.save(); // save for later resetting
 		});
-		publish("sim/next");
+		//publish("sim/next");
+
 	});
 	subscribe("sim/reset", function(){
+		
 		Simulations.IS_RUNNING = false;
+		$("#container").removeAttribute("sim_is_running");
+
 		self.sims.forEach(function(sim){
 			sim.reload(); // reload the network pre-sim
 		});
+
 	});
 	subscribe("sim/next", function(){
 		self.sims.forEach(function(sim){
@@ -134,14 +148,10 @@ function Sim(config){
 		// Connections
 		self.networkConfig.connections.forEach(function(c){
 			var from = self.peeps[c[0]],
-				to = self.peeps[c[1]];
-			self.addConnection(from, to, false);
+				to = self.peeps[c[1]],
+				uncuttable = c[2]||false
+			self.addConnection(from, to, uncuttable);
 		});
-		if(self.options.startUncuttable){
-			self.connections.forEach(function(c){
-				c.uncuttable = true;
-			});
-		}
 
 		// Contagion
 		self.contagion = self.networkConfig.contagion;
@@ -343,15 +353,21 @@ function Sim(config){
 	// SIMULATION RUNNING //
 	////////////////////////
 
+	self.STEP = 0;
+
 	self.save = function(){
+		self.STEP = 0;
 		self.networkConfig = self.getCurrentNetwork();
 	};
 
 	self.reload = function(){
+		self.STEP = 0;
 		self.init();
 	};
 
 	self.nextStep = function(){
+
+		self.STEP++;
 
 		// "Infect" the peeps who need to get infected
 		// TODO: Connection animation
@@ -413,7 +429,8 @@ function Sim(config){
 		self.connections.forEach(function(c){
 			var fromIndex = self.peeps.indexOf(c.from);
 			var toIndex = self.peeps.indexOf(c.to);
-			savedNetwork.connections.push([fromIndex, toIndex]);
+			var uncuttable = c.uncuttable ? 1 : 0;
+			savedNetwork.connections.push([fromIndex, toIndex, uncuttable]);
 		});
 		return savedNetwork;
 	};
@@ -493,6 +510,13 @@ function Sim(config){
 	//////////////
 	// INIT NOW //
 	//////////////
+
+	// Start Uncuttable?
+	if(self.options.startUncuttable){
+		self.networkConfig.connections.forEach(function(c){
+			c[2] = 1;
+		});
+	}
 
 	self.init();
 
