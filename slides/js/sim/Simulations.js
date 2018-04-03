@@ -45,6 +45,29 @@ function Simulations(){
 		});
 	};
 
+	////////////////////////
+	// SIMULATION RUNNING //
+	////////////////////////
+
+	subscribe("sim/start", function(){
+		Simulations.IS_RUNNING = true;
+		self.sims.forEach(function(sim){
+			sim.save(); // save for later resetting
+		});
+		publish("sim/next");
+	});
+	subscribe("sim/reset", function(){
+		Simulations.IS_RUNNING = false;
+		self.sims.forEach(function(sim){
+			sim.reload(); // reload the network pre-sim
+		});
+	});
+	subscribe("sim/next", function(){
+		self.sims.forEach(function(sim){
+			sim.nextStep();
+		});
+	});
+
 	///////////////////////
 	// HELPERS AND STUFF //
 	///////////////////////
@@ -62,7 +85,7 @@ function Sim(config){
 
 	var self = this;
 	self.config = config;
-	self.networkConfig = config.network;
+	self.networkConfig = cloneObject(config.network);
 	self.container = config.container;
 	self.options = config.options || {};
 
@@ -316,6 +339,30 @@ function Sim(config){
 
 	};
 
+	////////////////////////
+	// SIMULATION RUNNING //
+	////////////////////////
+
+	self.save = function(){
+		self.networkConfig = self.getCurrentNetwork();
+	};
+
+	self.reload = function(){
+		self.init();
+	};
+
+	self.nextStep = function(){
+
+		// "Infect" the peeps who need to get infected
+		// TODO: Connection animation
+		self.peeps.filter(function(peep){
+			return peep.isPastThreshold;
+		}).forEach(function(peep){
+			peep.infect();
+		});
+
+	};
+
 	///////////////////////////////
 	// secret keyboard interface //
 	///////////////////////////////
@@ -354,7 +401,7 @@ function Sim(config){
 		if(toDeletePeep) self.removePeep(toDeletePeep);
 	});
 
-	self.save = function(){
+	self.getCurrentNetwork = function(){
 		var savedNetwork = {
 			contagion: self.contagion,
 			peeps: [],
@@ -368,6 +415,10 @@ function Sim(config){
 			var toIndex = self.peeps.indexOf(c.to);
 			savedNetwork.connections.push([fromIndex, toIndex]);
 		});
+		return savedNetwork;
+	};
+	self.serialize = function(){
+		var savedNetwork = self.getCurrentNetwork();
 		return '{\n'+
 		'\t"contagion":'+savedNetwork.contagion+",\n"+
 		'\t"peeps":'+JSON.stringify(savedNetwork.peeps)+",\n"+

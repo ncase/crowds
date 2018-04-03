@@ -56,14 +56,14 @@ function removeFromArray(array, item){
 // Fade In
 function fadeIn(container, dom){
 	dom.style.opacity = 0;
-	dom.classList.add("fadeable");
+	dom.classList.add("transitionable");
 	container.appendChild(dom);
 	setTimeout(function(){
 		dom.style.opacity = 1;
 	},50);
 }
 function fadeOut(container, dom){
-	dom.classList.add("fadeable");
+	dom.classList.add("transitionable");
 	dom.style.opacity = 0;
 	setTimeout(function(){
 		container.removeChild(dom);

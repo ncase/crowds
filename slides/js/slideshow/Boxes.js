@@ -52,6 +52,11 @@ function Boxes(){
 			box.style.backgroundImage = "url("+config.img+")"
 		}
 
+		// Sim Button
+		if(config.sim_button){
+			var simButton = SimButton(box, config.sim_button);
+		}
+
 		// Replace "next" buttons!
 		var next;
 		if(next = box.querySelector("next")){
@@ -109,5 +114,46 @@ function Boxes(){
 		removeFromArray(self.boxes, removeBox);
 
 	};
+
+}
+
+function SimButton(container, color){
+
+	var self = this;
+	self.container = container;
+	self.container.classList.add("sim_button");
+
+	// RESET
+	var smallButton = document.createElement("div");
+	smallButton.innerHTML = getWords("sim_reset");
+	self.container.appendChild(smallButton);
+	smallButton.onclick = function(){
+		if(Simulations.IS_RUNNING){
+			publish("sim/reset");
+			_updateButtonUI();
+		}
+	};
+
+	// START / NEXT
+	var bigButton = document.createElement("div");
+	self.container.appendChild(bigButton);
+	bigButton.onclick = function(){
+		if(!Simulations.IS_RUNNING){
+			publish("sim/start");
+			_updateButtonUI();
+		}else{
+			publish("sim/next");
+		}
+	};
+
+	// Update button UI
+	var _updateButtonUI = function(){
+		if(!Simulations.IS_RUNNING){
+			bigButton.innerHTML = getWords("sim_start");
+		}else{
+			bigButton.innerHTML = getWords("sim_next");
+		}
+	};
+	_updateButtonUI();
 
 }

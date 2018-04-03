@@ -25,9 +25,6 @@ body{
 	overflow: hidden;
 	cursor: none;
 }
-#simulations{
-	border: 1px solid #eee;
-}
 #simulations, #slideshow{
 	position: absolute;
 	width: 960px;
@@ -60,7 +57,7 @@ body{
 #slideshow .next_button:hover{
 	background-position: 0 -100px;
 }
-.fadeable{
+.transitionable{
 	transition: opacity 0.3s ease-in-out;
 }
 #scratch{
@@ -69,6 +66,9 @@ body{
 	background-image: url(sprites/scratch.png); 
 	background-size: 200% 2000%;
     background-position: 0% 0%;
+}
+.sim_button{
+
 }
 
 /* MODAL */
@@ -97,4 +97,9 @@ body{
 /* THIS THING'S WORDS */
 words, bonus, glossary{
 	display: none;
+}
+
+/* TO SEE LAYOUT */
+.box, #simulations{
+	border: 1px solid #eee;
 }

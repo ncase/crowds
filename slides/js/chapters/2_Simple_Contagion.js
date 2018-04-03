@@ -16,6 +16,7 @@ SLIDES.push(
 	clear:true,
 
 	add:[
+
 		// Lil' contagion
 		{
 			type:"sim",
@@ -31,6 +32,14 @@ SLIDES.push(
 				scale: 1.25
 			}
 		},
+
+		// UI for the simulation
+		{
+			type:"box",
+			x:380, y:180,
+			sim_button:"red"
+		},
+
 	]
 
 },
@@ -39,6 +48,7 @@ SLIDES.push(
 	clear:true,
 
 	add:[
+
 		// Lil' contagion
 		{
 			type:"sim",
@@ -55,6 +65,7 @@ SLIDES.push(
 				startUncuttable: true
 			}
 		},
+
 	]
 
 },
