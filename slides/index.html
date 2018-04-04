@@ -45,7 +45,62 @@ Cursor is allowed to flow EVERYWHERE though...
 		</div>
 		
 		<!-- Navigation: Audio, Contents, Share, Translations -->
-		<div id="navigation">
+		<div id="navigation_container">
+			<div id="audio"></div>
+			<div id="navigation">
+
+				<!-- The chapters -->
+				<div chapter="Introduction">
+					<span>0</span>
+					<span>0. Introduction</span>
+				</div>
+				<div chapter="Networks">
+					<span>1</span>
+					<span>1. Networks</span>
+				</div>
+				<div chapter="Simple">
+					<span>2</span>
+					<span>2. Simple Contagion</span>
+				</div>
+				<div chapter="Complex">
+					<span>3</span>
+					<span>3. Complex Contagion</span>
+				</div>
+				<div chapter="BB">
+					<span>4</span>
+					<span>4. Bonding &amp; Bridging</span>
+				</div>
+				<div chapter="Sandbox">
+					<span>5</span>
+					<span>5. Sandbox</span>
+				</div>
+				<div chapter="Conclusion">
+					<span>6</span>
+					<span>6. In Conclusion...</span>
+				</div>
+				<div chapter="Credits">
+					<span>7</span>
+					<span>7. Credits</span>
+				</div>
+
+				<!-- A divider -->
+				<span class="nav_divider"></span>
+				
+				<!-- Bonus Notes & References -->
+				<div modal="bonus">
+					<span>?</span>
+					<span>Bonus Boxes! (Notes)</span>
+				</div>
+				<div modal="references">
+					<span style="margin-top:5px">*</span>
+					<span>References</span>
+				</div>
+
+				<!-- The hover bubble -->
+				<span id="nav_bubble">AHHHHHH</span>
+				
+			</div>
+			<div id="social"></div>
 		</div>
 		
 		<canvas id="pencil"></canvas>
@@ -206,6 +261,10 @@ herp derp blah blah
 
 <!-- 7. Credits --> 
 
+<words id="_7_credits">
+FWEEEEEE
+</words>
+
 <!-- x. misc -->
 <words id="WIN">
 WIN
@@ -231,12 +290,12 @@ WIN
 	</description>
 </bonus>
 
-<!-- - - - - - -->
-<!-- GLOSSARY  -->
-<!-- - - - - - -->
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
 
-<glossary>
-</glossary>
+<references>
+</references>
 
 <!-- - - - - -->
 <!-- SCRIPTS -->
@@ -252,6 +311,7 @@ WIN
 <script src="js/slideshow/Pencil.js"></script>
 <script src="js/slideshow/Boxes.js"></script>
 <script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
 
 <script src="js/sim/Peep.js"></script>
 <script src="js/sim/Connection.js"></script>

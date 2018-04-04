@@ -1,6 +1,7 @@
 // 0 - INTRODUCTION
 SLIDES.push(
 {
-	chapter: "Conclusion"
+	chapter: "Conclusion",
+	clear:true
 }
 );

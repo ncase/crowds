@@ -29,13 +29,12 @@ function Slideshow(){
 		
 		self.slideIndex = index;
 		var isFirstSlide = (self.currentSlide==null);
-		self.currentSlide = SLIDES[self.slideIndex];
-		var slide = self.currentSlide;
+		var slide = SLIDES[self.slideIndex];
 
 		// Clear?
 		var _delayNewSlide = 0;
 		if(slide.clear && !isFirstSlide){
-			_delayNewSlide = 700;
+			_delayNewSlide = 800;
 			self.scratch.scratchOut(); // Scratch out
 			$("#container").removeAttribute("sim_is_running"); // remove that UI
 		}
@@ -99,11 +98,19 @@ function Slideshow(){
 
 			}, _delayAdd);
 
+			// I'm the new slide now
+			self.currentSlide = slide;
+
 			// On start (if any)
 			self.currentState = {};
 			if(slide.onstart) slide.onstart(self, self.currentState);
 
 		}, _delayNewSlide);
+
+		// Tell everyone it's a new chapter
+		if(slide.chapter && slide.chapter.indexOf("-")<0){ // is chapter and not sub-chapter
+			publish("slideshow/goto/",[slide.chapter]);
+		}
 
 	};
 	var _setTimeout = function(callback, delay){

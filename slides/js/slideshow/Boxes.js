@@ -39,6 +39,15 @@ function Boxes(){
 		if(config.h) box.style.height = config.h;
 		if(config.hidden) box.style.display = "none";
 
+		// background
+		if(config.background){
+			box.style.left = "-1000px";
+			box.style.top = "-1000px";
+			box.style.width = 10000;
+			box.style.height = 10000;
+			box.style.background = config.background;
+		}
+
 		// words:
 		if(config.text){
 			box.innerHTML = getWords(config.text);

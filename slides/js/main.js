@@ -3,6 +3,7 @@ window.onload = function(){
 	// Setting up the main stuff
 	window.slideshow = new Slideshow();
 	window.pencil = new Pencil();
+	window.navigation = new Navigation();
 
 	// Initializing the Mouse
 	Mouse.init(document.body);
@@ -28,6 +29,6 @@ window.onload = function(){
 	window.requestAnimationFrame(update);
 
 	// First slide!
-	slideshow.gotoChapter("BB-Both");
+	slideshow.gotoChapter("Sandbox");
 
 }
