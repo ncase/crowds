@@ -61,9 +61,14 @@ function Boxes(){
 			box.style.backgroundImage = "url("+config.img+")"
 		}
 
-		// Sim Button
-		if(config.sim_button){
-			var simButton = SimButton(box, config.sim_button);
+		// Sim UI
+		if(config.sim_ui){
+			var simUI = new SimUI(box, config.sim_ui);
+		}
+
+		// Sandbox UI
+		if(config.sandbox){
+			var sandboxUI = new SandboxUI(box);
 		}
 
 		// Replace "next" buttons!
@@ -127,50 +132,5 @@ function Boxes(){
 		removeFromArray(self.boxes, removeBox);
 
 	};
-
-}
-
-function SimButton(container, color){
-
-	var self = this;
-	self.container = container;
-	self.container.classList.add("sim_button");
-
-	// RESET
-	var resetButton = document.createElement("div");
-	resetButton.id = "reset_button";
-	resetButton.innerHTML = getWords("sim_reset");
-	self.container.appendChild(resetButton);
-	resetButton.onclick = function(){
-		if(Simulations.IS_RUNNING){
-			publish("sim/reset");
-			_updateButtonUI();
-		}
-	};
-
-	// START / NEXT
-	var startButton = document.createElement("div");
-	startButton.id = "start_button";
-	self.container.appendChild(startButton);
-	startButton.onclick = function(){
-		if(!Simulations.IS_RUNNING){
-			publish("sim/start");
-			_updateButtonUI();
-		}else{
-			publish("sim/next");
-		}
-	};
-
-	// Update button UI
-	var _updateButtonUI = function(){
-		if(!Simulations.IS_RUNNING){
-			startButton.innerHTML = getWords("sim_start");
-			self.container.removeAttribute("active");
-		}else{
-			startButton.innerHTML = getWords("sim_next");
-			self.container.setAttribute("active",true);
-		}
-	};
-	_updateButtonUI();
 
 }

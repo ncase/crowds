@@ -295,7 +295,14 @@ function Sim(config){
 
 	// Kill
 	self.kill = function(){
+		
 		self.clear();
+
+		// key handlers, too
+		_keyHandlers.forEach(function(_handler){
+			unsubscribe(_handler);
+		});
+
 	};
 
 	///////////////////
@@ -361,8 +368,10 @@ function Sim(config){
 	};
 
 	self.reload = function(){
+		var contagionLevel = self.contagion; // hack for sandbox: keep contagion the same
 		self.STEP = 0;
 		self.init();
+		self.contagion = contagionLevel;
 	};
 
 	self.nextStep = function(){
@@ -387,7 +396,8 @@ function Sim(config){
 
 	var _draggingPeep = null;
 	var _draggingOffset = {x:0,y:0};
-	subscribe("key/down/space",function(){
+	var _keyHandlers = [];
+	_keyHandlers.push(subscribe("key/down/space",function(){
 		if(!_draggingPeep){ // prevent double-activation
 			var hoveredPeep = self.getHoveredPeep(0);
 			if(hoveredPeep){
@@ -396,26 +406,26 @@ function Sim(config){
 				_draggingOffset.y = _draggingPeep.y-self.mouse.y;
 			}
 		}
-	});
-	subscribe("key/up/space",function(){
+	}));
+	_keyHandlers.push(subscribe("key/up/space",function(){
 		_draggingPeep = null;
-	});
-	subscribe("key/down/1",function(){
+	}));
+	_keyHandlers.push(subscribe("key/down/1",function(){
 		_addPeepAtMouse(false);
-	});
-	subscribe("key/down/2",function(){
+	}));
+	_keyHandlers.push(subscribe("key/down/2",function(){
 		_addPeepAtMouse(true);
-	});
+	}));
 	var _addPeepAtMouse = function(infected){
 		var overlapPeep = self.getHoveredPeep(20);
 		if(!overlapPeep){
 			self.addPeep(self.mouse.x, self.mouse.y, infected);
 		}
 	};
-	subscribe("key/down/delete",function(){
+	_keyHandlers.push(subscribe("key/down/delete",function(){
 		var toDeletePeep = self.getHoveredPeep(0);
 		if(toDeletePeep) self.removePeep(toDeletePeep);
-	});
+	}));
 
 	self.getCurrentNetwork = function(){
 		var savedNetwork = {

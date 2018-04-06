@@ -73,32 +73,75 @@ body{
 	background-size: 200% 2000%;
     background-position: 0% 0%;
 }
-.sim_button{
+
+/* Sim UI */
+.sim_ui{
 	position: absolute;
 	width: 200px;
 	height: 100px;
 	border: none !important;
 }
-.sim_button > div{
+.sim_ui > div{
 	position: absolute;
 	background: #dd4040;
 	color: #fff;
 	text-align: center;
 	border-radius: 10px;
 }
-.sim_button > #reset_button{
+.sim_ui > #reset_button{
 	width: 150px;
 	left:25px;
 	top:0px;
 	font-size: 0.8em;
 	transition: top 0.3s ease-in-out;
 }
-.sim_button > #start_button{
+.sim_ui > #start_button{
 	width: 200px;
 	padding: 0.5em 0;
 }
-.sim_button[active] > #reset_button{
+.sim_ui[active] > #reset_button{
 	top:60px;
+}
+
+/* Sandbox UI */
+.sandbox_ui{
+	width: 270px;
+}
+.sandbox_ui input[type="range"]{
+	width: 100%;
+}
+.choose_one{
+	overflow: hidden;
+}
+.choose_one > div{
+	float: left;
+	margin: 3px;
+	opacity: 0.25;
+}
+.choose_one > div[selected]{
+	opacity: 1;
+}
+.choose_color{
+	width: 40px;
+	height: 40px;
+	background: url(sprites/peeps.png);
+	background-size: auto 100%;
+	transform: scale(1.2);
+}
+.choose_tool{
+	font-size: 16px;
+	line-height: 16px;
+	border: 1px solid black;
+	padding: 3px;
+	border-radius: 5px;
+}
+#sandbox_shortcuts_label{
+	font-size: 18px; 
+}
+#sandbox_shortcuts{
+	font-size: 14px;
+	line-height: 1.5em;
+	color: #999;
 }
 
 /* MODAL */

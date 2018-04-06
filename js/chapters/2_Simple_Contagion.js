@@ -44,7 +44,7 @@ SLIDES.push(
 		{
 			type:"box",
 			x:380, y:165,
-			sim_button:"red"
+			sim_ui:"red"
 		},
 
 		// Outro text
@@ -104,7 +104,7 @@ SLIDES.push(
 		{
 			type:"box",
 			x:380, y:290,
-			sim_button:"red"
+			sim_ui:"red"
 		},
 
 		// Intro text

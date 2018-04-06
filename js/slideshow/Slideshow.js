@@ -25,8 +25,14 @@ function Slideshow(){
 	
 	// GOTO and NEXT
 	var _delay = 300;
+	self.IS_TRANSITIONING = false;
 	self.goto = function(index){
+
+		// Wait for transition to finish!
+		if(self.IS_TRANSITIONING) return;
+		self.IS_TRANSITIONING = true;
 		
+		// Which slide?
 		self.slideIndex = index;
 		var isFirstSlide = (self.currentSlide==null);
 		var slide = SLIDES[self.slideIndex];
@@ -104,6 +110,11 @@ function Slideshow(){
 			// On start (if any)
 			self.currentState = {};
 			if(slide.onstart) slide.onstart(self, self.currentState);
+
+			// Transition done... sorta!
+			_setTimeout(function(){
+				self.IS_TRANSITIONING = false;
+			},800);
 
 		}, _delayNewSlide);
 

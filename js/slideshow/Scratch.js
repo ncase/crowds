@@ -20,7 +20,6 @@ function Scratch(){
 		var handle = subscribe("update", function(){
 			var yOffset = Math.floor(frame)*(-100);
 			self.dom.style.backgroundPosition = xOffset+"% "+yOffset+"%";
-			console.log(xOffset, yOffset);
 			if(frame>19){
 				unsubscribe(handle);
 				if(callback) callback();
