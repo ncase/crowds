@@ -76,22 +76,40 @@ function SandboxUI(container){
 	var toolChooserLabel = document.createElement("div");
 	toolChooserLabel.innerHTML = getWords("sandbox_tool_chooser");
 	toolChooserLabel.style.marginTop = "1em";
+	var tools = [
+		"pencil",
+		"add",
+		"add_infected",
+		"move",
+		"delete",
+		"clear"
+	];
 	var toolChooser = new ChooseOne({
-		options:[
-			"pencil",
-			"add",
-			"add_infected",
-			"move",
-			"delete",
-			"clear"
-		],
+		options:tools,
 		makeButton: function(value){
+
 			var button = document.createElement("div");
 			button.className = "choose_tool";
-			button.innerHTML = getWords("sandbox_tool_"+value);
+
+			// Icon
+			var buttonImage = document.createElement("div");
+			button.appendChild(buttonImage);
+			buttonImage.id = "icon";
+			var frame = tools.indexOf(value);
+			buttonImage.style.backgroundPosition = (-16*frame)+"px 0px";
+
+			// Label
+			var buttonLabel = document.createElement("span");
+			button.appendChild(buttonLabel);
+			buttonLabel.innerHTML = getWords("sandbox_tool_"+value);
+
 			return button;
+
 		},
 		oninput:function(value){
+			// update sim
+			var sandbox_state = tools.indexOf(value);
+			slideshow.simulations.sims[0].connectorCutter.sandbox_state = sandbox_state;
 		}
 	});
 	container.appendChild(toolChooserLabel);

@@ -12,14 +12,19 @@ function Pencil(){
 	self.canvas = createCanvas( $("#pencil"), 100, 100 );
 	self.ctx = self.canvas.getContext('2d');
 
-	// Sprite
+	// Sprites
 	self.sprite = new Sprite({
 		src: "sprites/pencil.png",
 		frames:3, sw:200, sh:200,
 	});
-	self.sprite.pivotX = 0;
-	self.sprite.pivotY = 200;
-	self.sprite.scale = 0.75;
+	self.toolsSprite = new Sprite({
+		src: "sprites/sandbox_tools.png",
+		frames:6, sw:200, sh:200,
+	});
+	self.sprite.pivotX = self.toolsSprite.pivotX = 0;
+	self.sprite.pivotY = self.toolsSprite.pivotY = 200;
+	self.sprite.scale = self.toolsSprite.scale = 0.75;
+
 	var _size = 100;
 	var _margin = 10;
 	var _offset = 10;
@@ -43,6 +48,7 @@ function Pencil(){
 		var xy_velocity = ((Mouse.x-self.x) + (Mouse.y-self.y))/10; // in down-right direction
 		var gotoRotation = -sigmoid(xy_velocity) * Math.TAU/8;
 		self.sprite.rotation = self.sprite.rotation*0.8 + gotoRotation*0.2;
+		self.toolsSprite.rotation = self.sprite.rotation;
 
 		// Pencil's offset
 		var gotoOffset = Mouse.pressed ? -8 : 10;
@@ -60,6 +66,17 @@ function Pencil(){
 		// Move DOM there
 		self.canvas.style.left = self.x-_margin;
 		self.canvas.style.top = self.y-_size+_margin;
+
+		// Which sprite? (normal by default...)
+		var sprite = self.sprite;
+		var sim = slideshow.simulations.sims[0];
+		if(sim){
+			var frame = sim.connectorCutter.sandbox_state;
+			if(frame!=0){
+				sprite = self.toolsSprite;
+				sprite.gotoFrame(frame);
+			}
+		}
 
 		// Reset canvas
 		var ctx = self.ctx;
@@ -79,9 +96,9 @@ function Pencil(){
 			}
 
 			// Draw pencil
-			self.sprite.x = _offset;
-			self.sprite.y = -_offset;
-			self.sprite.draw(ctx);
+			sprite.x = _offset;
+			sprite.y = -_offset;
+			sprite.draw(ctx);
 
 		ctx.restore();
 

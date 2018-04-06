@@ -54,7 +54,7 @@ body{
 	width: 300px;
     height: 20px;
     padding: 40px 0;
-	background-image: url(sprites/button_large.png);
+	background-image: url(../sprites/button_large.png);
 	background-size: 100% auto;
 	text-align: center;
 }
@@ -69,7 +69,7 @@ body{
 #scratch{
 	display: none;
 	pointer-events: none;
-	background-image: url(sprites/scratch.png); 
+	background-image: url(../sprites/scratch.png); 
 	background-size: 200% 2000%;
     background-position: 0% 0%;
 }
@@ -124,16 +124,23 @@ body{
 .choose_color{
 	width: 40px;
 	height: 40px;
-	background: url(sprites/peeps.png);
+	background: url(../sprites/peeps.png);
 	background-size: auto 100%;
 	transform: scale(1.2);
 }
 .choose_tool{
+	background: #fff;
 	font-size: 16px;
 	line-height: 16px;
 	border: 1px solid black;
 	padding: 3px;
 	border-radius: 5px;
+}
+.choose_tool > #icon{
+	display: inline-block;
+	width:16px; height:16px;
+	background: url(../sprites/sandbox_tools.png);
+	background-size: auto 100%;
 }
 #sandbox_shortcuts_label{
 	font-size: 18px; 
@@ -261,6 +268,9 @@ words, bonus, glossary{
 }
 
 /* TO SEE LAYOUT */
-.box, #simulations{
+/*.box, #simulations{
 	border: 1px solid #eee;
-}
+}*/
+
+
+
