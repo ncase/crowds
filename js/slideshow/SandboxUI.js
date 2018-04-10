@@ -129,6 +129,9 @@ function SandboxUI(container){
 	container.appendChild(shortcutsLabel);
 	container.appendChild(shortcuts);
 
+	// HEY IT'S SANDBOX MODE // 
+	slideshow.simulations.sims[0].SANDBOX_MODE = true;
+
 
 }
 

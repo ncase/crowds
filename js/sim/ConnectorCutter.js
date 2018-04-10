@@ -18,9 +18,11 @@ function ConnectorCutter(config){
 		var mouse = self.sim.mouse;
 
 		// TOTAL HACK: if you're clicking within the sandbox UI, FORGET IT
-		if(mouse.x>0 && mouse.x<280){
-			if(mouse.justPressed){
-				return; // FORGET ITTTTTT
+		if(self.sim.SANDBOX_MODE){
+			if(mouse.x>0 && mouse.x<280){
+				if(mouse.justPressed){
+					return; // FORGET ITTTTTT
+				}
 			}
 		}
 

@@ -120,4 +120,39 @@ function getBoundsOfPoints(points){
 	};
 }
 
+// Some Vector Shtuff
+function getVectorFromTo(from, to){
+	return {
+		x: to.x - from.x,
+		y: to.y - from.y,
+	};
+}
+function getVectorLength(v){
+	return Math.sqrt(v.x*v.x + v.y*v.y);
+}
+function getUnitVector(v){
+	var length = getVectorLength(v);
+	return {
+		x: v.x/length,
+		y: v.y/length
+	};
+}
+function multiplyVector(v, scale){
+	return {
+		x: v.x * scale,
+		y: v.y * scale
+	};
+}
+function addVectors(a,b){
+	return {
+		x: a.x + b.x,
+		y: a.y + b.y
+	};
+}
+function rotateVector(v, a){
+	return {
+		x: Math.cos(a)*v.x - Math.sin(a)*v.y,
+		y: Math.sin(a)*v.x + Math.cos(a)*v.y 
+	}
+}
 

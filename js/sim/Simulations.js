@@ -194,6 +194,8 @@ function Sim(config){
 		if(_draggingPeep){
 			_draggingPeep.x = self.mouse.x+_draggingOffset.x;
 			_draggingPeep.y = self.mouse.y+_draggingOffset.y;
+			_draggingPeep.velocity.x = 0;
+			_draggingPeep.velocity.y = 0;
 		}
 
 		// update confetti & winword...
@@ -545,5 +547,18 @@ function Sim(config){
 	}
 
 	self.init();
+
+	// Start randomize positions?
+	if(self.options.randomStart){
+		var r = {
+			x:self.options.randomStart,
+			y:0
+		};
+		self.peeps.forEach(function(peep){
+			var randomPush = rotateVector(r, Math.random()*Math.TAU);
+			peep.x += randomPush.x;
+			peep.y += randomPush.y;
+		});
+	}
 
 }

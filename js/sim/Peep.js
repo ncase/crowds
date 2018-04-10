@@ -5,6 +5,7 @@ function Peep(config){
 	// Properties
 	self.x = config.x;
 	self.y = config.y;
+	self.velocity = {x:0, y:0};
 	self.infected = !!config.infected;
 	self.sim = config.sim;
 
@@ -61,6 +62,79 @@ function Peep(config){
 					self.isPastThreshold = true;
 				}
 			}
+		}
+
+		// SPLASH: FORCE-DIRECTED
+		if(self.sim.options.splash){
+
+			// Attract towards 0 (gravity increases slightly the further you get out)
+			var gravity = getUnitVector({
+				x: 0 - self.x,
+				y: 0 - self.y
+			});
+			var gravityScale = getVectorLength(self)*0.00012;
+			gravity = multiplyVector(gravity, gravityScale);
+			self.velocity = addVectors(self.velocity, gravity);
+
+			// If within the ring, push OUT.
+			var RADIUS = 325;
+			var distanceFromCenter = getVectorLength(self);
+			if(distanceFromCenter<RADIUS){
+				var forcePushOut = RADIUS-distanceFromCenter;
+				forcePushOut *= 0.05;
+				forcePushOut = Math.min(forcePushOut, 2); //cap
+				var forceDirection = getUnitVector(self);
+				var forceOut = multiplyVector( forceDirection, forcePushOut );
+				self.velocity = addVectors(self.velocity, forceOut);
+			}
+
+			// Hookes to Connected
+			var k = 0.002;
+			var hookesDistance = 160;
+			var hookesTotalForce = {x:0, y:0};
+			friends.forEach(function(friend){
+
+				var fromTo = getVectorFromTo(self, friend);
+				var d = getVectorLength(fromTo) - hookesDistance;
+				var forceMagnitude = k*d;
+				var force = multiplyVector( getUnitVector(fromTo), forceMagnitude );
+
+				hookesTotalForce = addVectors(hookesTotalForce, force);
+
+			});
+			self.velocity = addVectors(self.velocity, hookesTotalForce);
+
+			// Coulomb from Disconnected
+			var c = -300;
+			var coulombTotalForce = {x:0, y:0};
+			self.sim.peeps.forEach(function(peep){
+				
+				if(peep==self) return; // not self
+				if(friends.indexOf(peep)>=0) return; // not a friend
+
+				var fromTo = getVectorFromTo(self, peep);
+				var d = getVectorLength(fromTo);
+				var forceMagnitude = c/(d*d);
+				var force = multiplyVector( getUnitVector(fromTo), forceMagnitude );
+
+				coulombTotalForce = addVectors(coulombTotalForce, force);
+
+			});
+			self.velocity = addVectors(self.velocity, coulombTotalForce);
+
+			// Travel Clockwise
+			var spin = getUnitVector(self);
+			spin = rotateVector(spin, Math.TAU/4);
+			spin = multiplyVector(spin, 0.02);
+			self.velocity = addVectors(self.velocity, spin);
+
+			// Air Friction
+			self.velocity = multiplyVector(self.velocity, 0.95);
+
+			// Move
+			self.x += self.velocity.x;
+			self.y += self.velocity.y;
+
 		}
 
 	};
