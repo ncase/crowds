@@ -12,7 +12,7 @@ SLIDES.push(
 		// The top instructions
 		{
 			type:"box",
-			text:"_1_tutorial_start", x:280, y:0, w:400, h:70, align:"center"
+			text:"_1_tutorial_start", x:260, y:0, w:440, h:70, align:"center"
 		},
 
 		// The fullscreen simulation
@@ -56,7 +56,7 @@ SLIDES.push(
 			type:"box",
 			id:"end_words",
 			text:"_1_tutorial_end", x:230, y:425, w:500, h:70, align:"center",
-			//hidden:true
+			hidden:true
 		}
 
 	],

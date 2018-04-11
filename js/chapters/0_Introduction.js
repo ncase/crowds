@@ -21,10 +21,29 @@ SLIDES.push(
 				splash: true,
 				randomStart: 20
 			}
-		}
+		},
+
+		// Words
+		{
+			type:"box",
+			id:"_0_intro",
+			text:"_0_intro", x:210, y:0, w:540, h:540, align:"center"
+		},
 
 	]
 
+},
+{
+	remove:[
+		{ type:"box", id:"_0_intro" }
+	],
+	add:[
+		{
+			type:"box",
+			id:"_0_intro_2",
+			text:"_0_intro_2", x:210, y:0, w:540, h:540, align:"center"
+		}
+	]
 }
 
 );
