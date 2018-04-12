@@ -80,10 +80,20 @@ SLIDES.push(
 
 	add:[
 
+		// Intro text
+		{
+			type:"box",
+			id:"_3_cascade",
+			text:"_3_cascade",
+			x:60, y:0, w:840, h:100,
+			align: "center"
+		},
+
 		// Sim
 		{
 			type:"sim",
-			x:0, y:-140,
+			id:"contagion",
+			x:0, y:-40,
 			fullscreen: true,
 			network: {
 				"contagion":0.25,
@@ -100,15 +110,9 @@ SLIDES.push(
 		// UI for the simulation
 		{
 			type:"box",
-			x:380, y:290,
+			id:"ui",
+			x:380, y:370,
 			sim_ui:"red"
-		},
-
-		// Intro text
-		{
-			type:"box",
-			text:"_3_cascade",
-			x:0, y:400, w:600, h:140
 		},
 
 		// End text
@@ -116,7 +120,7 @@ SLIDES.push(
 			id:"end",
 			type:"box",
 			text:"_3_cascade_end",
-			x:660, y:440, w:300, h:100,
+			x:330, y:460, w:300, h:100,
 			hidden:true
 		},
 
@@ -144,6 +148,30 @@ SLIDES.push(
 },
 
 {
+	remove:[
+		{type:"box", id:"_3_cascade"},
+		{type:"box", id:"end"}
+	],
+	move:[
+		{type:"box", id:"ui", y:360-80},
+		{type:"sim", id:"contagion", y:-140}
+	],
+	add:[
+		{
+			type:"box",
+			text:"_3_post_cascade",
+			x:0, y:390, w:650, h:150,
+			align: "right"
+		},
+		{
+			type:"box",
+			text:"_3_post_cascade_end",
+			x:660, y:450, w:300, h:90
+		}
+	]
+},
+
+{
 	chapter: "Complex-Prevent",
 	clear:true,
 
@@ -152,8 +180,10 @@ SLIDES.push(
 		// Intro text
 		{
 			type:"box",
+			id:"_3_prevent",
 			text:"_3_prevent",
-			x:0, y:0, w:350, h:200
+			x:80, y:0, w:800, h:140,
+			align: "center"
 		},
 
 		// Lil' contagion
@@ -176,6 +206,7 @@ SLIDES.push(
 		// UI for the simulation
 		{
 			type:"box",
+			id:"ui",
 			x:380, y:140,
 			sim_ui:"red"
 		},
@@ -212,10 +243,10 @@ SLIDES.push(
 						if(countInfected!=sim.peeps.length){
 
 							// WIN
+							state.ended = true;
 							var boxes = slideshow.boxes;
 							setTimeout(function(){
 								boxes.showChildByID("end", true);
-								state.ended = true;
 								sim.win();
 							},500);
 
