@@ -11,8 +11,9 @@ SLIDES.push(
 		// Intro text
 		{
 			type:"box",
+			id:"_3_complex",
 			text:"_3_complex",
-			x:0, y:0, w:360, h:370
+			x:0, y:0, w:480, h:540
 		},
 
 		// Sim
@@ -22,51 +23,55 @@ SLIDES.push(
 			fullscreen: true,
 			network: {
 				"contagion":0.25,
-				"peeps":[[432,144,1],[438,410,1],[636,139,0],[638,414,0],[789,68,0],[916,101,0],[855,195,0],[798,320,0],[887,346,0],[917,445,0],[840,503,0]],
-				"connections":[[0,2,0],[2,4,0],[2,5,0],[6,2,0],[1,3,0],[3,10,0],[3,7,0],[8,3,0],[9,3,0]]
+				"peeps":[[819,90,0],[911,182,0],[905,310,0],[821,413,0],[688,252,0],[551,251,1]],
+				"connections":[[4,3,0],[2,4,0],[4,1,0],[4,0,0]]
 			},
 			options:{
 				infectedFrame: 3,
-				scale: 1.25
+				scale: 1.75
 			}
 		},
 
 		// UI for the simulation
 		{
 			type:"box",
-			x:440, y:225,
+			x:520, y:340,
 			sim_ui:"red"
-		},
-
-		// End text
-		{
-			id:"end",
-			type:"box",
-			text:"_3_complex_end",
-			x:0, y:370, w:360, h:170, align:"right",
-			hidden:true
-		},
+		}
 
 	],
 
 	onupdate:function(slideshow, state){
 
-		// Show end if at least 5 infected
+		// Show end if ALL infected
 		if(!state.ended){
 			var sim = slideshow.simulations.sims[0];
 			var peepCount = 0;
 			sim.peeps.forEach(function(peep){
 				if(peep.infected) peepCount++;
 			});
-			if(peepCount>=5){
-				var boxes = slideshow.boxes;
-				boxes.showChildByID("end", true);
+			if(peepCount==sim.peeps.length){
 				state.ended = true;
+				sim.win();
+				slideshow.next();
 			}
 		}
 
 	}
 
+},
+
+{
+	remove:[
+		{type:"box", id:"_3_complex"}
+	],
+	add:[
+		{
+			type:"box",
+			text:"_3_complex_2",
+			x:0, y:0, w:480, h:540
+		}
+	]
 },
 
 {

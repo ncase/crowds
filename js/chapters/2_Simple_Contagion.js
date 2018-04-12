@@ -20,13 +20,16 @@ SLIDES.push(
 		// Intro text
 		{
 			type:"box",
+			id:"_2_simple",
 			text:"_2_simple",
-			x:0, y:0, w:350, h:200
+			x:80, y:0, w:800, h:160,
+			align: "center"
 		},
 
 		// Lil' contagion
 		{
 			type:"sim",
+			id:"contagion",
 			x:0, y:80,
 			fullscreen: true,
 			network: {
@@ -43,6 +46,7 @@ SLIDES.push(
 		// UI for the simulation
 		{
 			type:"box",
+			id:"ui",
 			x:380, y:165,
 			sim_ui:"red"
 		},
@@ -68,9 +72,10 @@ SLIDES.push(
 				if(peep.infected) peepCount++;
 			});
 			if(peepCount==sim.peeps.length){
-				var boxes = slideshow.boxes;
-				boxes.showChildByID("end", true);
+				/*var boxes = slideshow.boxes;
+				boxes.showChildByID("end", true);*/
 				state.ended = true;
+				slideshow.next();
 			}
 		}
 
@@ -78,15 +83,47 @@ SLIDES.push(
 
 },
 {
+	remove:[
+		{type:"box", id:"_2_simple"}
+	],
+	move:[
+		{type:"box", id:"ui", y:5},
+		{type:"sim", id:"contagion", y:-80}
+	],
+	add:[
+		{
+			type:"box",
+			text:"_2_simple_2",
+			x:0, y:390, w:650, h:100,
+			align: "right"
+		},
+		{
+			type:"box",
+			text:"_2_simple_end",
+			x:660, y:440, w:300, h:90
+		}
+	]
+},
+{
 	chapter: "Simple-Cascade",
 	clear:true,
 
 	add:[
 
+		// Intro text
+		{
+			type:"box",
+			id:"_2_cascade",
+			text:"_2_cascade",
+			x:80, y:0, w:800, h:100,
+			align: "center"
+		},
+
 		// Sim
 		{
 			type:"sim",
-			x:0, y:-140,
+			id:"contagion",
+			x:0, y:-60,
 			fullscreen: true,
 			network: {
 				"contagion":0,
@@ -103,15 +140,9 @@ SLIDES.push(
 		// UI for the simulation
 		{
 			type:"box",
-			x:380, y:290,
+			id:"ui",
+			x:380, y:360,
 			sim_ui:"red"
-		},
-
-		// Intro text
-		{
-			type:"box",
-			text:"_2_cascade",
-			x:0, y:400, w:600, h:140
 		},
 
 		// End text
@@ -119,7 +150,7 @@ SLIDES.push(
 			id:"end",
 			type:"box",
 			text:"_2_cascade_end",
-			x:660, y:440, w:300, h:100,
+			x:330, y:460, w:300, h:100,
 			hidden:true
 		},
 
@@ -144,5 +175,28 @@ SLIDES.push(
 
 	}
 
+},
+{
+	remove:[
+		{type:"box", id:"_2_cascade"},
+		{type:"box", id:"end"}
+	],
+	move:[
+		{type:"box", id:"ui", y:360-80},
+		{type:"sim", id:"contagion", y:-140}
+	],
+	add:[
+		{
+			type:"box",
+			text:"_2_post_cascade",
+			x:0, y:390, w:650, h:150,
+			align: "right"
+		},
+		{
+			type:"box",
+			text:"_2_post_cascade_end",
+			x:660, y:450, w:300, h:90
+		}
+	]
 },
 );

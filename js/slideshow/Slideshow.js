@@ -72,8 +72,18 @@ function Slideshow(){
 			slide.move.forEach(function(childConfig){
 				switch(childConfig.type){
 					case "box":
-						//var box = self.boxes.getChildByID(childConfig.id);
-						//tweenBox(box, childConfig);
+						var box = self.boxes.getChildByID(childConfig.id);
+						box.classList.add("transitionable");
+						var from = {
+							x: parseInt(box.style.left),
+							y: parseInt(box.style.top)
+						};
+						var to = {
+							x: (childConfig.x===undefined) ? from.x : childConfig.x,
+							y: (childConfig.y===undefined) ? from.y : childConfig.y
+						};
+						box.style.left = to.x+"px";
+						box.style.top = to.y+"px";
 						break;
 					case "sim":
 						var sim = self.simulations.getChildByID(childConfig.id);
