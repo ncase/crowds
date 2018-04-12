@@ -22,8 +22,8 @@ SLIDES.push(
 			fullscreen: true,
 			network: {
 				"contagion":0,
-				"peeps":[[44,184,0],[155,215,0],[237,105,0],[309,213,0],[646,211,0],[328,305,0],[629,308,0],[417,111,0],[539,375,0],[216,299,0],[107,311,0],[-61,220,0],[87,452,0],[733,147,0],[760,293,0],[753,448,0],[744,46,0],[134,33,0],[929,181,0],[848,111,0],[1013,330,0],[880,269,0],[538,128,0],[208,391,0],[853,356,0]],
-				"connections":[[5,6]]
+				"peeps":[[44,184,0],[155,215,0],[237,105,0],[309,213,0],[646,211,0],[328,305,0],[629,308,0],[417,111,0],[538,362,0],[216,299,0],[94,314,0],[-61,220,0],[68,455,0],[733,147,0],[760,293,0],[776,437,0],[759,48,0],[134,33,0],[929,181,0],[848,111,0],[1013,330,0],[880,269,0],[538,128,0],[189,388,0],[853,356,0]],
+				"connections":[[5,6,0]]
 			}
 		},
 
@@ -55,7 +55,7 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"end_words",
-			text:"_1_tutorial_end", x:230, y:425, w:500, h:70, align:"center",
+			text:"_1_tutorial_end", x:230, y:400, w:500, h:70, align:"center",
 			hidden:true
 		}
 
@@ -110,23 +110,38 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"_1_threshold",
-			text:"_1_threshold", x:80, y:25, w:300
+			text:"_1_threshold", x:60, y:25, w:400
+		},
+		{
+			type:"box",
+			id:"_1_threshold_instruction",
+			text:"_1_threshold_instruction", x:110, y:260, w:300,
+			align:"center"
+		},
+		{
+			type:"box",
+			id:"_1_threshold_explanation",
+			text:"_1_threshold_explanation", x:105, y:340, w:400,
+			align:"right",
+			color:"#bbb",
+			fontSize:"0.75em",
+			lineHeight:"1.2em"
 		},
 		{
 			type:"box",
 			id:"_1_threshold_end",
-			text:"_1_threshold_end", x:80, y:400, w:300
+			text:"_1_threshold_end", x:60, y:430, w:400
 		},
 
 		// SIMULATION: THRESHOLD
 		{
 			type:"sim",
-			x:400, y:70,
+			x:420, y:70,
 			fullscreen: true,
 			network: {
 				"contagion":0.5,
-				"peeps":[[95,65,0],[417,380,1],[52,340,0],[399,92,1]],
-				"connections":[[2,3],[3,1]],
+				"peeps":[[141,99,0],[444,373,1],[442,103,1],[144,371,0]],
+				"connections":[[2,1,0],[3,2,0]]
 			},
 			options:{
 				infectedFrame: 2,
@@ -141,13 +156,15 @@ SLIDES.push(
 {
 	remove:[
 		{ type:"box", id:"_1_threshold" },
+		{ type:"box", id:"_1_threshold_instruction" },
+		{ type:"box", id:"_1_threshold_explanation" },
 		{ type:"box", id:"_1_threshold_end" }
 	],
 	add:[
 		{
 			type:"box",
 			id:"_1_pre_puzzle",
-			text:"_1_pre_puzzle", x:80, y:25, w:325, h:540
+			text:"_1_pre_puzzle", x:60, y:0, w:400
 		}
 	]
 },
@@ -165,7 +182,7 @@ SLIDES.push(
 		{
 			id:"puzzle",
 			type:"sim",
-			x:480-250, y:25,
+			x:410, y:25,
 			fullscreen: true,
 			network: {
 				"contagion":0.5,
@@ -181,29 +198,78 @@ SLIDES.push(
 		// Done? Let's go... (hidden at first...)
 		{
 			type:"box",
+			id:"_1_puzzle",
+			text:"_1_puzzle", x:60, y:10, w:300
+		},
+		{
+			type:"box",
+			id:"_1_puzzle_metric",
+			text:"_1_puzzle_metric", x:60, y:220, w:300
+		},
+		{
+			type:"box",
 			id:"_1_puzzle_end",
-			text:"_1_puzzle_end", x:680, y:430, w:300, align:"center",
+			text:"_1_puzzle_end", x:60, y:220, w:300,
 			hidden:true
 		}
 
 	],
 
+	onstart:function(slideshow, state){
+
+		// Modify puzzle metric box
+		var metric = slideshow.boxes.getChildByID("_1_puzzle_metric");
+		metric.innerHTML = "";
+
+		var COLOR = "hsl(50, 100%, 50%)";
+
+		// label
+		var label = document.createElement("div");
+		metric.appendChild(label);
+		label.style.color = COLOR;
+
+		// bar
+		var bar_container = document.createElement("div");
+		metric.appendChild(bar_container);
+		bar_container.style.border = "2px solid "+COLOR;
+		bar_container.style.width = "100%";
+		bar_container.style.height = "1em";
+		bar_container.style.position = "relative";
+		var bar = document.createElement("div");
+		bar_container.appendChild(bar);
+		bar.style.background = COLOR;
+		bar.style.height = "100%";
+		bar.style.position = "absolute";
+
+		// Save this cool DOM into state
+		state.metric_label = label;
+		state.metric_bar = bar;
+
+	},
+
 	onupdate:function(slideshow, state){
+
+		// How many peeps?
+		var sim = slideshow.simulations.sims[0];
+		var peepCount = 0;
+		sim.peeps.forEach(function(peep){
+			if(peep.isPastThreshold) peepCount++;
+		});
+
+		// Modify metric box!
+		var label = getWords("_1_puzzle_metric") + " " + peepCount + " " + getWords("_1_puzzle_metric_2");
+		state.metric_label.innerHTML = label;
+		state.metric_bar.style.width = Math.round((peepCount/9)*100)+"%";
 
 		// Win only if EVERYONE hits threshold
 		if(!state.won){
-
-			var sim = slideshow.simulations.sims[0];
-			var peepCount = 0;
-			sim.peeps.forEach(function(peep){
-				if(peep.isPastThreshold) peepCount++;
-			});
 			if(peepCount==9){
+				var boxes = slideshow.boxes;
 				state.won = true;
-				slideshow.boxes.showChildByID("_1_puzzle_end");
+				boxes.hideChildByID("_1_puzzle_metric");
+				boxes.showChildByID("_1_puzzle_end");
 				sim.win();
 			}
-
 		}
 
 	}
@@ -213,20 +279,50 @@ SLIDES.push(
 // post-puzzle ramble, introduce simple contagion
 {
 	remove:[
+		{ type:"box", id:"_1_puzzle" },
+		{ type:"box", id:"_1_puzzle_metric" },
 		{ type:"box", id:"_1_puzzle_end" }
 	],
 	move:[
 		// shift sim to side
-		{type:"sim", id:"puzzle", x:0}
+		{type:"sim", id:"puzzle", x:20}
 	],
 	add:[
 		// new text
 		{
 			type:"box",
 			id:"_1_post_puzzle",
-			text:"_1_post_puzzle", x:600, y:0, w:300
+			text:"_1_post_puzzle", x:560, y:0, w:400
+		},
+		{
+			type:"box",
+			id:"_1_post_puzzle_bonus",
+			text:"_1_post_puzzle_bonus", x:170, y:1000 // offscreen!
+		},
+	],
+
+	onupdate:function(slideshow, state){
+
+		// How many peeps passed?
+		var sim = slideshow.simulations.sims[0];
+		var peepCount = 0;
+		sim.peeps.forEach(function(peep){
+			if(peep.numFriends>0 && !peep.isPastThreshold) peepCount++;
+		});
+
+		// Win Bonus
+		if(!state.won){
+			if(peepCount==9){
+				var winbox = slideshow.boxes.getChildByID("_1_post_puzzle_bonus");
+				if(winbox){
+					winbox.style.top = "270px";
+					state.won = true;
+				}
+			}
 		}
-	]
+
+	}
+
 }
 
 );

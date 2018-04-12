@@ -72,7 +72,7 @@ function fadeOut(container, dom){
 }
 
 // Tween position
-function tweenPosition(from, to){
+function tweenPosition(from, to, callback){
 	var x1 = from.x;
 	var y1 = from.y;
 	var x2 = to.x;
@@ -95,8 +95,25 @@ function tweenPosition(from, to){
 		from.x = x1 + dx*easeInOutSine(t);
 		from.y = y1 + dy*easeInOutSine(t);
 
+		// Callback
+		if(callback){
+			callback(from);
+		}
+
 	});
 }
+/*function tweenBox(box, to){
+	var from = {
+		x: parseInt(box.style.left),
+		y: parseInt(box.style.top)
+	};
+	to.x = (to.x===undefined) ? from.x : to.x;
+	to.y = (to.y===undefined) ? from.y : to.y;
+	tweenPosition(from, to, function(position){
+		box.style.left = position.x + "px";
+		box.style.top = position.y + "px";
+	});
+}*/
 // From Robert Penner: http://robertpenner.com/scripts/easing_equations.txt
 function easeInOutSine(t) {
 	return -1/2 * (Math.cos((Math.TAU/2)*t) - 1);

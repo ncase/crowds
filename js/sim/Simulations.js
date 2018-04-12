@@ -351,7 +351,7 @@ function Sim(config){
 				frame: frame,
 				spinSpeed: spinSpeed,
 				spin: Math.random()*Math.TAU,
-				g: 0.05+Math.random()*0.10
+				g: 0.10+Math.random()*0.10
 			};
 			self.confetti.push(confetti);
 		}

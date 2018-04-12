@@ -152,7 +152,7 @@ function Peep(config){
 
 	// Draw
 	var radius = 25;
-	var barWidth = radius*1.75;
+	var barWidth = radius*2;
 	var barHeight = 10;
 	var bodyRotation = Math.TAU*Math.random();
 	var PEEP_COLORS = [
@@ -214,17 +214,25 @@ function Peep(config){
 
 			// Say: Infected/Friends (% then n/n)
 			ctx.translate(0,-43);
-			ctx.font = '10px FuturaHandwritten';
+			ctx.font = '9px FuturaHandwritten';
 			ctx.fillStyle = uiColor;
 			ctx.textBaseline = "middle";
 			ctx.fontWeight = "bold";
-			ctx.textAlign = "center";
 			if(self.numFriends>0){
+
+				// #
+				ctx.textAlign = "left";
 				var labelNum = self.numInfectedFriends+"/"+self.numFriends;
+				ctx.fillText(labelNum, -barWidth/2, 0);
+
+				// %
+				ctx.textAlign = "right";
 				var labelPercent = Math.round(100*(self.numInfectedFriends/self.numFriends)) + "%";
-				var label = labelNum + "=" + labelPercent;
-				ctx.fillText(label, 0, 0);
+				ctx.fillText(labelPercent, barWidth/2, 0);
+
+
 			}else{
+				ctx.textAlign = "center";
 				ctx.fillText("∅", 0, -1);
 			}
 

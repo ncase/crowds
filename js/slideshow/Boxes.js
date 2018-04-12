@@ -53,6 +53,8 @@ function Boxes(){
 			box.innerHTML = getWords(config.text);
 			if(config.align) box.style.textAlign = config.align;
 			if(config.color) box.style.color = config.color;
+			if(config.fontSize) box.style.fontSize = config.fontSize;
+			if(config.lineHeight) box.style.lineHeight = config.lineHeight;
 		}
 
 		// pics:

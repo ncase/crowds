@@ -273,9 +273,9 @@ words, bonus, glossary{
 }
 
 /* TO SEE LAYOUT */
-/*.box, #simulations{
+.box, #simulations{
 	border: 1px solid #eee;
-}*/
+}
 
 /* A NICE CIRCLE */
 /* Thanks to: https://skeate.github.io/2015/07/13/Wrapping-Text-to-Fit-Shaped-Containers-with-CSS.html */

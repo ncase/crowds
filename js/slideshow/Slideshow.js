@@ -72,7 +72,8 @@ function Slideshow(){
 			slide.move.forEach(function(childConfig){
 				switch(childConfig.type){
 					case "box":
-						//self.boxes.add(childConfig);
+						//var box = self.boxes.getChildByID(childConfig.id);
+						//tweenBox(box, childConfig);
 						break;
 					case "sim":
 						var sim = self.simulations.getChildByID(childConfig.id);
