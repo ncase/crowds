@@ -294,13 +294,14 @@ SLIDES.push(
 			id:"_1_post_puzzle",
 			text:"_1_post_puzzle", x:560, y:0, w:400
 		},
-		{
+		/*{
 			type:"box",
 			id:"_1_post_puzzle_bonus",
 			text:"_1_post_puzzle_bonus", x:170, y:1000 // offscreen!
-		},
+		},*/
 	],
 
+	/*
 	onupdate:function(slideshow, state){
 
 		// How many peeps passed?
@@ -322,6 +323,7 @@ SLIDES.push(
 		}
 
 	}
+	*/
 
 }
 

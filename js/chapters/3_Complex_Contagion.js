@@ -331,8 +331,7 @@ SLIDES.push(
 		{
 			type:"box",
 			text:"_3_groupthink",
-			x:460, y:0, w:500, h:540,
-			lineHeight:"1.4em"
+			x:460, y:0, w:500, h:540
 		},
 
 

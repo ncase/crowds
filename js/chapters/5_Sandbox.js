@@ -12,10 +12,10 @@ SLIDES.push(
 			x:0, y:0,
 			fullscreen: true,
 			network: {
-				"contagion":0,
-				"peeps":[[443,213,1],[570,309,0],[686,194,0]],
+				"contagion":0.25,
+				"peeps":[[506,195,1],[621,270,0],[724,194,0]],
 				"connections":[[0,1,0],[1,2,0]]
-			}
+			},
 		},
 
 		// The Sandbox UI
@@ -28,9 +28,21 @@ SLIDES.push(
 		// Simulation UI
 		{
 			type:"box",
-			x:35, y:450,
+			x:35, y:365,
 			sim_ui:"red"
-		}
+		},
+
+		// Words
+		{
+			type:"box",
+			text:"sandbox_caption",
+			x:70, y:470, w:550, h:70
+		},
+		{
+			type:"box",
+			text:"sandbox_next",
+			x:605, y:455, w:300, h:100
+		},
 
 
 	]

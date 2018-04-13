@@ -6,22 +6,87 @@ SLIDES.push(
 	clear:true,
 
 	add:[
+
 		// Sim
+		// DRAWING FOR SOFT CONSTRAINTS...
 		{
 			type:"sim",
 			x:0, y:130,
 			fullscreen: true,
 			network: {
 				"contagion":0.25,
-				"peeps":[[92,52,1],[178,54,0],[25,131,0],[83,213,0],[174,213,0],[233,135,0],[421,50,1],[365,141,0],[423,230,0],[527,228,0],[586,135,0],[522,54,0],[772,50,1],[711,128,0],[770,211,0],[864,210,0],[933,126,0],[858,52,0]],
-				"connections":[[13,12,0],[12,17,0],[16,15,0],[15,14,0],[14,13,0],[13,16,0],[16,14,0],[14,17,0],[17,15,0],[15,12,0],[12,16,0],[15,13,0],[17,16,0],[14,12,0],[13,17,0],[0,1,0],[2,5,0],[4,3,0]]
+				"peeps":[
+					[90,-67,1],[181,-71,0],[36,21,0],[107,98,0],[206,92,0],[244,6,0],
+					[416,106,1],[352,181,0],[415,267,0],[528,268,0],[595,186,0],[532,107,0],
+					[769,-68,1],[701,6,0],[753,96,0],[855,110,0],[928,35,0],[867,-59,0]
+				],
+				"connections":[[13,12,0],[12,17,0],[16,15,0],[14,13,0],[13,16,0],[14,17,0],[17,15,0],[15,12,0],[12,16,0],[15,13,0],[17,16,0],[14,12,0],[13,17,0],[0,1,0],[2,5,0],[4,3,0],[15,14,0],[14,16,0]]
 			},
 			options:{
 				infectedFrame: 3,
 				scale: 1
 			}
 		},
-	]
+
+		// UI for the simulation
+		{
+			type:"box",
+			id:"ui",
+			x:370, y:445,
+			sim_ui:"blue"
+		},
+
+		// Words
+		{
+			type:"box",
+			text:"bonding_1",
+			x:230, y:0+15, w:500, h:70,
+			align:"center"
+		},
+
+		// Words 2
+		{
+			type:"box",
+			text:"bonding_2",
+			x:300, y:70+15, w:360, h:100,
+			align:"center"
+		},
+
+		// Words End
+		{
+			id:"end",
+			type:"box",
+			text:"bonding_end",
+			x:660, y:290, w:300, h:250,
+			hidden:true
+		}
+
+	],
+
+	onupdate:function(slideshow, state){
+
+		// If Peeps[6] to Peep[11] pass..
+		var sim = slideshow.simulations.sims[0];
+		var peepCount = 0;
+		for(var i=6; i<=11; i++){
+			var peep = sim.peeps[i];
+			if(peep.infected) peepCount++;
+		}
+
+		// Win
+		if(!state.ended){
+			if(peepCount==6){
+				var boxes = slideshow.boxes;
+				boxes.showChildByID("end", true);
+				state.ended = true;
+				sim.win({
+					x:330+5, y:160-120+5,
+					width:280, height:280
+				});
+			}
+		}
+
+	}
 
 },
 
@@ -30,15 +95,16 @@ SLIDES.push(
 	clear:true,
 
 	add:[
+
 		// Sim
 		{
 			type:"sim",
-			x:0, y:0,
+			x:-70, y:-30,
 			fullscreen: true,
 			network: {
 				"contagion":0.25,
-				"peeps":[[314,58,1],[418,87,0],[234,139,0],[277,234,0],[386,264,0],[460,180,0],[538,390,0],[617,309,0],[719,333,0],[766,432,0],[680,514,0],[572,491,0]],
-				"connections":[[7,6,0],[6,11,0],[11,10,0],[9,8,0],[8,7,0],[6,10,0],[6,9,0],[9,11,0],[11,7,0],[7,10,0],[9,7,0],[8,10,0],[10,9,0],[6,8,0],[8,11,0],[0,1,0],[2,5,0],[4,3,0]]
+				"peeps":[[182,92,1],[300,106,0],[107,196,0],[151,300,0],[301,309,0],[354,213,0],[441,384,0],[500,290,0],[644,304,0],[691,422,0],[621,510,0],[491,488,0]],
+				"connections":[[6,7,1],[7,8,1],[8,9,1],[9,10,1],[10,11,1],[11,6,1],[6,9,1],[9,11,1],[11,8,1],[8,10,1],[10,7,1],[7,9,1],[11,7,1],[6,10,1],[6,8,1],[0,1,1],[1,5,1],[5,4,1],[4,3,1],[2,3,1],[2,0,1],[3,1,1]]
 			},
 			options:{
 				infectedFrame: 3,
@@ -46,7 +112,53 @@ SLIDES.push(
 				startUncuttable: true
 			}
 		},
-	]
+
+		// UI for the simulation
+		{
+			type:"box",
+			id:"ui",
+			x:95, y:390,
+			sim_ui:"blue"
+		},
+
+		// Words
+		{
+			type:"box",
+			text:"bridging_1",
+			x:340, y:30, w:620, h:120
+		},
+
+		// Words End
+		{
+			id:"end",
+			type:"box",
+			text:"bridging_end",
+			x:660, y:180, w:300, h:360,
+			hidden:true
+		}
+
+	],
+
+	onupdate:function(slideshow, state){
+
+		// If ALL infected...
+		var sim = slideshow.simulations.sims[0];
+		var peepCount = 0;
+		sim.peeps.forEach(function(peep){
+			if(peep.infected) peepCount++;
+		});
+
+		// Win
+		if(!state.ended){
+			if(peepCount==sim.peeps.length){
+				var boxes = slideshow.boxes;
+				boxes.showChildByID("end", true);
+				state.ended = true;
+				sim.win();
+			}
+		}
+
+	}
 
 },
 
@@ -55,15 +167,16 @@ SLIDES.push(
 	clear:true,
 
 	add:[
+
 		// Sim
 		// use a DRAWING to impose SOFT CONSTRAINTS
 		{
 			type:"sim",
-			x:0, y:0,
+			x:150, y:0,
 			fullscreen: true,
 			network: {
 				"contagion":0.25,
-				"peeps":[[474,46,1],[578,100,0],[388,94,0],[568,195,0],[392,190,0],[486,233,0],[273,318,0],[183,363,0],[183,447,0],[256,498,0],[355,376,0],[347,469,0],[630,367,0],[696,308,0],[791,360,0],[784,442,0],[725,495,0],[637,450,0]],
+				"peeps":[[485,50,1],[581,97,0],[389,101,0],[579,200,0],[399,193,0],[487,243,0],[290,312,0],[201,358,0],[196,446,0],[278,509,0],[381,374,0],[367,469,0],[596,370,0],[680,315,0],[778,354,0],[784,454,0],[700,506,0],[604,459,0]],
 				"connections":[]
 			},
 			options:{
@@ -72,7 +185,54 @@ SLIDES.push(
 				startUncuttable: true
 			}
 		},
-	]
+
+		// UI for the simulation
+		{
+			type:"box",
+			id:"ui",
+			x:70, y:190,
+			sim_ui:"blue"
+		},
+
+
+		// Words
+		{
+			type:"box",
+			text:"bb_1",
+			x:0, y:10, w:350, h:170
+		},
+
+		// Words
+		{
+			id:"end",
+			type:"box",
+			text:"bb_2",
+			x:0, y:310, w:300, h:230,
+			//hidden: true
+		}
+
+	],
+
+	onupdate:function(slideshow, state){
+
+		// If ALL infected...
+		var sim = slideshow.simulations.sims[0];
+		var peepCount = 0;
+		sim.peeps.forEach(function(peep){
+			if(peep.infected) peepCount++;
+		});
+
+		// Win
+		if(!state.ended){
+			if(peepCount==sim.peeps.length){
+				var boxes = slideshow.boxes;
+				boxes.showChildByID("end", true);
+				state.ended = true;
+				sim.win();
+			}
+		}
+
+	}
 
 },
 

@@ -315,7 +315,7 @@ function Sim(config){
 	self.confetti = [];
 	self.winWord = {x:0, y:0, ticker:-1};
 
-	self.win = function(){
+	self.win = function(bounds){
 
 		// ONLY ONCE
 		if(self.wonBefore) return;
@@ -324,7 +324,7 @@ function Sim(config){
 		// Get center of peeps
 		var fullscreenOffsetX = config.x + simOffset.x;
 		var fullscreenOffsetY = config.y + simOffset.y;
-		var bounds = getBoundsOfPoints(self.peeps);
+		bounds = bounds || getBoundsOfPoints(self.peeps); // OPTIONAL BOUNDS
 		var cx = bounds.x + bounds.width/2;
 		var cy = bounds.y + bounds.height/2;
 		cx += fullscreenOffsetX;

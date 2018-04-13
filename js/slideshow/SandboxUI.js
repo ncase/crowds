@@ -44,9 +44,11 @@ function SandboxUI(container){
 	// Choose Color of Peeps //
 	///////////////////////////
 
+	var GAP = "0.5em";
+
 	var colorChooserLabel = document.createElement("div");
 	colorChooserLabel.innerHTML = getWords("sandbox_color_chooser");
-	colorChooserLabel.style.marginTop = "1em";
+	colorChooserLabel.style.marginTop = GAP;
 	var colorChooser = new ChooseOne({
 		options:[
 			1, // red
@@ -75,7 +77,7 @@ function SandboxUI(container){
 
 	var toolChooserLabel = document.createElement("div");
 	toolChooserLabel.innerHTML = getWords("sandbox_tool_chooser");
-	toolChooserLabel.style.marginTop = "1em";
+	toolChooserLabel.style.marginTop = "0.25em"; //GAP;
 	var tools = [
 		"pencil",
 		"add",
@@ -122,7 +124,7 @@ function SandboxUI(container){
 	var shortcutsLabel = document.createElement("div");
 	shortcutsLabel.innerHTML = getWords("sandbox_shortcuts_label");
 	shortcutsLabel.id = "sandbox_shortcuts_label";
-	shortcutsLabel.style.marginTop = "1em";
+	shortcutsLabel.style.marginTop = GAP;
 	var shortcuts = document.createElement("div");
 	shortcuts.innerHTML = getWords("sandbox_shortcuts");
 	shortcuts.id = "sandbox_shortcuts";
