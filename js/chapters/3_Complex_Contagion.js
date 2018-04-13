@@ -188,6 +188,7 @@ SLIDES.push(
 
 		// Lil' contagion
 		{
+			id: "contagion",
 			type:"sim",
 			x:0, y:80,
 			fullscreen: true,
@@ -212,13 +213,13 @@ SLIDES.push(
 		},
 
 		// Outro text
-		{
+		/*{
 			id:"end",
 			type:"box",
 			text:"_3_prevent_end",
 			x:660, y:440, w:300, h:100,
 			hidden:true
-		}
+		}*/
 
 	],
 
@@ -246,9 +247,12 @@ SLIDES.push(
 							state.ended = true;
 							var boxes = slideshow.boxes;
 							setTimeout(function(){
-								boxes.showChildByID("end", true);
+								//boxes.showChildByID("end", true);
 								sim.win();
 							},500);
+							setTimeout(function(){
+								slideshow.next();
+							},1250);
 
 						}
 
@@ -268,6 +272,74 @@ SLIDES.push(
 
 	}
 
+},
+
+{
+	remove:[
+		{type:"box", id:"_3_prevent"}
+	],
+	move:[
+		{type:"box", id:"ui", y:0},
+		{type:"sim", id:"contagion", y:-70}
+	],
+	add:[
+		{
+			type:"box",
+			text:"_3_prevent_2",
+			x:0, y:390, w:650, h:100,
+			align: "right"
+		},
+		{
+			type:"box",
+			text:"_3_prevent_end",
+			x:660, y:450, w:300, h:90
+		}
+	]
+},
+
+{
+	chapter: "Complex-Groupthink",
+	clear: true,
+
+	add:[
+
+		// Sim
+		{
+			type:"sim",
+			x:-15, y:0,
+			fullscreen: true,
+			network: {
+				"contagion":0.25,
+				"peeps":[[409,457,1],[157,345,0],[62,221,0],[152,93,0],[301,94,0],[391,218,0],[306,347,0]],
+				"connections":[[5,4,0],[4,3,0],[3,2,0],[2,1,0],[1,6,0],[6,5,0],[5,2,0],[2,4,0],[4,1,0],[1,3,0],[3,6,0],[6,2,0],[1,5,0],[5,3,0],[6,4,0],[0,6,0]]
+			},
+			options:{
+				infectedFrame: 3,
+				scale: 1.75
+			}
+		},
+
+		// UI for the simulation
+		{
+			type:"box",
+			id:"ui",
+			x:120, y:410,
+			sim_ui:"blue"
+		},
+
+		// Text
+		{
+			type:"box",
+			text:"_3_groupthink",
+			x:460, y:0, w:500, h:540,
+			lineHeight:"1.4em"
+		},
+
+
+	]
+
 }
 
 );
+
+
