@@ -8,13 +8,22 @@ function Connection(config){
 	self.uncuttable = config.uncuttable || false;
 	self.sim = config.sim;
 
-	// Sprite
+	// Line Sprite
 	self.sprite = new Sprite({
 		src: "sprites/line.png",
 		frames:1, sw:300, sh:20,
 	});
 	self.sprite.pivotX = 2.8;
 	self.sprite.pivotY = 10;
+
+	// Dot Sprite
+	self.dotSprite = new Sprite({
+		src: "sprites/peeps.png",
+		frames:6, sw:200, sh:200,
+	});
+	self.dotSprite.pivotX = 100;
+	self.dotSprite.pivotY = 100;
+	self.dotSprite.scale = 0.1;
 
 	// Update
 	self.update = function(){};
@@ -36,6 +45,15 @@ function Connection(config){
 		self.sprite.rotation = a;
 		self.sprite.draw(ctx);
 		ctx.restore();
+
+		// DRAW CONTAGION DOT
+		if(self.contagionDot){
+			var infectedFrame = self.sim.options.infectedFrame || 1;
+			self.dotSprite.x = self.contagionDot.x;
+			self.dotSprite.y = self.contagionDot.y;
+			self.dotSprite.gotoFrame(infectedFrame);
+			self.dotSprite.draw(ctx);
+		}
 
 	};
 
@@ -63,6 +81,40 @@ function Connection(config){
 	    t = ( s2_x * (p0_y - p2_y) - s2_y * (p0_x - p2_x)) / (-s2_x * s1_y + s1_x * s2_y);
 
 		return (s >= 0 && s <= 1 && t >= 0 && t <= 1);
+
+	};
+
+	// Animate
+	self.contagionDot = null;
+	self.animate = function(){
+
+		// Infection?
+		var cFrom, cTo;
+		if(self.from.infected && (!self.to.infected && self.to.isPastThreshold)){
+			cFrom = self.from;
+			cTo = self.to;
+		}
+		if(self.to.infected && (!self.from.infected && self.from.isPastThreshold)){
+			cFrom = self.to;
+			cTo = self.from;
+		}
+
+		// boop! 
+		if(cFrom && cTo){
+
+			// ANIMATE IT
+			cFrom = { x:cFrom.x, y:cFrom.y };
+			cTo = { x:cTo.x, y:cTo.y };
+			tweenPosition(cFrom, cTo, function(point){
+				self.contagionDot = point;
+			}, easeLinear);
+
+			// Then, goodbye later
+			setTimeout(function(){
+				self.contagionDot = null;
+			},333);
+
+		}
 
 	};
 

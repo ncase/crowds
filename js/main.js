@@ -29,6 +29,6 @@ window.onload = function(){
 	window.requestAnimationFrame(update);
 
 	// First slide!
-	slideshow.gotoChapter("Sandbox");
+	slideshow.gotoChapter("Conclusion");
 
 }

@@ -249,10 +249,10 @@ SLIDES.push(
 							setTimeout(function(){
 								//boxes.showChildByID("end", true);
 								sim.win();
-							},500);
+							},350);
 							setTimeout(function(){
 								slideshow.next();
-							},1250);
+							},1100);
 
 						}
 

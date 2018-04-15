@@ -73,24 +73,29 @@ function Peep(config){
 				y: 0 - self.y
 			});
 			var gravityScale = getVectorLength(self)*0.00012;
+			if(self.sim.options.CONCLUSION){
+				gravityScale *= 2;
+			}
 			gravity = multiplyVector(gravity, gravityScale);
 			self.velocity = addVectors(self.velocity, gravity);
 
 			// If within the ring, push OUT.
-			var RADIUS = 325;
-			var distanceFromCenter = getVectorLength(self);
-			if(distanceFromCenter<RADIUS){
-				var forcePushOut = RADIUS-distanceFromCenter;
-				forcePushOut *= 0.05;
-				forcePushOut = Math.min(forcePushOut, 2); //cap
-				var forceDirection = getUnitVector(self);
-				var forceOut = multiplyVector( forceDirection, forcePushOut );
-				self.velocity = addVectors(self.velocity, forceOut);
+			if(!self.sim.options.CONCLUSION){
+				var RADIUS = 325;
+				var distanceFromCenter = getVectorLength(self);
+				if(distanceFromCenter<RADIUS){
+					var forcePushOut = RADIUS-distanceFromCenter;
+					forcePushOut *= 0.05;
+					forcePushOut = Math.min(forcePushOut, 2); //cap
+					var forceDirection = getUnitVector(self);
+					var forceOut = multiplyVector( forceDirection, forcePushOut );
+					self.velocity = addVectors(self.velocity, forceOut);
+				}
 			}
 
 			// Hookes to Connected
 			var k = 0.002;
-			var hookesDistance = 160;
+			var hookesDistance = 140;
 			var hookesTotalForce = {x:0, y:0};
 			friends.forEach(function(friend){
 
@@ -106,6 +111,9 @@ function Peep(config){
 
 			// Coulomb from Disconnected
 			var c = -300;
+			if(self.sim.options.CONCLUSION){
+				c = -400;
+			}
 			var coulombTotalForce = {x:0, y:0};
 			self.sim.peeps.forEach(function(peep){
 				
@@ -163,6 +171,8 @@ function Peep(config){
 		"#7DE74E", // green
 		"#FBCBDC" // pink
 	];
+	var _glowAnim = 0;
+	self.conclusionFrame = Math.floor(1+Math.random()*5);
 	self.draw = function(ctx){
 
 		ctx.save();
@@ -176,15 +186,27 @@ function Peep(config){
 		var infectedColor = PEEP_COLORS[infectedFrame];
 		var myFrame = self.infected ? infectedFrame : 0;
 		var myColor = PEEP_COLORS[myFrame];
+		// CONCLUSION SPLASH
+		if(self.sim.options.CONCLUSION){
+			var distance = getVectorLength(self);
+			if(distance < self.sim.options.CONCLUSION_GLOW_RADIUS){
+				//self.isPastThreshold = true;
+				myFrame = self.conclusionFrame;
+				infectedFrame = self.conclusionFrame;
+			}
+		}
 		self.sprite.rotation = bodyRotation;
-		if(self.isPastThreshold){ // highlight!
+		if(self.isPastThreshold){ // highlight! glow!
 
-			ctx.globalAlpha = 0.4;
-			self.sprite.scale = _initSpriteScale*1.25;
+			_glowAnim += 0.03;
+			var _glowScale = 1 + Math.sin(_glowAnim)*0.04;
+			ctx.globalAlpha = 0.35;
+			self.sprite.scale = _initSpriteScale*1.25*_glowScale;
 			
 			self.sprite.gotoFrame(infectedFrame);
 			self.sprite.draw(ctx);
 
+			// undo
 			ctx.globalAlpha = 1;
 			self.sprite.scale = _initSpriteScale;
 
@@ -209,12 +231,19 @@ function Peep(config){
 
 			ctx.save();
 
+			// SHAKE
+			if(self._shakeAnim>=0){
+				var shake = Math.sin(self._shakeAnim*10)*3;
+				ctx.translate(shake, 0);
+				self._shakeAnim -= 0.05;
+			}
+
 			var bgColor = "#ddd";
 			var uiColor = "#333";
 
 			// Say: Infected/Friends (% then n/n)
 			ctx.translate(0,-43);
-			ctx.font = '9px FuturaHandwritten';
+			ctx.font = '12px PatrickHand';
 			ctx.fillStyle = uiColor;
 			ctx.textBaseline = "middle";
 			ctx.fontWeight = "bold";
@@ -287,6 +316,12 @@ function Peep(config){
 	// Infect
 	self.infect = function(){
 		self.infected = true;
+	};
+
+	// Shake
+	self._shakeAnim = -1;
+	self.shake = function(){
+		self._shakeAnim = 1;
 	};
 
 }

@@ -1,4 +1,3 @@
-// 0 - INTRODUCTION
 SLIDES.push(
 
 {
@@ -160,81 +159,6 @@ SLIDES.push(
 
 	}
 
-},
-
-{
-	chapter: "BB-Both",
-	clear:true,
-
-	add:[
-
-		// Sim
-		// use a DRAWING to impose SOFT CONSTRAINTS
-		{
-			type:"sim",
-			x:150, y:0,
-			fullscreen: true,
-			network: {
-				"contagion":0.25,
-				"peeps":[[485,50,1],[581,97,0],[389,101,0],[579,200,0],[399,193,0],[487,243,0],[290,312,0],[201,358,0],[196,446,0],[278,509,0],[381,374,0],[367,469,0],[596,370,0],[680,315,0],[778,354,0],[784,454,0],[700,506,0],[604,459,0]],
-				"connections":[]
-			},
-			options:{
-				infectedFrame: 3,
-				scale: 1,
-				startUncuttable: true
-			}
-		},
-
-		// UI for the simulation
-		{
-			type:"box",
-			id:"ui",
-			x:70, y:190,
-			sim_ui:"blue"
-		},
-
-
-		// Words
-		{
-			type:"box",
-			text:"bb_1",
-			x:0, y:10, w:350, h:170
-		},
-
-		// Words
-		{
-			id:"end",
-			type:"box",
-			text:"bb_2",
-			x:0, y:310, w:300, h:230,
-			//hidden: true
-		}
-
-	],
-
-	onupdate:function(slideshow, state){
-
-		// If ALL infected...
-		var sim = slideshow.simulations.sims[0];
-		var peepCount = 0;
-		sim.peeps.forEach(function(peep){
-			if(peep.infected) peepCount++;
-		});
-
-		// Win
-		if(!state.ended){
-			if(peepCount==sim.peeps.length){
-				var boxes = slideshow.boxes;
-				boxes.showChildByID("end", true);
-				state.ended = true;
-				sim.win();
-			}
-		}
-
-	}
-
-},
-
+}
 
 );

@@ -72,7 +72,7 @@ function fadeOut(container, dom){
 }
 
 // Tween position
-function tweenPosition(from, to, callback){
+function tweenPosition(from, to, callback, ease, speed){
 	var x1 = from.x;
 	var y1 = from.y;
 	var x2 = to.x;
@@ -80,10 +80,12 @@ function tweenPosition(from, to, callback){
 	var dx = x2-x1;
 	var dy = y2-y1;
 	var t = 0;
+	ease = ease || easeInOutSine;
+	speed = speed || 3/60;
 	var handle = subscribe("update", function(){
 
 		// Time
-		t += 3/60;
+		t += speed;
 		if(t>=1){
 			from.x = x2;
 			from.y = y2;
@@ -118,6 +120,9 @@ function tweenPosition(from, to, callback){
 function easeInOutSine(t) {
 	return -1/2 * (Math.cos((Math.TAU/2)*t) - 1);
 };
+function easeLinear(t){
+	return t;
+}
 
 // Get Bounding Box of points
 function getBoundsOfPoints(points){

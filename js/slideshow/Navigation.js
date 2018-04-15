@@ -52,7 +52,7 @@ function Navigation(){
 	var _showBubble = function(nav){
 
 		var offset = nav.getBoundingClientRect().x - $("#navigation").getBoundingClientRect().x;
-		var label = nav.querySelector("span:nth-child(2)").innerHTML;
+		var label = nav.children[1].innerHTML;
 		bubble.style.left = offset - (220/2) + (36/2);
 		bubble.innerHTML = label;
 

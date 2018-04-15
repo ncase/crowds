@@ -281,7 +281,7 @@ function Sim(config){
 				ctx.globalAlpha = alpha;
 			}
 
-			ctx.font = '80px FuturaHandwritten';
+			ctx.font = '100px PatrickHand';
 			ctx.fillStyle = "#000";
 			ctx.textBaseline = "middle";
 			ctx.fontWeight = "bold";
@@ -376,16 +376,44 @@ function Sim(config){
 		self.contagion = contagionLevel;
 	};
 
+	self._dontStepAgain = false;
 	self.nextStep = function(){
 
-		self.STEP++;
+		if(self._dontStepAgain) return;
+		self._dontStepAgain = true;
+		setTimeout(function(){
+			self.STEP++;
+			self._dontStepAgain = false;
+		},420); // just in case...
 
 		// "Infect" the peeps who need to get infected
-		// TODO: Connection animation
-		self.peeps.filter(function(peep){
-			return peep.isPastThreshold;
-		}).forEach(function(peep){
-			peep.infect();
+
+		// CONNECTIONS: IF one is INFECTED and the other is PAST THRESHOLD, then ANIMATE
+		self.connections.forEach(function(c){
+			c.animate();
+		});
+
+		// PEEPS: If not already infected & past threshold, infect
+		self.peeps.forEach(function(peep){
+			if(!peep.infected && peep.isPastThreshold){
+				// timeout for animation
+				setTimeout(function(){
+					peep.infect();
+				},333);
+			}
+		});
+
+		// PEEPS: If NOT infected, NOT past threshold, and a friend IS INFECTED, then SHAKE
+		self.peeps.forEach(function(peep){
+			if(!peep.infected && !peep.isPastThreshold){
+				var friends = self.getFriendsOf(peep);
+				var infectedFriends = friends.filter(function(f){
+					return f.infected;
+				});
+				if(infectedFriends.length>0){
+					peep.shake();
+				}
+			}
 		});
 
 	};
