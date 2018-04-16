@@ -36,7 +36,7 @@ window.onload = function(){
 subscribe("START", function(){
 
 	// Music
-	// SOUNDS.bg_music.play();
+	SOUNDS.bg_music.play();
 
 	// Navigation
 
