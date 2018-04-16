@@ -8,12 +8,6 @@ MY "WHY" FOR MAKING THIS:
 + to practice teaching with problem-solving, a pre-req for skills
 + to instill transcendent sense of "fundamentally people", of Humanity's Brain <3
 
-SLIDES: 
-Keep all words on index.html. This allows people to translate it to SAME repo!
-/de.html, etc etc
-Same format as EvoTrust. But also footnotes.
-Cursor is allowed to flow EVERYWHERE though...
-
 -->
 
 <!doctype>
@@ -41,7 +35,15 @@ Cursor is allowed to flow EVERYWHERE though...
 			<div id="scratch"></div>
 
 			<!-- Modal -->
-			<div id="modal"></div>
+			<div id="modal_container">
+				<div id="modal_bg"></div>
+				<div id="modal">
+					<div id="modal_close">⨯</div>
+					<div id="modal_content_container">
+						<div id="modal_content"></div>
+					</div>
+				</div>
+			</div>
 
 		</div>
 		
@@ -115,7 +117,7 @@ Cursor is allowed to flow EVERYWHERE though...
 				</div>
 
 				<!-- The hover bubble -->
-				<span id="nav_bubble">AHHHHHH</span>
+				<span id="nav_bubble"></span>
 				
 			</div>
 			<div id="social"></div>
@@ -257,10 +259,10 @@ Cursor is allowed to flow EVERYWHERE though...
 
 <words id="networks_threshold_explanation">
 	<span style="color:#666">top-left:</span>
-	# of drinker friends / # of total friends &nbsp;&nbsp;&nbsp;&nbsp;
+	% of drinker friends &rarr;
 	<br>
 	<span style="color:#666">top-right:</span>
-	% of drinker friends &rarr;
+	# of drinker friends / # of total friends &nbsp;&nbsp;&nbsp;&nbsp;
 	<br>
 	<span style="color:#666">black line:</span>
 	the 50% "majority" threshold &nbsp;&nbsp;&nbsp;&nbsp;
@@ -277,13 +279,10 @@ Cursor is allowed to flow EVERYWHERE though...
 	Just like how you see the earth as flat because you're on it,
 	people get wrong ideas about society because they're <i>in</i> it.
 
-	<br><br>
+	<bon id="connections"></bon>
+	<br>
 
-	(BONUS BOX: OTHER CONNECTIONS)
-
-	<br><br>
-
-	For example, a 1991 study(*) showed that 
+	For example, a 1991 study<ref id="drunk"></ref> showed that 
 	“virtually all [college] students reported that their friends drank more than they did.”
 	But that seems impossible!
 	How can that be?
@@ -292,6 +291,15 @@ Cursor is allowed to flow EVERYWHERE though...
 
 	<next>FOOL EVERYONE &rarr;</next>
 
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:-5px;">
+		<i>optional</i> extra bonus notes &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		&darr; links and references
+	</div>
 </words>
 
 <words id="networks_puzzle">
@@ -317,16 +325,12 @@ Cursor is allowed to flow EVERYWHERE though...
 
 <words id="networks_post_puzzle">
 
-	What you just created is called The Majority Illusion(*),
+	What you just created is called The Majority Illusion<ref id="majority"></ref>,
 	which also explains why people think their political views are consensus,
 	or why extremism seems more common than it actually is.
 	<i>Madness.</i>
 
-	<br><br>
-
-	(BONUS BOX: a response to the books)
-
-	<br><br>
+	<bon id="books"></bon>
 
 	But ideas/behaviors aren't just passively observed, they actively <i>spread</i>.
 	So now, let's look at something network scientists call...
@@ -350,10 +354,10 @@ Cursor is allowed to flow EVERYWHERE though...
 
 <words id="simple_simple_2">
 	Note: despite the negative name, "contagions" can be good or bad.
-	There's strong statistical evidence(*) that
+	There's strong statistical evidence<ref id="contagion"></ref> that
 	smoking, happiness, obesity, voting patterns, and cooperation levels
 	are all "contagious" --
-	and even some evidence that suicides(*) and mass shootings(*) are, too.
+	and even some evidence that suicides<ref id="suicides"></ref> and mass shootings<ref id="shootings"></ref> are, too.
 </words>
 
 <words id="simple_simple_end">
@@ -376,10 +380,9 @@ Cursor is allowed to flow EVERYWHERE though...
 <words id="simple_post_cascade">
 	This madness-spreading is called an <b>"information cascade"</b>.
 	Mr. Newton fell for such a cascade in 1720.
-	The world's financial institutions fell for such a cascade in 2008.
+	The world's financial institutions fell for such a cascade in 2008.<ref id="subprime"></ref>
 	But so what? You already knew ideas spread.
-	However, network scientists have found a <i>new</i>, strange kind of contagion.
-	They're called...
+	However, some contagions act a bit more strangely... and they're called:
 </words>
 
 <words id="simple_post_cascade_end">
@@ -407,7 +410,7 @@ Cursor is allowed to flow EVERYWHERE though...
 		Some things -- like norms, habits and hard-to-accept ideas --
 		need more social encouragement.
 		They need not a minimum <i>number</i> of friends to spread,
-		but a minimum <i>percentage</i> of friends to spread!(*)
+		but a minimum <i>percentage</i> of friends to spread!<ref id="complex"></ref>
 
 		<div style="height:0.9em"></div>
 
@@ -427,7 +430,7 @@ Cursor is allowed to flow EVERYWHERE though...
 		and just because it's "simple" doesn't mean it's bad!
 		(e.g. cute cat videos)
 
-		<div style="height:0.9em"></div>
+		<br><br>
 		
 		Think of it this way:
 		simple contagions are weeds, complex contagions are trees,
@@ -436,14 +439,10 @@ Cursor is allowed to flow EVERYWHERE though...
 		But if your ecosystem can <i>only</i> support weeds,
 		something's very wrong.
 
-		<div style="height:0.9em"></div>
-
-		(BONUS: OTHER KINDS OF CONTAGIONS)
-
-		<div style="height:0.9em"></div>
+		<br><br>
 
 		So, how <i>do</i> we make sure our social ecosystem is healthy?
-		Let's revisit...
+		To figure this out, let's first revisit...
 
 		<next wiggle>...the cascade puzzle!</next>
 
@@ -506,7 +505,7 @@ Cursor is allowed to flow EVERYWHERE though...
 	<div style="height:0.9em"></div>
 
 	The less immediate cause: the managers ignored the engineers' warnings.
-	Why? Because of <b>groupthink</b>(*).
+	Why? Because of <b>groupthink</b><ref id="groupthink"></ref>.
 	When a group is <i>too</i> closely knit, (as they tend to be at the top of institutions)
 	they become resistant to hard-to-accept information
 	that challenges one's beliefs or ego.
@@ -537,7 +536,7 @@ Cursor is allowed to flow EVERYWHERE though...
 </words>
 
 <words id="bonding_end">
-	This is called <b>bonding social capital</b>(*),
+	This is called <b>bonding social capital</b><ref id="social_capital"></ref>,
 	the strength of the connections <i>within</i> a single group.
 	But what about the connections...
 	<next wiggle>...<i>between</i> groups?</next>
@@ -552,8 +551,8 @@ Cursor is allowed to flow EVERYWHERE though...
 </words>
 
 <words id="bridging_end">
-	Like bonding, bridging social capital has a sweet spot.
-	(bonus challenge: try drawing a bridge so thick that the complex contagion
+	Like bonding, bridging social capital has a sweet spot.<ref id="bridge"></ref>
+	(extra challenge: try drawing a bridge so thick that the complex contagion
 	<i>can't</i> pass through it!)
 	Now that we know how to "design" connections <i>within</i> and <i>between</i> groups, let's...
 	<next wiggle>...do BOTH. &rarr;</next>
@@ -603,9 +602,11 @@ Cursor is allowed to flow EVERYWHERE though...
 <words id="bb_small_world_5">
 	
 	Network scientists now have a mathematical definition for this ancient wisdom:
-	the <b>small world network</b>(*). This optimal mix of bonding+bridging describes how
-	our neurons interact(*), gives rise to collective creativity and problem-solving(*),
-	and, at one point, has even helped us (barely) avoid full-out nuclear war!(*)
+	the <b>small world network</b><ref id="small_world"></ref>. This optimal mix of bonding+bridging describes how
+	our neurons interact<ref id="swn_neurons"></ref>,
+	gives rise to collective creativity<ref id="swn_creativity"></ref>
+	and problem-solving<ref id="swn_social_physics"></ref>,
+	and, at one point, has even helped us (barely) avoid full-out nuclear war!<ref id="swn_jfk"></ref>
 	So, yeah, small worlds are a big deal.
 
 </words>
@@ -618,7 +619,7 @@ Cursor is allowed to flow EVERYWHERE though...
 
 <words id="sandbox_caption">
 	<b>NOTE: "Sandbox Mode" is totally optional!</b>
-	Feel free to skip it, or play around.(*)
+	Feel free to skip it, or play around.<ref id="sandbox"></ref>
 	Whenever you're done, let's recap...
 </words>
 <words id="sandbox_next">
@@ -697,7 +698,7 @@ Cursor is allowed to flow EVERYWHERE though...
 		Like how neurons pass signals in a brain,
 		people pass beliefs &amp; behaviors in a society.
 		Not only do we influence our friends,
-		we also influence our friends' friends, and even our friends' friends' friends!(*)
+		we also influence our friends' friends, and even our friends' friends' friends!<ref id="three_degrees"></ref>
 		(“be the change you wanna see in the world” etc etc)
 		But, like neurons, it's not just signals that matter, it's also...
 	</div>
@@ -713,8 +714,7 @@ Cursor is allowed to flow EVERYWHERE though...
 		Too <i>many</i> connections and complex ideas get crushed by groupthink.
 		The trick is to build a small world network, the optimal mix of
 		bonding and bridging: <i>e pluribus unum.</i>
-		<br><br>
-		(BONUS: missing)
+		<bon id="limits"></bon>
 	</div>
 
 	<div style="
@@ -751,7 +751,7 @@ Cursor is allowed to flow EVERYWHERE though...
 		That <i>does NOT</i> mean abandoning personal responsibility,
 		for we're also the <i>weavers</i> of that web.
 		So, improve your contagions:
-		be skeptical of ideas that flatter you(*),
+		be skeptical of ideas that flatter you<ref id="flatter"></ref>,
 		spend time understanding complex ideas.
 		And, improve your connections: bond with similar folk,
 		but also build bridges across cultural/political divides.
@@ -788,6 +788,8 @@ Cursor is allowed to flow EVERYWHERE though...
 	CREDITS
 	<br>
 	CREDITS
+	<br>
+	<bon id="further_reading"></bon>
 </words>
 
 <!-- x. misc -->
@@ -808,27 +810,202 @@ Cursor is allowed to flow EVERYWHERE though...
 <!-- BONUS BOXES (footnotes) -->
 <!-- - - - - - - - - - - - - -->
 
-<!--
-1. other kinds of connections
-2. response to the books
-3. other kinds of contagions
-4. the limits - map, ecology, etc
-5. books to read
--->
-
-<bonus id="herp">
-	<title>HERP DERP</title>
-	<description>
-	Herp derp HERP derp derp? Herp derp DERP herp herp derp!
-	</description>
+<bonus id="connections">
+	<h3>
+	BONUS BOX: How Else Can We Be Connected?
+	</h3>
+	<div>
+	(blah blah blah, one-directional, weighted connections, etc)
+	</div>
+</bonus>
+<bonus id="books">
+	<h3>
+	BONUS BOX: A quick response to James Surowiecki's <i>The Wisdom of Crowds</i>
+	</h3>
+	<div>
+	(blah blah blah)
+	</div>
+</bonus>
+<bonus id="limits">
+	<h3>
+	BONUS BOX: Everything I Said Is Wrong
+	</h3>
+	<div>
+	(blah blah blah: map, extending the model with ecologies or randomness, etc)
+	</div>
+</bonus>
+<bonus id="further_reading">
+	<h3>
+	Further Reading
+	</h3>
+	<div>
+	</div>
 </bonus>
 
 <!-- - - - - - - -->
 <!-- REFERENCES  -->
 <!-- - - - - - - -->
 
-<references>
-</references>
+<reference>
+</reference>
+<reference id="drunk">
+	<h3>
+	“a 1991 study showed that virtually all [college] students reported that their friends drank more than they did.”
+	</h3>
+	<div>
+	[link]
+	</div>
+</reference>
+<reference id="majority">
+	<h3>
+	“The Majority Illusion”
+	</h3>
+	<div>
+	[link]
+	[also, interactive NYT version]
+	</div>
+</reference>
+<reference id="contagion">
+	<h3>
+	“strong statistical evidence that
+	smoking, happiness, obesity, voting patterns, and cooperation levels
+	are all contagious”
+	</h3>
+	<div>
+	[Nicholas Christakis and James Fowler, again]
+	</div>
+</reference>
+<reference id="suicides">
+	<h3>
+	“some evidence that suicides are [contagious], too”
+	</h3>
+	<div>
+	[link]
+	</div>
+</reference>
+<reference id="shootings">
+	<h3>
+	“some evidence that mass shootings are [contagious], too”
+	</h3>
+	<div>
+	[link - also Don't Say Their Names]
+	</div>
+</reference>
+<reference id="subprime">
+	<h3>
+	“The world's financial institutions fell for such a cascade in 2008.”
+	</h3>
+	<div>
+	[link to Cass Sunstein's Lemmings of Wall Street right after the prices plunged - not technical]
+	<!-- https://newrepublic.com/article/63023/wall-streets-lemmings -->
+	</div>
+</reference>
+<reference id="complex">
+	<h3>
+	“Complex contagions are weirder.”
+	</h3>
+	<div>
+	[link to empirical proof of twitter complex contagion]
+	[also, Granovetter's Threshold model]
+	[and Dodds &amp; Watt's Universal Contagion]
+	[not to mention contrarians]
+	</div>
+</reference>
+<reference id="groupthink">
+	<h3>
+	“groupthink”
+	</h3>
+	<div>
+	[link to Janis's Groupthink article]
+	</div>
+</reference>
+<reference id="social_capital">
+	<h3>
+	“bonding and bridging social capital”
+	</h3>
+	<div>
+	[link to Robert Putnam's Bowling Alone]
+	</div>
+</reference>
+<reference id="bridge">
+	<h3>
+	“bridging social capital has a sweet spot”
+	</h3>
+	<div>
+	[link to Granovetter's Strength of Weak Ties]
+	[and response for complex contagion, the Weakness of Long Ties!]
+	</div>
+</reference>
+<reference id="small_world">
+	<h3>
+	“the small world network”
+	</h3>
+	<div>
+	[link to Strogatz and Watts]
+	[also the Bret Victor version]
+	</div>
+</reference>
+<reference id="swn_neurons">
+	<h3>
+	“[small world networks] describe how our neurons interact”
+	</h3>
+	<div>
+	[link plz]
+	</div>
+</reference>
+<reference id="swn_creativity">
+	<h3>
+	“[small world networks] give rise to collective creativity”
+	</h3>
+	<div>
+	[link to that Broadway and small world study. note PARABOLIC relationship]
+	</div>
+</reference>
+<reference id="swn_social_physics">
+	<h3>
+	“[small world networks] give rise to collective problem-solving”
+	</h3>
+	<div>
+	[link to Social Physics book]
+	</div>
+</reference>
+<reference id="swn_jfk">
+	<h3>
+	“[small world networks] helped us (barely) avoid nuclear war!”
+	</h3>
+	<div>
+	[JFK and the Cuban Missile Crisis, his small-world team undid his earlier screw-up
+	with the Bay of Pigs,
+	</div>
+</reference>
+<reference id="sandbox">
+	<h3>
+	“Sandbox Mode”
+	</h3>
+	<div>
+	pst... wanna hear a secret? those keyboard shortcuts (1,2,space,delete)
+	can edit not just the simulation in sandbox mode, but <i>all</i> the simulations
+	in this explorable explanation! seriously, you can go back to a different chapter,
+	and edit the simulation right there.
+	in fact, that's how <i>I</i> created all these puzzles!
+	</div>
+</reference>
+<reference id="three_degrees">
+	<h3>
+	“we influence [...] our friends' friends' friends!”
+	</h3>
+	<div>
+	[link to Connected by Nicholas Christakis and James Fowler]
+	</div>
+</reference>
+<reference id="flatter">
+	<h3>
+	“be skeptical of ideas that flatter you”
+	</h3>
+	<div>
+	yes, including all the ideas in <i>this</i> explorable explanation.
+	</div>
+</reference>
 
 <!-- - - - - -->
 <!-- SCRIPTS -->
@@ -836,6 +1013,7 @@ Cursor is allowed to flow EVERYWHERE though...
 
 <script src="js/lib/helpers.js"></script>
 <script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
 <script src="js/lib/Key.js"></script>
 <script src="js/lib/Mouse.js"></script>
 <script src="js/lib/Sprite.js"></script>
@@ -847,6 +1025,7 @@ Cursor is allowed to flow EVERYWHERE though...
 <script src="js/slideshow/Navigation.js"></script>
 <script src="js/slideshow/SimUI.js"></script>
 <script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js"></script>
 <script src="js/slideshow/Preloader.js"></script>
 
 <script src="js/sim/Peep.js"></script>

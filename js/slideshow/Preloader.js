@@ -4,17 +4,17 @@ subscribe("prepreload", function(){
 	Preload([
 
 		// For the Sim
-		{image:"sprites/button_large.png"},
-		{image:"sprites/line.png"},
-		{image:"sprites/peeps.png"},
-		{image:"sprites/pencil.png"},
+		{id:"button_large", image:"sprites/button_large.png"},
+		{id:"line", image:"sprites/line.png"},
+		{id:"peeps", image:"sprites/peeps.png"},
+		{id:"pencil", image:"sprites/pencil.png"},
 
 	],function(progress){
 		console.log("Pre-Preloader: "+progress);
 		if(progress==1){
 			var pre_preloader = $("#pre_preloader");
 			pre_preloader.parentNode.removeChild(pre_preloader);
-			slideshow.gotoChapter("Preloader");
+			slideshow.gotoChapter("Networks-Threshold");
 			publish("preload");
 		}
 	});
@@ -28,13 +28,13 @@ subscribe("preload", function(){
 	Preload([
 
 		// Music
-		{audio:"audio/bg_music.mp3"},
+		{id:"bg_music", audio:"audio/bg_music.mp3"},
 
 		// For the slides
-		{image:"sprites/sandbox_tools.png"},
-		{image:"sprites/scratch.png"},
-		{image:"sprites/tutorial_connect.png"},
-		{image:"sprites/tutorial_disconnect.png"},
+		{id:"sandbox_tools", image:"sprites/sandbox_tools.png"},
+		{id:"scratch", image:"sprites/scratch.png"},
+		{id:"tutorial_connect", image:"sprites/tutorial_connect.png"},
+		{id:"tutorial_disconnect", image:"sprites/tutorial_disconnect.png"},
 
 	],function(progress){
 		console.log("Preloader: "+progress);
@@ -47,7 +47,8 @@ subscribe("preload", function(){
 ///////////////////////////////////////////
 ///////////////////////////////////////////
 
-var preload_images = [];
+var IMAGES = {}; // todo: actually USE these images
+var SOUNDS = {};
 function Preload(assets, onProgress){
 
 	var loaded = 0;
@@ -63,6 +64,14 @@ function Preload(assets, onProgress){
 			var img = new Image();
 			img.onload = _onAssetLoad;
 			img.src = asset.image;
+			IMAGES[asset.id] = img;
+		}
+
+		// Audio
+		if(asset.audio){
+			var sound = new Howl({ src:[asset.audio] });
+			sound.once('load', _onAssetLoad);
+			SOUNDS[asset.id] = sound;
 		}
 
 	});

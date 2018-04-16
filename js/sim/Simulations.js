@@ -250,9 +250,10 @@ function Sim(config){
 		ctx.restore();
 
 		// Draw confetti - NOT AFFECTED BY TRANSFORMS.
-		ctx.fillStyle = "#dd4040";
 		self.confetti.forEach(function(confetti){
 			ctx.save();
+			var _hue = confetti.frame*72; // placeholder
+			ctx.fillStyle = "hsl("+_hue+",100%,80%)";
 			var offsetX = -Math.sin(confetti.spin)*9;
 			ctx.translate(confetti.x+offsetX, confetti.y);
 			ctx.rotate(Math.sin(confetti.spin)*0.2);

@@ -6,7 +6,8 @@ var KEYS = {
 	32: "space",
 	49: "1",
 	50: "2",
-	8: "delete"
+	8: "delete",
+	27: "escape"
 };
 
 window.addEventListener("keydown", function(event){

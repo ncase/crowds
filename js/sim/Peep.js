@@ -249,15 +249,15 @@ function Peep(config){
 			ctx.fontWeight = "bold";
 			if(self.numFriends>0){
 
-				// #
-				ctx.textAlign = "left";
-				var labelNum = self.numInfectedFriends+"/"+self.numFriends;
-				ctx.fillText(labelNum, -barWidth/2, 0);
-
 				// %
-				ctx.textAlign = "right";
+				ctx.textAlign = "left";
 				var labelPercent = Math.round(100*(self.numInfectedFriends/self.numFriends)) + "%";
-				ctx.fillText(labelPercent, barWidth/2, 0);
+				ctx.fillText(labelPercent, -barWidth/2, 0);
+
+				// #/#
+				ctx.textAlign = "right";
+				var labelNum = self.numInfectedFriends+"/"+self.numFriends;
+				ctx.fillText(labelNum, barWidth/2, 0);
 
 
 			}else{

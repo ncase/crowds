@@ -90,8 +90,22 @@ function Boxes(){
 
 		}
 
-		// Replace bonus boxes...
-		// TODO
+		// Add onclicks to "ref"s!
+		box.querySelectorAll("ref").forEach(function(ref){
+			ref.onclick = function(){
+				var id = ref.id;
+				publish("reference/show",[id]);
+			};
+		});
+
+		// Bonus boxes...
+		box.querySelectorAll("bon").forEach(function(bon){
+			var title = $("bonus#"+bon.id+" > h3").innerHTML.trim();
+			bon.innerHTML = "(?) "+title;
+			bon.onclick = function(){
+				publish("bonus/show", [bon.id]);
+			};
+		});
 
 		// Add to array
 		self.boxes.push(box);

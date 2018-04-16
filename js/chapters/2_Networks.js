@@ -164,7 +164,13 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"networks_pre_puzzle",
-			text:"networks_pre_puzzle", x:60, y:0, w:400
+			text:"networks_pre_puzzle", x:60, y:0, w:400,
+			lineHeight:1.3
+		},
+		{
+			type:"box",
+			text:"optional_reading", x:60, y:220, w:400, h:30,
+			fontSize:17, color:"#bbb"
 		}
 	]
 },
