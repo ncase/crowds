@@ -36,7 +36,7 @@ function ConnectorCutter(config){
 				if(mouse.justPressed && self.state===0){
 					
 					// Clicked on a peep?
-					var peepClicked = self.sim.getHoveredPeep(0);
+					var peepClicked = self.sim.getHoveredPeep(20);
 					if(peepClicked){
 						self.state = 1; // START CONNECTING
 						self.connectFrom = peepClicked;
@@ -69,7 +69,7 @@ function ConnectorCutter(config){
 			// In "NORMAL" state... tell Pencil what frame to go to
 			if(self.state==0){
 				if(!Simulations.IS_RUNNING){
-					var peepHovered = self.sim.getHoveredPeep(0);
+					var peepHovered = self.sim.getHoveredPeep(20);
 					pencil.gotoFrame( peepHovered ? 1 : 0 );
 				}else{
 					pencil.gotoFrame(0);

@@ -14,7 +14,7 @@ subscribe("prepreload", function(){
 		if(progress==1){
 			var pre_preloader = $("#pre_preloader");
 			pre_preloader.parentNode.removeChild(pre_preloader);
-			slideshow.gotoChapter("Networks-Threshold");
+			slideshow.gotoChapter("Preloader");
 			publish("preload");
 		}
 	});

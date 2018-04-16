@@ -73,20 +73,21 @@ SLIDES.push(
 		// SHOW/HIDE INSTRUCTIONS
 		var boxes = slideshow.boxes;
 		// If connections went UP, hide "connect" instructions
-		if(state.currConnections > state.lastConnections){
+		if(state.currConnections > state.lastConnections && !state.canConnect){
 			state.canConnect = true;
-			boxes.hideChildByID("connect_words");
-			boxes.hideChildByID("connect_pic");
+			boxes.removeChildByID("connect_words", true);
+			boxes.removeChildByID("connect_pic", true);
 		}
-		// If connections went DOWN, hide "connect" instructions
-		if(state.currConnections < state.lastConnections){
+		// If connections went DOWN, hide "disconnect" instructions
+		if(state.currConnections < state.lastConnections && !state.canDisconnect){
 			state.canDisconnect = true;
-			boxes.hideChildByID("disconnect_words");
-			boxes.hideChildByID("disconnect_pic");
+			boxes.removeChildByID("disconnect_words", true);
+			boxes.removeChildByID("disconnect_pic", true);
 		}
 		// If did both, show end
-		if(state.canConnect && state.canDisconnect){
-			boxes.showChildByID("end_words");
+		if(state.canConnect && state.canDisconnect && !state.BUTTON_SHOWED){
+			state.BUTTON_SHOWED = true;
+			boxes.showChildByID("end_words", true);
 			//boxes.showChildByID("end_button");
 		}
 

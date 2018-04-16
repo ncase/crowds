@@ -96,6 +96,14 @@ b, strong{
     background-position: 0% 0%;
 }
 
+/* Peep Icon */
+.peep_icon{
+	height:1em;
+	position: relative;
+    top: 3px;
+    transform: scale(1.2);
+}
+
 /* Sim UI */
 .sim_ui{
 	position: absolute;

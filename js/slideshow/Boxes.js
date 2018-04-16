@@ -107,6 +107,21 @@ function Boxes(){
 			};
 		});
 
+		// Replace icons
+		box.querySelectorAll("icon").forEach(function(icon){
+
+			// Create next button
+			var name = icon.getAttributeNames()[0];
+			var src = "sprites/icons/"+name+".png";
+			var img = new Image();
+			img.src = src;
+			img.className = "peep_icon";
+
+			// Replace it in parent!
+			icon.parentNode.replaceChild(img, icon);
+
+		});
+
 		// Add to array
 		self.boxes.push(box);
 
@@ -133,10 +148,7 @@ function Boxes(){
 			fadeIn(self.dom, toShow);
 		}
 	};
-	self.hideChildByID = function(id){
-		var toHide = self.getChildByID(id);
-		toHide.style.display = "none";
-	};
+	
 	self.removeChildByID = function(id, withFade){
 		
 		var removeBox = self.getChildByID(id);

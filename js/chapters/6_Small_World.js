@@ -104,6 +104,10 @@ SLIDES.push(
 		},
 		{
 			type:"box",
+			img:"sprites/small_world.png", x:-10, y:95, w:970, h:284
+		},
+		{
+			type:"box",
 			text:"bb_small_world_5", x:0, y:360, w:640, h:180,
 		},
 		{
