@@ -24,6 +24,7 @@ Cursor is allowed to flow EVERYWHERE though...
 	</head>
 	<body>
 
+		<!-- THE SLIDESHOW -->
 		<div id="container">
 
 			<!-- Simulation(s) in background -->
@@ -120,7 +121,13 @@ Cursor is allowed to flow EVERYWHERE though...
 			<div id="social"></div>
 		</div>
 		
+		<!-- The Pencil -->
 		<canvas id="pencil"></canvas>
+
+		<!-- Preloader -->
+		<div id="pre_preloader">
+			<div>loading...</div>
+		</div>
 
 	</body>
 </html>
@@ -129,29 +136,43 @@ Cursor is allowed to flow EVERYWHERE though...
 <!-- THE SLIDESHOW'S WORDS -->
 <!-- - - - - - - - - - - - -->
 
-<!-- 0. Introduction -->
+<!-- Preloader -->
 
-<words id="_0_title">
-	the
-	<br>
-	WISDOM and/or MADNESS
-	<br>
-	of CROWDS
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span>the</span>
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">WISDOM</span>
+		<span style="position:relative;top: -10px;">and/or</span>
+		<span style="font-size: 60px;">MADNESS</span>
+		<br>
+		<span style="position: relative;top: -11px;">of</span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px;">CROWDS</span>
+	</div>
+
+	<div style="color:#999">
+		playing time: 30 min • by nicky case, april 2018
+	</div>
+
 </words>
 
-<words id="_0_subtitle">
-	playing time: 30 min • by nicky case, april 2018
+<words id="preloader_button">
+	<next></next>
 </words>
 
-<words id="_0_loading">
+<words id="preloader_loading">
 	loading...
 </words>
 
-<words id="_0_play">
+<words id="preloader_play">
 	let's play! &rarr; 
 </words>
 
-<words id="_0_intro">
+<!-- Introduction -->
+
+<words id="intro">
 	<div class="circle"><span>
 
 		<br><br>
@@ -173,7 +194,7 @@ Cursor is allowed to flow EVERYWHERE though...
 	</span></div>
 </words>
 
-<words id="_0_intro_2">
+<words id="intro_2">
 	<div class="circle"><span>
 
 		<br>
@@ -197,22 +218,22 @@ Cursor is allowed to flow EVERYWHERE though...
 	</span></div>
 </words>
 
-<!-- 1. Networks -->
+<!-- Networks -->
 
-<words id="_1_tutorial_start">
+<words id="networks_tutorial_start">
 	<b>Let's draw a network!</b>
 	Each connection represents a friendship between two people:
 </words>
 
-<words id="_1_tutorial_connect">
+<words id="networks_tutorial_connect">
 	draw to connect
 </words>
 
-<words id="_1_tutorial_disconnect">
+<words id="networks_tutorial_disconnect">
 	scratch to&nbsp;&nbsp;&nbsp;disconnect
 </words>
 
-<words id="_1_tutorial_end">
+<words id="networks_tutorial_end">
 
 	feel free to keep playing around, and draw whatever friendship network you want!
 	when you're done,
@@ -220,7 +241,7 @@ Cursor is allowed to flow EVERYWHERE though...
 
 </words>
 
-<words id="_1_threshold">
+<words id="networks_threshold">
 
 	But people don't just have social connections to make pretty pictures.
 	People look at their social connections, to understand their social world.
@@ -230,11 +251,11 @@ Cursor is allowed to flow EVERYWHERE though...
 
 </words>
 
-<words id="_1_threshold_instruction">
+<words id="networks_threshold_instruction">
 	<b>Draw/erase connections, and see what happens! &rarr;</b>
 </words>
 
-<words id="_1_threshold_explanation">
+<words id="networks_threshold_explanation">
 	<span style="color:#666">top-left:</span>
 	# of drinker friends / # of total friends &nbsp;&nbsp;&nbsp;&nbsp;
 	<br>
@@ -246,11 +267,11 @@ Cursor is allowed to flow EVERYWHERE though...
 	<br> (they'll glow if past threshold) &nbsp;&nbsp;&nbsp;&nbsp;
 </words>
 
-<words id="_1_threshold_end">
+<words id="networks_threshold_end">
 	<next>cool, got it</next>
 </words>
 
-<words id="_1_pre_puzzle">
+<words id="networks_pre_puzzle">
 
 	However, networks can <i>fool</i> people.
 	Just like how you see the earth as flat because you're on it,
@@ -273,7 +294,7 @@ Cursor is allowed to flow EVERYWHERE though...
 
 </words>
 
-<words id="_1_puzzle">
+<words id="networks_puzzle">
 
 	<b style="font-size:2em">PUZZLE TIME!</b>
 	<br>
@@ -282,19 +303,19 @@ Cursor is allowed to flow EVERYWHERE though...
 	(even though binge-drinkers are outnumbered 2-to-1)
 
 </words>
-<words id="_1_puzzle_metric">
+<words id="networks_puzzle_metric">
 	<b>FOOLED:</b>
 </words>
-<words id="_1_puzzle_metric_2">
+<words id="networks_puzzle_metric_2">
 	out of 9 people
 </words>
-<words id="_1_puzzle_end">
+<words id="networks_puzzle_end">
 	Congrats! You manipulated a group of students into believing
 	in the prevalance of an incredibly unhealthy social norm! Good going!
 	<next wiggle>...uh. thanks?</next>
 </words>
 
-<words id="_1_post_puzzle">
+<words id="networks_post_puzzle">
 
 	What you just created is called The Majority Illusion(*),
 	which also explains why people think their political views are consensus,
@@ -312,17 +333,12 @@ Cursor is allowed to flow EVERYWHERE though...
 
 	<next>“Contagions!” &rarr;</next>
 
-	<!--<b>&larr; bonus challenge:</b> make everyone think
-	<i>less than half</i> of their friends are binge-drinkers-->
 
 </words>
-<!--words id="_1_post_puzzle_bonus">
-	🙌 yay you did it 🙌
-</words-->
 
-<!-- 2. Simple Contagions -->
+<!-- Simple Contagions -->
 
-<words id="_2_simple">
+<words id="simple_simple">
 	Below, we start with one person (img) who has some information.
 	Some <i>mis</i>information. "Fake news", as the cool kids say.
 	And every day, that person spreads the rumor to their friends.
@@ -332,7 +348,7 @@ Cursor is allowed to flow EVERYWHERE though...
 	(p.s: you can't draw <i>while</i> the sim's running)
 </words>
 
-<words id="_2_simple_2">
+<words id="simple_simple_2">
 	Note: despite the negative name, "contagions" can be good or bad.
 	There's strong statistical evidence(*) that
 	smoking, happiness, obesity, voting patterns, and cooperation levels
@@ -340,11 +356,11 @@ Cursor is allowed to flow EVERYWHERE though...
 	and even some evidence that suicides(*) and mass shootings(*) are, too.
 </words>
 
-<words id="_2_simple_end">
+<words id="simple_simple_end">
 	<next wiggle>well that's depressing &rarr;</next>
 </words>
 
-<words id="_2_cascade">
+<words id="simple_cascade">
 	Indeed it is.
 	Anyway, <b>PUZZLE TIME!</b>
 	<br>
@@ -353,11 +369,11 @@ Cursor is allowed to flow EVERYWHERE though...
 	(new rule: you can't cut the <i>thick</i> connections)
 </words>
 
-<words id="_2_cascade_end">
+<words id="simple_cascade_end">
 	<next wiggle>fan-flipping-tastic &rarr;</next>
 </words>
 
-<words id="_2_post_cascade">
+<words id="simple_post_cascade">
 	This madness-spreading is called an <b>"information cascade"</b>.
 	Mr. Newton fell for such a cascade in 1720.
 	The world's financial institutions fell for such a cascade in 2008.
@@ -366,13 +382,13 @@ Cursor is allowed to flow EVERYWHERE though...
 	They're called...
 </words>
 
-<words id="_2_post_cascade_end">
+<words id="simple_post_cascade_end">
 	<next wiggle>“<i>Complex</i> Contagions!” &rarr;</next>
 </words>
 
-<!-- 3. Complex Contagions -->
+<!-- Complex Contagions -->
 
-<words id="_3_complex">
+<words id="complex_complex">
 	<span style="line-height:1.4em">
 
 		Truth may be stranger than fiction, but it doesn't sell as well.
@@ -402,7 +418,7 @@ Cursor is allowed to flow EVERYWHERE though...
 	</span>
 </words>
 
-<words id="_3_complex_2">
+<words id="complex_complex_2">
 	<span style="line-height:1.4em">
 
 		<b>CAUTION:</b>
@@ -434,17 +450,17 @@ Cursor is allowed to flow EVERYWHERE though...
 	</span>
 </words>
 
-<words id="_3_cascade">
+<words id="complex_cascade">
 	You did this before, but now, with a <i>complex</i> contagion (img), it'll be tougher...
 	<b>Try to "infect" everyone with complex wisdom! &darr;</b>
 	(feel free to just hit 'start' and <i>try</i> as many solutions as you want)
 </words>
 
-<words id="_3_cascade_end">
+<words id="complex_cascade_end">
 	<next wiggle>HOT DANG &rarr;</next>
 </words>
 
-<words id="_3_post_cascade">
+<words id="complex_post_cascade">
 	Now, you may think: so what, complex contagions () are just simple contagions ()
 	that need more connections?
 	Not so fast!
@@ -452,11 +468,11 @@ Cursor is allowed to flow EVERYWHERE though...
 	It's apples vs oranges, not apples vs more apples.
 	This idea will be clearer if we revisit...
 </words>
-<words id="_3_post_cascade_end">
+<words id="complex_post_cascade_end">
 	<next wiggle>...yet another puzzle! &rarr;</next>
 </words>
 
-<words id="_3_prevent">
+<words id="complex_prevent">
 	Now, let's do the <i>opposite</i> of everything we've done before.
 	If you hit "start" below now, the contagion will just spread to everyone.
 	No surprise there.
@@ -464,7 +480,7 @@ Cursor is allowed to flow EVERYWHERE though...
 	<b>draw a network to <i>prevent</i> the contagion from spreading to everyone! &darr;</b>
 </words>
 
-<words id="_3_prevent_2">
+<words id="complex_prevent_2">
 	And <i>that's</i> the important difference between "simple" and "complex" contagion.
 	While more connections always helps spread <i>simple</i> ideas,
 	more connections can <i>hurt</i> the spread of <i>complex</i> ideas!
@@ -472,11 +488,11 @@ Cursor is allowed to flow EVERYWHERE though...
 	And this isn't just a theoretical problem. This can be a matter of life...
 </words>
 
-<words id="_3_prevent_end">
+<words id="complex_prevent_end">
 	<next wiggle>...or death. &rarr;</next>
 </words>
 
-<words id="_3_groupthink">
+<words id="complex_groupthink">
 		
 	The people at NASA were smart cookies.
 	I mean, they'd used Newton's theories to get us to the moon.
@@ -505,7 +521,7 @@ Cursor is allowed to flow EVERYWHERE though...
 
 </words>
 
-<!-- 4. Bonding & Bridging -->
+<!-- Bonding & Bridging -->
 
 <words id="bonding_1">
 	&larr; Too few connections, and an idea can't spread.
@@ -598,7 +614,7 @@ Cursor is allowed to flow EVERYWHERE though...
 	<next>The Sandbox Mode &rarr;</next>
 </words>
 
-<!-- 5. Sandbox -->
+<!-- Sandbox -->
 
 <words id="sandbox_caption">
 	<b>NOTE: "Sandbox Mode" is totally optional!</b>
@@ -654,8 +670,7 @@ Cursor is allowed to flow EVERYWHERE though...
 	[Space]: Drag &nbsp;&nbsp;&nbsp; [Backspace]: Delete
 </words>
 
-<!-- 6. Conclusion -->
-<!-- recap and CONCRETE LIFE TAKE-AWAYS. mirror intro UI -->
+<!-- Conclusion -->
 
 <words id="conclusion_1">
 	
@@ -761,9 +776,9 @@ Cursor is allowed to flow EVERYWHERE though...
 	<next small>&lt;3</next>
 </words>
 
-<!-- 7. Credits --> 
+<!-- Credits --> 
 
-<words id="_7_credits">
+<words id="credits">
 	CREDITS
 	<br>
 	CREDITS
@@ -832,13 +847,14 @@ Cursor is allowed to flow EVERYWHERE though...
 <script src="js/slideshow/Navigation.js"></script>
 <script src="js/slideshow/SimUI.js"></script>
 <script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Preloader.js"></script>
 
 <script src="js/sim/Peep.js"></script>
 <script src="js/sim/Connection.js"></script>
 <script src="js/sim/ConnectorCutter.js"></script>
-<!--script src="js/sim/_Game.js"></script-->
 <script src="js/sim/Simulations.js"></script>
 
+<script src="js/chapters/0_Preloader.js"></script>
 <script src="js/chapters/1_Introduction.js"></script>
 <script src="js/chapters/2_Networks.js"></script>
 <script src="js/chapters/3_Simple_Contagion.js"></script>

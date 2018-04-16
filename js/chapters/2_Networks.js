@@ -12,7 +12,7 @@ SLIDES.push(
 		// The top instructions
 		{
 			type:"box",
-			text:"_1_tutorial_start", x:260, y:0, w:440, h:70, align:"center"
+			text:"networks_tutorial_start", x:260, y:0, w:440, h:70, align:"center"
 		},
 
 		// The fullscreen simulation
@@ -31,7 +31,7 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"connect_words",
-			text:"_1_tutorial_connect", x:280, y:183, w:400, align:"center", color:"#ccc"
+			text:"networks_tutorial_connect", x:280, y:183, w:400, align:"center", color:"#ccc"
 		},
 		{
 			type:"box",
@@ -43,7 +43,7 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"disconnect_words",
-			text:"_1_tutorial_disconnect", x:280, y:280, w:400, align:"center", color:"#ccc"
+			text:"networks_tutorial_disconnect", x:280, y:280, w:400, align:"center", color:"#ccc"
 		},
 		{
 			type:"box",
@@ -55,7 +55,7 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"end_words",
-			text:"_1_tutorial_end", x:230, y:400, w:500, h:70, align:"center",
+			text:"networks_tutorial_end", x:230, y:400, w:500, h:70, align:"center",
 			hidden:true
 		}
 
@@ -109,19 +109,19 @@ SLIDES.push(
 		// TEXT
 		{
 			type:"box",
-			id:"_1_threshold",
-			text:"_1_threshold", x:60, y:25, w:400
+			id:"networks_threshold",
+			text:"networks_threshold", x:60, y:25, w:400
 		},
 		{
 			type:"box",
-			id:"_1_threshold_instruction",
-			text:"_1_threshold_instruction", x:110, y:260, w:300,
+			id:"networks_threshold_instruction",
+			text:"networks_threshold_instruction", x:110, y:260, w:300,
 			align:"center"
 		},
 		{
 			type:"box",
-			id:"_1_threshold_explanation",
-			text:"_1_threshold_explanation", x:105, y:340, w:400,
+			id:"networks_threshold_explanation",
+			text:"networks_threshold_explanation", x:105, y:340, w:400,
 			align:"right",
 			color:"#bbb",
 			fontSize:"0.75em",
@@ -129,8 +129,8 @@ SLIDES.push(
 		},
 		{
 			type:"box",
-			id:"_1_threshold_end",
-			text:"_1_threshold_end", x:60, y:430, w:400
+			id:"networks_threshold_end",
+			text:"networks_threshold_end", x:60, y:430, w:400
 		},
 
 		// SIMULATION: THRESHOLD
@@ -155,16 +155,16 @@ SLIDES.push(
 // pre-puzzle ramble
 {
 	remove:[
-		{ type:"box", id:"_1_threshold" },
-		{ type:"box", id:"_1_threshold_instruction" },
-		{ type:"box", id:"_1_threshold_explanation" },
-		{ type:"box", id:"_1_threshold_end" }
+		{ type:"box", id:"networks_threshold" },
+		{ type:"box", id:"networks_threshold_instruction" },
+		{ type:"box", id:"networks_threshold_explanation" },
+		{ type:"box", id:"networks_threshold_end" }
 	],
 	add:[
 		{
 			type:"box",
-			id:"_1_pre_puzzle",
-			text:"_1_pre_puzzle", x:60, y:0, w:400
+			id:"networks_pre_puzzle",
+			text:"networks_pre_puzzle", x:60, y:0, w:400
 		}
 	]
 },
@@ -198,18 +198,18 @@ SLIDES.push(
 		// Done? Let's go... (hidden at first...)
 		{
 			type:"box",
-			id:"_1_puzzle",
-			text:"_1_puzzle", x:60, y:10, w:300
+			id:"networks_puzzle",
+			text:"networks_puzzle", x:60, y:10, w:300
 		},
 		{
 			type:"box",
-			id:"_1_puzzle_metric",
-			text:"_1_puzzle_metric", x:60, y:220, w:300
+			id:"networks_puzzle_metric",
+			text:"networks_puzzle_metric", x:60, y:220, w:300
 		},
 		{
 			type:"box",
-			id:"_1_puzzle_end",
-			text:"_1_puzzle_end", x:60, y:220, w:300,
+			id:"networks_puzzle_end",
+			text:"networks_puzzle_end", x:60, y:220, w:300,
 			hidden:true
 		}
 
@@ -218,7 +218,7 @@ SLIDES.push(
 	onstart:function(slideshow, state){
 
 		// Modify puzzle metric box
-		var metric = slideshow.boxes.getChildByID("_1_puzzle_metric");
+		var metric = slideshow.boxes.getChildByID("networks_puzzle_metric");
 		metric.innerHTML = "";
 
 		var COLOR = "hsl(50, 100%, 50%)";
@@ -257,7 +257,7 @@ SLIDES.push(
 		});
 
 		// Modify metric box!
-		var label = getWords("_1_puzzle_metric") + " " + peepCount + " " + getWords("_1_puzzle_metric_2");
+		var label = getWords("networks_puzzle_metric") + " " + peepCount + " " + getWords("networks_puzzle_metric_2");
 		state.metric_label.innerHTML = label;
 		state.metric_bar.style.width = Math.round((peepCount/9)*100)+"%";
 
@@ -266,8 +266,8 @@ SLIDES.push(
 			if(peepCount==9){
 				var boxes = slideshow.boxes;
 				state.won = true;
-				boxes.hideChildByID("_1_puzzle_metric");
-				boxes.showChildByID("_1_puzzle_end");
+				boxes.hideChildByID("networks_puzzle_metric");
+				boxes.showChildByID("networks_puzzle_end");
 				sim.win();
 			}
 		}
@@ -279,9 +279,9 @@ SLIDES.push(
 // post-puzzle ramble, introduce simple contagion
 {
 	remove:[
-		{ type:"box", id:"_1_puzzle" },
-		{ type:"box", id:"_1_puzzle_metric" },
-		{ type:"box", id:"_1_puzzle_end" }
+		{ type:"box", id:"networks_puzzle" },
+		{ type:"box", id:"networks_puzzle_metric" },
+		{ type:"box", id:"networks_puzzle_end" }
 	],
 	move:[
 		// shift sim to side
@@ -291,13 +291,13 @@ SLIDES.push(
 		// new text
 		{
 			type:"box",
-			id:"_1_post_puzzle",
-			text:"_1_post_puzzle", x:560, y:0, w:400
+			id:"networks_post_puzzle",
+			text:"networks_post_puzzle", x:560, y:0, w:400
 		},
 		/*{
 			type:"box",
-			id:"_1_post_puzzle_bonus",
-			text:"_1_post_puzzle_bonus", x:170, y:1000 // offscreen!
+			id:"networks_post_puzzle_bonus",
+			text:"networks_post_puzzle_bonus", x:170, y:1000 // offscreen!
 		},*/
 	],
 
@@ -314,7 +314,7 @@ SLIDES.push(
 		// Win Bonus
 		if(!state.won){
 			if(peepCount==9){
-				var winbox = slideshow.boxes.getChildByID("_1_post_puzzle_bonus");
+				var winbox = slideshow.boxes.getChildByID("networks_post_puzzle_bonus");
 				if(winbox){
 					winbox.style.top = "270px";
 					state.won = true;

@@ -28,7 +28,19 @@ window.onload = function(){
 	}
 	window.requestAnimationFrame(update);
 
-	// First slide!
-	slideshow.gotoChapter("Conclusion");
+	// Start Preloading!
+	publish("prepreload");
 
 }
+
+subscribe("START", function(){
+
+	// Music
+	
+
+	// Navigation
+
+	// Introduction
+	slideshow.next();
+
+});

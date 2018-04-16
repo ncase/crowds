@@ -26,7 +26,7 @@ function Slideshow(){
 	// GOTO and NEXT
 	var _delay = 300;
 	self.IS_TRANSITIONING = false;
-	self.goto = function(index){
+	self.goto = function(index, forceClear){
 
 		// Wait for transition to finish!
 		if(self.IS_TRANSITIONING) return;
@@ -39,7 +39,7 @@ function Slideshow(){
 
 		// Clear?
 		var _delayNewSlide = 0;
-		if(slide.clear && !isFirstSlide){
+		if((slide.clear || forceClear) && !isFirstSlide){
 			_delayNewSlide = 800;
 			self.scratch.scratchOut(); // Scratch out
 			$("#container").removeAttribute("sim_is_running"); // remove that UI
@@ -59,7 +59,9 @@ function Slideshow(){
 				var withFade = true;
 				switch(childConfig.type){
 					case "box":
-						self.boxes.removeChildByID(childConfig.id, withFade);
+						if(self.boxes.getChildByID(childConfig.id)){
+							self.boxes.removeChildByID(childConfig.id, withFade);
+						}
 						break;
 					case "sim":
 						//self.simulations.removeChildByID(childConfig);
@@ -108,7 +110,12 @@ function Slideshow(){
 							self.boxes.add(childConfig, withFade);
 							break;
 						case "sim":
-							self.simulations.add(childConfig, withFade);
+							if(childConfig.ONLY_IF_IT_DOESNT_ALREADY_EXIST
+								&& self.simulations.sims.length>0){
+								// then nothing
+							}else{
+								self.simulations.add(childConfig, withFade);
+							}
 							break;
 					}
 				})
@@ -143,7 +150,7 @@ function Slideshow(){
 		var index = SLIDES.findIndex(function(slide){
 			return slide.chapter == chapterID;
 		});
-		self.goto(index);
+		self.goto(index, true);
 	};
 	self.next = function(){
 		self.goto(self.slideIndex+1);
@@ -159,8 +166,10 @@ function Slideshow(){
 	// Update
 	self.update = function(){
 		var slide = self.currentSlide;
-		self.simulations.update();
-		if(slide.onupdate) slide.onupdate(self, self.currentState);
+		if(slide){
+			self.simulations.update();
+			if(slide.onupdate) slide.onupdate(self, self.currentState);
+		}
 	};
 
 	// Draw

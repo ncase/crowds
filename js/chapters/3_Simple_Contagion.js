@@ -20,8 +20,8 @@ SLIDES.push(
 		// Intro text
 		{
 			type:"box",
-			id:"_2_simple",
-			text:"_2_simple",
+			id:"simple_simple",
+			text:"simple_simple",
 			x:80, y:0, w:800, h:160,
 			align: "center"
 		},
@@ -55,7 +55,7 @@ SLIDES.push(
 		{
 			id:"end",
 			type:"box",
-			text:"_2_simple_end",
+			text:"simple_simple_end",
 			x:660, y:440, w:300, h:100,
 			hidden:true
 		}
@@ -84,7 +84,7 @@ SLIDES.push(
 },
 {
 	remove:[
-		{type:"box", id:"_2_simple"}
+		{type:"box", id:"simple_simple"}
 	],
 	move:[
 		{type:"box", id:"ui", y:5},
@@ -93,13 +93,13 @@ SLIDES.push(
 	add:[
 		{
 			type:"box",
-			text:"_2_simple_2",
+			text:"simple_simple_2",
 			x:0, y:390, w:650, h:100,
 			align: "right"
 		},
 		{
 			type:"box",
-			text:"_2_simple_end",
+			text:"simple_simple_end",
 			x:660, y:440, w:300, h:90
 		}
 	]
@@ -113,8 +113,8 @@ SLIDES.push(
 		// Intro text
 		{
 			type:"box",
-			id:"_2_cascade",
-			text:"_2_cascade",
+			id:"simple_cascade",
+			text:"simple_cascade",
 			x:80, y:0, w:800, h:100,
 			align: "center"
 		},
@@ -149,7 +149,7 @@ SLIDES.push(
 		{
 			id:"end",
 			type:"box",
-			text:"_2_cascade_end",
+			text:"simple_cascade_end",
 			x:330, y:460, w:300, h:100,
 			hidden:true
 		},
@@ -178,7 +178,7 @@ SLIDES.push(
 },
 {
 	remove:[
-		{type:"box", id:"_2_cascade"},
+		{type:"box", id:"simple_cascade"},
 		{type:"box", id:"end"}
 	],
 	move:[
@@ -188,13 +188,13 @@ SLIDES.push(
 	add:[
 		{
 			type:"box",
-			text:"_2_post_cascade",
+			text:"simple_post_cascade",
 			x:0, y:390, w:650, h:150,
 			align: "right"
 		},
 		{
 			type:"box",
-			text:"_2_post_cascade_end",
+			text:"simple_post_cascade_end",
 			x:660, y:450, w:300, h:90
 		}
 	]

@@ -11,8 +11,8 @@ SLIDES.push(
 		// Intro text
 		{
 			type:"box",
-			id:"_3_complex",
-			text:"_3_complex",
+			id:"complex_complex",
+			text:"complex_complex",
 			x:0, y:0, w:480, h:540
 		},
 
@@ -63,12 +63,12 @@ SLIDES.push(
 
 {
 	remove:[
-		{type:"box", id:"_3_complex"}
+		{type:"box", id:"complex_complex"}
 	],
 	add:[
 		{
 			type:"box",
-			text:"_3_complex_2",
+			text:"complex_complex_2",
 			x:0, y:0, w:480, h:540
 		}
 	]
@@ -83,8 +83,8 @@ SLIDES.push(
 		// Intro text
 		{
 			type:"box",
-			id:"_3_cascade",
-			text:"_3_cascade",
+			id:"complex_cascade",
+			text:"complex_cascade",
 			x:60, y:0, w:840, h:100,
 			align: "center"
 		},
@@ -119,7 +119,7 @@ SLIDES.push(
 		{
 			id:"end",
 			type:"box",
-			text:"_3_cascade_end",
+			text:"complex_cascade_end",
 			x:330, y:460, w:300, h:100,
 			hidden:true
 		},
@@ -149,7 +149,7 @@ SLIDES.push(
 
 {
 	remove:[
-		{type:"box", id:"_3_cascade"},
+		{type:"box", id:"complex_cascade"},
 		{type:"box", id:"end"}
 	],
 	move:[
@@ -159,13 +159,13 @@ SLIDES.push(
 	add:[
 		{
 			type:"box",
-			text:"_3_post_cascade",
+			text:"complex_post_cascade",
 			x:0, y:390, w:650, h:150,
 			align: "right"
 		},
 		{
 			type:"box",
-			text:"_3_post_cascade_end",
+			text:"complex_post_cascade_end",
 			x:660, y:450, w:300, h:90
 		}
 	]
@@ -180,8 +180,8 @@ SLIDES.push(
 		// Intro text
 		{
 			type:"box",
-			id:"_3_prevent",
-			text:"_3_prevent",
+			id:"complex_prevent",
+			text:"complex_prevent",
 			x:80, y:0, w:800, h:140,
 			align: "center"
 		},
@@ -216,7 +216,7 @@ SLIDES.push(
 		/*{
 			id:"end",
 			type:"box",
-			text:"_3_prevent_end",
+			text:"complex_prevent_end",
 			x:660, y:440, w:300, h:100,
 			hidden:true
 		}*/
@@ -276,7 +276,7 @@ SLIDES.push(
 
 {
 	remove:[
-		{type:"box", id:"_3_prevent"}
+		{type:"box", id:"complex_prevent"}
 	],
 	move:[
 		{type:"box", id:"ui", y:0},
@@ -285,13 +285,13 @@ SLIDES.push(
 	add:[
 		{
 			type:"box",
-			text:"_3_prevent_2",
+			text:"complex_prevent_2",
 			x:0, y:390, w:650, h:100,
 			align: "right"
 		},
 		{
 			type:"box",
-			text:"_3_prevent_end",
+			text:"complex_prevent_end",
 			x:660, y:450, w:300, h:90
 		}
 	]
@@ -330,7 +330,7 @@ SLIDES.push(
 		// Text
 		{
 			type:"box",
-			text:"_3_groupthink",
+			text:"complex_groupthink",
 			x:460, y:0, w:500, h:540
 		},
 
