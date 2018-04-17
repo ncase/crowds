@@ -273,7 +273,7 @@ SLIDES.push(
 			if(peepCount==9){
 				var boxes = slideshow.boxes;
 				state.won = true;
-				boxes.hideChildByID("networks_puzzle_metric");
+				boxes.removeChildByID("networks_puzzle_metric");
 				boxes.showChildByID("networks_puzzle_end");
 				sim.win();
 			}
