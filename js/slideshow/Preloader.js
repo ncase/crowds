@@ -15,8 +15,8 @@ subscribe("prepreload", function(){
 			var pre_preloader = $("#pre_preloader");
 			pre_preloader.parentNode.removeChild(pre_preloader);
 			
-			//slideshow.gotoChapter("Preloader");
-			slideshow.gotoChapter("SmallWorld-Explanation");
+			slideshow.gotoChapter("Preloader");
+			//slideshow.gotoChapter("SmallWorld-Explanation");
 
 			publish("preload");
 		}

@@ -7,6 +7,23 @@ SLIDES.push(
 
 	add:[
 
+		// Sim
+		{
+			type:"sim",
+			x:0, y:0,
+			fullscreen: true,
+			network: {
+				"contagion":0,
+				"peeps":[[50,175,1],[194,187,0],[129,261,0],[46,303,0],[68,381,0],[151,408,0],[195,329,0]],
+				"connections":[[6,2,0],[2,3,0],[3,4,0],[4,5,0],[5,6,0],[6,3,0],[3,5,0],[5,2,0],[2,4,0],[4,6,0],[1,0,0]]
+			},
+			options:{
+				infectedFrame: 3,
+				scale: 1,
+				_wisdom: true
+			}
+		},
+
 		// Words
 		/*{
 			type:"box",

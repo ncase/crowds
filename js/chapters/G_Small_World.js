@@ -46,7 +46,7 @@ SLIDES.push(
 			id:"end",
 			type:"box",
 			text:"bb_2",
-			x:0, y:310, w:300, h:230,
+			x:0, y:270, w:300, h:230,
 			hidden: true
 		}
 

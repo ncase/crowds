@@ -32,7 +32,7 @@ SLIDES.push(
 		},
 
 		// Words
-		{
+		/*{
 			type:"box",
 			text:"sandbox_caption",
 			x:70, y:470, w:550, h:70
@@ -41,7 +41,7 @@ SLIDES.push(
 			type:"box",
 			text:"sandbox_next",
 			x:605, y:455, w:300, h:100
-		},
+		},*/
 
 
 	]
