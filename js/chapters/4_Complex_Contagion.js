@@ -22,20 +22,21 @@ SLIDES.push(
 			x:0, y:0,
 			fullscreen: true,
 			network: {
-				"contagion":0.25,
-				"peeps":[[819,90,0],[911,182,0],[905,310,0],[821,413,0],[688,252,0],[551,251,1]],
-				"connections":[[4,3,0],[2,4,0],[4,1,0],[4,0,0]]
+				"contagion":0.5,
+				"peeps":[[849,356,0],[794,225,0],[543,97,1],[665,147,0],[781,480,0],[906,480,0]],
+				"connections":[[0,1,0],[2,3,0],[3,1,0],[4,0,0],[0,5,0]]
 			},
 			options:{
-				infectedFrame: 3,
-				scale: 1.75
+				infectedFrame: 2,
+				scale: 1.75,
+				startUncuttable: true
 			}
 		},
 
 		// UI for the simulation
 		{
 			type:"box",
-			x:520, y:340,
+			x:520, y:230,
 			sim_ui:"red"
 		}
 
@@ -43,16 +44,11 @@ SLIDES.push(
 
 	onupdate:function(slideshow, state){
 
-		// Show end if ALL infected
+		// Show next if SIM STEP >= 3
 		if(!state.ended){
 			var sim = slideshow.simulations.sims[0];
-			var peepCount = 0;
-			sim.peeps.forEach(function(peep){
-				if(peep.infected) peepCount++;
-			});
-			if(peepCount==sim.peeps.length){
+			if(sim.STEP>=3){
 				state.ended = true;
-				sim.win();
 				slideshow.next();
 			}
 		}
@@ -72,6 +68,65 @@ SLIDES.push(
 			x:0, y:0, w:480, h:540
 		}
 	]
+},
+
+{
+	
+	clear:true,
+
+	add:[
+
+		// Intro text
+		{
+			type:"box",
+			text:"complex_complex_3",
+			x:0, y:0, w:480, h:540
+		},
+
+		// Sim
+		{
+			type:"sim",
+			x:0, y:0,
+			fullscreen: true,
+			network: {
+				"contagion":0.25,
+				"peeps":[[550,227,1],[717,226,0],[813,68,0],[881,181,0],[874,314,0],[793,411,0]],
+				"connections":[[1,2,0],[1,3,0],[4,1,0],[1,5,0],[0,1,0]]
+			},
+			options:{
+				infectedFrame: 3,
+				scale: 1.75
+			}
+		},
+
+		// UI for the simulation
+		{
+			type:"box",
+			x:520, y:300,
+			sim_ui:"red"
+		}
+
+	],
+
+	onupdate:function(slideshow, state){
+
+		// Show end if EVERYONE is infected
+		if(!state.ended){
+			var sim = slideshow.simulations.sims[0];
+			var peepCount = 0;
+			sim.peeps.forEach(function(peep){
+				if(peep.infected) peepCount++;
+			});
+			if(peepCount==sim.peeps.length){
+				var boxes = slideshow.boxes;
+				boxes.showChildByID("end", true);
+				state.ended = true;
+				sim.win();
+			}
+		}
+
+	}
+
 },
 
 {

@@ -161,6 +161,7 @@ function Slideshow(){
 		self.boxes.clear();
 		self.simulations.clear();
 		self.dom.innerHTML = "";
+		pencil.gotoFrame(0);
 	};
 
 	// Update

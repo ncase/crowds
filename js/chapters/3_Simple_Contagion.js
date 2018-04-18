@@ -182,21 +182,21 @@ SLIDES.push(
 		{type:"box", id:"end"}
 	],
 	move:[
-		{type:"box", id:"ui", y:360-80},
-		{type:"sim", id:"contagion", y:-140}
+		{type:"box", id:"ui", y:360-80-200},
+		{type:"sim", id:"contagion", y:-140-200}
 	],
 	add:[
 		{
 			type:"box",
 			text:"simple_post_cascade",
-			x:0, y:390, w:650, h:150,
-			align: "right"
-		},
+			x:80, y:210, w:800, h:150,
+			align: "center"
+		}/*,
 		{
 			type:"box",
 			text:"simple_post_cascade_end",
 			x:660, y:450, w:300, h:90
-		}
+		}*/
 	]
 },
 );

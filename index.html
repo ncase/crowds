@@ -138,6 +138,8 @@ MY "WHY" FOR MAKING THIS:
 <!-- THE SLIDESHOW'S WORDS -->
 <!-- - - - - - - - - - - - -->
 
+<span style="display:none">
+
 <!-- Preloader -->
 
 <words id="preloader_title">
@@ -197,23 +199,24 @@ MY "WHY" FOR MAKING THIS:
 </words>
 
 <words id="intro_2">
-	<div class="circle"><span>
+	<div class="circle" style="line-height:1.4em"><span>
 
 		<br>
-		Of course, that's not the only time markets, institutions, or entire democracies went crazy:
+		Of course, that's not the only time markets, institutions, or entire democracies went haywire &mdash;
 		the <i>madness</i> of crowds.
 		And yet, just when you lose hope in humanity,
-		you see citizens rescuing each other in hurricanes,
+		you see citizens coordinating to rescue each other in hurricanes,
 		communities creating solutions to problems,
-		movements of ordinary people fighting for a better world:
+		people fighting for a better world &mdash;
 		the <i>wisdom</i> of crowds!
 
-		<br><br>
+		<div style="height:0.9em"></div>
 
 		<b>But <i>why</i> do some crowds turn to madness, or wisdom?</b>
-		And how can we, collectively, get more of the latter?
-		According to the new field of <b>network science</b>,
-		the answer is not in the <i>individual people</i>, but in...
+		No theory can explain everything,
+		but I think a new field of study, <b>network science</b>,
+		can guide us! And its core idea is this:
+		to understand crowds, we should look not at the <i>individual people</i>, but at...
 
 		<next>...their <i>connections.</i> &rarr;</next>
 
@@ -237,36 +240,23 @@ MY "WHY" FOR MAKING THIS:
 
 <words id="networks_tutorial_end">
 
-	feel free to keep playing around, and draw whatever friendship network you want!
-	when you're done,
+	when you're done playing around,
 	<next wiggle>let's continue &rarr;</next>
 
 </words>
 
 <words id="networks_threshold">
 
-	But people don't just have social connections to make pretty pictures.
-	People look at their social connections, to understand their social world.
+	But social connections do more than just make pretty pictures.
+	People <i>look to</i> their social connections to understand their social world.
 	In this example, people look to their peers to
-	find out what % of their friends (not counting selves) are,
+	find out <b>what % of their friends</b> (not counting themselves) are,
 	say, binge-drinkers. <icon yellow></icon>
 
 </words>
 
 <words id="networks_threshold_instruction">
 	<b>Draw/erase connections, and see what happens! &rarr;</b>
-</words>
-
-<words id="networks_threshold_explanation">
-	<span style="color:#666">top-left:</span>
-	% of drinker friends &rarr;
-	<br>
-	<span style="color:#666">top-right:</span>
-	# of drinker friends / # of total friends &nbsp;&nbsp;&nbsp;&nbsp;
-	<br>
-	<span style="color:#666">black line:</span>
-	the 50% "majority" threshold &nbsp;&nbsp;&nbsp;&nbsp;
-	<br> (they'll glow if past threshold) &nbsp;&nbsp;&nbsp;&nbsp;
 </words>
 
 <words id="networks_threshold_end">
@@ -276,8 +266,8 @@ MY "WHY" FOR MAKING THIS:
 <words id="networks_pre_puzzle">
 
 	However, networks can <i>fool</i> people.
-	Just like how you see the earth as flat because you're on it,
-	people get wrong ideas about society because they're <i>in</i> it.
+	Just like how the earth seems flat because we're on it,
+	people may get wrong ideas about society because they're <i>in</i> it.
 
 	<bon id="connections"></bon>
 	<br>
@@ -307,8 +297,8 @@ MY "WHY" FOR MAKING THIS:
 	<b style="font-size:2em">PUZZLE TIME!</b>
 	<br>
 	Fool <i>everyone</i> into thinking
-	the majority of their friends are binge-drinkers <icon yellow></icon>
-	(even though binge-drinkers are outnumbered 2-to-1)
+	the majority of their friends (50% threshold) are binge-drinkers <icon yellow></icon>
+	(even though binge-drinkers are outnumbered 2-to-1!)
 
 </words>
 <words id="networks_puzzle_metric">
@@ -332,7 +322,8 @@ MY "WHY" FOR MAKING THIS:
 
 	<bon id="books"></bon>
 
-	But ideas/behaviors aren't just passively observed, they actively <i>spread</i>.
+	But people don't just passively <i>observe</i> others' ideas and behaviors,
+	they actively <i>copy</i> them.
 	So now, let's look at something network scientists call...
 
 	<next>“Contagions!” &rarr;</next>
@@ -343,13 +334,16 @@ MY "WHY" FOR MAKING THIS:
 <!-- Simple Contagions -->
 
 <words id="simple_simple">
-	Below, we start with one person <icon red></icon> who has some information.
+	<i>Let's put aside the "threshold" thing for now.</i>
+	Below: we have a person <icon red></icon> with some information.
 	Some <i>mis</i>information. "Fake news", as the cool kids say.
-	And every day, that person spreads the rumor to their friends.
+	And every day, that person spreads the rumor, like a virus, to their friends.
 	And they spread it to <i>their</i> friends. And so on.
 	<br>
-	<b>Run the simulation, step-by-step &darr;</b>
+	<b>
+	Start the simulation! &darr;
 	(p.s: you can't draw <i>while</i> the sim's running)
+	</b>
 </words>
 
 <words id="simple_simple_2">
@@ -381,47 +375,82 @@ MY "WHY" FOR MAKING THIS:
 	This madness-spreading is called an <b>"information cascade"</b>.
 	Mr. Newton fell for such a cascade in 1720.
 	The world's financial institutions fell for such a cascade in 2008.<ref id="subprime"></ref>
-	But so what? You already knew ideas spread.
-	However, some contagions act a bit more strangely... and they're called:
-</words>
-
-<words id="simple_post_cascade_end">
+	<br><br>
+	However: <i>this simulation is wrong.</i>
+	Ideas <i>don't</i> spread like viruses.
+	For many beliefs and behaviors, you need to be "exposed" to the contagion more than just once
+	in order to be "infected".
+	That is: we have to consider the <i>percentage (%) thresholds</i>.
+	So, network scientists have come up with a new, better way to 
+	describe how ideas/behaviors spread, and they call it...
 	<next wiggle>“<i>Complex</i> Contagions!” &rarr;</next>
 </words>
 
 <!-- Complex Contagions -->
 
 <words id="complex_complex">
-	<span style="line-height:1.4em">
 
-		Truth may be stranger than fiction, but it doesn't sell as well.
+	Let's bring back "thresholds", and the binge-drinking <icon yellow></icon> example!
+	When you played with this the first time, people didn't change their behavior.
 
-		<div style="height:0.7em"></div>
+	<br><br>
 
-		<b>Simple contagions</b>, like juicy rumors or hot takes,
-		only need one "infected" friend to spread.
-		That doesn't mean the contagion <i>will</i> spread,
-		just that one exposure <i>can</i> be enough to spread.
-		This, by the way, is how <i>biological</i> contagions (like bacteria &amp; viruses) work. 
+	Now, let's simulate what happens if people <i>do</i> start drinking
+	<i>when 50%+ of their friends do!</i> 
+	<b>Before you start the sim, ask yourself what you think <i>should</i> happen.
+	Now, run the sim, and see what actually happens! &rarr;</b>
 
-		<div style="height:0.7em"></div>
+</words>
 
-		<b>Complex contagions</b> are weirder.
-		Some things -- like norms, habits and hard-to-accept ideas --
-		need more social encouragement.
-		They need not a minimum <i>number</i> of friends to spread,
-		but a minimum <i>percentage</i> of friends to spread!<ref id="complex"></ref>
+<words id="complex_complex_2">
+	<span style="line-height:1.2em">
+		
+		Note that, unlike our earlier "fake news" <icon red></icon> contagion,
+		this contagion <icon yellow></icon> does <i>not</i> spread to everyone!
 
-		<div style="height:0.7em"></div>
+		<div style="height:1em"></div>
 
-		<b>On the right, a person needs <i>AT LEAST 25%</i> of their friends to
-		adopt a complex fact <icon blue></icon> before they do.
-		Try "infecting" them all with <i>wisdom!</i> &rarr;</b>
+		The first few people get "infected", because although they're only exposed to one
+		binge-drinker, that binge-drinker is 50% of their friends. (yeah, they're lonely)
+		In contrast, the person near the end of the chain did <i>not</i> get "infected",
+		because while they were exposed to a binge-drinking friend,
+		they did not exceed the 50%+ majority threshold.
+
+		<div style="height:1em"></div>
+
+		And <i>that's</i> the difference between the <b>"complex contagion"</b> theory,
+		and our earlier, naive, it-simply-spreads-like-a-virus "simple contagion" theory.
+
+		<div style="height:1em"></div>
+
+		But, as stated earlier, not all contagions are bad &mdash;
+		so enough about crowd madness, what about...
+		<next>...crowd <i>wisdom?</i></next>
 
 	</span>
 </words>
 
-<words id="complex_complex_2">
+<words id="complex_complex_3">
+
+	Here, we have a person <icon blue></icon> who volunteers to... I don't know,
+	rescue people in hurricanes, help the poor in their local community, or something cool like that.
+	Point is, it's a "good" complex contagion.
+	This time, though, let's say the threshold is only 25% &mdash;
+	people are willing to volunteer, but only if 25% or more of their friends do so too.
+	Hey, goodwill needs a bit of social encouragement.
+
+	<br><br>
+
+	<b>Get everyone "infected" with the good vibes! &rarr;</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+
+</words>
+
+<!--
+<words id="complex_complex_3">
 	<span style="line-height:1.4em">
 
 		<b>CAUTION:</b>
@@ -448,6 +477,7 @@ MY "WHY" FOR MAKING THIS:
 
 	</span>
 </words>
+-->
 
 <words id="complex_cascade">
 	You did this before, but now, with a <i>complex</i> contagion <icon blue></icon>, it'll be tougher...
@@ -868,7 +898,7 @@ MY "WHY" FOR MAKING THIS:
 <reference id="contagion">
 	<h3>
 	“strong statistical evidence that
-	smoking, happiness, obesity, voting patterns, and cooperation levels
+	smoking, health, happiness, voting patterns, and cooperation levels
 	are all contagious”
 	</h3>
 	<div>
@@ -1006,6 +1036,8 @@ MY "WHY" FOR MAKING THIS:
 	yes, including all the ideas in <i>this</i> explorable explanation.
 	</div>
 </reference>
+
+</span>
 
 <!-- - - - - -->
 <!-- SCRIPTS -->

@@ -242,13 +242,19 @@ function Peep(config){
 			var uiColor = "#333";
 
 			// Say: Infected/Friends (% then n/n)
-			ctx.translate(0,-43);
+			ctx.translate(0,-46);
 			ctx.font = '12px PatrickHand';
 			ctx.fillStyle = uiColor;
 			ctx.textBaseline = "middle";
 			ctx.fontWeight = "bold";
 			if(self.numFriends>0){
 
+				// %, centered
+				ctx.textAlign = "center";
+				var labelPercent = Math.round(100*(self.numInfectedFriends/self.numFriends)) + "%";
+				ctx.fillText(labelPercent, 0, 0);
+
+				/*
 				// %
 				ctx.textAlign = "left";
 				var labelPercent = Math.round(100*(self.numInfectedFriends/self.numFriends)) + "%";
@@ -258,6 +264,7 @@ function Peep(config){
 				ctx.textAlign = "right";
 				var labelNum = self.numInfectedFriends+"/"+self.numFriends;
 				ctx.fillText(labelNum, barWidth/2, 0);
+				*/
 
 
 			}else{
@@ -266,7 +273,7 @@ function Peep(config){
 			}
 
 			// the gray bg
-			ctx.translate(0,10);
+			ctx.translate(0,13);
 			ctx.fillStyle = bgColor;
 			ctx.beginPath();
 			ctx.rect(-barWidth/2, -barHeight/2, barWidth, barHeight);
@@ -286,10 +293,10 @@ function Peep(config){
 				ctx.translate(barWidth*self.sim.contagion - barWidth/2, 0);
 				ctx.lineCap = "butt";
 				ctx.strokeStyle = uiColor;
-				ctx.lineWidth = 1;
+				ctx.lineWidth = 1.5;
 				ctx.beginPath();
-				ctx.moveTo(0,0);
-				ctx.lineTo(0,barHeight);
+				ctx.moveTo(0,-2);
+				ctx.lineTo(0,barHeight+2);
 				ctx.stroke();
 			ctx.restore();
 
@@ -303,14 +310,21 @@ function Peep(config){
 
 	// Hit Test
 	self.hitTest = function(x,y,buffer){
-		if(buffer===undefined) buffer=0;
+		// ACTUALLY IGNORE BUFFER'S AMOUNT, IT'S TRUE OR FALSE.
+		// if(buffer===undefined) buffer=0;
+		buffer = !!buffer;
 		var dx = self.x-x;
 		var dy = self.y-y;
 		var dist2 = dx*dx+dy*dy;
-		var r = radius+buffer;
+		
+		var r = radius;
 		var s;
 		if(s = self.sim.options.scale) r*=s;
+		
+		r = buffer ? Math.max(r+10, 40) : r;
+		
 		return (dist2<r*r);
+
 	};
 
 	// Infect

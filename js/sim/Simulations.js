@@ -213,7 +213,7 @@ function Sim(config){
 		});
 		if(self.winWord.ticker>=0){
 			self.winWord.ticker += 1/60;
-			if(self.winWord.ticker>5){
+			if(self.winWord.ticker>3){
 				self.winWord.ticker = -1;
 			}
 		}
@@ -277,8 +277,8 @@ function Sim(config){
 			}
 
 			// fade away
-			if(self.winWord.ticker>4){
-				var alpha = -(self.winWord.ticker-5);
+			if(self.winWord.ticker>2){
+				var alpha = -(self.winWord.ticker-3);
 				ctx.globalAlpha = alpha;
 			}
 
@@ -460,10 +460,10 @@ function Sim(config){
 		self._addPeepAtMouse(true);
 	}));
 	self._addPeepAtMouse = function(infected){
-		var overlapPeep = self.getHoveredPeep(20);
-		if(!overlapPeep){
-			self.addPeep(self.mouse.x, self.mouse.y, infected);
-		}
+		//var overlapPeep = self.getHoveredPeep(20);
+		//if(!overlapPeep){
+		self.addPeep(self.mouse.x, self.mouse.y, infected);
+		//}
 	};
 	_keyHandlers.push(subscribe("key/down/delete",function(){
 		_resetConnectorCutter();
