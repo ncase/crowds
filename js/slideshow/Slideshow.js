@@ -154,6 +154,7 @@ function Slideshow(){
 		self.goto(index, true);
 	};
 	self.next = function(){
+		if(self.slideIndex >= SLIDES.length-1) return; // there's no next
 		self.goto(self.slideIndex+1);
 	};
 

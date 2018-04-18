@@ -96,6 +96,25 @@ b, strong{
     background-position: 0% 0%;
 }
 
+/* Skip */
+#container > #skip{
+	
+	display: none;
+
+	position: absolute;
+	right:10px;
+	bottom:10px;
+	width: 80px;
+	height: 25px;
+	font-size: 25px;
+	line-height: 25px;
+	color: #aaa;
+	text-align: right;
+}
+#container > #skip:hover{
+	color: #ccc;
+}
+
 /* Peep Icon */
 .peep_icon{
 	height:1em;
@@ -253,6 +272,9 @@ b, strong{
 	user-select: none; 
 }
 #navigation{
+
+	display: none;
+
 	position: absolute;
 	top: 10px;
 	left: calc(50% - 300px);

@@ -40,7 +40,14 @@ subscribe("START", function(){
 	SOUNDS.bg_music.loop(true);
 	SOUNDS.bg_music.play();
 
-	// Navigation
+	// Show Navigation
+	$("#navigation").style.display = "block";
+
+	// Show Skip Button
+	$("#skip").style.display = "block";
+	$("#skip").onclick = function(){
+		slideshow.next();
+	};
 
 	// Introduction
 	slideshow.next();
