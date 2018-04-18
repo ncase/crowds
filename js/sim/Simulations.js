@@ -266,14 +266,12 @@ function Sim(config){
 		// Draw confetti - NOT AFFECTED BY TRANSFORMS.
 		self.confetti.forEach(function(confetti){
 			ctx.save();
-			var _hue = confetti.frame*72; // placeholder
-			ctx.fillStyle = "hsl("+_hue+",100%,80%)";
-			var offsetX = -Math.sin(confetti.spin)*9;
-			ctx.translate(confetti.x+offsetX, confetti.y);
-			ctx.rotate(Math.sin(confetti.spin)*0.2);
-			ctx.beginPath();
-			ctx.rect(-20,-10,40,20);
-			ctx.fill();
+				var offsetX = -Math.sin(confetti.spin)*9;
+				ctx.translate(confetti.x+offsetX, confetti.y);
+				ctx.rotate(Math.sin(confetti.spin)*0.2);
+				if(confetti.flip) ctx.scale(-1,1);
+				self.confettiSprite.gotoFrame(confetti.frame);
+				self.confettiSprite.draw(ctx);
 			ctx.restore();
 		});
 
@@ -330,6 +328,15 @@ function Sim(config){
 	self.confetti = [];
 	self.winWord = {x:0, y:0, ticker:-1};
 
+	// Confetti Sprite
+	self.confettiSprite = new Sprite({
+		src: "sprites/confetti.png",
+		frames:3, sw:100, sh:50,
+	});
+	self.confettiSprite.pivotX = 50;
+	self.confettiSprite.pivotY = 50;
+	self.confettiSprite.scale = 0.5;
+
 	self.win = function(bounds){
 
 		// ONLY ONCE
@@ -366,7 +373,8 @@ function Sim(config){
 				frame: frame,
 				spinSpeed: spinSpeed,
 				spin: Math.random()*Math.TAU,
-				g: 0.10+Math.random()*0.10
+				g: 0.10+Math.random()*0.10,
+				flip: (Math.random()<0.5)
 			};
 			self.confetti.push(confetti);
 		}

@@ -148,15 +148,25 @@ function Peep(config){
 	};
 
 	// Body Sprite
+	var _initSpriteScale = 0.3;
 	self.sprite = new Sprite({
 		src: "sprites/peeps.png",
 		frames:6, sw:200, sh:200,
 	});
 	self.sprite.pivotX = 100;
 	self.sprite.pivotY = 100;
-	var _initSpriteScale = 0.3;
 	self.sprite.scale = _initSpriteScale;
-	//self.sprite.gotoFrame(1);
+
+	// Prop Sprite
+	self.propSprite = new Sprite({
+		src: "sprites/peeps.png",
+		frames:6, sw:200, sh:200,
+	});
+	self.propSprite.pivotX = 100;
+	self.propSprite.pivotY = 100;
+	self.propSprite.scale = _initSpriteScale;
+	var _bottleAnim = Math.random()*Math.TAU;
+	var _bottleSpeed = 0.01 + Math.random()*0.01;
 
 	// Draw
 	var radius = 25;
@@ -219,8 +229,32 @@ function Peep(config){
 		ctx.translate(self.faceX, self.faceY);
 		self.sprite.rotation = 0;
 		self.sprite.gotoFrame(self.faceBlink ? 7 : 6);
+		if(self.sim.options._wisdom && self.infected){
+			self.sprite.gotoFrame(10);
+		}
+		if(self.sim.options._bottle && self.infected){
+			self.sprite.rotation = Math.sin(_bottleAnim*1.5)*0.15;
+		}
 		self.sprite.draw(ctx);
 		ctx.restore();
+
+		// PROPS?
+		if(self.sim.options._bottle && self.infected){
+			self.propSprite.x = 25;
+			self.propSprite.y = 15;
+			_bottleAnim += _bottleSpeed;
+			self.propSprite.scale = 0.25;
+			self.propSprite.rotation = 0.2 + Math.sin(_bottleAnim)*0.2;
+			self.propSprite.gotoFrame(9);
+			self.propSprite.draw(ctx);
+		}
+		if(self.sim.options._dunce && self.infected){
+			self.propSprite.x = -14;
+			self.propSprite.y = -22;
+			self.propSprite.scale = 0.25;
+			self.propSprite.gotoFrame(8);
+			self.propSprite.draw(ctx);
+		}
 
 		//////////////////////////////////////////////////////////
 		// LABEL FOR INFECTED/FRIENDS, BAR, AND CONTAGION LEVEL //

@@ -1,10 +1,10 @@
 /* FONT FACE */
 @font-face {
-  font-family: "PatrickHand";
-  font-style: normal;
-  font-weight: 400;
-  src: url(PatrickHand-Regular.ttf) format('truetype');
-  /*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;*/
+	font-family: "PatrickHand";
+	font-style: normal;
+	font-weight: 400;
+	src: url(PatrickHand-Regular.ttf) format('truetype');
+	/*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;*/
 }
 
 /* HTML & BODY */
@@ -113,24 +113,28 @@ b, strong{
 }
 .sim_ui > div{
 	position: absolute;
-	background: #dd4040;
 	color: #fff;
 	text-align: center;
 	border-radius: 10px;
 }
-.sim_ui > #reset_button{
-	width: 150px;
-	left:25px;
-	top:0px;
-	font-size: 0.8em;
-	transition: top 0.3s ease-in-out;
-}
 .sim_ui > #start_button{
 	width: 200px;
 	padding: 0.5em 0;
+	background-image: url(../sprites/red_button.png);
+	background-size: 100% auto;
+
+	position: relative;
+	top:0;
+	transition: top 0.1s ease-in-out;
 }
-.sim_ui[active] > #reset_button{
-	top:60px;
+.sim_ui[active] > #start_button{
+	background-position: 0 -62.5px;
+}
+.sim_ui > #start_button:hover{
+	top:-3px;
+}
+.sim_ui > #start_button:active{
+	top:3px;
 }
 
 /* Sandbox UI */

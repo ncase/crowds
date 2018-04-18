@@ -29,7 +29,7 @@ function Pencil(){
 	var _margin = 10;
 	var _offset = 10;
 	self.colors = [
-		"#ccc",
+		"#888",
 		"#000",
 		"#ff5555"
 	];
@@ -90,7 +90,7 @@ function Pencil(){
 				ctx.fillStyle = self.colors[self.sprite.currentFrame];
 				ctx.beginPath();
 				ctx.globalAlpha = 0.5;
-				ctx.arc(0, 0, 8, 0, Math.TAU);
+				ctx.arc(0, 0, 5, 0, Math.TAU);
 				ctx.fill();
 				ctx.restore();
 			}

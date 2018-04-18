@@ -20,7 +20,8 @@ SLIDES.push(
 			options:{
 				infectedFrame: 3,
 				scale: 1,
-				startUncuttable: true
+				startUncuttable: true,
+				_wisdom: true
 			}
 		},
 
@@ -79,6 +80,12 @@ SLIDES.push(
 	clear:true,
 	add:[
 
+		// PIC
+		{
+			type:"box",
+			img:"sprites/small_world.png", x:-10, y:95, w:970, h:284
+		},
+
 		// Words
 		{
 			type:"box",
@@ -101,10 +108,6 @@ SLIDES.push(
 			text:"bb_small_world_4", x:640, y:130, w:320, h:40,
 			fontSize:"30px", lineHeight:"30px",
 			align:"center"
-		},
-		{
-			type:"box",
-			img:"sprites/small_world.png", x:-10, y:95, w:970, h:284
 		},
 		{
 			type:"box",

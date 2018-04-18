@@ -2,7 +2,7 @@
 // HELPERS ///////
 //////////////////
 
-Math.TAU = 6.2831853072;
+Math.TAU = 6.2831853072; // for true believers
 
 // The poor man's jQuery
 function $(query){

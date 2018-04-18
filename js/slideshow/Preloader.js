@@ -16,7 +16,7 @@ subscribe("prepreload", function(){
 			pre_preloader.parentNode.removeChild(pre_preloader);
 			
 			//slideshow.gotoChapter("Preloader");
-			slideshow.gotoChapter("Complex");
+			slideshow.gotoChapter("BB");
 
 			publish("preload");
 		}

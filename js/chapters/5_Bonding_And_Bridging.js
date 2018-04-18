@@ -23,7 +23,8 @@ SLIDES.push(
 			},
 			options:{
 				infectedFrame: 3,
-				scale: 1
+				scale: 1,
+				_wisdom: true
 			}
 		},
 
@@ -108,7 +109,8 @@ SLIDES.push(
 			options:{
 				infectedFrame: 3,
 				scale: 1,
-				startUncuttable: true
+				startUncuttable: true,
+				_wisdom: true
 			}
 		},
 

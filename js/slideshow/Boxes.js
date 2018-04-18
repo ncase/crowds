@@ -86,6 +86,14 @@ function Boxes(){
 				slideshow.next();
 			};
 
+			// to prevent sim from resetting...
+			nextButton.onmousedown = function(event){
+				event.stopPropagation();
+			};
+			nextButton.ontouchstart = function(event){
+				event.stopPropagation();
+			};
+
 			// Replace it in parent!
 			next.parentNode.replaceChild(nextButton, next);
 

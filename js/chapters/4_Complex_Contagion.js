@@ -29,7 +29,8 @@ SLIDES.push(
 			options:{
 				infectedFrame: 2,
 				scale: 1.75,
-				startUncuttable: true
+				startUncuttable: true,
+				_bottle: true
 			}
 		},
 
@@ -95,7 +96,8 @@ SLIDES.push(
 			},
 			options:{
 				infectedFrame: 3,
-				scale: 1.75
+				scale: 1.75,
+				_wisdom: true
 			}
 		},
 
@@ -158,7 +160,8 @@ SLIDES.push(
 			options:{
 				infectedFrame: 3,
 				scale: 1.25,
-				startUncuttable: true
+				startUncuttable: true,
+				_wisdom: true
 			}
 		},
 
@@ -255,7 +258,8 @@ SLIDES.push(
 			options:{
 				infectedFrame: 3,
 				scale: 1.25,
-				startUncuttable: true
+				startUncuttable: true,
+				_wisdom: true
 			}
 		},
 
@@ -370,7 +374,8 @@ SLIDES.push(
 			},
 			options:{
 				infectedFrame: 3,
-				scale: 1.75
+				scale: 1.75,
+				_wisdom: true
 			}
 		},
 
