@@ -15,6 +15,7 @@ function Boxes(){
 	self.clear = function(){
 		self.boxes.forEach(function(box){
 			self.dom.removeChild(box);
+			if(box.kill) box.kill();
 		});
 		self.boxes = [];
 	};
@@ -158,6 +159,7 @@ function Boxes(){
 			fadeOut(self.dom, removeBox);
 		}
 		removeFromArray(self.boxes, removeBox);
+		if(removeBox.kill) removeBox.kill();
 
 	};
 

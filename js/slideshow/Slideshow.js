@@ -43,6 +43,7 @@ function Slideshow(){
 			_delayNewSlide = 800;
 			self.scratch.scratchOut(); // Scratch out
 			$("#container").removeAttribute("sim_is_running"); // remove that UI
+			Simulations.IS_RUNNING = false; // STAHP
 		}
 
 		_setTimeout(function(){

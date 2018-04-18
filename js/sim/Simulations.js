@@ -38,9 +38,26 @@ function Simulations(){
 
 	// Update
 	self.update = function(){
+
+		// Running sims... the CLOCK!
+		if(Simulations.IS_RUNNING){
+			if(self.CLOCK==0){
+
+				// Step all sims!
+				self.sims.forEach(function(sim){
+					sim.nextStep();
+				});
+				self.CLOCK = 30; //25;
+
+			}
+			self.CLOCK--;
+		}
+
+		// Update all sims
 		self.sims.forEach(function(sim){
 			sim.update();
 		});
+
 	};
 
 	// Draw
@@ -54,32 +71,29 @@ function Simulations(){
 	// SIMULATION RUNNING //
 	////////////////////////
 
-
+	self.CLOCK = -1;
 	subscribe("sim/start", function(){
 
 		Simulations.IS_RUNNING = true;
 		$("#container").setAttribute("sim_is_running",true);
 		
+		self.CLOCK = 0;
+		// save for later resetting
 		self.sims.forEach(function(sim){
-			sim.save(); // save for later resetting
+			sim.save();
 		});
-		//publish("sim/next");
 
 	});
-	subscribe("sim/reset", function(){
+	subscribe("sim/stop", function(){
 		
 		Simulations.IS_RUNNING = false;
 		$("#container").removeAttribute("sim_is_running");
-
+		
+		// reload the network pre-sim
 		self.sims.forEach(function(sim){
-			sim.reload(); // reload the network pre-sim
+			sim.reload(); 
 		});
 
-	});
-	subscribe("sim/next", function(){
-		self.sims.forEach(function(sim){
-			sim.nextStep();
-		});
 	});
 
 	///////////////////////
@@ -377,15 +391,9 @@ function Sim(config){
 		self.contagion = contagionLevel;
 	};
 
-	self._dontStepAgain = false;
 	self.nextStep = function(){
 
-		if(self._dontStepAgain) return;
-		self._dontStepAgain = true;
-		setTimeout(function(){
-			self.STEP++;
-			self._dontStepAgain = false;
-		},420); // just in case...
+		self.STEP++;
 
 		// "Infect" the peeps who need to get infected
 

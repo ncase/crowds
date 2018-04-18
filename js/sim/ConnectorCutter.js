@@ -29,6 +29,12 @@ function ConnectorCutter(config){
 		// IF SANDBOX STATE = PENCIL, complex mouse shtuff
 		if(self.sandbox_state==0){
 
+			// JUST CLICKED & SIM'S RUNNING? STOP
+			if(Simulations.IS_RUNNING && mouse.justPressed){
+				Simulations.IS_RUNNING = false;
+				publish("sim/stop");
+			}
+
 			// only if sim is NOT RUNNING
 			if(!Simulations.IS_RUNNING){
 

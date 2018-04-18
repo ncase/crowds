@@ -4,28 +4,23 @@ function SimUI(container, color){
 	self.container = container;
 	self.container.classList.add("sim_ui");
 
-	// RESET
-	var resetButton = document.createElement("div");
-	resetButton.id = "reset_button";
-	resetButton.innerHTML = getWords("sim_reset");
-	self.container.appendChild(resetButton);
-	resetButton.onclick = function(){
-		if(Simulations.IS_RUNNING){
-			publish("sim/reset");
-			_updateButtonUI();
-		}
-	};
-
 	// START / NEXT
 	var startButton = document.createElement("div");
 	startButton.id = "start_button";
 	self.container.appendChild(startButton);
-	startButton.onclick = function(){
+	startButton.onmousedown = function(event){
+		event.stopPropagation();
+	};
+	startButton.ontouchstart = function(event){
+		event.stopPropagation();
+	};
+	startButton.onclick = function(event){
 		if(!Simulations.IS_RUNNING){
+			Simulations.IS_RUNNING = true;
 			publish("sim/start");
-			_updateButtonUI();
 		}else{
-			publish("sim/next");
+			Simulations.IS_RUNNING = false;
+			publish("sim/stop");
 		}
 	};
 
@@ -35,10 +30,18 @@ function SimUI(container, color){
 			startButton.innerHTML = getWords("sim_start");
 			self.container.removeAttribute("active");
 		}else{
-			startButton.innerHTML = getWords("sim_next");
+			startButton.innerHTML = getWords("sim_stop");
 			self.container.setAttribute("active",true);
 		}
 	};
 	_updateButtonUI();
+
+	var _handler1 = subscribe("sim/start",_updateButtonUI);
+	var _handler2 = subscribe("sim/stop",_updateButtonUI);
+	self.container.kill = function(){
+		unsubscribe(_handler1);
+		unsubscribe(_handler2);
+	};
+
 
 }
