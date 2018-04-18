@@ -410,7 +410,7 @@ ref:hover:before{
 
 /* TO SEE LAYOUT */
 .box, #simulations{
-	/*border: 1px solid #eee;*/
+	border: 1px solid #eee;
 }
 
 /* A NICE CIRCLE */

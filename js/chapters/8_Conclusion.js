@@ -8,15 +8,15 @@ SLIDES.push(
 	add:[
 
 		// Words
+		/*{
+			type:"box",
+			img:"sprites/conclusion.png", x:-10, y:-15, w:470, h:562
+		},*/
 		{
 			type:"box",
 			id:"conclusion_1",
 			text:"conclusion_1", x:0, y:0, w:960, h:540
-		},
-		{
-			type:"box",
-			img:"sprites/conclusion.png", x:-10, y:-15, w:470, h:562
-		},
+		}
 
 	]
 

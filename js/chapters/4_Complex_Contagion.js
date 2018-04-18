@@ -72,16 +72,24 @@ SLIDES.push(
 },
 
 {
-	
+	chapter: "Complex-Wisdom",
 	clear:true,
 
 	add:[
 
 		// Intro text
 		{
+			id:"complex_complex_3",
 			type:"box",
 			text:"complex_complex_3",
-			x:0, y:0, w:480, h:540
+			x:480, y:0, w:480, h:540
+		},
+		{
+			id:"end",
+			type:"box",
+			text:"complex_complex_3_end",
+			x:480, y:0, w:480, h:540,
+			hidden:true
 		},
 
 		// Sim
@@ -91,7 +99,7 @@ SLIDES.push(
 			fullscreen: true,
 			network: {
 				"contagion":0.25,
-				"peeps":[[550,227,1],[717,226,0],[813,68,0],[881,181,0],[874,314,0],[793,411,0]],
+				"peeps":[[54,240,1],[227,237,0],[298,98,0],[405,157,0],[408,296,0],[311,380,0]],
 				"connections":[[1,2,0],[1,3,0],[4,1,0],[1,5,0],[0,1,0]]
 			},
 			options:{
@@ -104,7 +112,7 @@ SLIDES.push(
 		// UI for the simulation
 		{
 			type:"box",
-			x:520, y:300,
+			x:30, y:320,
 			sim_ui:"red"
 		}
 
@@ -121,6 +129,7 @@ SLIDES.push(
 			});
 			if(peepCount==sim.peeps.length){
 				var boxes = slideshow.boxes;
+				boxes.removeChildByID("complex_complex_3", true);
 				boxes.showChildByID("end", true);
 				state.ended = true;
 				sim.win();
@@ -172,13 +181,20 @@ SLIDES.push(
 			x:380, y:370,
 			sim_ui:"red"
 		},
+		{
+			type:"box",
+			id:"complex_cascade_feel_free",
+			text:"complex_cascade_feel_free",
+			x:330, y:440, w:300, h:100,
+			align: "center"
+		},
 
 		// End text
 		{
 			id:"end",
 			type:"box",
 			text:"complex_cascade_end",
-			x:330, y:460, w:300, h:100,
+			x:330, y:450, w:300, h:100,
 			hidden:true
 		},
 
@@ -195,6 +211,7 @@ SLIDES.push(
 			});
 			if(peepCount==sim.peeps.length){
 				var boxes = slideshow.boxes;
+				boxes.removeChildByID("complex_cascade_feel_free", true);
 				boxes.showChildByID("end", true);
 				state.ended = true;
 				sim.win();
@@ -218,7 +235,7 @@ SLIDES.push(
 		{
 			type:"box",
 			text:"complex_post_cascade",
-			x:0, y:390, w:650, h:150,
+			x:50, y:390, w:600, h:150,
 			align: "right"
 		},
 		{
@@ -307,7 +324,10 @@ SLIDES.push(
 							var boxes = slideshow.boxes;
 							setTimeout(function(){
 								//boxes.showChildByID("end", true);
-								sim.win();
+								sim.win({
+									x:350, y:270-90,
+									width:260, height:260
+								});
 							},350);
 							setTimeout(function(){
 								slideshow.next();
@@ -362,29 +382,10 @@ SLIDES.push(
 
 	add:[
 
-		// Sim
-		{
-			type:"sim",
-			x:-15, y:0,
-			fullscreen: true,
-			network: {
-				"contagion":0.25,
-				"peeps":[[409,457,1],[157,345,0],[62,221,0],[152,93,0],[301,94,0],[391,218,0],[306,347,0]],
-				"connections":[[5,4,0],[4,3,0],[3,2,0],[2,1,0],[1,6,0],[6,5,0],[5,2,0],[2,4,0],[4,1,0],[1,3,0],[3,6,0],[6,2,0],[1,5,0],[5,3,0],[6,4,0],[0,6,0]]
-			},
-			options:{
-				infectedFrame: 3,
-				scale: 1.75,
-				_wisdom: true
-			}
-		},
-
-		// UI for the simulation
+		// NASA Image
 		{
 			type:"box",
-			id:"ui",
-			x:120, y:410,
-			sim_ui:"blue"
+			img:"sprites/nasa.png", x:0, y:0, w:400, h:250
 		},
 
 		// Text

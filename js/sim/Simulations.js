@@ -401,9 +401,10 @@ function Sim(config){
 
 	self.nextStep = function(){
 
-		self.STEP++;
-
 		// "Infect" the peeps who need to get infected
+		setTimeout(function(){
+			self.STEP++;
+		},400);
 
 		// CONNECTIONS: IF one is INFECTED and the other is PAST THRESHOLD, then ANIMATE
 		self.connections.forEach(function(c){
