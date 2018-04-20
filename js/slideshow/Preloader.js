@@ -17,7 +17,6 @@ subscribe("prepreload", function(){
 		{id:"snip2", audio:"audio/snip2.mp3"},
 
 	],function(progress){
-		console.log("Pre-Preloader: "+progress);
 		if(progress==1){
 			var pre_preloader = $("#pre_preloader");
 			pre_preloader.parentNode.removeChild(pre_preloader);
@@ -42,21 +41,24 @@ subscribe("preload", function(){
 
 		// Sound Effects
 		{id:"bonk", audio:"audio/bonk.mp3"},
+		{id:"boom", audio:"audio/boom.mp3"},
 		{id:"button0", audio:"audio/button0.mp3"},
 		{id:"button1", audio:"audio/button1.mp3"},
 		{id:"button2", audio:"audio/button2.mp3"},
 		{id:"chimes", audio:"audio/chimes.mp3"},
-		{id:"contagion0", audio:"audio/contagion0.mp3"},
-		{id:"contagion1", audio:"audio/contagion1.mp3"},
-		{id:"contagion2", audio:"audio/contagion2.mp3"},
+		{id:"contagion", audio:"audio/contagion.mp3"},
 		{id:"party", audio:"audio/party.mp3"},
 		{id:"party_short", audio:"audio/party_short.mp3"},
 		{id:"pluck0", audio:"audio/pluck0.mp3"},
 		{id:"pluck1", audio:"audio/pluck1.mp3"},
 		{id:"pluck2", audio:"audio/pluck2.mp3"},
 		{id:"pluck3", audio:"audio/pluck3.mp3"},
+		{id:"pop", audio:"audio/pop.mp3"},
 		{id:"scratch_in", audio:"audio/scratch_in.mp3"},
 		{id:"scratch_out", audio:"audio/scratch_out.mp3"},
+		{id:"squeak_down", audio:"audio/squeak_down.mp3"},
+		{id:"squeak_up", audio:"audio/squeak_up.mp3"},
+		{id:"trash", audio:"audio/trash.mp3"},
 
 		// For the slides
 		{id:"icons/blue", image:"sprites/icons/blue.png"},
@@ -73,7 +75,6 @@ subscribe("preload", function(){
 		{id:"tutorial_disconnect", image:"sprites/tutorial_disconnect.png"},
 
 	],function(progress){
-		console.log("Preloader: "+progress);
 		window.PRELOAD_PROGRESS = progress;
 	});
 

@@ -120,10 +120,12 @@ function Sim(config){
 	self.id = config.id;
 
 	// CONTAGION SOUND
-	var _CONTAGION_SOUND = 0;
+	//var _CONTAGION_SOUND = 0;
 	var _PLAY_CONTAGION_SOUND = function(){
-		_CONTAGION_SOUND = (_CONTAGION_SOUND+1)%3;
-		SOUNDS["contagion"+_CONTAGION_SOUND].play();
+		//_CONTAGION_SOUND = (_CONTAGION_SOUND+1)%3;
+		//SOUNDS["contagion"+_CONTAGION_SOUND].play();
+		SOUNDS.contagion.volume(0.75);
+		SOUNDS.contagion.play();
 	};
 
 	// Canvas
@@ -502,6 +504,11 @@ function Sim(config){
 				_draggingPeep = hoveredPeep;
 				_draggingOffset.x = _draggingPeep.x-self.mouse.x;
 				_draggingOffset.y = _draggingPeep.y-self.mouse.y;
+
+				// Sound!
+				SOUNDS.squeak_down.volume(0.6);
+				SOUNDS.squeak_down.play();
+
 			}
 		}
 	};
@@ -509,7 +516,13 @@ function Sim(config){
 		self._stopMove();	
 	}));
 	self._stopMove = function(){
+		
+		// Sound!
+		SOUNDS.squeak_up.volume(0.6);
+		SOUNDS.squeak_up.play();
+
 		_draggingPeep = null;
+
 	};
 	_keyHandlers.push(subscribe("key/down/1",function(){
 		_resetConnectorCutter();
@@ -520,18 +533,25 @@ function Sim(config){
 		self._addPeepAtMouse(true);
 	}));
 	self._addPeepAtMouse = function(infected){
-		//var overlapPeep = self.getHoveredPeep(20);
-		//if(!overlapPeep){
+
+		// SOUND
+		SOUNDS.pop.play();
+
 		self.addPeep(self.mouse.x, self.mouse.y, infected);
-		//}
+
 	};
 	_keyHandlers.push(subscribe("key/down/delete",function(){
 		_resetConnectorCutter();
 		self._deletePeep();	
 	}));
 	self._deletePeep = function(){
+
+		// SOUND
+		SOUNDS.trash.play();
+
 		var toDeletePeep = self.getHoveredPeep(0);
 		if(toDeletePeep) self.removePeep(toDeletePeep);
+
 	};
 
 	self.getCurrentNetwork = function(){

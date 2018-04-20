@@ -277,6 +277,37 @@ b, strong{
 	-ms-user-select: none;
 	user-select: none; 
 }
+#sound{
+	color: #fff;
+	width: 150px;
+    font-size: 30px;
+    height: 60px;
+}
+#sound_icon{
+	width: 60px; height: 60px;
+	position: absolute;
+}
+#sound_on, #sound_off{
+	position: absolute;
+	left:60px;
+	padding: 15px 0;
+    display: block;
+    line-height: 28px;
+    display: none;
+    letter-spacing: 2px;
+}
+#sound[mute=no] > #sound_icon{
+	background: rgba(255,255,255,0.5);
+}
+#sound[mute=yes] > #sound_icon{
+	background: rgba(255,255,255,0.25);
+}
+#sound[mute=no] > #sound_on{
+	display: block;
+}
+#sound[mute=yes] > #sound_off{
+	display: block;
+}
 #navigation{
 
 	display: none;

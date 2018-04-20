@@ -152,8 +152,6 @@ function ConnectorCutter(config){
 		if(self.sandbox_state!=0){
 			if(mouse.justPressed){
 
-				// TODO: Publish sound effects!
-
 				// Add Peep
 				if(self.sandbox_state==1){
 					self.sim._addPeepAtMouse(false); // not infected
@@ -174,6 +172,10 @@ function ConnectorCutter(config){
 					var contagionLevel = self.sim.contagion; // hack for sandbox: keep contagion the same
 					self.sim.clear();
 					self.sim.contagion = contagionLevel;
+
+					// Sound!
+					SOUNDS.boom.play();
+
 				}
 
 			}

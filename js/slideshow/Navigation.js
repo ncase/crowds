@@ -83,4 +83,16 @@ function Navigation(){
 		}
 	});
 
+	// Sound
+	var isMute = false;
+	$("#sound").onclick = function(){
+		if(isMute){
+			Howler.mute(isMute = false);
+			$("#sound").setAttribute("mute","no");
+		}else{
+			Howler.mute(isMute = true);
+			$("#sound").setAttribute("mute","yes");
+		}
+	};
+
 }
