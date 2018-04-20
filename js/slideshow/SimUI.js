@@ -15,6 +15,7 @@ function SimUI(container, color){
 		event.stopPropagation();
 	};
 	startButton.onclick = function(event){
+		publish("sound/button");
 		if(!Simulations.IS_RUNNING){
 			Simulations.IS_RUNNING = true;
 			publish("sim/start");

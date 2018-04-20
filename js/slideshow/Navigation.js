@@ -27,6 +27,7 @@ function Navigation(){
 		if(chapter){
 			(function(nav, chapter){
 				nav.onclick = function(){
+					publish("sound/button");
 					slideshow.gotoChapter(chapter);
 				};
 			})(nav, chapter);

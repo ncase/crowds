@@ -24,7 +24,8 @@ SLIDES.push(
 			options:{
 				infectedFrame: 3,
 				scale: 1,
-				_wisdom: true
+				_wisdom: true,
+				NO_BONK: true
 			}
 		},
 
@@ -81,7 +82,8 @@ SLIDES.push(
 				state.ended = true;
 				sim.win({
 					x:330+5, y:160-120+5,
-					width:280, height:280
+					width:280, height:280,
+					small:true
 				});
 			}
 		}

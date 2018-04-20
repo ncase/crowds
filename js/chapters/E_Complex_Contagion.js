@@ -132,7 +132,9 @@ SLIDES.push(
 				boxes.removeChildByID("complex_complex_3", true);
 				boxes.showChildByID("end", true);
 				state.ended = true;
-				sim.win();
+				sim.win({
+					small:true
+				});
 			}
 		}
 
@@ -326,7 +328,8 @@ SLIDES.push(
 								//boxes.showChildByID("end", true);
 								sim.win({
 									x:350, y:270-90,
-									width:260, height:260
+									width:260, height:260,
+									small:true
 								});
 							},350);
 							setTimeout(function(){

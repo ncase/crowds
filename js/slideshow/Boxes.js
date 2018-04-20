@@ -83,6 +83,7 @@ function Boxes(){
 			nextButton.className = "next_button";
 			nextButton.innerHTML = next.innerHTML;
 			nextButton.onclick = function(){
+				publish("sound/button");
 				slideshow.next();
 			};
 
@@ -104,6 +105,7 @@ function Boxes(){
 			ref.onclick = function(){
 				var id = ref.id;
 				publish("reference/show",[id]);
+				publish("sound/button");
 			};
 		});
 
@@ -113,6 +115,7 @@ function Boxes(){
 			bon.innerHTML = "(?) "+title;
 			bon.onclick = function(){
 				publish("bonus/show", [bon.id]);
+				publish("sound/button");
 			};
 		});
 

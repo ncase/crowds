@@ -4,14 +4,26 @@ function Scratch(){
 	self.dom = $("#scratch");
 
 	self.scratchIn = function(){
+
+		// SOUND!
+		SOUNDS.scratch_in.play();
+
+		// anim
 		self.startUpdateLoop(false, function(){
 			self.dom.style.display = "none";
 		});
+		
 	};
 
 	self.scratchOut = function(){
+
+		// SOUND!
+		SOUNDS.scratch_in.play();
+
+		// anim
 		self.dom.style.display = "block";
 		self.startUpdateLoop(true);
+
 	};
 
 	self.startUpdateLoop = function(out, callback){

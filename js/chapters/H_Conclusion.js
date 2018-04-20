@@ -88,6 +88,10 @@ SLIDES.push(
 		{type:"box", id:"conclusion_3"}
 	],
 	onstart: function(slideshow, state){
+
+		// SOUND
+		SOUNDS.chimes.play();
+
 		// splash animation, then auto-next to CREDITS.
 		var splash = slideshow.simulations.sims[0];
 		splash.options.CONCLUSION = true;
@@ -95,6 +99,7 @@ SLIDES.push(
 		setTimeout(function(){
 			slideshow.next();
 		},7000);
+
 	},
 	onupdate: function(slideshow, state){
 		var splash = slideshow.simulations.sims[0];

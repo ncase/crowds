@@ -158,6 +158,7 @@ function ChooseOne(config){
 
 		// On Input
 		buttonDOM.onclick = function(){
+			publish("sound/button");
 			self.highlight(buttonDOM); // highlight
 			config.oninput(value); // input
 		};

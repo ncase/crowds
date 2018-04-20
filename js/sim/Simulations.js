@@ -119,6 +119,13 @@ function Sim(config){
 
 	self.id = config.id;
 
+	// CONTAGION SOUND
+	var _CONTAGION_SOUND = 0;
+	var _PLAY_CONTAGION_SOUND = function(){
+		_CONTAGION_SOUND = (_CONTAGION_SOUND+1)%3;
+		SOUNDS["contagion"+_CONTAGION_SOUND].play();
+	};
+
 	// Canvas
 	if(config.fullscreen){
 		var container = $("#simulations_container");
@@ -343,10 +350,23 @@ function Sim(config){
 		if(self.wonBefore) return;
 		self.wonBefore = true;
 
+		// SOUND!
+		if(bounds && bounds.small){
+			SOUNDS.party_short.play();
+		}else{
+			SOUNDS.party.play();
+		}
+
+		// AMOUNT OF CONFETTI
+		var AMOUNT_OF_CONFETTI = 100;
+		if(bounds && bounds.small){
+			AMOUNT_OF_CONFETTI = 50;
+		}
+
 		// Get center of peeps
 		var fullscreenOffsetX = config.x + simOffset.x;
 		var fullscreenOffsetY = config.y + simOffset.y;
-		bounds = bounds || getBoundsOfPoints(self.peeps); // OPTIONAL BOUNDS
+		if(!bounds || !bounds.x) bounds = getBoundsOfPoints(self.peeps); // OPTIONAL BOUNDS
 		var cx = bounds.x + bounds.width/2;
 		var cy = bounds.y + bounds.height/2;
 		cx += fullscreenOffsetX;
@@ -360,7 +380,7 @@ function Sim(config){
 		self.winWord.ticker = 0;
 
 		// Place confetti
-		for(var i=0; i<100; i++){
+		for(var i=0; i<AMOUNT_OF_CONFETTI; i++){
 			var angle = Math.random()*Math.TAU;
 			var burst = bounds.width/15;
 			var frame = Math.floor(Math.random()*5);
@@ -392,14 +412,37 @@ function Sim(config){
 		self.networkConfig = self.getCurrentNetwork();
 	};
 
+	self._canPlayBonkSound = true;
+
 	self.reload = function(){
 		var contagionLevel = self.contagion; // hack for sandbox: keep contagion the same
 		self.STEP = 0;
+		self._canPlayBonkSound = true;
 		self.init();
 		self.contagion = contagionLevel;
 	};
 
 	self.nextStep = function(){
+
+		// SOUND! If anyone can be infected, play Contagion sound.
+		// Otherwise play Bonk sound ONCE
+		var canBeInfected = self.peeps.filter(function(peep){
+			return !peep.infected && peep.isPastThreshold;
+		}).length;
+		var isEveryoneInfected = true;
+		self.peeps.forEach(function(peep){
+			if(!peep.infected) isEveryoneInfected=false;
+		});
+		if(canBeInfected>0){
+			_PLAY_CONTAGION_SOUND();
+		}else if(self._canPlayBonkSound && !isEveryoneInfected){
+			self._canPlayBonkSound = false;
+
+			if(!config.options.NO_BONK){
+				SOUNDS.bonk.play();
+			}
+			
+		}
 
 		// "Infect" the peeps who need to get infected
 		setTimeout(function(){
@@ -565,11 +608,20 @@ function Sim(config){
 		});
 	};
 	self.tryCuttingConnections = function(line){
+		var wasLineCut = 0;
 		for(var i=self.connections.length-1; i>=0; i--){ // going BACKWARDS coz killing connections
 			var c = self.connections[i];
-			if(c.uncuttable) continue; // don't touch the UNCUTTABLES
-			if(c.hitTest(line)) self.connections.splice(i,1);
+			if(c.hitTest(line)){
+				if(c.uncuttable){ // can't cut uncuttables!
+					wasLineCut = -1;
+					c.shake();
+				}else{
+					wasLineCut = 1;
+					self.connections.splice(i,1);
+				}
+			}
 		}
+		return wasLineCut;
 	};
 	self.removeAllConnectedTo = function(peep){
 		for(var i=self.connections.length-1; i>=0; i--){ // backwards index coz we're deleting

@@ -46,6 +46,7 @@ SLIDES.push(
 		// START, FOR REAL
 		button.onclick = function(){
 			publish("START");
+			publish("sound/button");
 		};
 
 	},

@@ -32,19 +32,19 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"connect_words",
-			text:"networks_tutorial_connect", x:280, y:183, w:400, align:"center", color:"#ccc"
+			text:"networks_tutorial_connect", x:280, y:183-7, w:400, align:"center", color:"#bbb"
 		},
 		{
 			type:"box",
 			id:"connect_pic",
-			img:"sprites/tutorial_connect.png", x:330, y:150, w:300, h:100
+			img:"sprites/tutorial_connect.png", x:330, y:150-7, w:300, h:100
 		},
 
 		// "Disconnect" instruction (words & picture)
 		{
 			type:"box",
 			id:"disconnect_words",
-			text:"networks_tutorial_disconnect", x:280, y:280, w:400, align:"center", color:"#ccc"
+			text:"networks_tutorial_disconnect", x:280, y:280, w:400, align:"center", color:"#bbb"
 		},
 		{
 			type:"box",

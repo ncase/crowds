@@ -39,10 +39,19 @@ function Connection(config){
 		var dy = self.to.y - self.from.y;
 		var a = Math.atan2(dy,dx);
 		var dist = Math.sqrt(dx*dx + dy*dy);
+		ctx.rotate(a);
+
+		// SHAKE
+		if(self.shaking>=0 && self.shaking<1){
+			self.shaking+=0.05;
+			var amplitude = (1-self.shaking)*3;
+			ctx.translate(0, Math.sin(self.shaking*Math.TAU*3)*amplitude);
+		}
+
 		self.sprite.scaleX = dist/300;
 		self.sprite.scaleY = self.uncuttable ? 1 : 0.5; // thick=uncuttable
 		//self.sprite.scaleY *= s;
-		self.sprite.rotation = a;
+		//self.sprite.rotation = a;
 		self.sprite.draw(ctx);
 		ctx.restore();
 
@@ -116,6 +125,10 @@ function Connection(config){
 
 		}
 
+	};
+	self.shaking = -1;
+	self.shake = function(){
+		self.shaking = 0;
 	};
 
 }

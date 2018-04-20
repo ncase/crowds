@@ -46,6 +46,7 @@ subscribe("START", function(){
 	// Show Skip Button
 	$("#skip").style.display = "block";
 	$("#skip").onclick = function(){
+		publish("sound/button");
 		slideshow.next();
 	};
 

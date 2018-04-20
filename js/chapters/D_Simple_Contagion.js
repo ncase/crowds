@@ -171,7 +171,10 @@ SLIDES.push(
 				var boxes = slideshow.boxes;
 				boxes.showChildByID("end", true);
 				state.ended = true;
-				sim.win();
+				sim.win({
+					small:true,
+					x:280, y:200, width:400, height:200
+				});
 			}
 		}
 

@@ -3,11 +3,18 @@ subscribe("prepreload", function(){
 
 	Preload([
 
-		// For the Sim
+		// For the Splash
 		{id:"button_large", image:"sprites/button_large.png"},
 		{id:"line", image:"sprites/line.png"},
 		{id:"peeps", image:"sprites/peeps.png"},
 		{id:"pencil", image:"sprites/pencil.png"},
+
+		// Sound Effects
+		{id:"pencil", audio:"audio/pencil.mp3"},
+		{id:"pencil_short", audio:"audio/pencil_short.mp3"},
+		{id:"snip0", audio:"audio/snip0.mp3"},
+		{id:"snip1", audio:"audio/snip1.mp3"},
+		{id:"snip2", audio:"audio/snip2.mp3"},
 
 	],function(progress){
 		console.log("Pre-Preloader: "+progress);
@@ -16,7 +23,7 @@ subscribe("prepreload", function(){
 			pre_preloader.parentNode.removeChild(pre_preloader);
 			
 			slideshow.gotoChapter("Preloader");
-			//slideshow.gotoChapter("SmallWorld-Explanation");
+			//slideshow.gotoChapter("Simple-Cascade");
 
 			publish("preload");
 		}
@@ -33,9 +40,35 @@ subscribe("preload", function(){
 		// Music
 		{id:"bg_music", audio:"audio/bg_music.mp3"},
 
+		// Sound Effects
+		{id:"bonk", audio:"audio/bonk.mp3"},
+		{id:"button0", audio:"audio/button0.mp3"},
+		{id:"button1", audio:"audio/button1.mp3"},
+		{id:"button2", audio:"audio/button2.mp3"},
+		{id:"chimes", audio:"audio/chimes.mp3"},
+		{id:"contagion0", audio:"audio/contagion0.mp3"},
+		{id:"contagion1", audio:"audio/contagion1.mp3"},
+		{id:"contagion2", audio:"audio/contagion2.mp3"},
+		{id:"party", audio:"audio/party.mp3"},
+		{id:"party_short", audio:"audio/party_short.mp3"},
+		{id:"pluck0", audio:"audio/pluck0.mp3"},
+		{id:"pluck1", audio:"audio/pluck1.mp3"},
+		{id:"pluck2", audio:"audio/pluck2.mp3"},
+		{id:"pluck3", audio:"audio/pluck3.mp3"},
+		{id:"scratch_in", audio:"audio/scratch_in.mp3"},
+		{id:"scratch_out", audio:"audio/scratch_out.mp3"},
+
 		// For the slides
+		{id:"icons/blue", image:"sprites/icons/blue.png"},
+		{id:"icons/gray", image:"sprites/icons/gray.png"},
+		{id:"icons/red", image:"sprites/icons/red.png"},
+		{id:"icons/yellow", image:"sprites/icons/yellow.png"},
+		{id:"confetti", image:"sprites/confetti.png"},
+		{id:"nasa", image:"sprites/nasa.png"},
+		{id:"red_button", image:"sprites/red_button.png"},
 		{id:"sandbox_tools", image:"sprites/sandbox_tools.png"},
 		{id:"scratch", image:"sprites/scratch.png"},
+		{id:"small_world", image:"sprites/small_world.png"},
 		{id:"tutorial_connect", image:"sprites/tutorial_connect.png"},
 		{id:"tutorial_disconnect", image:"sprites/tutorial_disconnect.png"},
 

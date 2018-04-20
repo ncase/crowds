@@ -110,6 +110,12 @@ b, strong{
 	line-height: 25px;
 	color: #aaa;
 	text-align: right;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
+	
 }
 #container > #skip:hover{
 	color: #ccc;

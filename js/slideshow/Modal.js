@@ -24,6 +24,7 @@ window.Modal = {
 		$("#modal").setAttribute("size", large ? "large" : "small");
 	},
 	hide: function(){
+		publish("sound/button");
 		$("#modal_container").removeAttribute("show");
 	}
 };
