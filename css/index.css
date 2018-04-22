@@ -234,16 +234,19 @@ b, strong{
 
 }
 #modal h3{
-	font-size: 1.5em;
-    margin-bottom: 0.5em;
+	font-size: 1.3em;
+    margin-bottom: 0.7em;
+    padding-top: 0.7em;
+    margin-top: 1em;
+    border-top: 2px solid #333;
 }
 #modal[size=small]{
-	width: 640px;
+	width: 700px;
 	height: 300px;
 }
 #modal[size=large]{
 	width: 800px;
-	height: 450px;
+	height: 540px;
 }
 #modal_close{
     position: absolute;
@@ -262,6 +265,12 @@ b, strong{
 #modal_content{
 	margin:1.5em;
 	letter-spacing: 1px;
+}
+#modal a{
+	color: #ff4040;
+}
+#modal a:hover{
+	color: #ff6060;
 }
 
 /* NAVIGATION */

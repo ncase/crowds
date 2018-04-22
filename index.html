@@ -84,10 +84,6 @@ MY "WHY" FOR MAKING THIS:
 					<span>5</span>
 					<span>5. It's A Small World</span>
 				</div>
-				<!--div chapter="Sandbox">
-					<span>7</span>
-					<span>7. Sandbox Mode</span>
-				</div-->
 				<div chapter="Conclusion">
 					<span>6</span>
 					<span>6. In Conclusion...</span>
@@ -107,11 +103,11 @@ MY "WHY" FOR MAKING THIS:
 				<!-- Bonus Notes & References -->
 				<div modal="bonus">
 					<span>?</span>
-					<span>Bonus Boxes! (Notes)</span>
+					<span>Bonus Boxes!</span>
 				</div>
 				<div modal="references">
 					<span style="margin-top: 7px; font-size: 35px;">*</span>
-					<span>References</span>
+					<span>Links &amp; References</span>
 				</div>
 				<div modal="translations">
 				<span style="margin-top:5px; position:relative;"><span style="
@@ -296,7 +292,7 @@ MY "WHY" FOR MAKING THIS:
 
 <words id="optional_reading">
 	<div style="position:absolute; top:-5px;">
-		<i>optional</i> extra bonus notes &uarr;
+		<i>optional</i> extra bonus notes! &uarr;
 	</div>
 	<div style="position:absolute; left:216px; top:10px;">
 		&darr; links and references
@@ -836,40 +832,241 @@ MY "WHY" FOR MAKING THIS:
 	reset &amp; re-draw
 </words>
 
-<!-- - - - - - - - - - - - - -->
-<!-- BONUS BOXES (footnotes) -->
-<!-- - - - - - - - - - - - - -->
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
 
-<bonus id="connections">
-	<h3>
-	BONUS BOX: How Else Can We Be Connected?
-	</h3>
-	<div>
-	(blah blah blah, one-directional, weighted connections, etc)
-	</div>
-</bonus>
 <bonus id="books">
+
 	<h3>
-	BONUS BOX: A quick response to James Surowiecki's <i>The Wisdom of Crowds</i>
+	A quick response to James Surowiecki's <i>The Wisdom of Crowds</i>
 	</h3>
+
 	<div>
-	(blah blah blah)
+
+	<img src="sdas" width="200" height="300" style="float:left; margin-right:1em"/>
+	
+	First off, I'm not dissing
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	this book.</a>
+	It's a good book, and Surowiecki was trying to tackle the same question I am:
+	<b>“why do some crowds turn to madness, or wisdom?”</b>
+
+	<br><br>
+
+	Surowiecki's answer: crowds make good decisions when everybody is as independent as possible.
+	He gives the story of a game at a county fair,
+	where the rabble were invited to guess the weight of an ox.
+	Surprisingly, the average of all their guesses <i>was better than any one individual guess</i>.
+	But, here's the rub: the people have to guess <i>independently</i> of each other.
+	If people knew the previous guesses before they put forth their own guess,
+	they'd be influenced by those guesses, and all the results would be skewed.
+
+	<br><br>
+
+	But... I don't think "make everyone be as independent as possible" is quite right.
+	Even geniuses, who we tend to mischaracterize as the most independent thinkers,
+	are actually influenced deeply by others. As Sir Isaac Newton said,
+	<i>“If I have seen further, it is by standing on the sholders of Giants.”</i>
+
+	<br><br>
+
+	So, which idea is correct?
+	Does wisdom come from thinking for yourself, or thinking with others?
+	As is usually the case with these kind of questions, the answer is: "yes".
+
+	<br><br>
+
+	So that's what I'll try to explain in this explorable explanation:
+	how to get that sweet spot between independence and interdependence &mdash;
+	that is, how to get a wise crowd.
+
 	</div>
+
 </bonus>
-<bonus id="math">
+<bonus id="connections">
+
 	<h3>
-	BONUS BOX: Wait, Where Was The Math?
+	What other kinds of connections are there?
 	</h3>
+
 	<div>
-	(blah blah blah: map, extending the model with ecologies or randomness, etc)
+
+	For the sake of simplicity, all the simulations here only have one kind of connection,
+	friendship, and all the friendships are equally strong.
+	But there's other kinds of connections that network scientists think about!
+	For example:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<b>Directional connections.</b> Alice is the boss of Bob, but Bob is not the boss of Alice.
+	Carol is the parent of Dave, but Dave is not the parent of Carol.
+	Therefore, "boss" &amp; "parent" are <i>directional</i> relationships:
+	the relationship only goes one way.
+	In contrast, "friends" is a <i>bidirectional</i> relationship:
+	the relationship goes both ways. (well, hopefully)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<b>Weighted connections.</b> Elinor and Frankie are "friends", but not that close.
+	George and Harry are super-duper Best Friends Forever.
+	Even though there's a friendship connection in both cases, the second one is a stronger:
+	the connections have different "weights".
+	(The "weights" matter when we think about, say, how people influence each other.
+	Best Friends will influence each other more than casual acquaintances.)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	Just remember: all the simulations in this game are wrong. The same way any map is "wrong".
+	You see the map on the left? Buildings aren't actually gray featureless blocks!
+	Words don't float above the city! However, maps are useful not <i>despite</i> being simplified,
+	but <i>because</i> they're simplified. Same goes for simulations, or any scientific theory.
+	Of <i>course</i> they're "wrong" &mdash; that's what makes them <i>useful</i>.
+
 	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	What other kinds of contagions are there?
+	</h3>
+
+	<div>
+	
+	There's so, so many ways that network scientists can simulate "contagions".
+	I'm just picking the simplest one, for educational purposes.
+	But, for completeness, here's other ways you could simulate contagions:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<b>Contagions with Randomness</b>. Instead of "if your friend is infected, you'll get infected",
+	you could simulate "if your friend is infected, you'll get infected <i>with an X% chance</i>".
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<b>People have different contagion thresholds.</b> 
+	In this simulation, I'm pretending everyone has the same threshold for binge-drinking (50%) or
+	volunteering (25%) or misinformation (0%). That's not true in real life, of course,
+	and you could make your simulation reflect that.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<b>An ecology of contagions.</b> This is actually cutting-edge research,
+	and I'm not entirely sure how one would do this.
+	In my simulations, only one contagion is spreading at a time.
+	But what if there were <i>multiple</i> contagions, with <i>different</i> thresholds?
+	For example, a simple "madness" contagion and a complex "wisdom" contagion.
+	If someone's infected with madness, can they still be infected with wisdom?
+	Or vice versa?
+	Can someone be infected with both?
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<b>Contagions that mutate and evolve.</b>
+	Ideas don't pass perfectly from one person to another the way a virus genome does.
+	Like a game of Telephone, the message gets mutated with each re-telling.
+	Sometimes the mutant will be more contagious than the original!
+	And so, over time,
+	ideas "evolve" to be more digestible,
+	urban legends "evolve" to be more shocking,
+	habits and behaviors "evolve" to be more copy-able.
+
+	</div>
+
 </bonus>
 <bonus id="further_reading">
+	
 	<h3>
 	Further Reading
 	</h3>
+	
 	<div>
+	
+	This explorable explanation was just a springboard for your curiosity,
+	so you can dive deeper into a vast pool of knowledge!
+	So, here's two of my favorite things on networks:
+
+	<br><br>
+
+	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>
+	Book:
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>
+	</b>
+	by Nicholas Christakis and James Fowler (2009).
+	A layperson-friendly yet rigorous tour of how networks affect our lives,
+	for good and ill. They summarize the science, and also present some of their original findings,
+	like the "Three Degrees of Influence":
+	you affect not just your friends, but your friends' friends, and your friends' friends' friends!
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	Here's a link to an excerpt.
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>
+	Interactive:
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	Collective Dynamics of Small World Networks</a>
+	</b>,
+	original paper by Watts &amp; Strogatz (1998),
+	turned into interactive visuals by Bret Victor in 2011.
+	Slightly technical, but it's a lot easier to understand when
+	paired with pictures you can play with!
+
+	<div style="clear:both"></div>
+	<br>
+
+	Alternatively, if you want to play more explorable explanations about society,
+	(and not necessarily about networks), 
+	<b>check out these other interactives I've made!</b>
+
+	<br><br>
+
+	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>
+	<a target="_blank" href="https://mrpandey.github.io/d3graphTheory/">
+	The Evolution of Trust
+	</a>
+	</b> by Nicky Case (2017).
+	This is a game about the game theory of how cooperation arises (or not).
+	You first play a game of trust,
+	then play a meta-game of that, then a meta-meta-game of that...
+	and discover what leads people to trust each other, or trust no one.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>
+	<a target="_blank" href="https://mrpandey.github.io/d3graphTheory/">
+	Parable of the Polygons
+	</a>
+	</b> by Vi Hart and Nicky Case (2014).
+	A story about how harmless choices can create a harmful world.
+	Based off a Nobel Prize-winning game theorist's work,
+	this interactive shows how discrimination and/or diversity can arise from the bottom up.
+
 	</div>
+
 </bonus>
 
 <!-- - - - - - - -->
@@ -879,162 +1076,448 @@ MY "WHY" FOR MAKING THIS:
 <reference>
 </reference>
 <reference id="drunk">
+
 	<h3>
-	“a 1991 study showed that virtually all [college] students reported that their friends drank more than they did.”
+	“virtually all [college] students reported that their friends drank more than they did.”
 	</h3>
+
 	<div>
-	[link]
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	“Biases in the perception of drinking norms among college students”</a> by Baer et al (1991).
+	The study finds that students greatly overestimate how much their peers drink.
+	And in other news, water is wet and sky is blue.
 	</div>
+
 </reference>
 <reference id="majority">
+
 	<h3>
 	“The Majority Illusion”
 	</h3>
+
 	<div>
-	[link]
-	[also, interactive NYT version]
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	“The Majority Illusion in Social Networks”</a> by Lerman et al (2016).
+
+	In this paper, they found that the majority illusion is strongest in friendship networks
+	with “heterogeneous degree distribution and disassortative structure.”
+	Or, in Normal Human Words: when there are wide differences (heterogeneous)
+	in the # of friends each individual person has (degree),
+	and when low-friend people are friends with high-friend people (disassortative).
+
+	<br><br>
+
+	Another cool, related illusion:
+
+	<a target="_blank" href="https://www.economist.com/blogs/economist-explains/2013/04/economist-explains-why-friends-more-popular-paradox">
+	The Friendship Paradox</a>,
+
+	which is the empirical finding that, on average, your friends will have more friends than you do.
+	I always used to feel lonely... but now, I have a <i>mathematical</i> excuse for feeling lonely! Hooray!
+
 	</div>
 </reference>
 <reference id="contagion">
+	
 	<h3>
 	“strong statistical evidence that
 	smoking, health, happiness, voting patterns, and cooperation levels
 	are all contagious”
 	</h3>
+
 	<div>
-	[Nicholas Christakis and James Fowler, again]
+	
+	This is all laid out in Nicholas Christakis and James Fowler's
+	well-written, layperson-friendly book,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009). 
+
+	<br><br>
+
+	But how do they know that the friendships actually <i>cause</i> changes in health, happiness, etc, 
+	rather than just being "mere" correlation?
+	They did two clever things:
+
+	<br><br>
+	1) They used the Framingham Heart Study dataset, which tracked thousands of people for <i>generations</i>.
+	The data showed that people were becoming friends first, and <i>then</i> becoming more similar.
+	It's true that similarities "cause" friendships (birds of a feather flock together),
+	but this proves that friendships "cause" similarities, too.
+
+	<br><br>
+	And 2) They found pairs of people where Person A named Person B as their friend,
+	but Person B did <i>not</i> name Person A as their friend. Awkward.
+	In those cases, they found that the "contagion" <i>only</i> flows in one direction.
+	This proves that, indeed, changes in health are caused by social influence,
+	rather than caused by external variables like, I dunno,
+	a new McDonald's opening up in Person A &amp; B's neighborhood.
+
 	</div>
 </reference>
 <reference id="suicides">
+
 	<h3>
 	“some evidence that suicides are [contagious], too”
 	</h3>
+
 	<div>
-	[link]
+
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	“Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop”</a>
+	by O'Carroll et al (1994), endorsed by the frickin' Centers for Disease Control &amp; Prevention (CDC).
+	
+	<br><br>
+
+	Here's what they found <i>increases</i> suicide-contagion:
+	repeated, sensationalist coverage,
+	reporting the exact step-by-step method of suicide,
+	presenting suicide as a means to effectively accomplish ends.
+	So, their CDC-endorsed recommendation to all news outlets: don't do that.
+
+	<br><br>
+
+	To the news outlets' credit, they've mostly adopted these guidelines on suicide-contagion.
+	But less so on mass-shooting-contagion.
+	See <a onclick='publish("reference/show", ["shootings"]);'>next footnote.</a>
+
 	</div>
+
 </reference>
 <reference id="shootings">
+
 	<h3>
 	“some evidence that mass shootings are [contagious], too”
 	</h3>
+
 	<div>
-	[link - also Don't Say Their Names]
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	“Contagion in Mass Killings and School Shootings”</a> by Towers et al (2015).
+
+	<br><br>
+
+	Just like how news outlets take caution in how they report suicides
+	in order to minimize the risk of suicide-contagion,
+	(see <a onclick='publish("reference/show", ["suicides"]);'>previous footnote</a>)
+	many journalists/criminologists are calling on news outlets to take more responsibility
+	in how they cover mass shootings,
+	in order to minimize the risk of murder-contagion.
+
+	<br><br>
+
+	See: the
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Don't Name Them</a> campaign,
+	which recommends that news outlets <i>NOT</i> give fame to mass shooters by airing their name, manifestos,
+	and social media profile bio &mdash;
+	and instead, focus on the victims, the first responders, the civilian heroes,
+	and the grieving &amp; healing community.
+
 	</div>
+
 </reference>
 <reference id="subprime">
+
 	<h3>
 	“The world's financial institutions fell for such a cascade in 2008.”
 	</h3>
+
 	<div>
-	[link to Cass Sunstein's Lemmings of Wall Street right after the prices plunged - not technical]
-	<!-- https://newrepublic.com/article/63023/wall-streets-lemmings -->
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	“Lemmings of Wall Street”</a> by Cass Sunstein, is a quick, non-technical read.
+	Published in Oct 2008, <i>during</i> the crash,
+	he looks at the whole mess through the lens of information cascades &amp; social psychology.
 	</div>
+
 </reference>
 <reference id="complex">
+
 	<h3>
 	“Complex contagions are weirder.”
 	</h3>
+
 	<div>
-	[link to empirical proof of twitter complex contagion]
-	[also, Granovetter's Threshold model]
-	[and Dodds &amp; Watt's Universal Contagion]
-	[not to mention contrarians]
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	“Threshold Models of Collective Behavior”</a> by Granovetter (1978)
+	was the first time, as far as I know, anyone described a "complex contagion" model.
+	Although: 1) he didn't name it "complex contagion",
+	and 2) the "thresholds" in his model are 
+	based on absolute # of exposure, not relative % of exposure.
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	“Evidence for complex contagion models of social contagion from observational data”</a>
+	by Sprague &amp; House (2017)
+	gets data to show that complex contagion does, in fact, exist. Well, on the internet, at least.
+	Science is hard, okay?
+
+	<br><br>
+
+	Finally &mdash; and this paper tickles by nerd-bones &mdash;
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	“Universal behavior in a generalized model of contagion”</a> by Dodds &amp; Watts (2004)
+	proposes a model that unifies <i>all</i> kinds of contagions: 
+	simple and complex, biological and social!
+
 	</div>
+
 </reference>
 <reference id="groupthink">
+
 	<h3>
 	“groupthink”
 	</h3>
+
 	<div>
-	[link to Janis's Groupthink article]
+	This Orwell-inspired phrase was coined by Irving L. Janis way back in 1971!
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	In his original article</a>,
+	he investigates the Bay of Pigs fiasco (and other cases where groups of experts made terrible decisions),
+	and lists groupthink's causes, symptoms, and &mdash; thankfully, some remedies.
+	(for more on how to remedy groupthink, and how "small worlds" once barely 
+	saved the world from the drink of nuclear war, check out
+	<a onclick='publish("reference/show", ["swn_jfk"]);'>this footnote</a>.)
 	</div>
+
 </reference>
 <reference id="social_capital">
+
 	<h3>
 	“bonding and bridging social capital”
 	</h3>
+
 	<div>
-	[link to Robert Putnam's Bowling Alone]
+	These two types of social capital &mdash; "bonding" and "bridging" &mdash;
+	were coined by Robert Putnam in his insightful, layperson-friendly 2000 book,
+	<a target="_blank" href="http://bowlingalone.com/">
+	Bowling Alone</a>. Using a bunch of data and statistics, he finds that,
+	across almost <i>all</i> measures of social connectiveness, Americans are more alone than ever.
+	Golly.
 	</div>
+
 </reference>
 <reference id="bridge">
+
 	<h3>
 	“bridging social capital has a sweet spot”
 	</h3>
+
 	<div>
-	[link to Granovetter's Strength of Weak Ties]
-	[and response for complex contagion, the Weakness of Long Ties!]
+
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	“The Strength of Weak Ties”</a> by Granovetter (1973)
+	showed the world a really counterintuitive discovery –
+	people get new, useful information (like job openings) not from their close friendships (strong ties),
+	but from their distant acquaintances (weak ties)! This is because people in your group will mostly have the same
+	information <i>you</i> do, but people <i>outside</i> your group will be more likely to have novel information.
+
+	<br><br>
+
+	So, that may lead you to think that more weak ties, more bridging, is always better
+	(at least, for spreading contagions).
+	But a newer paper,
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> by Centola &amp; Macy (2007)
+	shows that while Granovetter's findings hold up for simple contagions,
+	they fail for complex contagions! And, in fact,
+	“as adoption thresholds increase, <i>long ties can impede diffusion</i>.” [emphasis added]
+
 	</div>
+
 </reference>
 <reference id="small_world">
+
 	<h3>
 	“the small world network”
 	</h3>
+
 	<div>
-	[link to Strogatz and Watts]
-	[also the Bret Victor version]
+
+	// Milgram, six degrees of separation popularized
+
+	<br><br>
+
+	The "small world network" became an academic celebrity
+	with the release of
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	“Collective dynamics of small-world networks”</a> by Watts &amp; Strogatz (1998).
+	// sweet spot (totally regular, random)
+	I'll admit, it's a really technical paper,
+	and I didn't understand it until I played
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	the visual, interactive adaptation</a> by Bret Victor! (2011)
+	Seriously, check that one out.
+
 	</div>
+
 </reference>
 <reference id="swn_neurons">
+
 	<h3>
-	“[small world networks] describe how our neurons interact”
+	“[small world networks] describe how our neurons are connected”
 	</h3>
+
 	<div>
-	[link plz]
+
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	“Small-world brain networks”</a> by Bassett &amp; Bullmore (2006).
+	The authors do some magic science stuff to monkey and cat brains,
+	something something something, et voila, they're small-world networks!
+
+	<br><br>
+	...okay, this paper totally flew over my head.
+	But it's got 1500+ citations, so, it's probably fine.
+
 	</div>
+
 </reference>
 <reference id="swn_creativity">
+
 	<h3>
 	“[small world networks] give rise to collective creativity”
 	</h3>
+
 	<div>
-	[link to that Broadway and small world study. note PARABOLIC relationship]
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	“Collaboration and Creativity: The Small World Problem”</a> by Uzzi &amp; Spiro (2005).
+	This paper analyzed the social networks of artists in the Broadway scene from 1945 to 1989,
+	measured the financial &amp; critical success of the musicals they made,
+	and discovered that, yup, you're most creative when you're in a small world network!
+
+	<br><br>
+
+	Also of note: they found that “the small world effect was parabolic [upside-down U shape]”. That is:
+	creativity was hurt by both too little <i>and</i> too much connectivity &mdash;
+	you need a sweet spot!
+
 	</div>
+
 </reference>
 <reference id="swn_social_physics">
+
 	<h3>
 	“[small world networks] give rise to collective problem-solving”
 	</h3>
+
 	<div>
-	[link to Social Physics book]
+	
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	“Social Physics”</a> by MIT Professor Alex "Sandy" Pentland (2014)
+	analyzes a whole bunch of data,
+	and finds that people make collective decisions best when they're connected <i>but not too connected</i>
+	&mdash; a sweet spot.
+
+	<br><br>
+
+	Pentland was also the co-author of my favorite papers,
+	<a target="_blank" href="http://science.sciencemag.org/content/330/6004/686.short">
+	“Evidence for a Collective Intelligence Factor in the Performance of Human Groups”</a> by Woolley et al (2004).
+	Turns out, the secret sauce behind smart groups is "social sensitivity", or, empathy.
+	(but, as Irving Janis pointed out a few decades earlier, <i>too much</i> of a 
+	buddy-buddy everyone-get-along feeling can lead to groupthink.
+	See <a onclick='publish("reference/show", ["groupthink"]);'>this footnote</a>.)
+
 	</div>
+
 </reference>
 <reference id="swn_jfk">
+
 	<h3>
-	“[small world networks] helped us (barely) avoid nuclear war!”
+	“[small world networks] helped John F. Kennedy (barely) avoid nuclear war!”
 	</h3>
+
 	<div>
-	[JFK and the Cuban Missile Crisis, his small-world team undid his earlier screw-up
-	with the Bay of Pigs,
+
+	Besides the NASA Challenger explosion, the most notorious example of groupthink
+	was the Bay of Pigs fiasco. In 1961, US President John F. Kennedy and his team of advisors
+	thought &mdash; for some reason &mdash; it would be a good idea to secretly invade Cuba and overthrow Fidel Castro.
+	They failed. Actually, worse than failed: it led to the Cuban Missile Crisis of 1962,
+	<i>the closest the world had ever been to full-scale nuclear war.</i>
+
+	<br><br>
+
+	Yup, JFK really screwed up on that one.
+
+	<br><br>
+
+	But, having learnt some hard lessons from the Bay of Pigs fiasco,
+	JFK re-organized his team to avoid groupthink.
+	Among many things, he:
+	1) actively encouraged people to voice criticism,
+	thus lowering the "contagion threshold" for alternate ideas.
+	And
+	2) he broke his team up into sub-groups before reconvening,
+	which gave their group a "small world network"-like design!
+	Together, this "group design" allowed for a healthy diversity of opinion,
+	but without being too fractured &mdash; a wisdom of crowds.
+
+	<br><br>
+
+	And so, with the same <i>individuals</i> who decided the Bay of Pigs,
+	but re-arranged <i>collectively</i> to decide on the Cuban Missile Crisis...
+	JFK's team was able to reach a peaceful agreement with Soviet leader Nikita Khrushchev.
+	The Soviets would remove their missiles from Cuba, and in return,
+	the US would promise not to invade Cuba again.
+	(and also agreed, in secret, to remove the US missiles from Turkey)
+
+	<br><br>
+
+	And that's the story of how all of humanity almost died.
+	But a small world network saved the day! Sort of.
+
+	<br><br>
+
+	You can read more about this
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	on Harvard Business Review</a>,
+	or from
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	Irving Janis's original article on groupthink</a>.
+
 	</div>
-</reference>
-<reference id="sandbox">
-	<h3>
-	“Sandbox Mode”
-	</h3>
-	<div>
-	pst... wanna hear a secret? those keyboard shortcuts (1,2,space,delete)
-	can edit not just the simulation in sandbox mode, but <i>all</i> the simulations
-	in this explorable explanation! seriously, you can go back to a different chapter,
-	and edit the simulation right there.
-	in fact, that's how <i>I</i> created all these puzzles!
-	</div>
+
 </reference>
 <reference id="three_degrees">
+
 	<h3>
 	“we influence [...] our friends' friends' friends!”
 	</h3>
+
 	<div>
-	[link to Connected by Nicholas Christakis and James Fowler]
+	Again, from Nicholas Christakis and James Fowler's
+	great, layperson-friendly book,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009).
+	See <a onclick='publish("reference/show", ["contagion"]);'>this footnote</a> for details on how they did their analysis.
+
 	</div>
+
 </reference>
 <reference id="flatter">
 	<h3>
 	“be skeptical of ideas that flatter you”
 	</h3>
 	<div>
-	yes, including all the ideas in <i>this</i> explorable explanation.
+	yes, including the ideas in <i>this</i> explorable explanation.
 	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	★ Sandbox Mode ★
+	</h3>
+
+	<div>
+	Pst... wanna hear a secret?
+	Those keyboard shortcuts (1, 2, space, delete)
+	work not just in the Sandbox Mode, but in <i>all</i> the puzzles!
+	Seriously, you can go back to a different chapter,
+	and edit the simulation right there.
+	In fact, that's how <i>I</i> created all these puzzles. Have fun!
+	</div>
+
 </reference>
 
 </span>

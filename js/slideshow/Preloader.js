@@ -21,8 +21,9 @@ subscribe("prepreload", function(){
 			var pre_preloader = $("#pre_preloader");
 			pre_preloader.parentNode.removeChild(pre_preloader);
 			
-			slideshow.gotoChapter("Preloader");
-			//slideshow.gotoChapter("Simple-Cascade");
+			//slideshow.gotoChapter("Preloader");
+			slideshow.gotoChapter("Credits");
+			$("#navigation").style.display = "block";
 
 			publish("preload");
 		}

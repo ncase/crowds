@@ -33,6 +33,17 @@ function Navigation(){
 			})(nav, chapter);
 		}
 
+		// If it's a modal...
+		var modal = nav.getAttribute("modal");
+		if(modal){
+			(function(nav, modal){
+				nav.onclick = function(){
+					publish("sound/button");
+					publish("modal/"+modal);
+				};
+			})(nav, modal);
+		}
+
 	});
 	subscribe("slideshow/goto/",function(chapterID){
 
