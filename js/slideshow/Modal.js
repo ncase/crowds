@@ -20,12 +20,14 @@ subscribe("key/down/escape", function(){
 });
 
 window.Modal = {
+	currentlyShowing: "",
 	show: function(large){
 		$("#modal_container").setAttribute("show","yes");
 		$("#modal").setAttribute("size", large ? "large" : "small");
 		$("#modal_content_container").scrollTop = 0; // scroll to top
 	},
 	hide: function(){
+		Modal.currentlyShowing = "";
 		publish("sound/button");
 		$("#modal_container").removeAttribute("show");
 	},
@@ -49,8 +51,45 @@ $("#modal_close").onclick = Modal.hide;
 
 // Show big collected modals
 subscribe("modal/bonus", function(){
-	Modal.showAll("bonus");
+	if(Modal.currentlyShowing == "bonus"){
+		Modal.hide();
+	}else{
+		Modal.currentlyShowing = "bonus";
+		Modal.showAll("bonus");
+	}
 });
 subscribe("modal/references", function(){
-	Modal.showAll("reference");
+	if(Modal.currentlyShowing == "reference"){
+		Modal.hide();
+	}else{
+		Modal.currentlyShowing = "reference";
+		Modal.showAll("reference");
+	}
+});
+
+// Translations
+subscribe("modal/translations", function(){
+
+	if(Modal.currentlyShowing == "translations"){
+		Modal.hide();
+	}else{
+		Modal.currentlyShowing = "translations";
+
+		// Translation HTML
+		var html = "";
+		if(window.TRANSLATIONS.length>0){
+			html += getWords("translations_exist");
+		}else{
+			html += getWords("translations_do_not_exist");
+		}
+		html += " <a target='_blank' href='"+window.ADD_YOUR_OWN_LINK+"'>"+getWords("translations_add")+"</a>";
+		html += "<br>";
+		html += _createLinks(" · ");
+		$("#modal_content").innerHTML = html;
+			
+		// Show in large box
+		Modal.show(false);
+
+	}
+
 });

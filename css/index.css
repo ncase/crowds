@@ -317,6 +317,23 @@ b, strong{
 #sound[mute=yes] > #sound_off{
 	display: block;
 }
+#translations{
+	position: absolute;
+    top: 14px;
+    left: calc(50% - 400px);
+    width: 800px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+}
+#translations a{
+	color: #ff4040;
+}
+#translations a:hover{
+	color: #ff6060;
+}
 #navigation{
 
 	display: none;
