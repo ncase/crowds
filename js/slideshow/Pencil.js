@@ -14,11 +14,11 @@ function Pencil(){
 
 	// Sprites
 	self.sprite = new Sprite({
-		src: "sprites/pencil.png",
+		img: "pencil",
 		frames:3, sw:200, sh:200,
 	});
 	self.toolsSprite = new Sprite({
-		src: "sprites/sandbox_tools.png",
+		img: "sandbox_tools",
 		frames:6, sw:200, sh:200,
 	});
 	self.sprite.pivotX = self.toolsSprite.pivotX = 0;

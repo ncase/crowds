@@ -185,3 +185,11 @@ function _getBoundingClientRect(dom){
 	if(!bounds.y) bounds.y = bounds.top; // crossbrowser crap
 	return bounds;
 }
+function _stopPropButton(button){
+	button.onmousedown = function(event){
+		event.stopPropagation();
+	};
+	button.ontouchstart = function(event){
+		event.stopPropagation();
+	};
+}

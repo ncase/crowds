@@ -162,6 +162,7 @@ function ChooseOne(config){
 			self.highlight(buttonDOM); // highlight
 			config.oninput(value); // input
 		};
+		_stopPropButton(buttonDOM);
 
 	});
 

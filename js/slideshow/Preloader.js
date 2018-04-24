@@ -18,15 +18,7 @@ subscribe("prepreload", function(){
 
 	],function(progress){
 		if(progress==1){
-			var pre_preloader = $("#pre_preloader");
-			pre_preloader.parentNode.removeChild(pre_preloader);
-			
-			slideshow.gotoChapter("Preloader");
-			/*
-			slideshow.gotoChapter("Credits");
-			$("#navigation").style.display = "block";
-			*/
-
+			publish("prepreload/done");
 			publish("preload");
 		}
 	});

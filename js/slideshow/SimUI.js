@@ -8,12 +8,6 @@ function SimUI(container, color){
 	var startButton = document.createElement("div");
 	startButton.id = "start_button";
 	self.container.appendChild(startButton);
-	startButton.onmousedown = function(event){
-		event.stopPropagation();
-	};
-	startButton.ontouchstart = function(event){
-		event.stopPropagation();
-	};
 	startButton.onclick = function(event){
 		publish("sound/button");
 		if(!Simulations.IS_RUNNING){
@@ -24,6 +18,7 @@ function SimUI(container, color){
 			publish("sim/stop");
 		}
 	};
+	_stopPropButton(startButton);
 
 	// Update button UI
 	var _updateButtonUI = function(){

@@ -14,8 +14,7 @@ function Sprite(config){
 	self.rotation = 0; // radians
 
 	// The image!
-	self.image = new Image();
-	self.image.src = config.src;
+	self.image = IMAGES[config.img];
 
 	// Frames
 	self.currentFrame = 0;

@@ -30,6 +30,7 @@ function Navigation(){
 					publish("sound/button");
 					slideshow.gotoChapter(chapter);
 				};
+				_stopPropButton(nav);
 			})(nav, chapter);
 		}
 
@@ -41,6 +42,7 @@ function Navigation(){
 					publish("sound/button");
 					publish("modal/"+modal);
 				};
+				_stopPropButton(nav);
 			})(nav, modal);
 		}
 
@@ -105,5 +107,6 @@ function Navigation(){
 			$("#sound").setAttribute("mute","yes");
 		}
 	};
+	_stopPropButton($("#sound"));
 
 }

@@ -109,6 +109,13 @@ function Simulations(){
 
 }
 
+// On resize, adjust the fullscreen sim (if any).
+window.addEventListener("resize", function(){
+	if(slideshow.simulations.sims.length>0){
+		slideshow.simulations.sims[0].resize();
+	}
+}, false);
+
 function Sim(config){
 
 	var self = this;
@@ -131,14 +138,12 @@ function Sim(config){
 	// Canvas
 	if(config.fullscreen){
 		var container = $("#simulations_container");
-		var simOffset = _getBoundingClientRect(self.container.dom);
 		self.canvas = createCanvas(container.clientWidth, container.clientHeight);
-		self.canvas.style.left = -simOffset.x;
-		self.canvas.style.top = -simOffset.y;
 	}else{
-		self.canvas = createCanvas(config.width||500, config.height||500);
+		alert("this code should not run. if it does, something bad has happened.");
+		/*(self.canvas = createCanvas(config.width||500, config.height||500);
 		self.canvas.style.left = config.x || 0;
-		self.canvas.style.top = config.y || 0;
+		self.canvas.style.top = config.y || 0;*/
 	}
 	//self.canvas.style.border = "1px solid #ccc";
 	self.ctx = self.canvas.getContext('2d');
@@ -148,6 +153,26 @@ function Sim(config){
 
 	// Connector-Cutter
 	self.connectorCutter = new ConnectorCutter({sim:self});
+
+	// Resize
+	var simOffset;
+	self.resize = function(){
+
+		var container = $("#simulations_container");
+		simOffset = _getBoundingClientRect(self.container.dom);
+		self.canvas.style.left = -simOffset.x;
+		self.canvas.style.top = -simOffset.y;
+
+		// Set difference in width & height
+		var width = container.clientWidth;
+		var height = container.clientHeight;
+		self.canvas.width = width*2;
+		self.canvas.height = height*2;
+		self.canvas.style.width = width;
+		self.canvas.style.height = height;
+
+	};
+	self.resize();
 
 	// Networks... clear/init
 	self.clear = function(){
@@ -339,7 +364,7 @@ function Sim(config){
 
 	// Confetti Sprite
 	self.confettiSprite = new Sprite({
-		src: "sprites/confetti.png",
+		img: "confetti",
 		frames:3, sw:100, sh:50,
 	});
 	self.confettiSprite.pivotX = 50;

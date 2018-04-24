@@ -1,7 +1,12 @@
 function Scratch(){
 
 	var self = this;
-	self.dom = $("#scratch");
+	self.canvas = $("#scratch");
+	self.ctx = self.canvas.getContext("2d");
+
+	// 711 x 400
+	var w = 711;
+	var h = 400;
 
 	self.scratchIn = function(){
 
@@ -10,7 +15,7 @@ function Scratch(){
 
 		// anim
 		self.startUpdateLoop(false, function(){
-			self.dom.style.display = "none";
+			self.canvas.style.display = "none";
 		});
 		
 	};
@@ -21,23 +26,32 @@ function Scratch(){
 		SOUNDS.scratch_in.play();
 
 		// anim
-		self.dom.style.display = "block";
+		self.canvas.style.display = "block";
 		self.startUpdateLoop(true);
 
 	};
 
 	self.startUpdateLoop = function(out, callback){
 		var frame = 0;
-		var xOffset = out ? 0 : -100;
+		var xOffset = out ? 0 : w;
 		var handle = subscribe("update", function(){
-			var yOffset = Math.floor(frame)*(-100);
-			self.dom.style.backgroundPosition = xOffset+"% "+yOffset+"%";
+			var yOffset = Math.floor(frame)*h;
+
+			// Redraw canvas
+			self.ctx.clearRect(0, 0, self.canvas.width, self.canvas.height);
+			self.ctx.drawImage(
+				IMAGES.scratch,
+				xOffset, yOffset, w, h,
+				0, 0, w, h);
+			
+			// Staaaahhhhhp
 			if(frame>19){
 				unsubscribe(handle);
 				if(callback) callback();
 				return;
 			}
 			frame+=0.5;
+
 		});
 	};
 

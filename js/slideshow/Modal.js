@@ -48,6 +48,8 @@ window.Modal = {
 
 $("#modal_bg").onclick = Modal.hide;
 $("#modal_close").onclick = Modal.hide;
+_stopPropButton($("#modal_bg"));
+_stopPropButton($("#modal_close"));
 
 // Show big collected modals
 subscribe("modal/bonus", function(){

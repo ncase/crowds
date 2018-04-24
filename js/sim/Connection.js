@@ -10,7 +10,7 @@ function Connection(config){
 
 	// Line Sprite
 	self.sprite = new Sprite({
-		src: "sprites/line.png",
+		img: "line",
 		frames:1, sw:300, sh:20,
 	});
 	self.sprite.pivotX = 2.8;
@@ -18,7 +18,7 @@ function Connection(config){
 
 	// Dot Sprite
 	self.dotSprite = new Sprite({
-		src: "sprites/peeps.png",
+		img: "peeps",
 		frames:6, sw:200, sh:200,
 	});
 	self.dotSprite.pivotX = 100;

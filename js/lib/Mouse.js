@@ -43,6 +43,14 @@ function _touchWrapper(callback){
 	};
 }
 
+// ALSO DON'T SCROLL WHEN TOUCH
+/*document.addEventListener("touchstart", function(e){
+    e.preventDefault(); 
+},false);
+document.addEventListener("touchmove", function(e){
+    e.preventDefault(); 
+},false);*/
+
 // INIT
 Mouse.init = function(target){
 

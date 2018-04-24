@@ -88,12 +88,7 @@ function Boxes(){
 			};
 
 			// to prevent sim from resetting...
-			nextButton.onmousedown = function(event){
-				event.stopPropagation();
-			};
-			nextButton.ontouchstart = function(event){
-				event.stopPropagation();
-			};
+			_stopPropButton(nextButton);
 
 			// Replace it in parent!
 			next.parentNode.replaceChild(nextButton, next);
@@ -107,6 +102,7 @@ function Boxes(){
 				publish("reference/show",[id]);
 				publish("sound/button");
 			};
+			_stopPropButton(ref);
 		});
 
 		// Bonus boxes...
@@ -117,6 +113,7 @@ function Boxes(){
 				publish("bonus/show", [bon.id]);
 				publish("sound/button");
 			};
+			_stopPropButton(bon);
 		});
 
 		// Replace icons

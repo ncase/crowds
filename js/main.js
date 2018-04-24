@@ -1,5 +1,16 @@
 window.onload = function(){
 
+	// Start Preloading!
+	publish("prepreload");
+
+}
+
+subscribe("prepreload/done", function(){
+
+	// Bye Pre-Preloader!
+	var pre_preloader = $("#pre_preloader");
+	pre_preloader.parentNode.removeChild(pre_preloader);
+
 	// Setting up the main stuff
 	window.slideshow = new Slideshow();
 	window.pencil = new Pencil();
@@ -28,10 +39,14 @@ window.onload = function(){
 	}
 	window.requestAnimationFrame(update);
 
-	// Start Preloading!
-	publish("prepreload");
+	// Go to THE SPLASH
+	slideshow.gotoChapter("Preloader");
+	/*
+	slideshow.gotoChapter("Credits");
+	$("#navigation").style.display = "block";
+	*/
 
-}
+});
 
 subscribe("START", function(){
 
@@ -45,11 +60,13 @@ subscribe("START", function(){
 	$("#navigation").style.display = "block";
 
 	// Show Skip Button
-	$("#skip").style.display = "block";
-	$("#skip").onclick = function(){
+	var skippy = $("#skip");
+	skippy.style.display = "block";
+	skippy.onclick = function(){
 		publish("sound/button");
 		slideshow.next();
 	};
+	_stopPropButton(skippy);
 
 	// Introduction
 	slideshow.next();
