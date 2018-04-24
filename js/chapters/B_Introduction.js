@@ -27,7 +27,7 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"intro",
-			text:"intro", x:210, y:0, w:540, h:540, align:"center"
+			text:"intro", x:180, y:0, w:600, h:540, align:"center"
 		},
 
 	]
@@ -41,7 +41,7 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"intro_2",
-			text:"intro_2", x:210, y:0, w:540, h:540, align:"center"
+			text:"intro_2", x:180, y:0, w:600, h:540, align:"center"
 		}
 	]
 }

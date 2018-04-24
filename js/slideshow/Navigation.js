@@ -63,7 +63,7 @@ function Navigation(){
 	var isShowingBubble = false;
 	var _showBubble = function(nav){
 
-		var offset = nav.getBoundingClientRect().x - $("#navigation").getBoundingClientRect().x;
+		var offset = _getBoundingClientRect(nav).x - _getBoundingClientRect($("#navigation")).x;
 		var label = nav.children[1].innerHTML;
 		bubble.style.left = offset - (220/2) + (36/2);
 		bubble.innerHTML = label;

@@ -233,12 +233,18 @@ b, strong{
 	color: #fff;
 
 }
+#modal #modal_content > div:first-child > h3{
+	border-top: none;
+}
+#modal #modal_content > h3{
+	border-top: none;
+}
 #modal h3{
 	font-size: 1.3em;
     margin-bottom: 0.7em;
     padding-top: 0.7em;
     margin-top: 1em;
-    border-top: 2px solid #333;
+    border-top: 5px solid #282828;
 }
 #modal[size=small]{
 	width: 700px;
@@ -356,6 +362,7 @@ b, strong{
 	text-align: center;
 	overflow: hidden;
 	line-height: 34px;
+	position: relative;
 }
 #navigation > div[highlight]{
 	background: #fff;
@@ -363,6 +370,8 @@ b, strong{
 }
 #navigation > div > span:nth-child(1){
 	display: block;
+	position: absolute;
+	width: 100%;
 }
 #navigation > div > span:nth-child(2){
 	display: none;
@@ -508,16 +517,16 @@ ref:hover:before{
   border-radius: 100%;
 }
 .circle::before {
-  content: '';
-  height: 100%;
-  width: 50%;
-  float: left;
-  shape-outside: polygon(0 0, 100% 0, 60% 4%, 40% 10%, 20% 20%, 10% 28.2%, 5% 34.4%, 0 50%, 5% 65.6%, 10% 71.8%, 20% 80%, 40% 90%, 60% 96%, 100% 100%, 0% 100%);
+	content: '';
+	height: 100%;
+	width: 50%;
+	float: left;
+	shape-outside: polygon(0 0, 100% 0, 60% 4%, 40% 10%, 20% 20%, 10% 28.2%, 5% 34.4%, 0 50%, 5% 65.6%, 10% 71.8%, 20% 80%, 40% 90%, 60% 96%, 100% 100%, 0% 100%);
 }
 .circle > span::before {
-  content: '';
-  height: 100%;
-  width: 50%;
-  float: right;
-  shape-outside: polygon(100% 0, 0 0, 40% 4%, 60% 10%, 80% 20%, 90% 28.2%, 95% 34.4%, 100% 50%, 95% 65.6%, 90% 71.8%, 80% 80%, 60% 90%, 40% 96%, 0 100%, 100% 100%);
+	content: '';
+	height: 100%;
+	width: 50%;
+	float: right;
+	shape-outside: polygon(100% 0, 0 0, 40% 4%, 60% 10%, 80% 20%, 90% 28.2%, 95% 34.4%, 100% 50%, 95% 65.6%, 90% 71.8%, 80% 80%, 60% 90%, 40% 96%, 0 100%, 100% 100%);
 }

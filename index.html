@@ -12,134 +12,164 @@ MY "WHY" FOR MAKING THIS:
 
 <!doctype>
 <html>
-	<head>
-		<title>The Wisdom and/or Madness of Crowds</title>
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-	</head>
-	<body>
+<head>
 
-		<!-- THE SLIDESHOW -->
-		<div id="container">
+	<!-- TO TRANSLATE: "title", "description" -->
+	<title>The Wisdom and/or Madness of Crowds</title>
+	<meta name="description" content="blah_blah_blah_blah_blah"/>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
 
-			<!-- Simulation(s) in background -->
-			<div id="simulations_container">
-				<div id="simulations"></div>
-			</div>
+	<!-- TO TRANSLATE: "name", "description" -->
+	<meta itemprop="name" content="The Wisdom and/or Madness of Crowds">
+	<meta itemprop="description" content="blah_blah_blah_blah_blah">
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumbnail.png">
 
-			<!-- Slideshow: words & buttons -->
-			<div id="slideshow_container">
-				<div id="slideshow"></div>
-			</div>
+	<!-- TO TRANSLATE: "name", "description" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:title" content="The Wisdom and/or Madness of Crowds">
+	<meta name="twitter:description" content="blah_blah_blah_blah_blah">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumbnail.png">
 
-			<!-- Scratch Transition -->
-			<div id="scratch"></div>
+	<!-- TO TRANSLATE: "name", "description" -->
+	<meta property="og:title" content="The Wisdom and/or Madness of Crowds">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumbnail.png">
+	<meta property="og:description" content="blah_blah_blah_blah_blah">
 
-			<!-- Skip -->
-			<div id="skip">skip &gt;</div>
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 
-			<!-- Modal -->
-			<div id="modal_container">
-				<div id="modal_bg"></div>
-				<div id="modal">
-					<div id="modal_close">⨯</div>
-					<div id="modal_content_container">
-						<div id="modal_content"></div>
-					</div>
-				</div>
-			</div>
+</head>
+<body>
 
-		</div>
-		
-		<!-- Navigation: Audio, Contents, Share, Translations -->
-		<div id="navigation_container">
-			<div id="sound" mute="no">
-				<div id="sound_icon"></div>
-				<span id="sound_on">ON</span>
-				<span id="sound_off">OFF</span>
-			</div>
-			<div id="navigation">
+	<!-- THE SLIDESHOW -->
+	<div id="container">
 
-				<!-- The chapters -->
-				<div chapter="Introduction">
-					<span>0</span>
-					<span>0. Introduction</span>
-				</div>
-				<div chapter="Networks">
-					<span>1</span>
-					<span>1. Connections</span>
-				</div>
-				<div chapter="Simple">
-					<span>2</span>
-					<span>2. Contagions</span>
-				</div>
-				<div chapter="Complex">
-					<span>3</span>
-					<span>3. Complex Contagions</span>
-				</div>
-				<div chapter="BB">
-					<span>4</span>
-					<span>4. Bonding &amp; Bridging</span>
-				</div>
-				<div chapter="SmallWorld">
-					<span>5</span>
-					<span>5. It's A Small World</span>
-				</div>
-				<div chapter="Conclusion">
-					<span>6</span>
-					<span>6. In Conclusion...</span>
-				</div>
-				<div chapter="Credits">
-					<span>7</span>
-					<span>7. Credits</span>
-				</div>
-				<div chapter="Sandbox">
-					<span>★</span>
-					<span>★ Sandbox Mode! ★</span>
-				</div>
-
-				<!-- A divider -->
-				<span class="nav_divider"></span>
-				
-				<!-- Bonus Notes & References -->
-				<div modal="bonus">
-					<span>?</span>
-					<span>Bonus Boxes!</span>
-				</div>
-				<div modal="references">
-					<span style="margin-top: 7px; font-size: 35px;">*</span>
-					<span>Links &amp; References</span>
-				</div>
-				<div modal="translations">
-				<span style="margin-top:5px; position:relative;"><span style="
-					    position: absolute;
-					    top: -8px;
-					    left: 6px;
-					">A</span><span style="
-					    position: absolute;
-					    font-size: 16px;
-					    top: -1px;
-					    left: 16px;
-					">あ</span></span>
-					<span>Translations</span>
-				</div>
-
-				<!-- The hover bubble -->
-				<span id="nav_bubble"></span>
-				
-			</div>
-			<div id="translations"></div>
-			<div id="social"></div>
-		</div>
-		
-		<!-- The Pencil -->
-		<canvas id="pencil"></canvas>
-
-		<!-- Preloader -->
-		<div id="pre_preloader">
-			<div>loading...</div>
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
 		</div>
 
-	</body>
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<div id="scratch"></div>
+
+		<!-- Skip -->
+		<div id="skip">skip &gt;</div>
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">⨯</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on">ON</span>
+			<span id="sound_off">OFF</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Introduction</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Connections</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Contagions</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Complex Contagions</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Bonding &amp; Bridging</span>
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. It's A Small World</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. In Conclusion...</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Credits</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>★</span>
+				<span>★ Sandbox Mode! ★</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+			
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Bonus Boxes!</span>
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Links &amp; References</span>
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">あ</span></span>
+				<span>Translations</span>
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+			
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+	
+	<!-- The Pencil -->
+	<canvas id="pencil"></canvas>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>loading...</div>
+	</div>
+
+</body>
 </html>
 
 <!-- - - - - - - - - - - - -->
@@ -185,50 +215,63 @@ MY "WHY" FOR MAKING THIS:
 <!-- Introduction -->
 
 <words id="intro">
-	<div class="circle"><span>
 
-		<br><br>
+	<br><br>
 
-		Sir Isaac Newton was pretty sure he was a smart cookie.
-		I mean, after inventing calculus and a theory of gravity,
-		he should be clever enough to do some financial investing, right?
-		Anyway,
-		long story short, he lost $4,600,000 (in today's dollars)
-		in the nationwide speculation frenzy known as the South Sea Bubble of 1720.
+	Sir Isaac Newton was pretty sure he was a
+	<br>
+	smart cookie. I mean, after inventing calculus and
+	<br>
+	a theory of gravity, he should be clever enough to do
+	<br>
+	some financial investing, right? Anyway, long story short, he
+	<br>
+	lost $4,600,000 (in today's dollars) in the nationwide
+	<br>
+	speculation frenzy known as the South Sea Bubble of 1720.
 
-		<br><br>
+	<br><br>
 
-		As Mr. Newton later said:
-		<i>“I can calculate the motion of heavenly bodies, but not the madness of people.”</i>
+	As Mr. Newton later said: <i>“I can calculate the motion of
+	<br>
+	heavenly bodies, but not the madness of people.”</i>
 
-		<next>yeah sucks for him &rarr;</next>
+	<next>yeah sucks for him &rarr;</next>
 
-	</span></div>
 </words>
 
 <words id="intro_2">
-	<div class="circle" style="line-height:1.4em"><span>
 
-		<br>
-		Of course, that's not the only time markets, institutions, or entire democracies went haywire &mdash;
-		the <i>madness</i> of crowds.
-		And yet, just when you lose hope in humanity,
-		you see citizens coordinating to rescue each other in hurricanes,
-		communities creating solutions to problems,
-		people fighting for a better world &mdash;
-		the <i>wisdom</i> of crowds!
+	<div style="height:0.5em"></div>
 
-		<div style="height:0.9em"></div>
+	Of course, that's not the only
+	<br>
+	time markets, institutions, or entire
+	<br>
+	democracies went haywire &mdash; the <i>madness</i> of
+	<br>
+	crowds. And yet, just when you lose hope in humanity,
+	<br>
+	you see citizens coordinating to rescue each other in
+	<br>
+	hurricanes, communities creating solutions to problems,
+	<br>
+	people fighting for a better world &mdash; the <i>wisdom</i> of crowds!
 
-		<b>But <i>why</i> do some crowds turn to madness, or wisdom?</b>
-		No theory can explain everything,
-		but I think a new field of study, <b>network science</b>,
-		can guide us! And its core idea is this:
-		to understand crowds, we should look not at the <i>individual people</i>, but at...
+	<div style="height:0.9em"></div>
 
-		<next>...their <i>connections.</i> &rarr;</next>
+	<b>But <i>why</i> do some crowds turn to madness, or wisdom?</b> No theory
+	<br>
+	can explain everything, but I think a new field of study,
+	<br>
+	<b>network science</b>, can guide us! And its core idea is this: to
+	<br>
+	understand crowds, we should look not at the <i>individual
+	<br>
+	people</i>, but at...
 
-	</span></div>
+	<next>...their <i>connections.</i> &rarr;</next>
+
 </words>
 
 <!-- Networks -->
@@ -743,7 +786,6 @@ MY "WHY" FOR MAKING THIS:
 		Too <i>many</i> connections and complex ideas get crushed by groupthink.
 		The trick is to build a small world network, the optimal mix of
 		bonding and bridging: <i>e pluribus unum.</i>
-		<bon id="math"></bon>
 	</div>
 
 	<div style="
@@ -768,30 +810,41 @@ MY "WHY" FOR MAKING THIS:
 </words>
 
 <words id="conclusion_2">
-	<div class="circle" style="font-size:22px; line-height:1.3em;"><span>
+	<span style="line-height:1.4em;">
 
+		<div style="height:0.5em"></div>
+
+		From Newton to NASA to
 		<br>
-		From Newton to NASA to network science, we've covered a lot here today.
-		Long story short, the madness of crowds is not necessarily due to the
-		<i>individual people</i>, but due to how we're trapped in a network's sticky web.
+		network science, we've covered a lot here
+		<br>
+		today. Long story short, the madness of crowds
+		<br>
+		is not necessarily due to the <i>individual people</i>, but due
+		<br>
+		to how we're trapped in a network's sticky web.
 
-		<br><br>
+		<div style="height:0.9em"></div>
 
-		That <i>does NOT</i> mean abandoning personal responsibility,
-		for we're also the <i>weavers</i> of that web.
-		So, improve your contagions:
-		be skeptical of ideas that flatter you<ref id="flatter"></ref>,
-		spend time understanding complex ideas.
-		And, improve your connections: bond with similar folk,
-		but also build bridges across cultural/political divides.
+		That <i>does NOT</i> mean abandoning personal responsibility, for
+		<br>
+		we're also the <i>weavers</i> of that web. So, improve your contagions:
+		<br>
+		be skeptical of ideas that flatter you<ref id="flatter"></ref>, spend time understanding
+		<br>
+		complex ideas. And, improve your connections: bond with similar
+		<br>
+		folk, but also build bridges across cultural/political divides.
 
-		<br><br>
+		<div style="height:0.9em"></div>
 
-		We can weave a wise web.
-		Sure, it's harder than doodling lines on a screen...
+		We can weave a wise web. Sure, it's harder than doodling
+		<br>
+		lines on a screen...
+
 		<next>...but so, so worth it.</next>
 
-	</span></div>
+	</span>
 </words>
 
 <words id="conclusion_3">
@@ -1016,11 +1069,9 @@ MY "WHY" FOR MAKING THIS:
 	<br><br>
 
 	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
-	<b>
-	Book:
+	<b>Book:</b>
 	<a target="_blank" href="http://www.connectedthebook.com/">
 	Connected</a>
-	</b>
 	by Nicholas Christakis and James Fowler (2009).
 	A layperson-friendly yet rigorous tour of how networks affect our lives,
 	for good and ill. They summarize the science, and also present some of their original findings,
@@ -1034,11 +1085,9 @@ MY "WHY" FOR MAKING THIS:
 	<br>
 
 	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
-	<b>
-	Interactive:
+	<b>Interactive:</b>
 	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
-	Collective Dynamics of Small World Networks</a>
-	</b>,
+	Collective Dynamics of Small World Networks</a>,
 	original paper by Watts &amp; Strogatz (1998),
 	turned into interactive visuals by Bret Victor in 2011.
 	Slightly technical, but it's a lot easier to understand when
@@ -1054,11 +1103,8 @@ MY "WHY" FOR MAKING THIS:
 	<br><br>
 
 	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
-	<b>
 	<a target="_blank" href="https://mrpandey.github.io/d3graphTheory/">
-	The Evolution of Trust
-	</a>
-	</b> by Nicky Case (2017).
+	The Evolution of Trust</a> by Nicky Case (2017).
 	This is a game about the game theory of how cooperation arises (or not).
 	You first play a game of trust,
 	then play a meta-game of that, then a meta-meta-game of that...
@@ -1068,11 +1114,8 @@ MY "WHY" FOR MAKING THIS:
 	<br>
 
 	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
-	<b>
 	<a target="_blank" href="https://mrpandey.github.io/d3graphTheory/">
-	Parable of the Polygons
-	</a>
-	</b> by Vi Hart and Nicky Case (2014).
+	Parable of the Polygons</a> by Vi Hart and Nicky Case (2014).
 	A story about how harmless choices can create a harmful world.
 	Based off a Nobel Prize-winning game theorist's work,
 	this interactive shows how discrimination and diversity can arise from the bottom up.
@@ -1085,8 +1128,6 @@ MY "WHY" FOR MAKING THIS:
 <!-- REFERENCES  -->
 <!-- - - - - - - -->
 
-<reference>
-</reference>
 <reference id="drunk">
 
 	<h3>

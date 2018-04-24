@@ -178,3 +178,10 @@ function rotateVector(v, a){
 	}
 }
 
+// Cross Browser Crap
+function _getBoundingClientRect(dom){
+	var bounds = dom.getBoundingClientRect();
+	if(!bounds.x) bounds.x = bounds.left; // crossbrowser crap
+	if(!bounds.y) bounds.y = bounds.top; // crossbrowser crap
+	return bounds;
+}

@@ -61,7 +61,7 @@ SLIDES.push(
 		{
 			type:"box",
 			id:"conclusion_2",
-			text:"conclusion_2", x:210, y:0, w:540, h:540, align:"center"
+			text:"conclusion_2", x:180, y:0, w:600, h:540, align:"center"
 		},
 
 	]

@@ -131,7 +131,7 @@ function Sim(config){
 	// Canvas
 	if(config.fullscreen){
 		var container = $("#simulations_container");
-		var simOffset = self.container.dom.getBoundingClientRect();
+		var simOffset = _getBoundingClientRect(self.container.dom);
 		self.canvas = createCanvas(container.clientWidth, container.clientHeight);
 		self.canvas.style.left = -simOffset.x;
 		self.canvas.style.top = -simOffset.y;
@@ -186,7 +186,7 @@ function Sim(config){
 	self.update = function(){
 
 		// "Mouse", offset!
-		var canvasBounds = self.canvas.getBoundingClientRect();
+		var canvasBounds = _getBoundingClientRect(self.canvas);
 		self.mouse = cloneObject(Mouse);
 		self.mouse.x -= canvasBounds.x;
 		self.mouse.y -= canvasBounds.y;
@@ -440,7 +440,7 @@ function Sim(config){
 		}else if(self._canPlayBonkSound && !isEveryoneInfected){
 			self._canPlayBonkSound = false;
 
-			if(!config.options.NO_BONK){
+			if(!self.options.NO_BONK){
 				SOUNDS.bonk.play();
 			}
 			
