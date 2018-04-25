@@ -160,16 +160,16 @@ function Sim(config){
 
 		var container = $("#simulations_container");
 		simOffset = _getBoundingClientRect(self.container.dom);
-		self.canvas.style.left = -simOffset.x;
-		self.canvas.style.top = -simOffset.y;
+		self.canvas.style.left = (-simOffset.x) + "px";
+		self.canvas.style.top = (-simOffset.y) + "px";
 
 		// Set difference in width & height
 		var width = container.clientWidth;
 		var height = container.clientHeight;
 		self.canvas.width = width*2;
 		self.canvas.height = height*2;
-		self.canvas.style.width = width;
-		self.canvas.style.height = height;
+		self.canvas.style.width = (width) + "px";
+		self.canvas.style.height = (height) + "px";
 
 	};
 	self.resize();

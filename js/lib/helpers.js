@@ -30,8 +30,8 @@ function createCanvas(canvas, width, height){
 	// Set difference in width & height
 	canvas.width = width*2;
 	canvas.height = height*2;
-	canvas.style.width = width;
-	canvas.style.height = height;
+	canvas.style.width = (width) + "px";
+	canvas.style.height = (height) + "px";
 
 	return canvas;
 	
@@ -180,9 +180,10 @@ function rotateVector(v, a){
 
 // Cross Browser Crap
 function _getBoundingClientRect(dom){
+	//debugger;
 	var bounds = dom.getBoundingClientRect();
-	if(!bounds.x) bounds.x = bounds.left; // crossbrowser crap
-	if(!bounds.y) bounds.y = bounds.top; // crossbrowser crap
+	if(bounds.x===undefined) bounds.x = bounds.left; // crossbrowser crap
+	if(bounds.y===undefined) bounds.y = bounds.top; // crossbrowser crap
 	return bounds;
 }
 function _stopPropButton(button){

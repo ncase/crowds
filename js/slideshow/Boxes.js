@@ -34,18 +34,18 @@ function Boxes(){
 
 		// Standard box properties...
 		if(config.id) box.id = config.id;
-		if(config.x) box.style.left = config.x;
-		if(config.y) box.style.top = config.y;
-		if(config.w) box.style.width = config.w;
-		if(config.h) box.style.height = config.h;
+		if(config.x) box.style.left = config.x + "px";
+		if(config.y) box.style.top = config.y + "px";
+		if(config.w) box.style.width = config.w + "px";
+		if(config.h) box.style.height = config.h + "px";
 		if(config.hidden) box.style.display = "none";
 
 		// background
 		if(config.background){
 			box.style.left = "-1000px";
 			box.style.top = "-1000px";
-			box.style.width = 10000;
-			box.style.height = 10000;
+			box.style.width = 10000 + "px";
+			box.style.height = 10000 + "px";
 			box.style.background = config.background;
 		}
 

@@ -67,13 +67,13 @@ function Navigation(){
 
 		var offset = _getBoundingClientRect(nav).x - _getBoundingClientRect($("#navigation")).x;
 		var label = nav.children[1].innerHTML;
-		bubble.style.left = offset - (220/2) + (36/2);
+		bubble.style.left = ( offset - (220/2) + (36/2) ) + "px";
 		bubble.innerHTML = label;
 
 		bubble.style.display = "block";
 		setTimeout(function(){
 			bubble.style.opacity = 1;
-			bubble.style.top = -85;
+			bubble.style.top = (-85) + "px";
 		},1);
 		isShowingBubble = true;
 
@@ -81,7 +81,7 @@ function Navigation(){
 	var _hideBubble = function(){
 		isShowingBubble = false;
 		bubble.style.opacity = 0;
-		bubble.style.top = -80;
+		bubble.style.top = (-80) + "px";
 	};
 	var _countdown = 0;
 	subscribe("update", function(){

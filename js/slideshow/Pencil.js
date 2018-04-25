@@ -64,8 +64,8 @@ function Pencil(){
 	self.draw = function(){
 		
 		// Move DOM there
-		self.canvas.style.left = self.x-_margin;
-		self.canvas.style.top = self.y-_size+_margin;
+		self.canvas.style.left = (self.x-_margin) + "px";
+		self.canvas.style.top = (self.y-_size+_margin) + "px";
 
 		// Which sprite? (normal by default...)
 		var sprite = self.sprite;
