@@ -9,7 +9,7 @@ function $(query){
 	return document.querySelector(query);
 }
 function $all(query){
-	return document.querySelectorAll(query);
+	return [].slice.call(document.querySelectorAll(query));
 }
 
 // Wide Sigmoid

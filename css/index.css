@@ -27,6 +27,12 @@ b, strong{
 	font-weight: normal;
 	text-shadow:1px 0 0 currentColor;
 }
+a{
+	color: #ff4040;
+}
+a:hover{
+	color: #ff6060;
+}
 
 /* SIMULATION and SLIDESHOW */
 #container{
@@ -273,12 +279,6 @@ b, strong{
 	margin:1.5em;
 	letter-spacing: 1px;
 }
-#modal a{
-	color: #ff4040;
-}
-#modal a:hover{
-	color: #ff6060;
-}
 
 /* NAVIGATION */
 #navigation_container{
@@ -334,12 +334,6 @@ b, strong{
     font-size: 16px;
     line-height: 16px;
     letter-spacing: 0.5px;
-}
-#translations a{
-	color: #ff4040;
-}
-#translations a:hover{
-	color: #ff6060;
 }
 #navigation{
 

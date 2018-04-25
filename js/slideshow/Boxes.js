@@ -100,7 +100,6 @@ function Boxes(){
 			ref.onclick = function(){
 				var id = ref.id;
 				publish("reference/show",[id]);
-				publish("sound/button");
 			};
 			_stopPropButton(ref);
 		});
@@ -111,7 +110,6 @@ function Boxes(){
 			bon.innerHTML = "(?) "+title;
 			bon.onclick = function(){
 				publish("bonus/show", [bon.id]);
-				publish("sound/button");
 			};
 			_stopPropButton(bon);
 		});

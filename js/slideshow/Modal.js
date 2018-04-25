@@ -1,6 +1,9 @@
 
 // SHOW BONUS BOXES
 subscribe("bonus/show", function(bonus_id){
+	
+	publish("sound/button");
+
 	var words = document.querySelector("bonus#"+bonus_id).innerHTML.trim();
 	$("#modal_content").innerHTML = words;
 	Modal.show(true); // show large for bonus
@@ -8,10 +11,19 @@ subscribe("bonus/show", function(bonus_id){
 
 // SHOW REFERENCES
 subscribe("reference/show", function(ref_id){
+	
+	publish("sound/button");
+
 	var footnote = document.querySelector("reference#"+ref_id+" > div").innerHTML.trim();
 	$("#modal_content").innerHTML = footnote;
 	var noteLength = $("#modal_content").innerText.length; // innerTEXT, so no links
-	Modal.show(noteLength>500); // variable length
+
+	if($("reference#"+ref_id).getAttribute("large")){
+		Modal.show(true); // force large
+	}else{
+		Modal.show(noteLength>500); // variable length
+	}
+
 });
 
 // ESCAPE (keyboard shortcut)
@@ -35,7 +47,9 @@ window.Modal = {
 
 		// ALL the things, in one go!
 		var html = "";
-		$all(thing).forEach(function(thing){
+		$all(thing).filter(function(thing){
+			return !thing.getAttribute("hidden"); // NOT hidden
+		}).forEach(function(thing){
 			html += "<div>"+thing.innerHTML+"</div>";
 		});
 		$("#modal_content").innerHTML = html;
