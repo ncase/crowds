@@ -38,18 +38,18 @@ function _touchWrapper(callback){
 		var _event = {};
 		_event.clientX = event.changedTouches[0].clientX;
 		_event.clientY = event.changedTouches[0].clientY;
-		event.preventDefault();
+		//event.preventDefault();
 		callback(_event);
 	};
 }
 
 // ALSO DON'T SCROLL WHEN TOUCH
-/*document.addEventListener("touchstart", function(e){
+document.body.addEventListener("touchstart", function(e){
     e.preventDefault(); 
-},false);
-document.addEventListener("touchmove", function(e){
+},false); // do NOT capture.
+document.body.addEventListener("touchmove", function(e){
     e.preventDefault(); 
-},false);*/
+},false); // do NOT capture.
 
 // INIT
 Mouse.init = function(target){

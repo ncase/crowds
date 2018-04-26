@@ -18,6 +18,12 @@ function SandboxUI(container){
 	contagionInput.oninput = function(){
 		_updateContagion();
 	};
+	contagionInput.ontouchstart = function(event){
+		event.stopPropagation(); // AHHHH MOBILE
+	};
+	contagionInput.ontouchmove = function(event){
+		event.stopPropagation(); // AHHHH MOBILE
+	};
 	var _labelContagion0 = getWords("sandbox_contagion");
 	var _labelContagion1 = getWords("sandbox_contagion_simple");
 	var _labelContagion2 = getWords("sandbox_contagion_complex");

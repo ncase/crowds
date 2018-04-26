@@ -16,9 +16,12 @@
 // (Note: if you paste the native name of a right-to-left language here,
 // it might show up as reversed here, but it'll show correctly on the website)
 // Also, make sure the .html file of your translation
-// uses the two-letter code, like "en.html", "de.html", "zh.html"
+// uses the two-letter code, like "de.html", "ar.html", "zh.html"
 //
 // Thank you again so much! :)
+// Once you're done, send a Pull Request to the GitHub repo
+// so I can add your translation. Instructions are here:
+// https://github.com/ncase/crowds#how-to-translate-this-thing
 
 /////////////////////////////
 // AVAILABLE TRANSLATIONS: //

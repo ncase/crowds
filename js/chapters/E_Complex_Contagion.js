@@ -388,7 +388,7 @@ SLIDES.push(
 		// NASA Image
 		{
 			type:"box",
-			img:"sprites/nasa.png", x:0, y:0, w:400, h:250
+			img:"sprites/nasa.png", x:0, y:0, w:425, h:450
 		},
 
 		// Text

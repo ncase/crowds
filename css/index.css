@@ -4,7 +4,6 @@
 	font-style: normal;
 	font-weight: 400;
 	src: url(PatrickHand-Regular.ttf) format('truetype');
-	/*unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;*/
 }
 
 /* HTML & BODY */
@@ -17,7 +16,7 @@ html, body{
 body{
 	margin:0;
 
-	font-family: "PatrickHand";
+	font-family: "PatrickHand", Helvetica, Arial;
 	font-size: 23px;
 	line-height: 1.5em;
 
@@ -294,18 +293,25 @@ a:hover{
 	user-select: none; 
 }
 #sound{
+	position: absolute;
+	left:0; top:0;
 	color: #fff;
 	width: 150px;
     font-size: 30px;
     height: 60px;
 }
+#sound[mute=yes]{
+	opacity: 0.5;
+}
 #sound_icon{
+	background: url(../sprites/ui/sound.png);
+	background-size: auto 100%; 
 	width: 60px; height: 60px;
 	position: absolute;
 }
 #sound_on, #sound_off{
 	position: absolute;
-	left:60px;
+	left:65px;
 	padding: 15px 0;
     display: block;
     line-height: 28px;
@@ -313,16 +319,44 @@ a:hover{
     letter-spacing: 2px;
 }
 #sound[mute=no] > #sound_icon{
-	background: rgba(255,255,255,0.5);
+	/*background: rgba(255,255,255,0.5);*/
+	background-position: 0px 0px;
 }
 #sound[mute=yes] > #sound_icon{
-	background: rgba(255,255,255,0.25);
+	/*background: rgba(255,255,255,0.25);*/
+	background-position: -60px 0px;
 }
 #sound[mute=no] > #sound_on{
 	display: block;
 }
 #sound[mute=yes] > #sound_off{
 	display: block;
+}
+#sharing{
+	position: absolute;
+	right:10px; top:0;
+	width: 150px;
+	overflow: hidden;
+}
+#sharing > a{
+	float: left;
+	display: block;
+	width: 50px;
+	height: 60px;
+	background: url(../sprites/ui/sharing.png);
+	background-size: auto 100%; 
+}
+#sharing #fb{
+	background-position: 0px 0px;
+}
+#sharing #tw{
+	background-position: -50px 0px;
+}
+#sharing #em{
+	background-position: -100px 0px;
+}
+#share_desc{
+	display: none;
 }
 #translations{
 	position: absolute;
@@ -423,6 +457,15 @@ a:hover{
 }
 
 /* PENCIL */
+#pencil_container{
+	position: absolute;
+	top:0; left:0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	pointer-events: none;
+	cursor: none;
+}
 #pencil{
 	position: absolute;
 	width:100px;

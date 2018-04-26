@@ -3,10 +3,34 @@
 THE WISDOM AND/OR MADNESS OF CROWDS
 by Nicky Case | apr 2018
 
-MY "WHY" FOR MAKING THIS:
-+ to build a foundation for further curiosity about networks, group dynamics
-+ to practice teaching with problem-solving, a pre-req for skills
-+ to instill transcendent sense of "fundamentally people", of Humanity's Brain <3
+- - - - - - - - - - -
+
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 4000 WORDS to translate, including
+the Bonus Boxes and References.
+
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and rename it [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+
+Good luck, and thanks again!
+
+<3,
+~ Nicky Case
 
 -->
 
@@ -14,34 +38,31 @@ MY "WHY" FOR MAKING THIS:
 <html>
 <head>
 
-	<!-- TO TRANSLATE: "title", "description" -->
-	<title>The Wisdom and/or Madness of Crowds</title>
-	<meta name="description" content="an interactive guide to human networks"/>
+	<!-- Meta Info -->
+	<title>The Wisdom and/or Madness of Crowds</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="an interactive guide to human networks"/> <!-- content="(TRANSLATE this part only)" -->
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=960, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--960, max-->
 	<link rel="icon" type="image/png" href="favicon.png">
 
-	<!-- TO TRANSLATE: "name", "description" -->
-	<meta itemprop="name" content="The Wisdom and/or Madness of Crowds">
-	<meta itemprop="description" content="an interactive guide to human networks">
+	<!-- Sharing -->
+	<meta itemprop="name" content="The Wisdom and/or Madness of Crowds"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="an interactive guide to human networks"> <!-- content="(TRANSLATE this part only)" -->
 	<meta itemprop="image" content="http://ncase.me/crowds/social/thumbnail.png">
 
-	<!-- TO TRANSLATE: "name", "description" -->
+	<meta name="twitter:title" content="The Wisdom and/or Madness of Crowds"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="an interactive guide to human networks"> <!-- content="(TRANSLATE this part only)" -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@ncasenmare">
-	<meta name="twitter:title" content="The Wisdom and/or Madness of Crowds">
-	<meta name="twitter:description" content="an interactive guide to human networks">
 	<meta name="twitter:creator" content="@ncasenmare">
 	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumbnail.png">
 
-	<!-- TO TRANSLATE: "name", "description" -->
-	<meta property="og:title" content="The Wisdom and/or Madness of Crowds">
+	<meta property="og:title" content="The Wisdom and/or Madness of Crowds"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="an interactive guide to human networks"> <!-- content="(TRANSLATE this part only)" -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="http://ncase.me/crowds/">
 	<meta property="og:image" content="http://ncase.me/crowds/social/thumbnail.png">
-	<meta property="og:description" content="an interactive guide to human networks">
 
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="css/index.css">
@@ -66,7 +87,7 @@ MY "WHY" FOR MAKING THIS:
 		<canvas id="scratch" width="711" height="400"></canvas>
 
 		<!-- Skip -->
-		<div id="skip">skip &gt;</div>
+		<div id="skip">skip &gt;</div> <!-- TRANSLATE -->
 
 		<!-- Modal -->
 		<div id="modal_container">
@@ -85,12 +106,25 @@ MY "WHY" FOR MAKING THIS:
 	<div id="navigation_container">
 		<div id="sound" mute="no">
 			<div id="sound_icon"></div>
-			<span id="sound_on">ON</span>
-			<span id="sound_off">OFF</span>
+			<span id="sound_on">ON</span> <!-- TRANSLATE -->
+			<span id="sound_off">OFF</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			The Wisdom and/or Madness of Crowds <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Why do some groups of people act smart, dumb, kind, cruel? An interactive guide to human networks: <!-- TRANSLATE -->
+			</span>
 		</div>
 		<div id="navigation">
 
 			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
 			<div chapter="Introduction">
 				<span>0</span>
 				<span>0. Introduction</span>
@@ -109,7 +143,7 @@ MY "WHY" FOR MAKING THIS:
 			</div>
 			<div chapter="BB">
 				<span>4</span>
-				<span>4. Bonding &amp; Bridging</span>
+				<span>4. Bonding &amp; Bridging</span> <!-- note: &amp; is html for the "and" sign -->
 			</div>
 			<div chapter="SmallWorld">
 				<span>5</span>
@@ -134,11 +168,11 @@ MY "WHY" FOR MAKING THIS:
 			<!-- Bonus Notes & References -->
 			<div modal="bonus">
 				<span>?</span>
-				<span>Bonus Boxes!</span>
+				<span>Bonus Boxes!</span> <!-- TRANSLATE -->
 			</div>
 			<div modal="references">
 				<span style="margin-top: 7px; font-size: 35px;">*</span>
-				<span>Links &amp; References</span>
+				<span>Links &amp; References</span> <!-- TRANSLATE -->
 			</div>
 			<div modal="translations">
 			<span style="margin-top:5px; position:relative;"><span style="
@@ -151,7 +185,7 @@ MY "WHY" FOR MAKING THIS:
 				    top: -1px;
 				    left: 16px;
 				">あ</span></span>
-				<span>Translations</span>
+				<span>Translations</span> <!-- TRANSLATE -->
 			</div>
 
 			<!-- The hover bubble -->
@@ -163,19 +197,71 @@ MY "WHY" FOR MAKING THIS:
 	</div>
 	
 	<!-- The Pencil -->
-	<canvas id="pencil"></canvas>
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
 
 	<!-- Preloader -->
 	<div id="pre_preloader">
-		<div>loading...</div>
+		<div>loading...</div> <!-- TRANSLATE -->
 	</div>
 
 </body>
 </html>
 
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js"></script>
+
+<script src="js/sim/Peep.js"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js"></script>
+
+<script src="js/main.js"></script>
+
+
 <!-- - - - - - - - - - - - -->
 <!-- THE SLIDESHOW'S WORDS -->
 <!-- - - - - - - - - - - - -->
+
+<!-- 
+
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+
+-->
 
 <span style="display:none">
 
@@ -192,11 +278,14 @@ MY "WHY" FOR MAKING THIS:
 		<br>
 		<span style="position: relative;top: -11px;">of</span>
 		<br>
-		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px;">CROWDS</span>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">CROWDS</span>
 	</div>
 
 	<div style="color:#999">
+		<!-- TRANSLATE note: comment out the line below... -->
 		playing time: 30 min • by nicky case, april 2018
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		<!-- by nicky case • translated by [your name] • <a href='/'>original in English</a> -->
 	</div>
 
 </words>
@@ -210,10 +299,20 @@ MY "WHY" FOR MAKING THIS:
 </words>
 
 <words id="preloader_play">
-	let's play! &rarr; 
+	let's play! &rarr;
 </words>
 
 <!-- Introduction -->
+<!--
+
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+And &rarr; &larr; &darr; &uarr; are pointy arrows.
+
+-->
 
 <words id="intro">
 
@@ -458,7 +557,7 @@ MY "WHY" FOR MAKING THIS:
 </words>
 
 <words id="complex_complex_2">
-	<span style="line-height:1.3em">
+	<span style="line-height:1.3em;  display:block;">
 		
 		Unlike our earlier "fake news" <icon red></icon> contagion,
 		this contagion <icon yellow></icon> does <i>not</i> spread to everyone!
@@ -756,7 +855,7 @@ MY "WHY" FOR MAKING THIS:
 	    position: absolute;
 	    font-size: 88px;
 	    top: 20px;
-	    line-height: 100px;
+	    line-height: 100px; display:block;
 	">
 	    Contagions &amp; Connections
 	</div>
@@ -811,7 +910,7 @@ MY "WHY" FOR MAKING THIS:
 </words>
 
 <words id="conclusion_2">
-	<span style="line-height:1.4em;">
+	<span style="line-height:1.4em; display:block;">
 
 		<div style="height:0.5em"></div>
 
@@ -892,7 +991,7 @@ MY "WHY" FOR MAKING THIS:
 	Fan-made translations:
 </words>
 <words id="translations_do_not_exist">
-	<!-- There's no need to translate this line since, you know, -->
+	<!-- There's no need to TRANSLATE this line since, well, -->
 	<!-- it'll only show up if no translations exist -->
 	What the, no fan-made translations exist yet?!
 </words>
@@ -904,6 +1003,11 @@ MY "WHY" FOR MAKING THIS:
 <!-- BONUS BOXES -->
 <!-- - - - - - - -->
 
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
 <bonus id="books">
 
 	<h3>
@@ -912,7 +1016,7 @@ MY "WHY" FOR MAKING THIS:
 
 	<div>
 
-	<img src="sdas" width="200" height="300" style="float:left; margin-right:1em"/>
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
 	
 	First off, I'm not dissing
 	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
@@ -968,7 +1072,7 @@ MY "WHY" FOR MAKING THIS:
 	<div style="clear:both"></div>
 	<br>
 
-	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
 	<b>Directional connections.</b> Alice is the boss of Bob, but Bob is not the boss of Alice.
 	Carol is the parent of Dave, but Dave is not the parent of Carol.
 	Therefore, "boss" &amp; "parent" are <i>directional</i> relationships:
@@ -979,7 +1083,7 @@ MY "WHY" FOR MAKING THIS:
 	<div style="clear:both"></div>
 	<br>
 
-	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
 	<b>Weighted connections.</b> Elinor and Frankie are "friends", but not that close.
 	George and Harry are super-duper Best Friends Forever.
 	Even though there's a friendship connection in both cases, the second one is a stronger:
@@ -990,7 +1094,7 @@ MY "WHY" FOR MAKING THIS:
 	<div style="clear:both"></div>
 	<br>
 
-	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
 	Just remember: all the simulations in this game are wrong. The same way any map is "wrong".
 	You see the map on the left? Buildings aren't actually gray featureless blocks!
 	Words don't float above the city! However, maps are useful not <i>despite</i> being simplified,
@@ -1015,14 +1119,14 @@ MY "WHY" FOR MAKING THIS:
 	<div style="clear:both"></div>
 	<br>
 
-	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
 	<b>Contagions with Randomness</b>. Instead of "if your friend is infected, you'll get infected",
 	you could simulate "if your friend is infected, you'll get infected <i>with an X% chance</i>".
 
 	<div style="clear:both"></div>
 	<br>
 
-	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
 	<b>People have different contagion thresholds.</b> 
 	In this simulation, I'm pretending everyone has the same threshold for binge-drinking (50%) or
 	volunteering (25%) or misinformation (0%). That's not true in real life, of course,
@@ -1031,7 +1135,7 @@ MY "WHY" FOR MAKING THIS:
 	<div style="clear:both"></div>
 	<br>
 
-	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
 	<b>An ecology of contagions.</b> This is actually cutting-edge research,
 	and I'm not entirely sure how one would do this.
 	In my simulations, only one contagion is spreading at a time.
@@ -1044,7 +1148,7 @@ MY "WHY" FOR MAKING THIS:
 	<div style="clear:both"></div>
 	<br>
 
-	<img src="sdas" width="150" height="150" style="float:left; margin-right:1em"/>
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
 	<b>Contagions that mutate and evolve.</b>
 	Ideas don't pass perfectly from one person to another the way a virus genome does.
 	Like a game of Telephone, the message gets mutated with each re-telling.
@@ -1060,7 +1164,7 @@ MY "WHY" FOR MAKING THIS:
 <bonus id="further_reading">
 	
 	<h3>
-	Further Reading
+	Further Reading &amp; Playing
 	</h3>
 	
 	<div>
@@ -1071,7 +1175,7 @@ MY "WHY" FOR MAKING THIS:
 
 	<br><br>
 
-	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
 	<b>Book:</b>
 	<a target="_blank" href="http://www.connectedthebook.com/">
 	Connected</a>
@@ -1087,7 +1191,7 @@ MY "WHY" FOR MAKING THIS:
 	<div style="clear:both"></div>
 	<br>
 
-	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
+	<img src="sprites/bonus/swn.png" width="200" height="200" style="float:left; margin-right:1em"/>
 	<b>Interactive:</b>
 	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
 	Collective Dynamics of Small World Networks</a>,
@@ -1105,8 +1209,8 @@ MY "WHY" FOR MAKING THIS:
 
 	<br><br>
 
-	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
-	<a target="_blank" href="https://mrpandey.github.io/d3graphTheory/">
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<a target="_blank" href="http://ncase.me/trust/">
 	The Evolution of Trust</a> by Nicky Case (2017).
 	This is a game about the game theory of how cooperation arises (or not).
 	You first play a game of trust,
@@ -1116,8 +1220,8 @@ MY "WHY" FOR MAKING THIS:
 	<div style="clear:both"></div>
 	<br>
 
-	<img src="sdas" width="200" height="200" style="float:left; margin-right:1em"/>
-	<a target="_blank" href="https://mrpandey.github.io/d3graphTheory/">
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<a target="_blank" href="http://ncase.me/polygons/">
 	Parable of the Polygons</a> by Vi Hart and Nicky Case (2014).
 	A story about how harmless choices can create a harmful world.
 	Based off a Nobel Prize-winning game theorist's work,
@@ -1130,6 +1234,10 @@ MY "WHY" FOR MAKING THIS:
 <!-- - - - - - - -->
 <!-- REFERENCES  -->
 <!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
 
 <reference id="drunk">
 
@@ -1583,8 +1691,6 @@ MY "WHY" FOR MAKING THIS:
 	Your generosity <i>literally</i> feeds me and pays my rent,
 	and grants me the creative freedom to make these weird math/social-science games.
 	From the bottom of my heart, thank you!
-	<br><br>
-	<iframe src="supporters" width="730" height="330" style="border:none; margin:0 auto; display:block"></iframe>
 	</div>
 </reference>
 <reference id="playtesters" hidden=yes large=yes>
@@ -1596,7 +1702,7 @@ MY "WHY" FOR MAKING THIS:
 	<br><br>
 	<b>The Prototype:</b>
 	<br>
-	Maria P ·
+	Maria ·
 	Monica Srivastava
 
 	<br><br>
@@ -1604,7 +1710,7 @@ MY "WHY" FOR MAKING THIS:
 	<br>
 	Glen Chiacchieri ·
 	Kalli Repzeti ·
-	Mali ·
+	Mali Akmanalp ·
 	Toph Tucker
 
 	<br><br>
@@ -1626,43 +1732,13 @@ MY "WHY" FOR MAKING THIS:
 
 </span>
 
-<!-- - - - - -->
-<!-- SCRIPTS -->
-<!-- - - - - -->
+<!--
 
-<script src="js/lib/helpers.js"></script>
-<script src="js/lib/minpubsub.src.js"></script>
-<script src="js/lib/howler.min.js"></script>
-<script src="js/lib/Key.js"></script>
-<script src="js/lib/Mouse.js"></script>
-<script src="js/lib/Sprite.js"></script>
+And that's it! That's the last of what needed to a TRANSLATE
 
-<script src="js/slideshow/Slideshow.js"></script>
-<script src="js/slideshow/Pencil.js"></script>
-<script src="js/slideshow/Boxes.js"></script>
-<script src="js/slideshow/Scratch.js"></script>
-<script src="js/slideshow/Navigation.js"></script>
-<script src="js/slideshow/SimUI.js"></script>
-<script src="js/slideshow/SandboxUI.js"></script>
-<script src="js/slideshow/Modal.js"></script>
-<script src="js/slideshow/Preloader.js"></script>
-<script src="js/slideshow/Translations.js"></script>
+Thank you so, so much for doing this again, wow.
 
-<script src="js/sim/Peep.js"></script>
-<script src="js/sim/Connection.js"></script>
-<script src="js/sim/ConnectorCutter.js"></script>
-<script src="js/sim/Simulations.js"></script>
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
 
-<script src="js/chapters/A_Preloader.js"></script>
-<script src="js/chapters/B_Introduction.js"></script>
-<script src="js/chapters/C_Networks.js"></script>
-<script src="js/chapters/D_Simple_Contagion.js"></script>
-<script src="js/chapters/E_Complex_Contagion.js"></script>
-<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
-<script src="js/chapters/G_Small_World.js"></script>
-<script src="js/chapters/H_Conclusion.js"></script>
-<script src="js/chapters/I_Credits.js"></script>
-<script src="js/chapters/J_Sandbox.js"></script>
-
-<script src="js/main.js"></script>
-
+-->
