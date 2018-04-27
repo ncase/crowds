@@ -84,13 +84,6 @@ SLIDES.push(
 			text:"complex_complex_3",
 			x:480, y:0, w:480, h:540
 		},
-		{
-			id:"end",
-			type:"box",
-			text:"complex_complex_3_end",
-			x:480, y:0, w:480, h:540,
-			hidden:true
-		},
 
 		// Sim
 		{
@@ -129,17 +122,30 @@ SLIDES.push(
 			});
 			if(peepCount==sim.peeps.length){
 				var boxes = slideshow.boxes;
-				boxes.removeChildByID("complex_complex_3", true);
-				boxes.showChildByID("end", true);
 				state.ended = true;
 				sim.win({
 					small:true
 				});
+				slideshow.next();
 			}
 		}
 
 	}
 
+},
+
+{
+	remove:[
+		{type:"box", id:"complex_complex_3"}
+	],
+	add:[
+		{
+			id:"end",
+			type:"box",
+			text:"complex_complex_3_end",
+			x:480, y:0, w:480, h:540
+		}
+	]
 },
 
 {

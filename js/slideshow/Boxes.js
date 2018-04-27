@@ -107,7 +107,7 @@ function Boxes(){
 		// Bonus boxes...
 		box.querySelectorAll("bon").forEach(function(bon){
 			var title = $("bonus#"+bon.id+" > h3").innerHTML.trim();
-			bon.innerHTML = "(?) "+title;
+			bon.innerHTML = title;
 			bon.onclick = function(){
 				publish("bonus/show", [bon.id]);
 			};
@@ -118,7 +118,7 @@ function Boxes(){
 		box.querySelectorAll("icon").forEach(function(icon){
 
 			// Create next button
-			var name = icon.getAttributeNames()[0];
+			var name = icon.getAttribute("name");
 			var src = "sprites/icons/"+name+".png";
 			var img = new Image();
 			img.src = src;

@@ -27,21 +27,17 @@ SLIDES.push(
 		// Simulation UI
 		{
 			type:"box",
-			x:35, y:375,
+			x:35, y:385,
 			sim_ui:"red"
 		},
 
 		// Words
-		/*{
-			type:"box",
-			text:"sandbox_caption",
-			x:70, y:470, w:550, h:70
-		},
 		{
 			type:"box",
-			text:"sandbox_next",
-			x:605, y:455, w:300, h:100
-		},*/
+			text:"sandbox_caption",
+			x:660, y:500, w:300, h:40,
+			align:"right"
+		}
 
 
 	]

@@ -13,9 +13,6 @@ function Sprite(config){
 	self.scaleY = 1;
 	self.rotation = 0; // radians
 
-	// The image!
-	self.image = IMAGES[config.img];
-
 	// Frames
 	self.currentFrame = 0;
 	self.totalFrames = config.frames;
@@ -43,7 +40,8 @@ function Sprite(config){
 			ctx.scale(self.scaleX, self.scaleY);
 		}
 		ctx.translate(-self.pivotX, -self.pivotY);
-		ctx.drawImage(self.image, sx, sy, sw, sh, 0, 0, sw, sh);
+		var image = IMAGES[config.img];
+		ctx.drawImage(image, sx, sy, sw, sh, 0, 0, sw, sh);
 		ctx.restore();
 
 	};

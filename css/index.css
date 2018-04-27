@@ -75,7 +75,7 @@ a:hover{
 	top: -10px;
 	width: 300px;
     height: 20px;
-    padding: 40px 0;
+    padding: 37px 0 43px 0;
 	background-image: url(../sprites/button_large.png);
 	background-size: 100% auto;
 	text-align: center;
@@ -133,6 +133,20 @@ a:hover{
 	position: relative;
     top: 3px;
     transform: scale(1.2);
+}
+
+/* Right & Down Arrows */
+.rarr, .darr{
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background: url(../sprites/ui/arrow.png);
+	background-size: 100% auto;
+	position: relative;
+	top: 3px;
+}
+.darr{
+	transform: rotate(90deg);
 }
 
 /* Sim UI */
@@ -499,18 +513,41 @@ words, bonus, reference{
 
 /* BONUS BOX */
 bon{
-    margin: 0.75em 0;
+    margin: 0.75em auto;
     display: block;
+    
     background: #ccc;
     color: #444;
-    padding: 15px 20px;
-    width: 280px;
-    line-height: 1.1em;
+    text-align: left;
+
+    width: 300px;
+    height: 56px;
+    padding: 23px 20px 17px 80px;
     border-bottom: 4px solid rgba(0,0,0,0.25);
+    border-radius: 5px;
+
+    line-height: 1.1em;
+    background-size: 400px auto;
+
+    position: relative;
+    transition: top 0.1s ease-in-out;
+    top:0;
+}
+bon:before{
+	content: '';
+	display: block;
+    position: absolute;
+    
+    left: 25px;
+    top: 14px;
+    width: 35px;
+    height: 70px;
+
+	background: url(../sprites/ui/bonus.png);
+	background-size: 100% 100%;
 }
 bon:hover{
-	background: #ddd;
-    color: #666;
+	top:-3px;
 }
 
 /* REFERENCES */

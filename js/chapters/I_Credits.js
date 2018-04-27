@@ -14,7 +14,7 @@ SLIDES.push(
 		// CREDITS
 		{
 			type:"box",
-			text:"credits", x:280, y:0, w:400, h:70, align:"center", color:"#fff"
+			text:"credits", x:0, y:0, w:960, h:540
 		}
 
 	]

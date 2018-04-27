@@ -10,7 +10,7 @@ subscribe("bonus/show", function(bonus_id){
 });
 
 // SHOW REFERENCES
-var SHOWING_SUPPORTERS = false;
+//var SHOWING_SUPPORTERS = false;
 subscribe("reference/show", function(ref_id){
 	
 	publish("sound/button");
@@ -20,8 +20,7 @@ subscribe("reference/show", function(ref_id){
 	var noteLength = $("#modal_content").innerText.length; // innerTEXT, so no links
 
 	// HACK: IF IT'S PATREON PEOPLE, *NOW* SHOW IFRAME
-	if(!SHOWING_SUPPORTERS && ref_id=="supporters"){
-		SHOWING_SUPPORTERS = true; // ONCE
+	if(ref_id=="supporters"){
 		$("#modal_content").innerHTML = footnote+'<br><br>'+
 			'<iframe src="supporters" width="730" height="330" style="border:none; margin:0 auto; display:block"></iframe>';
 	}
