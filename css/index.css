@@ -224,12 +224,12 @@ a:hover{
 	background-size: auto 100%;
 }
 #sandbox_shortcuts_label{
-	font-size: 18px; 
+	font-size: 22px;
 }
 #sandbox_shortcuts{
-	font-size: 14px;
-	line-height: 1.5em;
-	color: #999;
+	font-size: 20px;
+    line-height: 1.2em;
+    color: #999;
 }
 
 /* MODAL */
