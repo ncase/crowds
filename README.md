@@ -36,8 +36,7 @@ If so, maybe you can collaborate!
 And if no one else is, PLEASE CREATE A NEW ISSUE in this repo
 so that others know you're working on it!]**
 
-Translations done so far:    
-(none)
+Translations done so far: (none)
 
 **Step 1)** Clone this repo!
 
@@ -45,17 +44,17 @@ Translations done so far:
 [https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 **Step 3)** *COPY* `index.html`, and name the copy [your-two-letter-code].html. 
-For example: de.html, ar.html, zh.html, etc...
+For example: `de.html`, `ar.html`, `zh.html`, etc...
 
 **Step 4)** Translate *THAT* page (it's about 3600+ words). Do NOT modify the original `index.html`!
-You can also credit yourself as a translator!
+Also, please feel free to credit yourself as a translator :)
 
 **Step 5)** Add one line to the end of `translations.txt` so that the game "knows" your translation exists.
 (more specific instructions will be inside that file)
 
 **Step 6)** Send a Pull Request so I can make your translation go live!
 
-**Step 7)** 🎉
+**Step 7)** 🎉 fweeeee
 
 # PUBLIC DOMAIN "LICENSE"
 
