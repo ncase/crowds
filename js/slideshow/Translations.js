@@ -1,5 +1,5 @@
 window.TRANSLATIONS = [];
-window.ADD_YOUR_OWN_LINK = "http://derp";
+window.ADD_YOUR_OWN_LINK = "https://github.com/ncase/crowds#how-to-translate-this-thing";
 
 var r = new XMLHttpRequest();
 r.open("GET", "translations.txt", true);
