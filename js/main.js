@@ -41,8 +41,6 @@ subscribe("prepreload/done", function(){
 
 	// Go to THE SPLASH
 	slideshow.gotoChapter("Preloader");
-	//slideshow.gotoChapter("Credits");
-	//$("#navigation").style.display = "block";
 
 	// HACK - MOBILE IS HORRIBLE
 	$all("a").forEach(function(a){
