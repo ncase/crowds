@@ -1,3 +1,5 @@
+!["The Wisdom and/or Madness of Crowds"](http://ncase.me/crowds/social/thumb.png)
+
 # PLAY IT HERE: [http://ncase.me/crowds/](http://ncase.me/crowds/)
 
 *The Wisdom and/or Madness of Crowds* is dedicated to the public domain,

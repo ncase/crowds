@@ -133,7 +133,7 @@ function Peep(config){
 			// Travel Clockwise
 			var spin = getUnitVector(self);
 			spin = rotateVector(spin, Math.TAU/4);
-			spin = multiplyVector(spin, 0.02*0.8);
+			spin = multiplyVector(spin, 0.02*0.25); // even less spin
 			self.velocity = addVectors(self.velocity, spin);
 
 			// Air Friction
