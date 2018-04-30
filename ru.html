@@ -37,35 +37,34 @@ Good luck, and thanks again!
 <!DOCTYPE html>
 <html>
 <head>
-
-	<!-- Meta Info -->
-	<title>Мудрость и/или безумие толп</title> <!-- <title>(TRANSLATE this part only)</title> -->
-	<meta name="description" content="интерактивное руководство по человеческим сетям"/> <!-- content="(TRANSLATE this part only)" -->
+  <!-- Meta Info -->
+  <title>Мудрость и/или безумие толп</title> <!-- <title>(TRANSLATE this part only)</title> -->
+  <meta name="description" content="интерактивное руководство по человеческим сетям"/> <!-- content="(TRANSLATE this part only)" -->
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-	<meta content="utf-8" http-equiv="encoding">
-	<meta charset="utf-8">
-	<link rel="icon" type="image/png" href="favicon.png">
+  <meta content="utf-8" http-equiv="encoding">
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="favicon.png">
 
-	<!-- Sharing -->
-	<meta itemprop="name" content="Мудрость и/или безумие толп"> <!-- content="(TRANSLATE this part only)" -->
-	<meta itemprop="description" content="интерактивное руководство по человеческим сетям"> <!-- content="(TRANSLATE this part only)" -->
-	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+  <!-- Sharing -->
+  <meta itemprop="name" content="Мудрость и/или безумие толп"> <!-- content="(TRANSLATE this part only)" -->
+  <meta itemprop="description" content="интерактивное руководство по человеческим сетям"> <!-- content="(TRANSLATE this part only)" -->
+  <meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
 
-	<meta name="twitter:title" content="Мудрость и/или безумие толп"> <!-- content="(TRANSLATE this part only)" -->
-	<meta name="twitter:description" content="интерактивное руководство по человеческим сетям"> <!-- content="(TRANSLATE this part only)" -->
-	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:site" content="@ncasenmare">
-	<meta name="twitter:creator" content="@ncasenmare">
-	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+  <meta name="twitter:title" content="Мудрость и/или безумие толп"> <!-- content="(TRANSLATE this part only)" -->
+  <meta name="twitter:description" content="интерактивное руководство по человеческим сетям"> <!-- content="(TRANSLATE this part only)" -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ncasenmare">
+  <meta name="twitter:creator" content="@ncasenmare">
+  <meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
 
-	<meta property="og:title" content="Мудрость и/или безумие толп"> <!-- content="(TRANSLATE this part only)" -->
-	<meta property="og:description" content="интерактивное руководство по человеческим сетям"> <!-- content="(TRANSLATE this part only)" -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="http://ncase.me/crowds/">
-	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+  <meta property="og:title" content="Мудрость и/или безумие толп"> <!-- content="(TRANSLATE this part only)" -->
+  <meta property="og:description" content="интерактивное руководство по человеческим сетям"> <!-- content="(TRANSLATE this part only)" -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://ncase.me/crowds/">
+  <meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
 
-	<!-- Styles -->
-	<link rel="stylesheet" type="text/css" href="css/index.css?v=3">
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="css/index.css?v=3">
 
   <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
   <style>
@@ -74,145 +73,135 @@ Good luck, and thanks again!
       font-size: 20px !important;
     }
   </style>
-
 </head>
 <body>
 
-	<!-- THE SLIDESHOW -->
-	<div id="container">
+  <!-- THE SLIDESHOW -->
+  <div id="container">
+    <!-- Simulation(s) in background -->
+    <div id="simulations_container">
+      <div id="simulations"></div>
+    </div>
 
-		<!-- Simulation(s) in background -->
-		<div id="simulations_container">
-			<div id="simulations"></div>
-		</div>
+    <!-- Slideshow: words & buttons -->
+    <div id="slideshow_container">
+      <div id="slideshow"></div>
+    </div>
 
-		<!-- Slideshow: words & buttons -->
-		<div id="slideshow_container">
-			<div id="slideshow"></div>
-		</div>
+    <!-- Scratch Transition -->
+    <canvas id="scratch" width="711" height="400"></canvas>
 
-		<!-- Scratch Transition -->
-		<canvas id="scratch" width="711" height="400"></canvas>
+    <!-- Skip -->
+    <div id="skip" style="width: 150px;">пропустить &gt;</div> <!-- TRANSLATE -->
 
-		<!-- Skip -->
-		<div id="skip" style="width: 150px">пропустить &gt;</div> <!-- TRANSLATE -->
+    <!-- Modal -->
+    <div id="modal_container">
+      <div id="modal_bg"></div>
+      <div id="modal">
+        <div id="modal_close">⨯</div>
+        <div id="modal_content_container">
+          <div id="modal_content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-		<!-- Modal -->
-		<div id="modal_container">
-			<div id="modal_bg"></div>
-			<div id="modal">
-				<div id="modal_close">⨯</div>
-				<div id="modal_content_container">
-					<div id="modal_content"></div>
-				</div>
-			</div>
-		</div>
+  <!-- Navigation: Audio, Contents, Share, Translations -->
+  <div id="navigation_container">
+    <div id="sound" mute="no">
+      <div id="sound_icon"></div>
+      <span id="sound_on">ВКЛ</span> <!-- TRANSLATE -->
+      <span id="sound_off">ВЫКЛ</span> <!-- TRANSLATE -->
+    </div>
+    <div id="sharing">
+      <a id="fb" target="_blank" href="TODO"></a>
+      <a id="tw" target="_blank" href="TODO"></a>
+      <a id="em" target="_blank" href="TODO"></a>
+      <span id="share_title">
+        Мудрость и/или безумие толп <!-- TRANSLATE -->
+      </span>
+      <span id="share_desc">
+      <!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+        Почему группы людей действуют умно, глупо, добро, жестоко? Интерактивное руководство по человеческим сетям: <!-- TRANSLATE -->
+      </span>
+    </div>
+    <div id="navigation">
+      <!-- The chapters -->
 
-	</div>
+      <!-- TRANSLATE all the Chapter names! -->
+      <div chapter="Introduction">
+        <span>0</span>
+        <span>0. Введение</span>
+      </div>
+      <div chapter="Networks">
+        <span>1</span>
+        <span>1. Связи</span>
+      </div>
+      <div chapter="Simple">
+        <span>2</span>
+        <span>2. Инфекции</span>
+      </div>
+      <div chapter="Complex">
+        <span>3</span>
+        <span>3. Комплексные инфекции</span>
+      </div>
+      <div chapter="BB">
+        <span>4</span>
+        <span>4. Связующее и вспомогательное</span> <!-- note: &amp; is html for the "and" sign -->
+      </div>
+      <div chapter="SmallWorld">
+        <span>5</span>
+        <span>5. Маленький мир</span>
+      </div>
+      <div chapter="Conclusion">
+        <span>6</span>
+        <span>6. В заключение...</span>
+      </div>
+      <div chapter="Credits">
+        <span>7</span>
+        <span>7. Авторство</span>
+      </div>
+      <div chapter="Sandbox">
+        <span>★</span>
+        <span>★ Песочница! ★</span>
+      </div>
 
-	<!-- Navigation: Audio, Contents, Share, Translations -->
-	<div id="navigation_container">
-		<div id="sound" mute="no">
-			<div id="sound_icon"></div>
-			<span id="sound_on">ВКЛ</span> <!-- TRANSLATE -->
-			<span id="sound_off">ВЫКЛ</span> <!-- TRANSLATE -->
-		</div>
-		<div id="sharing">
-			<a id="fb" target="_blank" href="TODO"></a>
-			<a id="tw" target="_blank" href="TODO"></a>
-			<a id="em" target="_blank" href="TODO"></a>
-			<span id="share_title">
-			Мудрость и/или безумие толп <!-- TRANSLATE -->
-			</span>
-			<span id="share_desc">
-			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
-      Почему группы людей действуют умно, глупо, добро, жестоко? Интерактивное руководство по человеческим сетям: <!-- TRANSLATE -->
-			</span>
-		</div>
-		<div id="navigation">
+      <!-- A divider -->
+      <span class="nav_divider"></span>
 
-			<!-- The chapters -->
-			<!-- TRANSLATE all the Chapter names! -->
-			<div chapter="Introduction">
-				<span>0</span>
-				<span>0. Введение</span>
-			</div>
-			<div chapter="Networks">
-				<span>1</span>
-				<span>1. Связи</span>
-			</div>
-			<div chapter="Simple">
-				<span>2</span>
-				<span>2. Инфекции</span>
-			</div>
-			<div chapter="Complex">
-				<span>3</span>
-				<span>3. Комплексные инфекции</span>
-			</div>
-			<div chapter="BB">
-				<span>4</span>
-				<span>4. Связующее и вспомогательное</span> <!-- note: &amp; is html for the "and" sign -->
-			</div>
-			<div chapter="SmallWorld">
-				<span>5</span>
-				<span>5. Маленький мир</span>
-			</div>
-			<div chapter="Conclusion">
-				<span>6</span>
-				<span>6. В заключение...</span>
-			</div>
-			<div chapter="Credits">
-				<span>7</span>
-				<span>7. Авторство</span>
-			</div>
-			<div chapter="Sandbox">
-				<span>★</span>
-				<span>★ Песочница! ★</span>
-			</div>
+      <!-- Bonus Notes & References -->
+      <div modal="bonus">
+        <span>?</span>
+        <span>Бонусные коробки!</span> <!-- TRANSLATE -->
+      </div>
+      <div modal="references">
+        <span style="margin-top: 7px; font-size: 35px;">*</span>
+        <span>Ссылки и референсы</span> <!-- TRANSLATE -->
+      </div>
+      <div modal="translations">
+        <span style="margin-top:5px; position: relative;">
+          <span style=" position: absolute; top: -8px; left: 6px;">A</span>
+          <span style="position: absolute; font-size: 16px; top: -1px; left: 16px;">あ</span>
+        </span>
+        <span>Переводы</span> <!-- TRANSLATE -->
+      </div>
 
-			<!-- A divider -->
-			<span class="nav_divider"></span>
+      <!-- The hover bubble -->
+      <span id="nav_bubble"></span>
+    </div>
+    <div id="translations"></div>
+    <div id="social"></div>
+  </div>
 
-			<!-- Bonus Notes & References -->
-			<div modal="bonus">
-				<span>?</span>
-				<span>Бонусные коробки!</span> <!-- TRANSLATE -->
-			</div>
-			<div modal="references">
-				<span style="margin-top: 7px; font-size: 35px;">*</span>
-				<span>Ссылки и референсы</span> <!-- TRANSLATE -->
-			</div>
-			<div modal="translations">
-			<span style="margin-top:5px; position:relative;"><span style="
-				    position: absolute;
-				    top: -8px;
-				    left: 6px;
-				">A</span><span style="
-				    position: absolute;
-				    font-size: 16px;
-				    top: -1px;
-				    left: 16px;
-				">あ</span></span>
-				<span>Переводы</span> <!-- TRANSLATE -->
-			</div>
+  <!-- The Pencil -->
+  <div id="pencil_container">
+    <canvas id="pencil"></canvas>
+  </div>
 
-			<!-- The hover bubble -->
-			<span id="nav_bubble"></span>
-
-		</div>
-		<div id="translations"></div>
-		<div id="social"></div>
-	</div>
-
-	<!-- The Pencil -->
-	<div id="pencil_container">
-		<canvas id="pencil"></canvas>
-	</div>
-
-	<!-- Preloader -->
-	<div id="pre_preloader">
-		<div>загрузка...</div> <!-- TRANSLATE -->
-	</div>
+  <!-- Preloader -->
+  <div id="pre_preloader">
+    <div>загрузка...</div> <!-- TRANSLATE -->
+  </div>
 
 </body>
 </html>
@@ -271,40 +260,37 @@ it should automatically highlight what the text is (usually in white).
 
 -->
 
-<span style="display:none">
+<span style="display: none;">
 
 <!-- Preloader -->
 
 <words id="preloader_title">
-
-	<div style="font-size: 30px;">
+  <div style="font-size: 30px;">
     <br>
-		<span style="font-size: 45px;">МУДРОСТЬ</span>
-		<span style="position:relative; top: -5px;">и/или</span>
-		<span style="font-size: 45px;">БЕЗУМИЕ</span>
-		<br>
-		<span style="font-size: 100px;line-height: 80px;position: relative; display:block;">ТОЛП</span>
-	</div>
-
-	<div style="color:#999">
-		<!-- TRANSLATE note: comment out the line below... -->
-		<!-- playing time: 30 min • by nicky case, april 2018 -->
-		<!-- ...and UN-comment + TRANSLATE this line! -->
-		от nicky case • перевод <a href="https://toby3d.github.io">toby3d</a> • <a href='/'>original in English</a>
-	</div>
-
+    <span style="font-size: 45px;">МУДРОСТЬ</span>
+    <span style="position: relative; top: -5px;">и/или</span>
+    <span style="font-size: 45px;">БЕЗУМИЕ</span>
+    <br>
+    <span style="font-size: 100px; line-height: 80px; position: relative; display: block;">ТОЛП</span>
+  </div>
+  <div style="color: #999;">
+    <!-- TRANSLATE note: comment out the line below... -->
+    <!-- playing time: 30 min • by nicky case, april 2018 -->
+    <!-- ...and UN-comment + TRANSLATE this line! -->
+    от nicky case • перевод <a href="https://toby3d.github.io">toby3d</a> • <a href='/'>original in English</a>
+  </div>
 </words>
 
 <words id="preloader_button">
-	<next></next>
+  <next></next>
 </words>
 
 <words id="preloader_loading">
-	загрузка...
+  загрузка...
 </words>
 
 <words id="preloader_play">
-	сыграть! <div class="rarr"></div>
+  сыграть! <div class="rarr"></div>
 </words>
 
 <!-- Introduction -->
@@ -319,92 +305,75 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 -->
 
 <words id="intro">
-
-	<br><br>
-
-  Сэр Исаак Ньютон был уверен, что он был<br>
-  умным. Я имею в виду, что после изобретения<br>
-  исчисления и теории гравитации он должен быть<br>
-  достаточно умен, чтобы сделать какое-то финансовое<br>
-  вложение, не так ли? Во всяком случае, если говорить<br>
-  коротко, он потерял 4 600 000 долларов (в сегодняшних<br>
-  долларах) в общенациональной спекуляции, известной как<br>
-  Пузырь Южных морей 1720 года.
-
   <br><br>
-
+  Сэр Исаак Ньютон был уверен, что он был<br>
+  светлой головой. Я имею в виду, что после<br>
+  изобретения исчисления и теории гравитации он<br>
+  должен был быть достаточно умен, чтобы вложить<br>
+  сколь-нибудь денег, верно? Как бы то ни было, в итоге<br>
+  он потерял 4 600 000 долларов (в сегодняшних долларах)<br>
+  в общенациональной спекуляции, известной как Пузырь<br>
+  Южных морей 1720 года.
+  <br><br>
   Как г-н Ньютон сказал позже: <i>“Я могу рассчитать<br>
   движения небесных тел, но не безумие людей.”</i>
-
   <br>
-
-	<next>да, ужасно для него <div class="rarr"></div> </next>
-
+  <next>да, хреново ему <div class="rarr"></div></next>
 </words>
 
 <words id="intro_2">
-
-	<div style="height:0.5em"></div>
-
+  <div style="height: 0.5em;"></div>
   Конечно, это не единственные<br>
   временные рынки, институты или целые<br>
-  демократические страны, которые сходили с<br>
-  ума - <i>безумие</i> толп. И все же, когда вы теряете<br>
+  демократические страны, которым пришла<br>
+  крышка - <i>безумие</i> толп. И все же, когда вы теряете<br>
   надежду на человечество, вы видите граждан<br>
-  координирующих спасение друг друга в ураганах, сообщества,<br>
-  создающих решения проблем, людей, сражающихся за<br>
-  лучший мир - <i>мудрость</i> толп!
-
-  <div style="height:0.9em"></div>
-
+  работающих сообща ради спасения друг друга в ураганах,<br>
+  сообщества, создающих решения проблем, людей,<br>
+  сражающихся за лучший мир - <i>мудрость</i> толп!
+  <div style="height: 0.9em;"></div>
   <b>Но <i>почему</i> некоторые толпы обращаются к безумию или<br>
   мудрости?</b> Никакая теория не может объяснить всё, но я<br>
   думаю, что новая область исследования, социология,<br>
   может нам помочь! И его основная идея заключается<br>
   в следующем: чтобы понять толпу, мы должны<br>
   смотреть не на <i>отдельных</i> людей, а на...
-
-	<next>...их <i>связи</i>. <div class="rarr"></div> </next>
-
+  <next>...их <i>связи</i>. <div class="rarr"></div></next>
 </words>
 
 <!-- Networks -->
 
 <words id="networks_tutorial_start">
-	<b>Нарисуем сеть!</b>
+  <b>Нарисуем сеть!</b>
   Каждое соединение представляет собой дружбу между двумя людьми:
 </words>
 
 <words id="networks_tutorial_connect">
-	рисуй для соединения
+  рисуй для соединения
 </words>
 
 <words id="networks_tutorial_disconnect">
-	перечеркни для разделения
+  перечеркни для разделения
 </words>
 
 <words id="networks_tutorial_end">
-
-	когда ты закончишь рисовать и играть,
-  <next wiggle>давай продолжим <div class="rarr"></div> </next>
-
+  когда ты закончишь чиркать и играться,
+  <next wiggle>давай продолжим <div class="rarr"></div></next>
 </words>
 
 <words id="networks_threshold">
-
   Сейчас, социальные связи - это больше, чем просто красивые картинки.
-  Люди <i>смотрят</i> на свои социальные связи, чтобы понять свой мир.
+  Люди <i>обращаются</i> к своим социальным связям, чтобы понять свой мир.
   Например, люди обращаются к своим сверстникам, чтобы узнать <b>какой
   % их друзей (не считая себя)</b>, скажем, выпивают. <icon name="yellow"></icon>
-
 </words>
 
 <words id="networks_threshold_instruction">
-	<b>Нарисуй/сотри соединения и посмотри что произойдёт! <div class="rarr"></div> </b>
+  <b>Нарисуй/сотри соединения и посмотри что произойдёт! <div class="rarr"></div></b>
 </words>
 
 <words id="networks_threshold_end">
-	<next>круто, получилось</next>
+  <next>круто, получилось</next>
 </words>
 
 <words id="networks_pre_puzzle">
@@ -414,67 +383,57 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 </words>
 
 <words id="optional_reading">
-	<div style="position:absolute; top:5px;">
-		<i>опциональные</i> заметки! &uarr;
-	</div>
-	<div style="position:absolute; left:216px; top:10px;">
-		&darr; ссылки и референсы
-	</div>
+  <div style="position: absolute; top: 5px;">
+    <i>опциональные</i> заметки! &uarr;
+  </div>
+  <div style="position: absolute; left: 216px; top: 10px;">
+    &darr; ссылки и референсы
+  </div>
 </words>
 
 <words id="networks_pre_puzzle_2">
-
-	<bon id="books"></bon>
-
-	<br>
-
+  <bon id="books"></bon>
+  <br>
   Например, исследование<ref id="drunk"></ref> 1991 года показало,
   что “практически все студенты [колледжа] сообщили, что их друзья пьют больше, чем они”.
   Но это кажется невозможным!
   Как это может быть?
   Ну, ты придумаешь ответ самостоятельно, нарисовав сеть.
   Сейчас самое время...
-
-	<next>ОБМАНУТЬ ВСЕХ <div class="rarr"></div> </next>
-
+  <next>ОБМАНУТЬ ВСЕХ <div class="rarr"></div></next>
 </words>
 
 <words id="networks_puzzle">
-
-	<b style="font-size:1.9em">ВРЕМЯ ПАЗЗЛОВ!</b>
-	<br>
+  <b style="font-size: 1.9em;">ВРЕМЯ ПАЗЗЛОВ!</b>
+  <br>
   Обмани <i>всех</i>, заставив подумать что большинство их друзей (порог в 50%) являются пьяницами <icon name="yellow"></icon>
   (хотя любителей выпить превосходят численностью 2 к 1!)
+</words>
 
-</words>
 <words id="networks_puzzle_metric">
-	<b>ОБМАНУТО:</b>
+  <b>ОБМАНУТО:</b>
 </words>
+
 <words id="networks_puzzle_metric_2">
-	из 9 человек
+  из 9 человек
 </words>
+
 <words id="networks_puzzle_end">
   Поздравляю! Ты манипулируешь группой студентов, чтобы те поверили
   в распространенность невероятно нездоровой социальной нормы! Хорошо идёт!
-	<next wiggle>...ух. спасибо?</next>
+  <next wiggle>...ух. спасибо?</next>
 </words>
 
 <words id="networks_post_puzzle">
-
   То, что ты только что создал, называется Иллюзией большинства<ref id="majority"></ref>,
   что также объясняет, почему люди считают, что их политические взгляды являются консенсусом
   или почему экстремизм кажется более распространенным, чем он есть на самом деле.
   <i>Безумие.</i>
-
-	<bon id="connections"></bon>
-
+  <bon id="connections"></bon>
   Но люди не просто пассивно <i>наблюдают</i> за другими идеями и поведением,
   они активно <i>копируют</i> их.
   Итак, давай посмотрим, что учёные сетей называют...
-
-	<next>“Инфекциями!” <div class="rarr"></div> </next>
-
-
+  <next>“Инфекциями!” <div class="rarr"></div></next>
 </words>
 
 <!-- Simple Contagions -->
@@ -485,11 +444,9 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
   Некоторой <i>дез</i>информацией. "Fake news", как говорят крутые дети.
   И каждый день этот человек распространяет слух, как вирус, своим друзьям.
   И те - <i>своим</i> друзьям. И т.д.
-	<br>
-	<b>
-	Запусти симуляцию! <div class="darr"></div>
-	(p.s: ты не можешь рисовать <i>пока</i> активна симуляция)
-	</b>
+  <br>
+  <b>Запусти симуляцию! <div class="darr"></div>
+    (p.s: ты не можешь рисовать <i>пока</i> активна симуляция)</b>
 </words>
 
 <words id="simple_simple_2">
@@ -502,21 +459,21 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 </words>
 
 <words id="simple_simple_end">
-	<next wiggle>что ж, это удручает <div class="rarr"></div> </next>
+  <next wiggle>что ж, это удручает <div class="rarr"></div></next>
 </words>
 
 <words id="simple_cascade">
-	Действительно.
-	В любом случае, <b>ВРЕМЯ ПАЗЗЛА!</b>
-	<br>
-	Нарисуй сеть и запусти симуляцию,
-	чтобы <i>все</i> были заражены "инфекцией".
-	<br>
-	(новое правило: ты не можешь резать <i>широкие</i> соединения)
+  Действительно.
+  В любом случае, <b>ВРЕМЯ ПАЗЗЛА!</b>
+  <br>
+  Нарисуй сеть и запусти симуляцию,
+  чтобы <i>все</i> были заражены "инфекцией".
+  <br>
+  (новое правило: ты не можешь резать <i>широкие</i> соединения)
 </words>
 
 <words id="simple_cascade_end">
-	<next wiggle>фан-перевор-тастик <div class="rarr"></div> </next>
+  <next wiggle>фан-перевор-тастик <div class="rarr"></div></next>
 </words>
 
 <words id="simple_post_cascade">
@@ -530,97 +487,78 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
   чтобы "заразиться".
   Итак, учёные сетей придумали новый, лучший способ описать, как развиваются
   идеи/поведения, и они называют это...
-	<next wiggle style="font-size: 18px;">“<i>Комплексные</i> инфекции!” <div class="rarr"></div> </next>
+  <next wiggle>
+    <span style="font-size: 18px;">
+      “<i>Комплексные</i> инфекции!” <div class="rarr"></div>
+    </span>
+  </next>
 </words>
 
 <!-- Complex Contagions -->
 
 <words id="complex_complex">
-
   Давайте вернем "границы" и пример с выпивкой <icon name="yellow"></icon>!
   Когда ты впервые играл с этим, люди не меняли своего поведения.
-
-	<br><br>
-
+  <br><br>
   Теперь давай смоделируем, что произойдет, если люди начнут пить,
   <i>когда +50% их друзей -- тоже!</i>
   <b>Перед тем как начать симуляцию, спроси себя, что ты думаешь, что <i>должно</i> произойти.</b>
-
-	<br><br>
-
-	<b>Теперь запусти симуляцию и посмотри, что на самом деле произойдёт! <div class="rarr"></div> </b>
-
+  <br><br>
+  <b>Теперь запусти симуляцию и посмотри, что на самом деле произойдёт! <div class="rarr"></div></b>
 </words>
 
 <words id="complex_complex_2">
-	<span style="line-height:1.3em; display:block;">
-
+  <span style="line-height: 1.3em; display: block;">
     В отличие от нашей более ранней "fake news" <icon name="red"></icon> инфекции,
     эта инфекция <icon name="yellow"></icon> <i>не</i> распространяется на всех!
     Первые несколько человек становятся "заражёнными", потому что, хотя они подвержены
     только одному пьянице, этот пьяница составляет 50% от их друзей. (да, они одиноки)
     Напротив, человек, находящийся ближе к концу цепи, <i>не</i> заразился, потому что,
     когда он был подвергнут выпивке, тот не прошел порог в +50%.
-
-		<div style="height:0.75em"></div>
-
+    <div style="height: 0.75em;"></div>
     <i>Относительный</i> % "зараженных" друзей имеет значение.
     В <i>этом</i> и заключается разница между теорией <b>комплексной инфекции</b><ref id="complex"></ref>
     и нашей наивной распространяющейся-как-вирус теории распространения <b>простой инфекции</b>.
     (ты мог бы сказать, что "простая инфекция" - это всего лишь зараза с "более чем 0%" порогом заражения)
-
-		<div style="height:0.75em"></div>
-
+    <div style="height: 0.75em;"></div>
     Тем не менее, инфекции не обязательно плохие &mdash;
     достаточно о <i>безумии</i> толпы, как насчёт...
-		<next>...толпы <i>мудрости?</i></next>
-
-	</span>
+    <next>...толпы <i>мудрости?</i></next>
+  </span>
 </words>
 
 <words id="complex_complex_3">
-
   Здесь у нас есть человек <icon name="blue"></icon>, который добровольно... Я не знаю,
   спасает людей от ураганов или обучает малоимущих детей в их местном сообществе, или что-то вроде того.
   Дело в том, что это "хорошая" комплексная инфекция.
   Однако на этот раз, допустим, порог составляет всего 25% &mdash;
   люди готовы стать волонтёрами, но только если это также делают 25% или более их друзей.
   Эй, доброжелательность нуждается в некоторой социальной поддержке.
-
-	<br><br>
-
-	<b>&larr; Заставь всех "заразиться" хорошими флюидами!</b>
-
+  <br><br>
+  <b>&larr; Заставь всех "заразиться" хорошими флюидами!</b>
 </words>
 
 <words id="complex_complex_3_end">
-	<span style="line-height:1.3em; display:block;">
-
+  <span style="line-height: 1.3em; display: block;">
     <b>ПРИМЕЧАНИЕ:</b> Волонтёрство, это лишь <i>одна</i> из многих комплексных инфекций!
     Другие включают в себя: явку избирателей, привычки,
     оспаривание убеждений, время, чтобы глубоко разобраться в проблеме &mdash; всё,
     что требует более одного "разоблачения".
     Комплексные инфекции <i>не обязательно</i> мудры,
     но быть мудрым - комплексная инфекция.
-
-		<div style="height:0.75em"></div>
-
+    <div style="height: 0.75em"></div>
     (Итак, что <i>действительно</i> является простой инфекцией?
     Обычно разные мелочи, вроде "опоссум имеет 13 сосков"<ref id="possum"></ref>)
-
     <bon id="contagions"></bon>
-
     Теперь, чтобы <i>действительно</i> показать силу и странность комплексных инфекций, давай пересмотрим...
-
-		<next>...более ранний паззл <div class="rarr"></div> </next>
-
-	</span>
+    <next>...более ранний паззл <div class="rarr"></div></next>
+  </span>
 </words>
 
 <words id="complex_cascade">
   Помнишь это? В этот раз, с <i>комплексной</i> инфекцией <icon name="blue"></icon>, это будет немного сложнее...
-	<br>
-	<b>Попробуй "заразить" всех комплексной мудростью! <div class="darr"></div></b>
+  <br>
+  <b>Попробуй "заразить" всех комплексной мудростью! <div class="darr"></div></b>
 </words>
 
 <words id="complex_cascade_feel_free">
@@ -628,7 +566,7 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 </words>
 
 <words id="complex_cascade_end">
-	<next wiggle>ЧЁРТ ПОДЕРИ <div class="rarr"></div> </next>
+  <next wiggle>ЧЁРТ ПОДЕРИ <div class="rarr"></div></next>
 </words>
 
 <words id="complex_post_cascade">
@@ -636,15 +574,16 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
   "комплексной" или "простой", хорошей или плохой, мудрой или безумной.
   Но так ли это? Что ж, давай пересмотрим...
 </words>
+
 <words id="complex_post_cascade_end">
-	<next wiggle>...другой ранний паззл <div class="rarr"></div> </next>
+  <next wiggle>...другой ранний паззл <div class="rarr"></div></next>
 </words>
 
 <words id="complex_prevent">
   Если ты нажмёшь "старт" ниже, комплексная инфекция <icon name="blue"></icon> просто будет распространяться на всех.
   Никаких сюрпризов.
   Но теперь, давай сделаем <i>противоположное</i> всему, что мы делали раньше:
-  <b>нарисуй сеть, чтобы <i>предотвратить</i> распространение заразы на всех!</b> <div class="darr"></div>
+  <b>нарисуй сеть, чтобы <i>предотвратить</i> распространение инфекции на всех!</b> <div class="darr"></div>
 </words>
 
 <words id="complex_prevent_2">
@@ -656,11 +595,10 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 </words>
 
 <words id="complex_prevent_end">
-	<next wiggle>...или смерти. <div class="rarr"></div> </next>
+  <next wiggle>...или смерти. <div class="rarr"></div></next>
 </words>
 
 <words id="complex_groupthink">
-
   Люди в НАСА были умными.
   Я имею в виду, что они использовали теории Ньютона, чтобы доставить нас на Луну.
   Во всяком случае, если коротко, в 1986 году,
@@ -669,28 +607,26 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
   который взорвался и убил 7 человек.
   Основная причина:
   в то утро было слишком холодно.
-
-	<div style="height:0.9em"></div>
-
+  <div style="height: 0.9em;"></div>
   Менее основная причина: менеджеры игнорировали предупреждения инженеров.
   Зачем? Из-за <b>группового мышления</b><ref id="groupthink"></ref>.
   Когда группа <i>слишком</i> тесно связана, (как правило находясь на вершине институтов)
   она становится устойчивой к комплексным идеям, которые бросают вызов её убеждениям или эго.
-
-	<div style="height:0.9em"></div>
-
+  <div style="height: 0.9em;"></div>
   Вот как институты могут пасть до безумной толпы.
   Но как мы можем "спроектировать" для толпы <i>мудрость?</i>
   Короче, два слова:
-
-	<next><span style="font-size: 14px;">Связующее и вспомогательное</span> <div class="rarr"></div> </next>
-
+  <next>
+    <span style="font-size: 14px;">
+      Связующее и вспомогательное <div class="rarr"></div>
+    </span>
+  </next>
 </words>
 
 <!-- Bonding & Bridging -->
 
 <words id="bonding_1">
-  <span style="font-size: 17px">
+  <span style="font-size: 17px;">
     &larr; Слишком мало соединений и идея не cможет распространяться.
     <br>
     Слишком много соединений и ты получишь групповое мышление. <div class="rarr"></div>
@@ -698,18 +634,18 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 </words>
 
 <words id="bonding_2">
-	<b style="font-size: 18px">
+  <b style="font-size: 18px;">
     Нарисуй группу, которая попадает в золотую середину:
     подключи достаточно людей, чтобы распространить комплексную идею!
-  	<div class="darr"></div>
-	</b>
+    <div class="darr"></div>
+  </b>
 </words>
 
 <words id="bonding_end">
   Довольно просто!
   Число соединений <i>внутри</i> группы называется <b>связующим социальным капиталом</b><ref id="social_capital"></ref>.
   Но как насчет связей...
-	<next wiggle>...<i>между</i> группами?</next>
+  <next wiggle>...<i>между</i> группами?</next>
 </words>
 
 <words id="bridging_1">
@@ -726,50 +662,53 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
   (доп. задача: попробуй сделать мост настолько широким, чтобы комплексная инфекция
   <i>не</i> смогла пройти через него!)
   Теперь, когда мы знаем, как "конструировать" соединения <i>внутри</i> и <i>между</i> группами, давай...
-  <next wiggle><span style="font-size: 18px">...сделаем это ОДНОВРЕМЕННО!</span></next>
+  <next wiggle>
+    <span style="font-size: 18px;">
+      ...сделаем это ОДНОВРЕМЕННО!
+    </span>
+  </next>
 </words>
 
 <words id="bb_1">
-
-	<b style="font-size:1.8em">ФИНАЛЬНЫЙ ПАЗЗЛ!</b>
-	<br>
+  <b style="font-size: 1.8em;">ФИНАЛЬНЫЙ ПАЗЗЛ!</b>
+  <br>
   Нарисуй соединения внутри групп (связи) и между группами (мосты),
   чтобы распространить мудрость на всю толпу:
-
 </words>
+
 <words id="bb_2">
   Поздравляю, ты только что создал очень особенную сеть!
   Сети с правильной комбинацией связей и мостов
   имеют огромное значение, и их называют...
-	<next wiggle>“Маленьким миром” <div class="rarr"></div> </next>
-
+  <next wiggle>“Маленьким миром” <div class="rarr"></div></next>
 </words>
-<words id="bb_small_world_1">
 
-	<i>"Единство без единообразия". "Разнообразие без разделения". "E Pluribus Unum: из многих - единое".</i>
-	<br>
+<words id="bb_small_world_1">
+  <i>"Единство без единообразия". "Разнообразие без разделения". "E Pluribus Unum: из многих - единое".</i>
+  <br>
   Независимо от того, как это звучит,
   люди всех времён и культур часто приходят к одной и той же мудрости:
-	<b>
-  здоровому обществу требуется золотая середина связей <i>внутри</i> групп
-  и мостов <i>между</i> группами.
-	</b>
-	То есть:
-
+  <b>здоровому обществу требуется золотая середина связей <i>внутри</i> групп
+  и мостов <i>между</i> группами.</b>
+  То есть:
 </words>
+
 <words id="bb_small_world_2">
-	Не это...
-	<br>
+  Не это...
+  <br>
   (идеи не распространяются)
 </words>
+
 <words id="bb_small_world_3">
-	ни это...
-	<br>
+  ни это...
+  <br>
   (получится групповое мышление)
 </words>
+
 <words id="bb_small_world_4">
-	...но <i>ЭТО:</i>
+  ...но <i>ЭТО:</i>
 </words>
+
 <words id="bb_small_world_5">
   У учёных сетей теперь есть математическое определение этой древней мудрости:
   <b>маленький мир</b><ref id="small_world"></ref>.
@@ -779,169 +718,139 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
   решению проблем<ref id="swn_social_physics"></ref>,
   и даже однажды помогло президенту США Дж. Ф. Кеннеди (John F. Kennedy) (едва) избежать ядерной войны!<ref id="swn_jfk"></ref>
   И, да, маленькие миры - это большое дело.
-
 </words>
+
 <words id="bb_small_world_end">
-	<next>ок, давай закрепим это... <div class="rarr"></div> </next>
+  <next>ок, давай закрепим это... <div class="rarr"></div></next>
 </words>
 
 <!-- Sandbox -->
 
 <words id="sandbox_caption">
-	(псс... хочешь знать секрет?<ref id="sandbox"></ref>)
+  (псс... хочешь знать секрет?<ref id="sandbox"></ref>)
 </words>
 
 <words id="sandbox_contagion">
-	<span style="font-size: 18px;">Инфекции:</span>
+  <span style="font-size: 18px;">
+    Инфекции:
+  </span>
 </words>
+
 <words id="sandbox_contagion_simple">
-	<span style="font-size: 18px;">простые</span>
+  <span style="font-size: 18px;">
+    простые
+  </span>
 </words>
+
 <words id="sandbox_contagion_complex">
-	<span style="font-size: 18px;">комплексные</span>
+  <span style="font-size: 18px;">
+    комплексные
+  </span>
 </words>
+
 <words id="sandbox_color_chooser">
-	Цвета инфекций:
+  Цвета инфекций:
 </words>
+
 <words id="sandbox_tool_chooser">
-	Выбрать инструмент...
+  Выбрать инструмент...
 </words>
 
 <words id="sandbox_tool_pencil">
   <span style="font-size: 14px;">
-  	Рисовать сеть
+    Рисовать сеть
   </span>
 </words>
+
 <words id="sandbox_tool_add">
   <span style="font-size: 14px;">
-  	Создать человека
+    Создать человека
   </span>
 </words>
+
 <words id="sandbox_tool_add_infected">
   <span style="font-size: 12px;">
-  	Создать "заразного"
+    Создать "заразного"
   </span>
 </words>
+
 <words id="sandbox_tool_move">
   <span style="font-size: 12px;">
-  	Двигать человека
+    Двигать человека
   </span>
 </words>
+
 <words id="sandbox_tool_delete">
   <span style="font-size: 14px;">
-  	Удалить человека
+    Удалить человека
   </span>
 </words>
+
 <words id="sandbox_tool_clear">
-	<b style="font-size: 14px;">ОЧИСТИТЬ ВСЁ</b>
+  <b style="font-size: 14px;">ОЧИСТИТЬ ВСЁ</b>
 </words>
 
 <words id="sandbox_shortcuts_label">
   <span style="font-size: 17px;">
-  	(...или, используй горячие клавиши!)
+    (...или, используй горячие клавиши!)
   </span>
 </words>
 
 <words id="sandbox_shortcuts">
   <span style="font-size: 13px;">
-  	[1]: Создать человека [2]: Создать "заразного"
-  	<br>
-  	[Space]: Двигать [Backspace]: Удалить
+    [1]: Создать человека [2]: Создать "заразного"
+    <br>
+    [Space]: Двигать [Backspace]: Удалить
   </span>
 </words>
 
 <!-- Conclusion -->
 
 <words id="conclusion_1">
-
-	<div style="font-size: 30px;">
-		В ЗАКЛЮЧЕНИЕ: это все об...
-	</div>
-	<div style="
-		width: 100%;
-	    position: absolute;
-	    font-size: 88px;
-	    top: 20px;
-	    line-height: 100px; display:block;
-	">
-	    Инфекциях и связях
-	</div>
-
-	<div style="
-	    width: 710px;
-	    position: absolute;
-	    top: 125px;
-	    left: 250px;
-	">
-		<b>Инфекции:</b>
+  <div style="font-size: 30px;">
+    В ЗАКЛЮЧЕНИЕ: это все об...
+  </div>
+  <div style=" width: 100%; position: absolute; font-size: 88px; top: 20px; line-height: 100px; display:block;">
+    Инфекциях и связях
+  </div>
+  <div style=" width: 710px; position: absolute; top: 125px; left: 250px;">
+    <b>Инфекции:</b>
     Подобно тому, как нейроны передают сигналы в мозг,
     люди передают поведения и убеждения в обществе.
     Мы не только влияем на наших друзей,
     но и влияем на друзей наших друзей и даже друзей друзей наших друзей!<ref id="three_degrees"></ref>
     (“будь той переменой, которую вы хотите видеть в мире” и т.д., и т.п)
     Но, как и нейроны, это не просто сигналы, имеющие значение, но и...
-	</div>
-
-	<div style="
-	    width: 710px;
-	    position: absolute;
-	    top: 275px;
-	    left: 250px;
-	">
-		<b>Сигналы:</b>
+  </div>
+  <div style=" width: 710px; position: absolute; top: 275px; left: 250px;">
+    <b>Сигналы:</b>
     Слишком мало связей и комплексные идеи не смогут распространяться.
     Слишком <i>много</i> связей и комплексные идеи столкнутся с групповым мышлением.
     Трюк состоит в том, чтобы построить маленький мир, оптимальное сочетание
     связей и мостов: <i>e pluribus unum.</i>
-	</div>
-
-	<div style="
-	    width: 350px;
-	    position: absolute;
-	    top: 410px;
-	    left: 220px;
-	    text-align: center;
-	    color: #999;
-	">
+  </div>
+  <div style=" width: 350px; position: absolute; top: 410px; left: 220px; text-align: center; color: #999;">
     (хочешь создать свои собственные симуляции?
     Проверь Песочницу, нажав кнопку (★) ниже!)
-	</div>
-
-	<div style="
-	    width: 400px;
-	    position: absolute;
-	    top: 395px;
-	    right: 0px;
-	    text-align: right;
-      font-size: 18px;
-	">
+  </div>
+  <div style=" width: 400px; position: absolute; top: 395px; right: 0px; text-align: right; font-size: 18px;">
     Итак, как насчет нашего вопроса с самого начала?
     <i>Почему</i> некоторые толпы обращаются к...
-	</div>
-	<div style="
-	    width: 300px;
-	    position: absolute;
-	    top: 460px;
-	    right: 0px;
-	">
-		<next>...мудрости и/или безумию?</next>
-	</div>
-
+  </div>
+  <div style=" width: 300px; position: absolute; top: 460px; right: 0px;">
+    <next>...мудрости и/или безумию?</next>
+  </div>
 </words>
 
 <words id="conclusion_2">
-	<span style="line-height:1.4em; display:block;">
-
-    <div style="height:0.5em"></div>
-
+  <span style="line-height: 1.4em; display: block;">
+    <div style="height: 0.5em"></div>
     От Ньютона до НАСА<br>
     сегодня мы осветили многое в науке<br>
     сетей. Короче говоря, безумие толпы не<br>
     обязательно связано с <i>отдельными людьми</i>,<br>
     но из-за того, как мы попали в эту липкую паутину сетей.
-
-    <div style="height:0.9em"></div>
-
+    <div style="height: 0.9em"></div>
     Это <i>НЕ</i> означает отказ от личной ответственности,<br>
     потому что мы такие же <i>ткачи</i> этой сети. Так что, улучшай<br>
     свои инфекции: будь скептичен к идеям, которые льстят<br>
@@ -949,99 +858,101 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
     И улучшай свои связи: связывайся с похожими людьми,<br>
     но также создавай мосты через культурные/политические<br>
     границы.
-
-    <div style="height:0.9em"></div>
-
+    <div style="height: 0.9em"></div>
     Мы можем сплести мудрую паутину. Конечно, это<br>
     сложнее, чем рисовать линии на экране...
-
-    <next>...но оно того стоит.</next>
-
-	</span>
+    <next>
+      ...но оно того стоит.
+    </next>
+  </span>
 </words>
 
 <words id="conclusion_3">
-	<i>
-    “Большинство великих побед и трагедий произошло не потому,
+  <i>“Большинство великих побед и трагедий произошло не потому,
     что их виновники были по натуре своей плохими или хорошими.
-    Они по натуре своей были людьми.”
-	</i>
-	<br>
-	<span style="position:relative; top:5px">~</span> Нейл Гайман (Neil Gaiman) и Терри Пратчетт (Terry Pratchett)
-	<div style="height:0.8em"></div>
-	<next small>&lt;3</next>
+    Они по натуре своей были людьми.”</i>
+  <br>
+  <span style="position: relative; top:5px;">~</span> Нейл Гайман (Neil Gaiman) и Терри Пратчетт (Terry Pratchett)
+  <div style="height: 0.8em;"></div>
+  <next small>&lt;3</next>
 </words>
 
 <!-- Credits -->
 
 <words id="credits">
-
-	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
-
-		<span style="color:#777; position:relative; top:5px;">
-			автор</span>
-		<div style="font-size: 3em; line-height: 1.0em;">
-			NICKY CASE</div>
-		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
-			сыграй в другие мои штуки</a> ·
-		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
-			подпишись в twitter</a>
-
-		<br><br>
-
-		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
-			много любви и благодарности</span>
-		<div style="font-size: 3em; line-height: 1.0em;">
-			МОИМ СПОНСОРАМ НА PATREON</div>
-		<a onclick='publish("reference/show", ["supporters"]);'>
-			см. имена и рисунки спонсоров</a> ·
-		<a onclick='publish("reference/show", ["playtesters"]);'>
-			см. плейтестеров</a>
-		<br>
-		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
-			помочь мне делать больше подобного! &lt;3</a>
-
-		<br><br>
-
-		<span style="display: inline-block; margin-top: 15px;">
-			♫ музыка
-			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
-				"Friends 2018" и "Friends 2068"</a>
-			от Komiku
-			<br>
-			&lt;/&gt; <i>Толпы</i>
-			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
-				полностью open source</a>
-		</span>
-
-		<br>
-
-		<bon id="further_reading"></bon>
-
-	</div>
-
+  <div style="text-align:center; color: #fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+    <span style="color: #777; position: relative; top: 5px;">
+      автор
+    </span>
+    <div style="font-size: 3em; line-height: 1.0em;">
+      NICKY CASE
+    </div>
+    <a target="_blank" href="http://ncase.me" style="text-decoration: none;">
+      сыграй в другие мои штуки
+    </a> ·
+    <a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration: none;">
+      подпишись в twitter
+    </a>
+    <br><br>
+    <span style="color: #777; position: relative; top: 5px; display: inline-block; margin-top: 15px;">
+      много любви и благодарности
+    </span>
+    <div style="font-size: 3em; line-height: 1.0em;">
+      МОИМ СПОНСОРАМ НА PATREON
+    </div>
+    <a onclick='publish("reference/show", ["supporters"]);'>
+      см. имена и рисунки спонсоров
+    </a> ·
+    <a onclick='publish("reference/show", ["playtesters"]);'>
+      см. плейтестеров
+    </a>
+    <br>
+    <a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration: none;">
+      помочь мне делать больше подобного! &lt;3
+    </a>
+    <br><br>
+    <span style="display: inline-block; margin-top: 15px;">
+      ♫ музыка
+      <a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+        "Friends 2018" и "Friends 2068"
+      </a>
+      от Komiku
+      <br>
+      &lt;/&gt; <i>Толпы</i>
+      <a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration: none;">
+        полностью open source
+      </a>
+    </span>
+    <br>
+    <bon id="further_reading"></bon>
+  </div>
 </words>
 
 <!-- x. misc -->
 <words id="WIN">
-	ПОБЕДА
+  ПОБЕДА
 </words>
+
 <words id="sim_start">
-	начать симуляцию
+  начать симуляцию
 </words>
+
 <words id="sim_stop">
-	<span style="font-size: 16px;">сбросить и перерисовать</span>
+  <span style="font-size: 16px;">сбросить и перерисовать</span>
 </words>
+
 <words id="translations_exist">
-	Фан-переводы:
+  Фан-переводы:
 </words>
+
 <words id="translations_do_not_exist">
-	<!-- There's no need to TRANSLATE this line since, well, -->
-	<!-- it'll only show up if no translations exist -->
-	What the, no fan-made translations exist yet?!
+  <!-- There's no need to TRANSLATE this line since, well, -->
+  <!-- it'll only show up if no translations exist -->
+  What the, no fan-made translations exist yet?!
 </words>
+
 <words id="translations_add">
-	(добавь свой!)
+  (добавь свой!)
 </words>
 
 <!-- - - - - - - -->
@@ -1054,209 +965,154 @@ Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
 -->
 
 <bonus id="books">
-
-	<h3>
-	Быстрый ответ Джеймсу Суровецки <i>The Wisdom of Crowds</i>
-	</h3>
-
-	<div>
-
-	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
-
-	Во-первых, я не оспариваю
-	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
-	эту книгу.</a>
-  Это хорошая книга, и Суровецки (Surowiecki) пытался решить тот же самый вопрос:
-	<b>“почему некоторые толпы обращаются к безумию или мудрости?”</b>
-
-	<br><br>
-
-  Суровецки (Surowiecki) отвечает: толпы принимают правильные решения, когда все становятся настолько независимыми, насколько это возможно.
-  Он рассказывает историю уездной ярмарки, где горожанам было предложено угадать вес вола.
-  Удивительно, но среднее значение <i>всех</i> их догадок было лучше, чем любое <i>отдельное предположение</i>.
-  Но, вот препятствие: люди должны угадывать <i>независимо</i> друг от друга.
-  В противном случае на них повлияют ранние неправильные догадки, и средний ответ будет сильно искажен.
-
-	<br><br>
-
-  Но... Я не думаю, что "сделать всех максимально независимыми" это полный ответ.
-  Даже гении, которых мы неправильно описываем как самых независимых мыслителей,
-  находятся под сильным влиянием других. Как сказал сэр Исаак Ньютон,
-	<i>“Если я видел дальше других, то потому, что стоял на плечах гигантов.”</i>
-
-	<br><br>
-
-  Итак, какая идея правильная?
-  Получится ли мудрость от мышления для себя или от мышления с другими?
-  Ответ: "да".
-
-	<br><br>
-
-  Вот что я попытаюсь объяснить в этом интересном объяснении:
-  как получить эту золотую середину между независимостью и взаимозависимостью &mdash;
-  то есть, как получить мудрую толпу.
-
-	</div>
-
+  <h3>Быстрый ответ Джеймсу Суровецки <i>The Wisdom of Crowds</i></h3>
+  <div>
+    <img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float: left; margin-right: 1em;"/>
+    Во-первых, я не оспариваю
+    <a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+      эту книгу.
+    </a>
+    Это хорошая книга, и Суровецки (Surowiecki) пытался решить тот же самый вопрос:
+    <b>“почему некоторые толпы обращаются к безумию или мудрости?”</b>
+    <br><br>
+    Суровецки (Surowiecki) отвечает: толпы принимают правильные решения, когда все становятся настолько независимыми, насколько это возможно.
+    Он рассказывает историю уездной ярмарки, где горожанам было предложено угадать вес вола.
+    Удивительно, но среднее значение <i>всех</i> их догадок было лучше, чем любое <i>отдельное предположение</i>.
+    Но, вот препятствие: люди должны угадывать <i>независимо</i> друг от друга.
+    В противном случае на них повлияют ранние неправильные догадки, и средний ответ будет сильно искажен.
+    <br><br>
+    Но... Я не думаю, что "сделать всех максимально независимыми" это полный ответ.
+    Даже гении, которых мы неправильно описываем как самых независимых мыслителей,
+    находятся под сильным влиянием других. Как сказал сэр Исаак Ньютон,
+    <i>“Если я видел дальше других, то потому, что стоял на плечах гигантов.”</i>
+    <br><br>
+    Итак, какая идея правильная?
+    Получится ли мудрость от мышления для себя или от мышления с другими?
+    Ответ: "да".
+    <br><br>
+    Вот что я попытаюсь объяснить в этом интересном объяснении:
+    как получить эту золотую середину между независимостью и взаимозависимостью &mdash;
+    то есть, как получить мудрую толпу.
+  </div>
 </bonus>
+
 <bonus id="connections">
-
-	<h3>
-	Какие ещё существуют связи?
-	</h3>
-
-	<div>
-
-  Для простоты,
-  мои симуляции притворяются, что люди могут быть связаны только через дружбу
-  и что все дружеские отношения равны.
-  Но учёные сетей <i>рассматривают</i> другие способы, с которыми мы можем быть связаны, например:
-
-	<div style="clear:both"></div>
-	<br>
-
-	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
-  <b>Направленные соединения.</b> Алиса - босс Боба, но Боб не босс Алисы.
-  Кэрол является родителем Дэйва, но Дэйв не является родителем Кэрол.
-  "Босс" и "родитель" - это <i>направленные</i> отношения:
-  отношения идут только в одну сторону.
-  Напротив, "друзья" - это <i>двунаправленные</i> отношения:
-  отношения идут в обоих направлениях. (ну, надеюсь)
-
-	<div style="clear:both"></div>
-	<br>
-
-	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
-
-  <b>Взвешенные соединения.</b> Элинор и Фрэнки - просто знакомые.
-  Джордж и Гарри - лучшие друзья навсегда.
-  Хотя в обоих случаях есть "дружеская" связь, вторая сильнее.
-  Мы говорим, что эти два соединения имеют разные "веса".
-
-	<div style="clear:both"></div>
-	<br>
-
-	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
-
-  Просто помни: <b>все эти симуляции ошибочны.</b> Точно так же любая карта является "неправильной".
-  Вы видите карту слева? Здания не серые безликие блоки!
-  Слова не плавают над городом! Однако карты полезны не <i>несмотря</i> на упрощение,
-  а <i>потому</i> что они упрощены. То же самое касается симуляций или любой научной теории.
-  <i>Конечно</i>, они "ошибаются" &mdash; вот что делает их <i>полезными</i>.
-
-	</div>
-
+  <h3>Какие ещё существуют связи?</h3>
+  <div>
+    Для простоты,
+    мои симуляции притворяются, что люди могут быть связаны только через дружбу
+    и что все дружеские отношения равны.
+    Но учёные сетей <i>рассматривают</i> другие способы, с которыми мы можем быть связаны, например:
+    <div style="clear: both;"></div>
+    <br>
+    <img src="sprites/bonus/connection1.png" width="250" height="150" style="float: left; margin-right: 1em;"/>
+    <b>Направленные соединения.</b> Алиса - босс Боба, но Боб не босс Алисы.
+    Кэрол является родителем Дэйва, но Дэйв не является родителем Кэрол.
+    "Босс" и "родитель" - это <i>направленные</i> отношения:
+    отношения идут только в одну сторону.
+    Напротив, "друзья" - это <i>двунаправленные</i> отношения:
+    отношения идут в обоих направлениях. (ну, надеюсь)
+    <div style="clear:both"></div>
+    <br>
+    <img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+    <b>Взвешенные соединения.</b> Элинор и Фрэнки - просто знакомые.
+    Джордж и Гарри - лучшие друзья навсегда.
+    Хотя в обоих случаях есть "дружеская" связь, вторая сильнее.
+    Мы говорим, что эти два соединения имеют разные "веса".
+    <div style="clear:both"></div>
+    <br>
+    <img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+    Просто помни: <b>все эти симуляции ошибочны.</b> Точно так же любая карта является "неправильной".
+    Вы видите карту слева? Здания не серые безликие блоки!
+    Слова не плавают над городом! Однако карты полезны не <i>несмотря</i> на упрощение,
+    а <i>потому</i> что они упрощены. То же самое касается симуляций или любой научной теории.
+    <i>Конечно</i>, они "ошибаются" &mdash; вот что делает их <i>полезными</i>.
+  </div>
 </bonus>
+
 <bonus id="contagions">
-
-	<h3>
-	Какие существуют другие виды инфекций?
-	</h3>
-
-	<div>
-
-  Существует так много способов, которыми учёные сетей могут моделировать "инфекции"!
-  Я выбрал простейший для образовательных целей.
-  Но вот другие способы, которыми вы могли бы это делать:
-
-	<div style="clear:both"></div>
-	<br>
-
-	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
-	<b>Инфекции со случайностью</b>.
-  Быть "подверженным" заражению не <i>гарантирует</i>, что ты заразишься,
-  это только делает его более <i>вероятным</i>.
-
-	<div style="clear:both"></div>
-	<br>
-
-	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
-	<b>У людей разные пороги заражения.</b>
-  Мои симуляции притворяются, что у всех одинаковый порог для выпивки (50%) или
-  добровольчества (25%)? или дезинформации (0%).
-  Конечно, в реальной жизни это неправда, и вы могли бы заставить ваш симулятор отразить это.
-
-	<div style="clear:both"></div>
-	<br>
-
-	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
-	<b>Экология заражений.</b>
-  Что делать, если были <i>множественные</i> инфекции с <i>разными</i> порогами?
-  Например, простая "безумная" инфекция и комплексная "мудрость".
-  Если кто-то заражен безумием, могут ли они по-прежнему быть заражены мудростью?
-  Или наоборот?
-  Может ли кто-то заразиться всем сразу?
-
-	<div style="clear:both"></div>
-	<br>
-
-	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
-	<b>Инфекции, которые мутируют и развиваются.</b>
-  Идеи не передаются безупречно от одного человека другому, как это делает вирус.
-  Как игра в сломанный телефон, сообщение становится мутированным с каждым повторным перассказом &mdash;
-  и иногда мутант может быть более заразительным, чем оригинал!
-  Таким образом, со временем идеи "развиваются", чтобы быть более запоминающимися, копируемыми, заразительными.
-
-	<div style="clear:both"></div>
-
-	</div>
-
+  <h3>Какие существуют другие виды инфекций?</h3>
+  <div>
+    Существует так много способов, которыми учёные сетей могут моделировать "инфекции"!
+    Я выбрал простейший для образовательных целей.
+    Но вот другие способы, которыми вы могли бы это делать:
+    <div style="clear: both;"></div>
+    <br>
+    <img src="sprites/bonus/contagion1.png" width="250" height="150" style="float: left; margin-right: 1em;"/>
+    <b>Инфекции со случайностью</b>.
+    Быть "подверженным" заражению не <i>гарантирует</i>, что ты заразишься,
+    это только делает его более <i>вероятным</i>.
+    <div style="clear: both;"></div>
+    <br>
+    <img src="sprites/bonus/contagion2.png" width="250" height="150" style="float: left; margin-right: 1em;"/>
+    <b>У людей разные пороги заражения.</b>
+    Мои симуляции притворяются, что у всех одинаковый порог для выпивки (50%) или
+    добровольчества (25%)? или дезинформации (0%).
+    Конечно, в реальной жизни это неправда, и вы могли бы заставить ваш симулятор отразить это.
+    <div style="clear: both;"></div>
+    <br>
+    <img src="sprites/bonus/contagion3.png" width="250" height="150" style="float: left; margin-right: 1em;"/>
+    <b>Экология заражений.</b>
+    Что делать, если были <i>множественные</i> инфекции с <i>разными</i> порогами?
+    Например, простая "безумная" инфекция и комплексная "мудрость".
+    Если кто-то заражен безумием, могут ли они по-прежнему быть заражены мудростью?
+    Или наоборот?
+    Может ли кто-то заразиться всем сразу?
+    <div style="clear: both;"></div>
+    <br>
+    <img src="sprites/bonus/contagion4.png" width="250" height="150" style="float: left; margin-right: 1em;"/>
+    <b>Инфекции, которые мутируют и развиваются.</b>
+    Идеи не передаются безупречно от одного человека другому, как это делает вирус.
+    Как игра в сломанный телефон, сообщение становится мутированным с каждым повторным перассказом &mdash;
+    и иногда мутант может быть более заразительным, чем оригинал!
+    Таким образом, со временем идеи "развиваются", чтобы быть более запоминающимися, копируемыми, заразительными.
+    <div style="clear: both;"></div>
+  </div>
 </bonus>
+
 <bonus id="further_reading">
-
-	<h3>
-    <span style="font-size: 19px">Я хочу знать больше! Что ещё я могу прочесть и/или поиграть?</span>
-	</h3>
-
-	<div>
-
-  Это интересное объяснение было просто трамплином для твоего любопытства,
-  поэтому ты можешь погрузиться глубже в обширный пул знаний!
-  Здесь больше информации о сетях или социальных системах:
-
-	<br><br>
-
-	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
-	<b>Книга:</b>
-	<a target="_blank" href="http://www.connectedthebook.com/">
-	Connected</a>
-	от Николаса Кристакиса (Nicholas Christakis) и Джеймса Фаулера (James Fowler) (2009).
-  Доступная экскурсия о том, как наши сети влияют на нашу жизнь, хорошо или плохо.
-	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
-	Вот выдержка: Предисловие и Глава 1
-	</a>
-
-	<div style="clear:both"></div>
-	<br>
-
-	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
-	<b>Интерактив:</b>
-	<a target="_blank" href="http://ncase.me/trust/">
-	Эволюция доверия</a> от Ники Кейс (Nicky Case) (меня) (2017).
-  Игра об игровой теории о том, как сотрудничество строится... или разрушается.
-
-	<div style="clear:both"></div>
-	<br>
-
-	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
-	<b>Интерактив:</b>
-	<a target="_blank" href="http://ncase.me/polygons/">
-	Притча о полигонах</a> от Ви Харт (Vi Hart) и Ники Кейс (Nicky Case) (тоже я) (2014).
-  Рассказ о том, как безвредный выбор может создать вредный мир.
-
-	<div style="clear:both"></div>
-	<br>
-
-	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
-  Или, если ты просто хочешь увидеть целую галерею интерактивных вещей, вот
-	<a target="_blank" href="http://explorabl.es/">
-	Исследуемые пояснения</a>,
-	хаб обучения через игру!
-
-	<div style="clear:both"></div>
-
-	</div>
-
+  <h3><span style="font-size: 19px;">Я хочу знать больше! Что ещё я могу прочесть и/или поиграть?</span></h3>
+  <div>
+    Это интересное объяснение было просто трамплином для твоего любопытства,
+    поэтому ты можешь погрузиться глубже в обширный пул знаний!
+    Здесь больше информации о сетях или социальных системах:
+    <br><br>
+    <img src="sprites/bonus/connected.png" width="200" height="200" style="float: left; margin-right: 1em;"/>
+    <b>Книга:</b>
+    <a target="_blank" href="http://www.connectedthebook.com/">
+      Connected
+    </a>
+    от Николаса Кристакиса (Nicholas Christakis) и Джеймса Фаулера (James Fowler) (2009).
+    Доступная экскурсия о том, как наши сети влияют на нашу жизнь, хорошо или плохо.
+    <a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+      Вот выдержка: Предисловие и Глава 1
+    </a>
+    <div style="clear: both;"></div>
+    <br>
+    <img src="sprites/bonus/trust.png" width="200" height="200" style="float: left; margin-right: 1em;"/>
+    <b>Интерактив:</b>
+    <a target="_blank" href="http://ncase.me/trust/">
+      Эволюция доверия
+    </a> от Ники Кейс (Nicky Case) (меня) (2017).
+    Игра об игровой теории о том, как сотрудничество строится... или разрушается.
+    <div style="clear: both;"></div>
+    <br>
+    <img src="sprites/bonus/polygons.png" width="200" height="200" style="float: left; margin-right: 1em;"/>
+    <b>Интерактив:</b>
+    <a target="_blank" href="http://ncase.me/polygons/">
+      Притча о полигонах
+    </a> от Ви Харт (Vi Hart) и Ники Кейс (Nicky Case) (тоже я) (2014).
+    Рассказ о том, как безвредный выбор может создать вредный мир.
+    <div style="clear: both;"></div>
+    <br>
+    <img src="sprites/bonus/ee.png" width="200" height="200" style="float: left; margin-right: 1em;"/>
+    Или, если ты просто хочешь увидеть целую галерею интерактивных вещей, вот
+    <a target="_blank" href="http://explorabl.es/">
+      Исследуемые пояснения
+    </a>,
+    хаб обучения через игру!
+    <div style="clear: both;"></div>
+  </div>
 </bonus>
 
 <!-- - - - - - - -->
@@ -1268,400 +1124,318 @@ Final thing! These references also need you to TRANSLATE:
 -->
 
 <reference id="drunk">
-
-	<h3>
-  “практически все студенты [колледжа] сообщили, что их друзья пьют больше, чем они.”
-	</h3>
-
-	<div>
-	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
-	“Biases in the perception of drinking norms among college students”</a> от Baer и других (1991)
-	</div>
-
-</reference>
-<reference id="majority">
-
-	<h3>
-	“Иллюзия большинства”
-	</h3>
-
-	<div>
-	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
-	“The Majority Illusion in Social Networks”</a> от Lerman и других (2016).
-	<br>
-	См. также: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
-	Парадокс дружбы</a>.
-	</div>
-</reference>
-<reference id="contagion">
-
-	<h3>
-  “сильные статистические данные о том, что курение, здоровье, счастье, модели голосования и уровни сотрудничества являются заразными”
-	</h3>
-
-	<div>
-
-	От Николаса Кристакиса (Nicholas Christakis) и Джеймса Фаулера (James Fowler),
-  чудесно написанная, доступная для читателей, книга
-	<a target="_blank" href="http://www.connectedthebook.com/">
-	Connected</a> (2009).
-
-	</div>
-</reference>
-<reference id="suicides">
-
-	<h3>
-  “некоторые доказательства того, что самоубийства являются [заразными] - тоже”
-	</h3>
-
-	<div>
-	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
-	“Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop”</a>
-	от O'Carroll и других (1994), одобренный фрикционными центрами контроля и профилактики заболеваний (CDC).
-	</div>
-
-</reference>
-<reference id="shootings">
-
-	<h3>
-  “некоторые свидетельства того, что массовые расстрелы [заразительны] тоже”
-	</h3>
-
-	<div>
-
-	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
-	“Contagion in Mass Killings and School Shootings”</a> от Towers и других (2015).
-
-	<br><br>
-
-	См. также: кампания
-  <a target="_blank" href="http://www.dontnamethem.org/">
-	Don't Name Them</a>,
-	в которой говорится, что новостные агентства <i>НЕ ДОЛЖНЫ</i> использовать имена убийц, их манифесты, а также публикации в социальных сетях.
-  Это распространяет инфекцию.
-  Вместо этого новостным точкам следует сосредоточиться на жертвах, первых респондентах, гражданских героях и скорбящих, исцеляющих сообщества.
-
-	</div>
-
-</reference>
-<reference id="subprime">
-
-	<h3>
-	“Мировые финансовые институты пали из-за такого каскада в 2008 году.”
-	</h3>
-
-	<div>
-	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
-	“Lemmings of Wall Street”</a> от Касс Санстейн (Cass Sunstein), это быстрое, нетехническое чтение.
-	Опубликовано в Октябре 2008, сразу после аварии.
-	</div>
-
-</reference>
-<reference id="complex">
-
-	<h3>
-	“комплексная теория инфекций.”
-	</h3>
-
-	<div>
-
-	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
-	“Threshold Models of Collective Behavior”</a> от Грановеттер (Granovetter) (1978)
-  был первым разом, насколько я знаю, кто описал модель "комплексного заражения".
-  (хотя он не использовал это конкретное имя)
-
-	<br><br>
-
-	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
-	“Evidence for complex contagion models of social contagion from observational data”</a>
-	от Спрага (Sprague) и Хауса (House) (2017)
-  показывает, что, на самом деле, существуют комплексные инфекции. (по крайней мере, в данных социальных сетей, на которые они смотрели)
-
-	<br><br>
-
-	Наконец,
-	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
-	“Universal behavior in a generalized model of contagion”</a> от Доддс (Dodds) и Ватты (Watts) (2004)
-  что предлагают модель, которая объединяет <i>все</i> виды инфекций: простые и комплексные, биологические и социальные!
-
-	</div>
-
-</reference>
-<reference id="possum">
-	<h3>
-	“опоссум имеет 13 сосков”
-	</h3>
-	<div>
-	расположенных в кольце из 12 сосков, плюс один посередине
-	</div>
-</reference>
-<reference id="groupthink">
-
-	<h3>
-	“групповое мышление”
-	</h3>
-
-	<div>
-  Эта вдохновлённая Оруэллом (Orwell) фраза была придумана Ирвингом Л. Янисом (Irving L. Janis) в 1971 году.
-	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
-	В своей оригинальной статье</a>,
-	Янис (Janis) исследует случаи группового мышления, перечисляет его причины - к счастью - некоторые возможные средства правовой защиты.
-	</div>
-
-</reference>
-<reference id="social_capital">
-
-	<h3>
-	“связующие и вспомогательные социальные капиталы”
-	</h3>
-
-	<div>
-  Эти два типа социального капитала &mdash; "связующий" и "вспомогательный" &mdash;
-  были названы Робертом Путнэмом (Robert Putnam) в его проницательной книге 2000 года,
-	<a target="_blank" href="http://bowlingalone.com/">
-	Bowling Alone</a>. Его открытие:
-  почти во <i>всех</i> эмпирических мерах социальной связности
-  американцы более одиноки, чем когда-либо.
-  Чёрт возьми.
-	</div>
-
-</reference>
-<reference id="bridge">
-
-	<h3>
-	“вспомогательный социальный капитал имеет золотую середину”
-	</h3>
-
-	<div>
-	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
-	“The Strength of Weak Ties”</a> от Грановеттера (Granovetter) (1973)
-  показал, что соединения между группами помогают распространять простые инфекции (например, информацию),
-  но
-  <a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
-	“Complex Contagions and the Weakness of Long Ties”</a> от Чентола (Centola) и Мэйси (Macy) (2007)
-  показали, что связи между группами могут не помочь комплексным инфекциям,
-  и этот факт может повредить их распространению!
-	</div>
-
-</reference>
-<reference id="small_world">
-
-	<h3>
-	“маленький мир”
-	</h3>
-
-	<div>
-
-	Идея "малого мира" была популяризирована
-	<a target="_blank" href="http://www.jstor.org/stable/2786545">Travers &amp; Milgram's 1969 experiment</a>,
-  который показал, что в среднем, любые два случайных человека в Соединенных Штатах
-  были друзьями всего в шести знакомых между ними &mdash; "шесть ступеней расставания"!
-
-	<br><br>
-
-  Маленький мир получил больше математического плоти на своих костях из
-	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
-	“Collective dynamics of small-world networks”</a> от Watts и Strogatz (1998),
-	которые предложили алгоритм для создания сетей
-  с низкой средней длиной пути (низкой степенью разделения)
-  и высокой кластеризацией (у друзей много друзей) &mdash;
-  то есть, сети, которые попадают в золотую середину!
-
-	<br><br>
-
-	Ты также можешь поиграть в
-	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
-	визуальную, интерактивную адаптацию этого документа</a> от Брета Виктора (Bret Victor) (2011).
-
-	</div>
-
-</reference>
-<reference id="swn_neurons">
-
-	<h3>
-	“[сети маленьких миров] описывают, как связаны наши нейроны”
-	</h3>
-
-	<div>
-	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
-	“Small-world brain networks”</a> от Бассетта (Bassett) и Буллмора (Bullmore) (2006).
-	</div>
-
-</reference>
-<reference id="swn_creativity">
-
-	<h3>
-	“[маленький мир] порождает коллективное творчество”
-	</h3>
-
-	<div>
-
-	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
-	“Collaboration and Creativity: The Small World Problem”</a> от Уззи (Uzzi) и Спиро (Spiro) (2005).
-  Эта статья анализировала социальную сеть сцены Бродвея с течением времени и обнаружила,
-  что, ага, самая креативная сеть это сеть "маленького мира"!
-
-	</div>
-
-</reference>
-<reference id="swn_social_physics">
-
-	<h3>
-	“[маленький мир] порождает коллективные решения проблем”
-	</h3>
-
-	<div>
-	Смотри
-	<a target="_blank" href="http://socialphysics.media.mit.edu/">
-	“Social Physics”</a> от профессора MIT Алекса "Сэнди" Пентленда (Alex "Sandy" Pentland) (2014)
-  основанного на данных подхода к коллективному интеллекту.
-	</div>
-
-</reference>
-<reference id="swn_jfk">
-
-	<h3>
-	“[маленький мир] помог Дж. Ф. Кеннеди (John F. Kennedy) (едва) избежать ядерной войны!”
-	</h3>
-
-	<div>
-
-  Помимо взрыва Challenger NASA, самым печально известным примером группового мышления
-  был фиаско Залива Свиней.
-  В 1961 году президент США Джон Ф. Кеннеди (John F. Kennedy) и его команда советников подумали, что
-  - по какой-то причине -
-  неплохая идея тайно вторгнуться на Кубу и свергнуть Фиделя Кастро (Fidel Castro).
-  Она провалились.
-  В действительности, хуже, чем неудача: это привело к Карибскому кризису 1962 года,
-  <i>ближайшему миру, что когда-либо предшествовал полномасштабной ядерной войне.</i>
-
-	<br><br>
-
-  Ага, JFK действительно обложался.
-
-	<br><br>
-
-  Но, изучив некоторые тяжелые уроки фиаско Залива Свиней,
-  JFK вновь организовал свою команду, чтобы избежать группового мышления.
-  Среди многих вещей он:
-  1) активно поощрял людей высказывать критику,
-  тем самым снижая "порог заражения" для альтернативных идей.
-  И
-  2) он разбил свою команду на подгруппы перед повторным состязанием,
-  что дало их группе "маленький мир"-подобный дизайн!
-  Вместе, эта договоренность позволила создать здоровое разнообразие мнений,
-  но не слишком раздробленное &mdash; мудрость толпы.
-
-	<br><br>
-
-  Итак, с теми же <i>отдельными</i> людьми, выбравшими "Залив Свиней",
-  но пересобравшиеся <i>вместе</i>, чтобы принять решение о Кубинском кризисе...
-  Команда JFK смогла достичь мирного соглашения с советским лидером Никитой Хрущёвым (Nikita Khrushchev).
-  Советы убрали свои ракеты с Кубы, и взамен США обещали не вторгаться в Кубу снова.
-  (а также согласились, втайне, убрать американские ракеты из Турции)
-
-	<br><br>
-
-	И это история о том, как всё человечество почти умерло.
-  Но маленький мир спас день! Вроде бы.
-
-	<br><br>
-
-	Ты можешь прочесть больше об этом
-	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
-	в Harvard Business Review</a>,
-	или в
-	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
-	оригинальной статье о групповом мышлении</a>.
-
-	</div>
-
-</reference>
-<reference id="three_degrees">
-
-	<h3>
-	“мы влияем [...] на наших друзей друзей друзей!”
-	</h3>
-
-	<div>
-	Снова, потрясающая книга от Николаса Кристакиса (Nicholas Christakis) и Джеймса Фаулера (James Fowler)
-	<a target="_blank" href="http://www.connectedthebook.com/">
-	Connected</a> (2009).
-	</div>
-
-</reference>
-<reference id="flatter">
-	<h3>
-	“скептично относись к идеям, которые льстят тебе”
-	</h3>
-	<div>
-	да, включая идеи в <i>этом</i> исследуемом объяснении.
-	</div>
-</reference>
-<reference id="sandbox">
-
-	<h3>
-	★ Песочница ★
-	</h3>
-
-	<div>
-  Горячие клавиши (1, 2, space, backspace)
-  работают во <i>всех</i> головоломках, а не только в Песочнице!
-  Серьезно, ты можешь вернуться к другой главе
-  и отредактировать симуляцию прямо там.
-  Фактически, именно так <i>я</i> создал все эти головоломки. Веселись!
-	</div>
-
-</reference>
-<reference id="supporters" hidden=yes large=yes>
-	<div>
-  Дорогие спонсоры Patreon:
-  Ваша щедрость <i>буквально</i> кормит меня и оплачивает аренду.
-  Вы даёте мне свободу делать эти странные образовательные игры,
-  поэтому, от всего сердца, спасибо. &lt;3
-  <br>
-  <a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
-    (хочешь поддержать меня в создании большего количества таких штук? загляни в мой Patreon!)
-  </a>
+  <h3>“практически все студенты [колледжа] сообщили, что их друзья пьют больше, чем они.”</h3>
+  <div>
+    <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+      “Biases in the perception of drinking norms among college students”
+    </a> от Baer и других (1991)
   </div>
 </reference>
-<reference id="playtesters" hidden=yes large=yes>
-	<div>
 
-	Спасибо тебе, всем, кто тестировал <i>Толпы</i>
-	за время его многочисленных стадий жизни!
-
-	<br><br>
-	<b>Прототип:</b>
-	<br>
-	Maria ·
-	Monica Srivastava
-
-	<br><br>
-	<b>Alpha:</b>
-	<br>
-	Glen Chiacchieri ·
-	Kalli Repzeti ·
-	Mali Akmanalp ·
-	Toph Tucker
-
-	<br><br>
-	<b>Beta:</b>
-	<br>
-	Alex Dytrych ·
-	Amit Patel ·
-	Cassandra McClure ·
-	Catherine Ray ·
-	Josh Comeau ·
-	Kayle Sawyer ·
-	Matthew Conlen ·
-	Srini Kadamati ·
-	Vanessa Shen ·
-	Wick Perry
-
-	</div>
+<reference id="majority">
+  <h3>“Иллюзия большинства”</h3>
+  <div>
+    <a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+      “The Majority Illusion in Social Networks”
+    </a> от Lerman и других (2016).
+    <br>
+    См. также: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+      Парадокс дружбы
+    </a>.
+  </div>
 </reference>
 
+<reference id="contagion">
+  <h3>“сильные статистические данные о том, что курение, здоровье, счастье, модели голосования и уровни сотрудничества являются заразными”</h3>
+  <div>
+    От Николаса Кристакиса (Nicholas Christakis) и Джеймса Фаулера (James Fowler),
+    чудесно написанная, доступная для читателей, книга
+    <a target="_blank" href="http://www.connectedthebook.com/">
+      Connected
+    </a> (2009).
+  </div>
+</reference>
+
+<reference id="suicides">
+  <h3>“некоторые доказательства того, что самоубийства являются [заразными] - тоже”</h3>
+
+  <div>
+    <a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+      “Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop”
+    </a>
+    от O'Carroll и других (1994), одобренный фрикционными центрами контроля и профилактики заболеваний (CDC).
+  </div>
+</reference>
+
+<reference id="shootings">
+  <h3>“некоторые свидетельства того, что массовые расстрелы [заразительны] тоже”</h3>
+  <div>
+    <a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+      “Contagion in Mass Killings and School Shootings”
+    </a> от Towers и других (2015).
+    <br><br>
+    См. также: кампания
+    <a target="_blank" href="http://www.dontnamethem.org/">
+      Don't Name Them
+    </a>,
+    в которой говорится, что новостные агентства <i>НЕ ДОЛЖНЫ</i> использовать имена убийц, их манифесты, а также публикации в социальных сетях.
+    Это распространяет инфекцию.
+    Вместо этого новостным точкам следует сосредоточиться на жертвах, первых респондентах, гражданских героях и скорбящих, исцеляющих сообщества.
+  </div>
+</reference>
+
+<reference id="subprime">
+  <h3>“Мировые финансовые институты пали из-за такого каскада в 2008 году.”</h3>
+  <div>
+    <a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+      “Lemmings of Wall Street”
+    </a> от Касс Санстейн (Cass Sunstein), это быстрое, нетехническое чтение.
+    Опубликовано в Октябре 2008, сразу после аварии.
+  </div>
+</reference>
+
+<reference id="complex">
+  <h3>“комплексная теория инфекций.”</h3>
+  <div>
+    <a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+      “Threshold Models of Collective Behavior”
+    </a> от Грановеттер (Granovetter) (1978)
+    был первым разом, насколько я знаю, кто описал модель "комплексного заражения".
+    (хотя он не использовал это конкретное имя)
+    <br><br>
+    <a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+      “Evidence for complex contagion models of social contagion from observational data”
+    </a>
+    от Спрага (Sprague) и Хауса (House) (2017)
+    показывает, что, на самом деле, существуют комплексные инфекции. (по крайней мере, в данных социальных сетей, на которые они смотрели)
+    <br><br>
+    Наконец,
+    <a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+      “Universal behavior in a generalized model of contagion”
+    </a> от Доддс (Dodds) и Ватты (Watts) (2004)
+    что предлагают модель, которая объединяет <i>все</i> виды инфекций: простые и комплексные, биологические и социальные!
+  </div>
+</reference>
+
+<reference id="possum">
+  <h3>“опоссум имеет 13 сосков”</h3>
+  <div>расположенных в кольце из 12 сосков, плюс один посередине</div>
+</reference>
+
+<reference id="groupthink">
+  <h3>“групповое мышление”</h3>
+  <div>
+    Эта вдохновлённая Оруэллом (Orwell) фраза была придумана Ирвингом Л. Янисом (Irving L. Janis) в 1971 году.
+    <a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+      В своей оригинальной статье
+    </a>,
+    Янис (Janis) исследует случаи группового мышления, перечисляет его причины - к счастью - некоторые возможные средства правовой защиты.
+  </div>
+</reference>
+
+<reference id="social_capital">
+  <h3>“связующие и вспомогательные социальные капиталы”</h3>
+  <div>
+    Эти два типа социального капитала &mdash; "связующий" и "вспомогательный" &mdash;
+    были названы Робертом Путнэмом (Robert Putnam) в его проницательной книге 2000 года,
+    <a target="_blank" href="http://bowlingalone.com/">
+      Bowling Alone
+    </a>. Его открытие:
+    почти во <i>всех</i> эмпирических мерах социальной связности
+    американцы более одиноки, чем когда-либо.
+    Чёрт возьми.
+  </div>
+</reference>
+
+<reference id="bridge">
+  <h3>“вспомогательный социальный капитал имеет золотую середину”</h3>
+  <div>
+    <a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+      “The Strength of Weak Ties”
+    </a> от Грановеттера (Granovetter) (1973)
+    показал, что соединения между группами помогают распространять простые инфекции (например, информацию),
+    но
+    <a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+      “Complex Contagions and the Weakness of Long Ties”
+    </a> от Чентола (Centola) и Мэйси (Macy) (2007)
+    показали, что связи между группами могут не помочь комплексным инфекциям,
+    и этот факт может повредить их распространению!
+  </div>
+</reference>
+
+<reference id="small_world">
+  <h3>“маленький мир”</h3>
+  <div>
+    Идея "малого мира" была популяризирована
+    <a target="_blank" href="http://www.jstor.org/stable/2786545">
+      Travers &amp; Milgram's 1969 experiment
+    </a>,
+    который показал, что в среднем, любые два случайных человека в Соединенных Штатах
+    были друзьями всего в шести знакомых между ними &mdash; "шесть ступеней расставания"!
+    <br><br>
+    Маленький мир получил больше математического плоти на своих костях из
+    <a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+      “Collective dynamics of small-world networks”
+    </a> от Watts и Strogatz (1998),
+    которые предложили алгоритм для создания сетей
+    с низкой средней длиной пути (низкой степенью разделения)
+    и высокой кластеризацией (у друзей много друзей) &mdash;
+    то есть, сети, которые попадают в золотую середину!
+    <br><br>
+    Ты также можешь поиграть в
+    <a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+      визуальную, интерактивную адаптацию этого документа
+    </a> от Брета Виктора (Bret Victor) (2011).
+  </div>
+</reference>
+
+<reference id="swn_neurons">
+  <h3>“[сети маленьких миров] описывают, как связаны наши нейроны”</h3>
+  <div>
+    <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+    “Small-world brain networks”</a> от Бассетта (Bassett) и Буллмора (Bullmore) (2006).
+  </div>
+</reference>
+
+<reference id="swn_creativity">
+  <h3>“[маленький мир] порождает коллективное творчество”</h3>
+  <div>
+    <a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+      “Collaboration and Creativity: The Small World Problem”
+    </a> от Уззи (Uzzi) и Спиро (Spiro) (2005).
+    Эта статья анализировала социальную сеть сцены Бродвея с течением времени и обнаружила,
+    что, ага, самая креативная сеть это сеть "маленького мира"!
+  </div>
+</reference>
+
+<reference id="swn_social_physics">
+  <h3>“[маленький мир] порождает коллективные решения проблем”</h3>
+  <div>
+    Смотри
+    <a target="_blank" href="http://socialphysics.media.mit.edu/">
+      “Social Physics”
+    </a> от профессора MIT Алекса "Сэнди" Пентленда (Alex "Sandy" Pentland) (2014)
+    основанного на данных подхода к коллективному интеллекту.
+  </div>
+</reference>
+
+<reference id="swn_jfk">
+  <h3>“[маленький мир] помог Дж. Ф. Кеннеди (John F. Kennedy) (едва) избежать ядерной войны!”</h3>
+  <div>
+    Помимо взрыва Challenger NASA, самым печально известным примером группового мышления
+    был фиаско Залива Свиней.
+    В 1961 году президент США Джон Ф. Кеннеди (John F. Kennedy) и его команда советников подумали, что
+    - по какой-то причине -
+    неплохая идея тайно вторгнуться на Кубу и свергнуть Фиделя Кастро (Fidel Castro).
+    Она провалились.
+    В действительности, хуже, чем неудача: это привело к Карибскому кризису 1962 года,
+    <i>ближайшему миру, что когда-либо предшествовал полномасштабной ядерной войне.</i>
+    <br><br>
+    Ага, JFK действительно обложался.
+    <br><br>
+    Но, изучив некоторые тяжелые уроки фиаско Залива Свиней,
+    JFK вновь организовал свою команду, чтобы избежать группового мышления.
+    Среди многих вещей он:
+    1) активно поощрял людей высказывать критику,
+    тем самым снижая "порог заражения" для альтернативных идей.
+    И
+    2) он разбил свою команду на подгруппы перед повторным состязанием,
+    что дало их группе "маленький мир"-подобный дизайн!
+    Вместе, эта договоренность позволила создать здоровое разнообразие мнений,
+    но не слишком раздробленное &mdash; мудрость толпы.
+    <br><br>
+    Итак, с теми же <i>отдельными</i> людьми, выбравшими "Залив Свиней",
+    но пересобравшиеся <i>вместе</i>, чтобы принять решение о Кубинском кризисе...
+    Команда JFK смогла достичь мирного соглашения с советским лидером Никитой Хрущёвым (Nikita Khrushchev).
+    Советы убрали свои ракеты с Кубы, и взамен США обещали не вторгаться в Кубу снова.
+    (а также согласились, втайне, убрать американские ракеты из Турции)
+    <br><br>
+    И это история о том, как всё человечество почти умерло.
+    Но маленький мир спас день! Вроде бы.
+    <br><br>
+    Ты можешь прочесть больше об этом
+    <a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+      в Harvard Business Review
+    </a>,
+    или в
+    <a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+      оригинальной статье о групповом мышлении
+    </a>.
+  </div>
+</reference>
+
+<reference id="three_degrees">
+  <h3>“мы влияем [...] на наших друзей друзей друзей!”</h3>
+  <div>
+    Снова, потрясающая книга от Николаса Кристакиса (Nicholas Christakis) и Джеймса Фаулера (James Fowler)
+    <a target="_blank" href="http://www.connectedthebook.com/">
+      Connected
+    </a> (2009).
+  </div>
+</reference>
+
+<reference id="flatter">
+  <h3>“скептично относись к идеям, которые льстят тебе”</h3>
+  <div>
+    да, включая идеи в <i>этом</i> исследуемом объяснении.
+  </div>
+</reference>
+
+<reference id="sandbox">
+  <h3>★ Песочница ★</h3>
+  <div>
+    Горячие клавиши (1, 2, space, backspace)
+    работают во <i>всех</i> головоломках, а не только в Песочнице!
+    Серьезно, ты можешь вернуться к другой главе
+    и отредактировать симуляцию прямо там.
+    Фактически, именно так <i>я</i> создал все эти головоломки. Веселись!
+  </div>
+</reference>
+
+<reference id="supporters" hidden=yes large=yes>
+  <div>
+    Дорогие спонсоры Patreon:
+    Ваша щедрость <i>буквально</i> кормит меня и оплачивает аренду.
+    Вы даёте мне свободу делать эти странные образовательные игры,
+    поэтому, от всего сердца, спасибо. &lt;3
+    <br>
+    <a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+      (хочешь поддержать меня в создании большего количества таких штук? загляни в мой Patreon!)
+    </a>
+  </div>
+</reference>
+
+<reference id="playtesters" hidden=yes large=yes>
+  <div>
+    Спасибо тебе, всем, кто тестировал <i>Толпы</i>
+    за время его многочисленных стадий жизни!
+    <br><br>
+    <b>Прототип:</b>
+    <br>
+    Maria ·
+    Monica Srivastava
+    <br><br>
+    <b>Alpha:</b>
+    <br>
+    Glen Chiacchieri ·
+    Kalli Repzeti ·
+    Mali Akmanalp ·
+    Toph Tucker
+    <br><br>
+    <b>Beta:</b>
+    <br>
+    Alex Dytrych ·
+    Amit Patel ·
+    Cassandra McClure ·
+    Catherine Ray ·
+    Josh Comeau ·
+    Kayle Sawyer ·
+    Matthew Conlen ·
+    Srini Kadamati ·
+    Vanessa Shen ·
+    Wick Perry
+  </div>
+</reference>
 </span>
 
 <!--
@@ -1673,4 +1447,3 @@ Thank you so, so much for doing this again, wow.
 Finally, go to "translations.txt" and follow the instructions there,
 in order to let this game "know" your translation exists.
 
--->
