@@ -26,6 +26,7 @@ and was possible thanks to these open source/Creative Commons resources:
 
 * [Howler.js](https://howlerjs.com/) for the audio
 * [MinPubSub](https://github.com/daniellmb/MinPubSub) for publish/subscribe
+* [iNoBounce](https://github.com/lazd/iNoBounce/) for making iOS stop acting like a such a jerk
 
 **Font:** [Patrick Hand](https://fonts.google.com/specimen/Patrick+Hand) by Patrick Wagesreiter
 
