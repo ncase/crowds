@@ -39,7 +39,7 @@ If so, maybe you can collaborate!
 And if no one else is, PLEASE CREATE A NEW ISSUE in this repo
 so that others know you're working on it!]**
 
-Translations done so far: (none)
+**Translations done so far:** [Italian](http://ncase.me/crowds/it.html)
 
 **Step 1)** Clone this repo!
 
