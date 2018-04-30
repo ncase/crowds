@@ -2,7 +2,7 @@ window.TRANSLATIONS = [];
 window.ADD_YOUR_OWN_LINK = "https://github.com/ncase/crowds#how-to-translate-this-thing";
 
 var r = new XMLHttpRequest();
-r.open("GET", "translations.txt", true);
+r.open("GET", "translations.txt?cache="+Math.round(1000*Math.random()), true); // force cache refresh
 r.onreadystatechange = function () {
 	
 	if(r.readyState != 4 || r.status != 200) return;
