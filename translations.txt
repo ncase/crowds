@@ -1,10 +1,10 @@
 // Once you've finished your translation,
 // the website needs to "know" it exists!
 // This text file is how the website "knows".
-// 
+//
 // First, look up the language you're translating to on this page:
 // https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-// 
+//
 // Then, at the bottom of this file, enter on a new line:
 // [two-letter code]: [native name of language]
 // For example:
@@ -12,7 +12,7 @@
 //     de: Deutsch
 //     zh: 中文
 //     ar: العربية
-// 
+//
 // (Note: if you paste the native name of a right-to-left language here,
 // it might show up as reversed here, but it'll show correctly on the website)
 // Also, make sure the .html file of your translation
@@ -30,3 +30,4 @@
 en: English
 es: Castellano
 it: Italiano
+ru: Русский
