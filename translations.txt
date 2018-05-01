@@ -28,5 +28,6 @@
 /////////////////////////////
 
 en: English
+es: Castellano
 it: Italiano
 ru: Русский
