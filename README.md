@@ -57,7 +57,7 @@ Also, please feel free to credit yourself as a translator :)
 **Step 5)** Add one line to the end of `translations.txt` so that the game "knows" your translation exists.
 (more specific instructions will be inside that file)
 
-**Step 6)** Send a Pull Request so I can make your translation go live!
+**Step 6)** Send a **Pull Request** so I can make your translation go live!
 
 **Step 7)** 🎉 fweeeee
 
