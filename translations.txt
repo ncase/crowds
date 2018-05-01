@@ -29,3 +29,4 @@
 
 en: English
 it: Italiano
+fr: Français
