@@ -26,6 +26,7 @@ and was possible thanks to these open source/Creative Commons resources:
 
 * [Howler.js](https://howlerjs.com/) for the audio
 * [MinPubSub](https://github.com/daniellmb/MinPubSub) for publish/subscribe
+* [iNoBounce](https://github.com/lazd/iNoBounce/) for making iOS stop acting like a such a jerk
 
 **Font:** [Patrick Hand](https://fonts.google.com/specimen/Patrick+Hand) by Patrick Wagesreiter
 
@@ -38,7 +39,9 @@ If so, maybe you can collaborate!
 And if no one else is, PLEASE CREATE A NEW ISSUE in this repo
 so that others know you're working on it!]**
 
-Translations done so far: (none)
+**Translations done so far:**
+[Italian](http://ncase.me/crowds/it.html),
+[Русский](http://ncase.me/crowds/ru.html)
 
 **Step 1)** Clone this repo!
 
@@ -54,7 +57,7 @@ Also, please feel free to credit yourself as a translator :)
 **Step 5)** Add one line to the end of `translations.txt` so that the game "knows" your translation exists.
 (more specific instructions will be inside that file)
 
-**Step 6)** Send a Pull Request so I can make your translation go live!
+**Step 6)** Send a **Pull Request** so I can make your translation go live!
 
 **Step 7)** 🎉 fweeeee
 
