@@ -32,3 +32,4 @@ it: Italiano
 fr: Français
 es: Español (Castellano)
 ru: Русский
+uk: Українська
