@@ -34,3 +34,4 @@ fr: Français
 es: Español (Castellano)
 ru: Русский
 vi: Vietnamese
+zh: 中文
