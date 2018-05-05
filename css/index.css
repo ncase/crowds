@@ -41,6 +41,7 @@ a:hover{
 	width: 100%;
 	height: calc(100% - 60px);
 	cursor: none;
+	overflow: hidden; /* modal's being awful */
 }
 #container[sim_is_running]{
 	background: #eee;

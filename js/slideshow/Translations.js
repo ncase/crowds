@@ -2,7 +2,7 @@ window.TRANSLATIONS = [];
 window.ADD_YOUR_OWN_LINK = "https://github.com/ncase/crowds#how-to-translate-this-thing";
 
 var r = new XMLHttpRequest();
-r.open("GET", "translations.txt", true);
+r.open("GET", "translations.txt?cache="+Math.round(1000*Math.random()), true); // force cache refresh
 r.onreadystatechange = function () {
 	
 	if(r.readyState != 4 || r.status != 200) return;
@@ -12,12 +12,12 @@ r.onreadystatechange = function () {
 	var response = r.responseText;
 	var lines = response.split("\n");
 	var available = lines.filter(function(line){
-		return (/^\w\w\:?\s+(.+)/).test(line); // ww: wwwwww
+		return (/^[a-z]{2}(?:-[A-Z]{2})?\:?\s+(.+)/).test(line); // ww: wwwwww
 	});
 	for(var i=0; i<available.length; i++){
 		var a = available[i];
-		var code = a.match(/\w\w/)[0];
-		var lang = a.match(/^\w\w\:?\s+(.+)/)[1];
+		var code = a.match(/[a-z]{2}(?:-[A-Z]{2})?/)[0];
+		var lang = a.match(/^[a-z]{2}(?:-[A-Z]{2})?\:?\s+(.+)/)[1];
 		if(code=="en") continue; // English is just an example
 		TRANSLATIONS.push({
 			code: code,
