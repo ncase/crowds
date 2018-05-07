@@ -42,6 +42,7 @@ so that others know you're working on it!]**
 **Translations done so far:**
 [Italian](http://ncase.me/crowds/it.html),
 [Русский](http://ncase.me/crowds/ru.html)
+[简体中文](http://ncase.me/crowds/zh-CN.html)
 
 **Step 1)** Clone this repo!
 

@@ -28,8 +28,11 @@
 /////////////////////////////
 
 en: English
+pt: Português
 it: Italiano
 fr: Français
 es: Español (Castellano)
 ru: Русский
 uk: Українська
+vi: Vietnamese
+zh-CN: 简体中文
