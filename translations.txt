@@ -35,3 +35,4 @@ es: Español (Castellano)
 ru: Русский
 vi: Vietnamese
 zh-CN: 简体中文
+ja: 日本語
