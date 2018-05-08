@@ -40,9 +40,16 @@ And if no one else is, PLEASE CREATE A NEW ISSUE in this repo
 so that others know you're working on it!]**
 
 **Translations done so far:**
-[Italian](http://ncase.me/crowds/it.html),
+[Português](http://ncase.me/crowds/pt.html)
+[Italiano](http://ncase.me/crowds/it.html)
+[Français](http://ncase.me/crowds/fr.html)
+[Español (Castellano)](http://ncase.me/crowds/es.html)
 [Русский](http://ncase.me/crowds/ru.html)
+[Українська](http://ncase.me/crowds/uk.html)
+[Vietnamese](http://ncase.me/crowds/vi.html)
 [简体中文](http://ncase.me/crowds/zh-CN.html)
+[繁體中文](http://ncase.me/crowds/zh-TW.html)
+[日本語](http://ncase.me/crowds/ja.html)
 
 **Step 1)** Clone this repo!
 
