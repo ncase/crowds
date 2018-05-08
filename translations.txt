@@ -33,6 +33,8 @@ it: Italiano
 fr: Français
 es: Español (Castellano)
 ru: Русский
+uk: Українська
 vi: Vietnamese
 zh-CN: 简体中文
 zh-TW: 繁體中文
+ja: 日本語
