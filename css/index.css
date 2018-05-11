@@ -41,6 +41,7 @@ a:hover{
 	width: 100%;
 	height: calc(100% - 60px);
 	cursor: none;
+	overflow: hidden; /* modal's being awful */
 }
 #container[sim_is_running]{
 	background: #eee;
@@ -378,13 +379,13 @@ a:hover{
 }
 #translations{
 	position: absolute;
-    top: 14px;
+    top: 12px;
     left: calc(50% - 400px);
     width: 800px;
     text-align: center;
     color: #fff;
     font-size: 16px;
-    line-height: 16px;
+    line-height: 17px;
     letter-spacing: 0.5px;
 }
 #navigation{

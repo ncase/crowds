@@ -44,7 +44,12 @@ function cloneObject(obj){
 
 // Get words
 function getWords(wordsID){
-	return $("words#"+wordsID).innerHTML.trim();
+	var dom = $("words#"+wordsID);
+	if(dom){
+		return dom.innerHTML.trim();
+	}else{
+		return "";
+	}
 }
 
 // Remove from array
