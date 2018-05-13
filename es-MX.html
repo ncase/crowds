@@ -65,7 +65,7 @@ Good luck, and thanks again!
 	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
 
 	<!-- Styles -->
-	<link rel="stylesheet" type="text/css" href="css/index.css?v=3">
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=6">
 
 </head>
 <body>
@@ -106,8 +106,8 @@ Good luck, and thanks again!
 	<div id="navigation_container">
 		<div id="sound" mute="no">
 			<div id="sound_icon"></div>
-			<span id="sound_on">ON</span> <!-- TRANSLATE -->
-			<span id="sound_off">OFF</span> <!-- TRANSLATE -->
+			<span id="sound_on">ENCENDIDO</span> <!-- TRANSLATE -->
+			<span id="sound_off">APAGADO</span> <!-- TRANSLATE -->
 		</div>
 		<div id="sharing">
 			<a id="fb" target="_blank" href="TODO"></a>
@@ -214,6 +214,7 @@ Good luck, and thanks again!
 <!-- - - - - -->
 
 <script src="js/lib/helpers.js"></script>
+<script src="js/lib/inobounce.js"></script>
 <script src="js/lib/minpubsub.src.js"></script>
 <script src="js/lib/howler.min.js"></script>
 <script src="js/lib/Key.js"></script>
@@ -229,7 +230,7 @@ Good luck, and thanks again!
 <script src="js/slideshow/SandboxUI.js"></script>
 <script src="js/slideshow/Modal.js"></script>
 <script src="js/slideshow/Preloader.js"></script>
-<script src="js/slideshow/Translations.js?v=2"></script>
+<script src="js/slideshow/Translations.js?v=4"></script>
 
 <script src="js/sim/Peep.js?v=2"></script>
 <script src="js/sim/Connection.js"></script>
@@ -285,7 +286,7 @@ it should automatically highlight what the text is (usually in white).
 		<!-- TRANSLATE note: comment out the line below... -->
 		<!-- playing time: 30 min • by nicky case, april 2018 -->
 		<!-- ...and UN-comment + TRANSLATE this line! -->
-		por nicky case • traducido por Gilberto Guerra • <a href='/'>original in English</a>
+		por nicky case • traducido por <a href='https://github.com/gemga'>Gilberto Guerra</a> • <a href='.'>original in English</a>
 	</div>
 
 </words>
@@ -994,13 +995,13 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 			mucho amor y agradecimientos a</span>
 		<div style="font-size: 3em; line-height: 1.0em;">
 			MIS COLABORADORES DE PATREON</div>
-		<a onclick='publish("reference/show", ["supporters"]);'>
-			ver nombres y dibujos de mis colaboradores</a> ·
-		<a onclick='publish("reference/show", ["playtesters"]);'>
-			ver playtesters</a>
-		<br>
 		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
 			¡ayúdame a crear más cosas como esta! &lt;3</a>
+		<br>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			ver mis colaboradores</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			ver mis playtesters</a>
 
 		<br><br>
 
@@ -1010,7 +1011,7 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 				"Friends 2018" y "Friends 2068"</a>
 			de Komiku
 			<br>
-			&lt;/&gt; <i>Crowds</i> is
+			&lt;/&gt; <i>Crowds</i> es
 			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
 				completamente <i>open source</i></a>
 		</span>
@@ -1043,6 +1044,11 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 </words>
 <words id="translations_add">
 	(add your own!)
+</words>
+<words id="translations_original">
+	<!-- No need to translate this, because, I assume, -->
+	<!-- if someone wants to play the game in English, they can read English -->
+	(original in English)
 </words>
 
 <!-- - - - - - - -->
@@ -1367,10 +1373,17 @@ Final thing! These references also need you to TRANSLATE:
 
 	<br><br>
 
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> de Centola &amp; Macy (2007) (en inglés)
+	acuñó la frase "contagio complejo" y 
+	mostró las diferencias entre este y el "contagio simple".
+
+	<br><br>
+
 	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
 	“Evidence for complex contagion models of social contagion from observational data”</a>
 	de Sprague &amp; House (2017) (en inglés)
-	demuestra que los contagios complejos existen. (al menos de acuerdo a datos de redes sociales que analizaron)
+	demuestra que los contagios complejos existen. (al menos de acuerdo a los datos de redes sociales que analizaron)
 
 	<br><br>
 
