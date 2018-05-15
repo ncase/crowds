@@ -54,6 +54,7 @@ subscribe("prepreload/done", function(){
 subscribe("START", function(){
 
 	// Music
+	SOUNDS.bg_music.stop();
 	SOUNDS.bg_music.volume(0.5);
 	SOUNDS.bg_music.loop(true);
 	SOUNDS.bg_music.play();
