@@ -40,6 +40,10 @@ r.onreadystatechange = function () {
 		html += " <a target='_blank' href='"+window.ADD_YOUR_OWN_LINK+"'>"+getWords("translations_add")+"</a>";
 		html += " | ";
 		html += _createLinks(" · ");
+		
+		// ar
+		html += " · <a href='http://alexanderclay.github.io/crowds/ar.html' style='text-decoration:none'>العربية</a>";
+		
 		$("#translations").innerHTML = html;
 	}
 
