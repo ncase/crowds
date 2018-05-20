@@ -40,10 +40,7 @@ r.onreadystatechange = function () {
 		html += " <a target='_blank' href='"+window.ADD_YOUR_OWN_LINK+"'>"+getWords("translations_add")+"</a>";
 		html += " | ";
 		html += _createLinks(" · ");
-		
-		// ar
-		html += " · <a href='http://alexanderclay.github.io/crowds/ar.html' style='text-decoration:none'>العربية</a>";
-		
+				
 		$("#translations").innerHTML = html;
 	}
 
@@ -51,6 +48,7 @@ r.onreadystatechange = function () {
 r.send();
 
 function _createLinks(separator){
+
 	var html = "";
 	for(var i=0; i<TRANSLATIONS.length; i++){
 		var t = TRANSLATIONS[i];
@@ -61,5 +59,9 @@ function _createLinks(separator){
 		html += t.lang;
 		html += "</a>";
 	}
+
+	// Hardcoding the external Arabic translation, oh well
+	html += " · <a href='http://alexanderclay.github.io/crowds' style='text-decoration:none'>العربية</a>";
+
 	return html;
 }

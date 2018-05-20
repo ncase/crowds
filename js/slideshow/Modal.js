@@ -110,9 +110,6 @@ subscribe("modal/translations", function(){
 		html += "<div style='height:12px'></div>";
 		html += _createLinks(" · ");
 		
-		// ar
-		html += " · <a href='http://alexanderclay.github.io/crowds/ar.html' style='text-decoration:none'>العربية</a>";
-		
 		$("#modal_content").innerHTML = html;
 			
 		// Show in large box
