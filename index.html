@@ -35,16 +35,28 @@ Good luck, and thanks again!
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en"> <!-- lang="(TRANSLATE: set your language code here, same as the page name!) e.g: es, es-ES, pt-BR, ja, it, fr-CA, de, ..." -->
 <head>
 
 	<!-- Meta Info -->
 	<title>The Wisdom and/or Madness of Crowds</title> <!-- <title>(TRANSLATE this part only)</title> -->
 	<meta name="description" content="an interactive guide to human networks"/> <!-- content="(TRANSLATE this part only)" -->
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
 	<meta charset="utf-8">
 	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
 
 	<!-- Sharing -->
 	<meta itemprop="name" content="The Wisdom and/or Madness of Crowds"> <!-- content="(TRANSLATE this part only)" -->
@@ -65,7 +77,7 @@ Good luck, and thanks again!
 	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
 
 	<!-- Styles -->
-	<link rel="stylesheet" type="text/css" href="css/index.css?v=3">
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=6">
 
 </head>
 <body>
@@ -214,6 +226,7 @@ Good luck, and thanks again!
 <!-- - - - - -->
 
 <script src="js/lib/helpers.js"></script>
+<script src="js/lib/inobounce.js"></script>
 <script src="js/lib/minpubsub.src.js"></script>
 <script src="js/lib/howler.min.js"></script>
 <script src="js/lib/Key.js"></script>
@@ -227,9 +240,9 @@ Good luck, and thanks again!
 <script src="js/slideshow/Navigation.js"></script>
 <script src="js/slideshow/SimUI.js"></script>
 <script src="js/slideshow/SandboxUI.js"></script>
-<script src="js/slideshow/Modal.js"></script>
+<script src="js/slideshow/Modal.js?v=5"></script>
 <script src="js/slideshow/Preloader.js"></script>
-<script src="js/slideshow/Translations.js?v=2"></script>
+<script src="js/slideshow/Translations.js?v=5"></script>
 
 <script src="js/sim/Peep.js?v=2"></script>
 <script src="js/sim/Connection.js"></script>
@@ -285,7 +298,7 @@ it should automatically highlight what the text is (usually in white).
 		<!-- TRANSLATE note: comment out the line below... -->
 		playing time: 30 min • by nicky case, april 2018
 		<!-- ...and UN-comment + TRANSLATE this line! -->
-		<!-- by nicky case • translated by [your name] • <a href='/'>original in English</a> -->
+		<!-- by nicky case • translated by [your name] • <a href='.'>original in English</a> -->
 	</div>
 
 </words>
@@ -400,7 +413,7 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 	Now, social connections are for more than just making pretty pictures.
 	People <i>look to</i> their social connections to understand their world.
 	For example, people look to their peers to
-	find out <b>what % of their friends</b> (not counting themselves) are,
+	find out <b>what % of their friends (not counting themselves)</b> are,
 	say, binge-drinkers. <icon name="yellow"></icon>
 
 </words>
@@ -606,7 +619,7 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 		<b>NOTE:</b> Volunteering is just <i>one</i> of many complex contagions!
 		Others include: voter turnout, lifestyle habits, 
 		challenging your beliefs,
-		taking time to understand a issue deeply &mdash; anything
+		taking time to understand an issue deeply &mdash; anything
 		that needs more than one "exposure".
 		Complex contagions aren't <i>necessarily</i> wise,
 		but being wise is a complex contagion.
@@ -993,13 +1006,13 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 			lots of love and thanks to</span>
 		<div style="font-size: 3em; line-height: 1.0em;">
 			MY PATREON SUPPORTERS</div>
-		<a onclick='publish("reference/show", ["supporters"]);'>
-			see names &amp; drawings of supporters</a> ·
-		<a onclick='publish("reference/show", ["playtesters"]);'>
-			see playtesters</a>
-		<br>
 		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
 			help me make more like this! &lt;3</a>
+		<br>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			see my supporters</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			see my playtesters</a>
 
 		<br><br>
 
@@ -1043,6 +1056,11 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 <words id="translations_add">
 	(add your own!)
 </words>
+<words id="translations_original">
+	<!-- No need to translate this, because, I assume, -->
+	<!-- if someone wants to play the game in English, they can read English -->
+	(original in English)
+</words>
 
 <!-- - - - - - - -->
 <!-- BONUS BOXES -->
@@ -1085,7 +1103,7 @@ Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
 	But... I don't think "make everyone as independent as possible" is the full answer.
 	Even geniuses, who we mischaracterize as the most independent thinkers,
 	are deeply influenced by others. As Sir Isaac Newton said,
-	<i>“If I have seen further, it is by standing on the sholders of Giants.”</i>
+	<i>“If I have seen further, it is by standing on the shoulders of Giants.”</i>
 
 	<br><br>
 
@@ -1376,10 +1394,17 @@ Final thing! These references also need you to TRANSLATE:
 
 	<br><br>
 
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> by Centola &amp; Macy (2007)
+	coined the phrase "complex contagion", and
+	showed the important differences between that and "simple contagion".
+
+	<br><br>
+
 	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
 	“Evidence for complex contagion models of social contagion from observational data”</a>
 	by Sprague &amp; House (2017)
-	shows that complex contagions do, in fact, exist. (at least, in the social media data they looked at)
+	empirically showed that complex contagions do, in fact, exist. (at least, in the social media data they looked at)
 
 	<br><br>
 
@@ -1623,12 +1648,13 @@ Final thing! These references also need you to TRANSLATE:
 </reference>
 <reference id="supporters" hidden=yes large=yes>
 	<div>
-	To 
-	<a target="_blank" href="https://www.patreon.com/ncase">my supporters on Patreon</a>:
-	I'm deeply grateful.
-	Your generosity <i>literally</i> feeds me and pays my rent,
-	and grants me the creative freedom to make these weird math/social-science games.
-	From the bottom of my heart, thank you!
+	Dear Patreon supporters:
+	Your generosity <i>literally</i> feeds me and pays my rent.
+	You give me the freedom to make these weird educational games,
+	so, from the bottom of my heart, thank you. &lt;3
+	<br>
+	<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+		(want to support me in making more stuff like this? check out my Patreon!)</a>
 	</div>
 </reference>
 <reference id="playtesters" hidden=yes large=yes>
