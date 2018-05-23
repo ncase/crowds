@@ -51,6 +51,7 @@ so that others know you're working on it!]**
 [繁體中文](http://ncase.me/crowds/zh-TW.html)
 [日本語](http://ncase.me/crowds/ja.html)
 [Español (Mexicano)](http://ncase.me/crowds/es-MX.html)
+[Čeština](http://ncase.me/crowds/cs.html)
 
 **Step 1)** Clone this repo!
 
