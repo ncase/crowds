@@ -1,0 +1,1696 @@
+<!--
+
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+
+- - - - - - - - - - -
+
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 3600+ WORDS to translate, including
+the Bonus Boxes and References.
+
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+
+Good luck, and thanks again!
+
+<3,
+~ Nicky Case
+
+-->
+
+<!DOCTYPE html>
+<html lang="fl"> <!-- lang="(TRANSLATE: set your language code here, same as the page name!) e.g: es, es-ES, pt-BR, ja, it, fr-CA, de, ..." -->
+<head>
+
+	<!-- Meta Info -->
+	<title>Ang Karunungan at/o Kabaliwan ng mga Tauhan</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="an interactive guide to human networks"/> <!-- content="(TRANSLATE this part only)" -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/cs.html"    hreflang="cs">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="Ang Karunungan at/o Kabaliwan ng mga tauhan"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="isang interactive na gabay sa network ng tao"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="Ang Karunungan at/o Kabaliwan ng mga Tauhan"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="isang interactive na gabay sa network ng tao"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="Ang Karunungan at/o Kabaliwan ng mga Tauhan"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="isang interactive na gabay sa network ng tao"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=7">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">laktawan &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">⨯</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on">i-OFF</span> <!-- TRANSLATE -->
+			<span id="sound_off">i-ON</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			Ang Karunungan at/o Kabaliwan ng mga Tauhan <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Bakit kumikilos ang mga grupo ng mga tao na matalino, pipi, mabait, at malupit? Isang interactive na gabay sa mga network ng tao: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Panimula</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Mga Koneksyon</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Ang Pagkahawa</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Komplikadong Pagkahawa</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Ang Bonding at Bridging</span> <!-- note: &amp; is html for the "and" sign -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. Isang Maliit Na Mundo</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. Konklusiyon</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Credits</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>★</span>
+				<span>★ Sandbox Mode! ★</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+			
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Bonus na Boxes!</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Links at References</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">あ</span></span>
+				<span>Mga Pagsasalin</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+			
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+	
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>nag-loloading...</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/inobounce.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js?v=5"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js?v=5"></script>
+
+<script src="js/sim/Peep.js?v=2"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js?v=2"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!-- 
+
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span>Ang</span>
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">KARUNUNGAN</span>
+		<span style="position:relative;top: -10px;">at/o</span>
+		<span style="font-size: 60px;">KABALIWAN</span>
+		<br>
+		<span style="position: relative;top: -11px;">ng mga</span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">TAUHAN</span>
+	</div>
+
+	<div style="color:#999;line-height: 200px;">
+		<!-- TRANSLATE note: comment out the line below... -->
+		<!-- oras ng paglalaro: 30 min • ni nicky case, abril 2018 -->
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+	    Ni nicky case • isinalin ni yustine arevalo • <a href='.'>orihinal na ingles</a>
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	loading...
+</words>
+
+<words id="preloader_play">
+	Laro na! <div class="rarr"></div> 
+</words>
+
+<!-- Introduction -->
+<!--
+
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+
+-->
+
+<words id="intro">
+
+	<br><br>
+
+	 Si Sir Isaac Newton ay isang napakatalinong
+	<br>
+	 tao. Sa bagay, pagkatapos niyang ikatha ang calculus at
+	<br>
+	ang teorya ng gravity, mayroon rin naman siyang kaalaman
+	<br>
+	sa financial investing, diba? Kaya nga, long story short, siya
+	<br>
+	ay nawalan ng $4,600,000 (sa ngayong dolyar) sa haka-hakang frenzy
+	<br>
+	ng buong bansa na kinikilala bilang South Sea Bubble noong 1720.
+
+	<br><br>
+
+	Tulad ng sinabi ni Mr Newton: <i>“Kaya kong kalkyulahin ang galaw ng mga
+	<br>
+	planeta sa langit, ngunit hindi ang kabaliwan ng tao.”</i>
+
+	<next>Oo, malas sa kaniya <div class="rarr"></div> </next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+
+	Siyempre, hindi lang ang mga
+	<br>
+	time markets, mga institusyon, o buong sistema ng
+	<br>
+	demokrasiya ang nawawalan ng kontrol &mdash; ang <i>kabaliwan</i> ng
+	<br>
+	tauhan. At kahit doon, bago ka man lang mawalan ng pag-asa sa tao,
+	<br>
+	may makikita kang tauhan nagtutulungang mag-rescue ng isa't isa sa 
+	<br>
+	sa bagyo,mga komunidad na naghahanap ng solusyon sa mga problema,
+	<br>
+	mga taong naglalaban para sa mabuting mundo &mdash; ang <i>karunungan</i> ng tauhan!
+
+	<div style="height:0.9em"></div>
+
+	<b>Ngunit <i>bakit</i> bakit mayroong taong bumabaling sa kabaliwan, o karunungan?</b> Walang teoryang  
+	<br>
+	maaaring magpaliwang ng lahat nito, ngunit ang bagong field ng study,
+	<br>
+	<b>network science</b>, ang makakapag gabay sa atin! At ang pangunahing ideya nito ay ito: upang
+	<br>
+	upang maintindihan ang tauhan, kailangan nating tumingin hindi sa <i>indibidwal na
+	<br>
+	tao</i>, kundi sa...
+
+	<next>...kanilang <i>mga koneksiyon.</i> <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>Mag guhit tayo ng network!</b>
+	Ang bawat koneksiyon ay kumakatawan sa pagkakaibigan ng dalawang tao:
+</words>
+
+<words id="networks_tutorial_connect">
+	gumuhit para ikonekta
+</words>
+
+<words id="networks_tutorial_disconnect">
+	i-scratch para&nbsp;&nbsp;&nbsp;burahin
+</words>
+
+<words id="networks_tutorial_end">
+
+	kapag tapos ka nang gumuhit,
+	<next wiggle>tumuloy na tayo, <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_threshold">
+    Ngayon, ang mga sosyal na koneksiyon ay hindi lang sa paggwa ng magagandang mga imahe.
+	Ang mga tao <i>ay tumitingin</i> sa kanilang mga sosyal na koneksiyon upang maintindihan nila ang kanilang mundo.
+	Halimbawa, ang mga tao ay tumitingin sa kanilang kapantay upang
+	malaman <b>anong % ng kanilang mga kaibigan (hindi kabilang ang kanilang sarili)</b> ay,
+	sabihin nating, lasinggero. <icon name="yellow"></icon>
+
+</words>
+
+<words id="networks_threshold_instruction">
+	<b></br></br>Gumuhit ka nga ng mga koneksiyon! <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>okay, na gegets ko na</next>
+</words>
+
+<words id="networks_pre_puzzle">
+	Pero, ang mga networks ay pwedeng <i>lumoko</i> sa tao.
+	Ang tao ay pwedeng makakuha ng mga maling ideya tungkol so lipunan dahil sila ay <i>nakabilang</i> dito.  
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		<i>opsyonal</i> kadagdagang impormasyon! &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		&darr; links at references
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+	
+	<bon id="books"></bon>
+
+	<br>
+
+	Halimbawa, isang pag-aaral noong 1991 <ref id="drunk"></ref> ang nagpakita na 
+	“halos lahat ng mga [kolehiyong] estudyante ang nakainom ng mas marami kumpara sa kanilang mga kaibigan.”
+	Pero imposible!
+	Paano ba iyon nangyari?
+	Well, malalaman mo ang sagot, sa pamamagitan ng pagguhit ng isang Network.
+	Oras na para...
+
+	<next>LOKOHIN ANG LAHAT <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">PUZZLE TIME!</b>
+	<br>
+	Lokohin <i>lahat</i> para isipin nila na
+	karamihan ng kanilang mga kaibigan (50% threshold) ay lasinggero <icon name="yellow"></icon>
+	(kahit ang mga lassingero ay  outnumbered nang 2-to-1!)
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>NALOKO:</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	out of 9 na tao
+</words>
+<words id="networks_puzzle_end">
+	Congrats! Napaloko mo ang isang grupo ng mga estudyante na maniwala
+	sa pagkakalat ng napakasamang social norm! Napakagaling mo!
+	<next wiggle>...uh. salamat?</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+	Ang nagawa mo ay tinatawag na Majority Illusion<ref id="majority"></ref>,
+	ito rin ang dahilan kung bakit iniisip ng mga tao na ang kanilang politikal na tanawin ay normal,
+	o kung bakit ang extremism ay mas madalas nagaganap kaysa sa kung paano natin ito nararanasan.
+	<i>Kabaliwan.</i>
+
+	<bon id="connections"></bon>
+
+	Pero, ang mga tao ay hindi lang <i>minamasdan</i> ang ideya't pag-uugali ng iba,
+	kundi <i>ginagaya</i> na rin nila.
+	Ngayon, tignan natin ang isang bagay na tinatawag ng mga network scientists na...
+
+	<next>“Contagions!” <div class="rarr"></div> </next>
+
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+	<i>Itabi muna natin ang  "threshold" na bagay sa ngayon.</i>
+	Sa ibaba: mayroong isang tao <icon name="red"></icon> na may impormasyon.
+	<i>Maling</i> information. "Fake news", na tinatawag ng mga cool kids.
+	Araw-araw, ang taong iyon ay nagpapakalat ng pekeng tsismis, parang sakit, sa kanilang kaibigan.
+	At ikakalat naman nila sa <i>kanilang</i> kaibigan.
+	<br>
+	<b>
+	Isimulan ang simulation! <div class="darr"></div>
+	(p.s: hindi ka pwedeng gumuhit <i>habang</i> umaandar ang sim!)
+	</b>
+</words>
+
+<words id="simple_simple_2">
+	Paalala: kahit mukhang negatibo ang pangalan, ang mga "contagions" ay maaaring mabuti o masama (o neutral o ambiguous). 
+	Mayroong malakas na statistikal na ebidensya <ref id="contagion"></ref> na
+	ang pagsisigarilyo, kalusugan, kasiyahan, paraan ng pagboboto, at lebel ng kooperatiba
+	ay "contagious" o nakakahawa --
+	at pati rin na ebidensya kung saan ang mga suicides<ref id="suicides"></ref> at mass shootings<ref id="shootings"></ref> ay nahahawa rin.
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle>wow, nakakadepress naman. <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_cascade">
+	Tama ka diyan!
+	Anyways, <b>PUZZLE TIME!</b>
+	<br>
+	Gumuhit ka ng network at isimulan ang simulation,
+	para <i>lahat ng tao</i> ay mahawa mula sa "contagion".
+	<br>
+	(bagong rule: hindi mo pwedeng putulin ang mga <i>makakapal</i> na mga koneksiyon)
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle>Supapapalicious! <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_post_cascade">
+	Itong pagkakalat ng kabaliwan ay itinatawag na <b>"information cascade"</b>.
+	Si Mr. Newton ay nadamay dito noong 1720.
+	Pati na rin ang mga pinansiyal na institusyon ng BUONG mundo ay nadamay dahil dito noong 2008.<ref id="subprime"></ref>
+	<br><br>
+	Ngunit: <i>mali ang simulation na ito.</i>
+	Maraming mga ideya ay <i>hindi</i> kumakalat tulad ng sakit.
+	Para sa karamihan ng  paniniwala't kaugalian, nangangailangan kang maging "bukas" sa contagion nang hindi hihigit ng isang beses
+	upang ikaw ay "mahawa".
+	Dahil dito, ang mga network scientists ay gumawa ng makabago, at mas mabuting paraan upang 
+	ipakita kung paano kumakalat ang mga ideya/pag-uugali, at itinatawag nila itong...
+	<next wiggle>“<i>Complex</i> Contagions!” <div class="rarr"></div> </next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+
+	Ibalik naman natin ang mga "thresholds" at ang mga lasinggero <icon name="yellow"></icon> na halimbawa!
+	Nung nilaro mo to sa unang pagkakataon, hindi nagbago ang mga tao.
+
+	<br><br>
+
+	Ngayon, itesting naman natin kung ang mga tao namang umiinom
+	<i>habang 50%+ ng kanilang mga kaibigan ay umiinom na rin!</i> 
+	<b>Bago mo isimulan ang sim, isipin mo muna nang mabuti kung paano <i>dapat</i> itong magyari.</b>
+
+	<br><br>
+	
+	<b>Ngayon, isimulan mo ang sim, at tignan kung ano ang mangyayari! <div class="rarr"></div> </b>
+
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+		
+		Di tulad sa  "fake news" <icon name="red"></icon>  na contagion,
+		itong contagion <icon name="yellow"></icon> ay <i>hindi</i> kumakalat sa lahat!
+		Ang unang mga tao ay "nahahawa" ,dahil sila ay bukas lamang sa iisang
+		lasinggero, iyong lasinggero ay 50% ng kanilang kaibigan. (oo, mga loners sila)
+		Kung titignan natin ng mabuti, ang tao sa huli ng chain ay <i>hindi</i>  "nahawa",
+		dahil kahit sila man ay bukas malapit sa isang lasinggero,
+		hindi pa rin nila naipasa ang 50%+ threshold.
+
+		<div style="height:0.75em"></div>
+
+		Itong <i>relative</i> % ng mga "infected" na kaibigan ay mahalaga.
+		<i>Iyon</i> ang pagkakaiba ng <b>complex contagion</b> theory<ref id="complex"></ref>,
+		at ang kumakalat-lang-ng-parang-virus na <b>simple contagion</b> theory.
+		(pwede mong sabihin na ang mga "simple contagions" ay contagions lamang na may "mas mataas kaysa sa 0%" infection threshold)
+
+		<div style="height:0.75em"></div>
+
+		Ngunit, ang mga contagions ay hindi laging masasama &mdash;
+		so enough sa tauhang <i>kabaliwan</i>, paano naman kaya ang...
+		<next>...tauhang <i>karunungan?</i></next>
+
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+	Dito, mayroon tayong tao na <icon name="blue"></icon> na boluntaryong... ewan ko,
+	tumutulong sa mga taong apektado ng bagyo, magturo sa mga mahihirap na kabataan, basta ganon.
+	Ang importante dito, ito ay ang "mabuting" complex contagion.
+	Dito naman, samantala, sabihin natin na ang threshold ay 25% lamang &mdash;
+	ang mga tao ay wiling ring magvolunteer, kung ito ay 25% o kung pati na rin ang kanilang kaibigan.
+	Hoy, ang mabuting kalooban ay nangangailang rin naman ng pampalakas loob, eh.
+
+	<br><br>
+
+	<b>&larr; "Ihawa" ang lahat ng mga tao sa pamamagitan ng good vibes!</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+		<b>Paalala:</b> Ang pagiging boluntaryo ay <i>isa</i> sa mga marami pang complex contagions!
+		Ang ibang pang nabibilang dito ay: paraan ng pagboboto, araw-araw na gawain, 
+		paghahamon ng iyong sariling paniniwala,
+		pag-iintindi ng mabuti ng isang malalim na suliranin &mdash; kahit ano
+		na nangangailangan ng maraming "exposure".
+		Ang mga complex contagions ay hindi <i>palaging</i> makatarungan,
+		pero ang pagiging makatarungan ay isang complex contagion.
+
+		<div style="height:0.75em"></div>
+
+		(So, ano naman ba sa totoong buhay ang <i>simple</i> contagion?
+		Madalas ito ay ang mga trivia, tulad ng, "ang possum ay mayroong 13 na utong"<ref id="possum"></ref>)
+
+		<bon id="contagions"></bon>
+
+		Ngayon, upang <i>talagang</i> maipakita ang kapangyarihan at "weirdness" ng mga complex contagions, bisitahin muli natin...
+
+		<next>...ang isa sa nauunang puzzle <div class="rarr"></div> </next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+	Natatandaan mo pa ba to? Ngayon naman, na may <i>complex</i> contagion <icon name="blue"></icon>, medyo mahirap naman ito...
+	<br>
+	<b>Subukan mong "ihawa" ang lahat gamit ang complex na karunungan! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+	(pwede mong pindutin ang 'start' at <i>subukan</i> ang kahit anong solusyon na gusto mo)
+</words>
+
+<words id="complex_cascade_end">
+	<next wiggle>WOW, AKO NA <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+	Ngayon, maaari mong isipin na kailangan mo lamang magdagdag ng mga koneksiyon upang mapakalat ang mga contagion,
+	"complex" o "simple", mabuti or masama, makatarungan or baliw.
+	Pero yun nga ba yon? Bisitahin muli natin ang...
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle>...isa pang nauunang puzzle <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_prevent">
+	Kapag pinindot mo ang "start" sa ibaba, ang complex contagion <icon name="blue"></icon> ay kakalat lamang sa lahat.
+	Yun lang.
+	Pero ngayon, gawin naman natin ang <i>kabaliktaran</i> ng lahat ng nagawa natin:
+	<b>gumuhit ng network upang <i>hindi</i> mapahawa ng contagion ang lahat! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+	Nakita mo?
+	Habang nakaktulong ang maraming koneksiyon sa pagpapkalat ng mga <i>simpleng</i> ideya,
+	<b>ang mas maraming koneksiyon ay nakakapagsakit sa mga <i>complex</i> na ideya!</b>
+	(halos nakakapagisip ito ng katulad sa internet, hm?)
+	Hindi lang ito isang teoretikal na problem. Maaari itong maging bagay ng buhay...
+</words>
+
+<words id="complex_prevent_end">
+	<next wiggle>...o kamatayan. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_groupthink">
+		
+	Lahat ng tao sa NASA ay matatalino.
+	Sa bagay, ginamit rin nila ang mga teorya ni Newton para mapadala nila tayo sa Moon.
+	Anyways, long story short, noong 1986,
+	<i>sa kabila ng mga babala mula sa mga inhinyero</i>,
+	inilaunch pa rin nila ang <i>Challenger</i>,
+	kung saan 7 tao ang namatay sa pagkasabog nito.
+	Ang agarang dahilan: 
+	masyadong malamig noong umagang iyon.
+
+	<div style="height:0.9em"></div>
+
+	Ang hindi kasing agarang dahilan: hindi pinansin ng mga manager ang mga babala ng mga inhinyero.
+	Bakit? Ito ay dahil sa <b>groupthink</b><ref id="groupthink"></ref>.
+	Kapag ang isang grupo ay  <i>masyadong</i> konektado, (kung saan madalas sila sa matataas na institusyon)
+	mas lumalaban sila sa mga complex na ideya na humahamon sa kanilang paniniwala o pagkamakaako.
+
+	<div style="height:0.9em;line-height: 100px;"></div>
+
+	Pero paano ba natin makakagdesign para sa tauhan ng <i>karunungan?</i>
+	
+	<next style="top: 600px;left: 100px;">Bonding at Bridging <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+	&larr; Masyadong kaunting koneksiyon, at hindi kakalat ang isang ideya.
+	at kabaliktaran. <div class="rarr"></div> 
+</words>
+
+<words id="bonding_2">
+	<b>
+	Gumuhit ka ng grupo kung saan maaaring kumalat ang complex na ideya!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+	Simple lang!
+	Ang bilang ng mga koneksiyon <i>sa loob</i> ng isang grupo ay itinatawag na <b>bonding social capital</b><ref id="social_capital"></ref>.
+	Pero paano naman ang mga koneksiyon...
+	<next wiggle>...<i>sa pagitan</i> ng mga grupo?</next>
+</words>
+
+<words id="bridging_1">
+	, 
+	ang bilang ng mga koneksiyon sa <i>pagitan</i> ng mga grupo ay itinatawag na
+	<b>bridging social capital</b>.
+	Mahalaga ito, dahil nakakatulong ito sa mga grupo upang makaalis sila sa kanilang insular echo chambers!
+	<br>
+	<b>Gumawa ka ng bridge, upang "mahawa" mo ang lahat gamit ang complex na karunungan:</b>
+</words>
+
+<words id="bridging_end">
+	Katulad ng bonding, mayroong "sweet spot" sa pag=bibridge, din.<ref id="bridge"></ref>
+	(isa pang challenge: subukan mong gumuhit ng bridge na sa sobrang kapal, na hindi kakayanin ng complex contagion na
+	<i>makalagpas</i> ito!)
+	Dahil alam na nating magdesign ng mga koneksiyon sa <i>loob</i> at sa <i>pagitan</i> ng mga grupo, subukan nating...
+	<next wiggle>...gawin ang PAREHO!</next>
+</words>
+
+<words id="bb_1">
+
+	<b style="font-size:2em">PINAKA LAST NA PUZZLE!</b>
+	<br>
+	Gumuhit ka ng koneksiyon sa loob ng mga grupo  at sa pagitan ng mga grupo 
+	upang maikalat ang katarungan sa buong tauhan!:
+
+</words>
+<words id="bb_2">
+
+	Congrats, nakapag guhit ka ng isang espesyal na network!
+	Ang mga network na may tamang halo ng bonding at bridging
+	ay napakaimportante, at sila ay itinatawag na...
+	<next wiggle>“Small World Networks” <div class="rarr"></div> </next>
+
+</words>
+<words id="bb_small_world_1">
+
+	<i>"Pagkakaisa nang walang pagkakapareho". "Dibersidad na walang dibisyon". "E Pluribus Unum: out of many, one".</i>
+	<br>
+	Sa kahit ano mang paraang sabihin,
+	Ang mga tao ay madalas na dumadating sa parehong piraso ng karunungan:
+	<b>
+	ang isang mabuting lipunan ay nangangailangan ng tamang bilang ng bonds sa <i>loob</i> ng mga grupo
+	at bridges sa <i>pagitan</i> ng mga grupo.
+	</b>
+	Iyon ang:
+
+</words>
+<words id="bb_small_world_2">
+	Hindi ito...
+	<br>
+	(dahil hindi kayang kumalat ang ideya)
+</words>
+<words id="bb_small_world_3">
+	hindi rin to...
+	<br>
+	(dahil makakakuha ka ng groupthink)
+</words>
+<words id="bb_small_world_4">
+	...kundi <i>ITO:</i>
+</words>
+<words id="bb_small_world_5">
+	
+	Ang mga network scientists ngayon ay mayroon nang matematikal na kahulugan para sa karunungang ito:
+	ang <b>small world network</b><ref id="small_world"></ref>.
+	Itong tamang halo ng bonding+bridging ay naglalarawan kung paano
+	konektado ang ating mga neurons<ref id="swn_neurons"></ref>,
+	nakakapaglaki ng kolektibong pagkamalikhain<ref id="swn_creativity"></ref>
+	at ang kakayahang maghanap ng solusyon sa problema<ref id="swn_social_physics"></ref>,
+	nakapagpatulong nga ito kay US President John F. Kennedy para (muntikan) iwasan ang nuclear war!<ref id="swn_jfk"></ref>
+	Kaya oo, mahalaga nga ang maliliit na mundo.
+
+</words>
+<words id="bb_small_world_end">
+	<next>ok, tapusin na natin to... <div class="rarr"></div> </next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+	(pst... gusto mong malaman ng sikreto?<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+	Contagion:
+</words>
+<words id="sandbox_contagion_simple">
+	simple
+</words>
+<words id="sandbox_contagion_complex">
+	complex
+</words>
+<words id="sandbox_color_chooser">
+	Ang Kulay Ng Contagion:
+</words>
+<words id="sandbox_tool_chooser">
+	Pumili ng tool...
+</words>
+
+<words id="sandbox_tool_pencil">
+	Gumuhit Ng Network
+</words>
+<words id="sandbox_tool_add">
+	Dagdagan Ng Tao
+</words>
+<words id="sandbox_tool_add_infected">
+	Dagdagan ang "Infected"
+</words>
+<words id="sandbox_tool_move">
+	Idrag Ang Tao
+</words>
+<words id="sandbox_tool_delete">
+	Tanggalin Ang Tao
+</words>
+<words id="sandbox_tool_clear">
+	<b>BURAHIN ANG LAHAT</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+	(...o, gumamit ng keyboard shortcuts!)
+</words>
+
+<words id="sandbox_shortcuts">
+	[1]: Dagdagan Ng Tao &nbsp;&nbsp;&nbsp; [2]: Dagdagan ang "Infected"
+	<br>
+	[Space]: Drag &nbsp;&nbsp;&nbsp; [Backspace]: Delete
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+	
+	<div style="font-size: 30px; top: 1px;">
+		KONKLUSIYON: tungkol ito sa...
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 76px;
+	    top: 10px;
+	    line-height: 100px; display:block;
+	">
+	    Contagions at Connections
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 75px;
+	    left: 250px;
+	">
+		<b>Contagions:</b>
+		Katulad ng kung paano magpasa ng impormasyon ang neurons sa loob ng utak,
+		nagpapasapasa ang mga tao ng paniniwala at pag-uugali sa lipunan.
+		Hindi lang natin iniimpluwensiya ang ating kaibigan,
+		iniimpluwensiya na rin natin ang kaibigan ng ating kaibigan, at pati na rin ang kaibigan ng kaibigan ng ating kaibigan<ref id="three_degrees"></ref>
+		(“be the change you wanna see in the world” blah blah blah)
+		Pero, katulad ng neurons, hindi lang ang mga signals ang importante, kundi pati na rin ang...
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 275px;
+	    left: 250px;
+	">
+		<b>Connections:</b>
+		Hindi kumakalat ang mga ideya kung kakaunti ang mga koneksiyon.
+		Masyadong <i>maraming</i> koneksiyon at madadapurak naman ng Groupthink ang complex na ideya.
+		Ang trick dito ay bumuo ng small world network, ang tamang halo ng
+		bonding at bridging: <i>e pluribus unum.</i>
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #999;
+	">
+		(gusto mong gumawa ng sariling simulations?
+		tignan mo ang Sandbox Mode, sa pamamagitan ng pagclick ng (★) button sa ibaba!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+		Ngayon, paano naman ang ating tanong sa pinaka umpisa?
+		Bakit <i>nga ba</i> ang ibang tao ay tumatalikod sa...
+	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 500px;
+	    right: 0px;
+	">
+		<next>...karunungan at/o kabaliwan?</next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+		Mula Newton hanggang NASA hanggang
+		network science,<br> marami tayong itinalakay
+		ngayon. Long story short, ang kabaliwan ng mga tao
+	
+		ay hindi palagi nanggagaling sa mga <i>indibidwal na tao</i>, kundi
+		<br>
+		sa paano inipit sa sapot ng network.
+
+		<div style="height:0.9em"></div>
+
+		Ito ay <i>HINDI</i> nangangahulugang na iwanan ang personal na responsibilidad, sapagkat
+		tayo rin ang mga <i>manghahabi</i> ng sapot na iyon. Ngayon, ipabuti ang mga contagions:
+		maging mapag-aalinlangan sa mga ideya na nagpaparangal sa iyo<ref id="flatter"></ref>, intindihin ng mabuti ang mga
+		<br>
+		complex na ideya. At, ipabuti ang iyong mga koneksiyon: magbond sa mga katulad ng mga
+		tao, pero bumuo rin ng mga bridges sa kabuuan ng cultural/politikal na mga pagkahati.
+
+		<div style="height:0.9em"></div>
+
+		Pwede tayong maghabi ng makatarungang sapot. Oo, mas mahirap iyon kaysa magguhit
+		<br>
+		 ng mga linya sa kompyuter...
+
+		<next>...pero, worth it parin ito.</next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+		“Ang mga dakilang tagumpay at trahedya ng kasaysayan ay sanhi,
+    hindi sa pamamagitan ng mga tao na sa panimula ay mabuti o sa panimula ay masama,
+    kundi sa pamamagitan ng mga tao na sa panimula ay mga tao”
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Neil Gaiman at Terry Pratchett
+	<div style="height:0.8em"></div>
+	<next small>&lt;3</next>
+</words>
+
+<!-- Credits --> 
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+	
+		<span style="color:#777; position:relative; top:5px;">
+			iginawa ni</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			 iba ko pang laro</a> ·
+		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
+			i-follow mo ako sa twitter</a>
+		
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			maraming pagmamahal at pasasalamat sa</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			 AKING PATREON SUPPORTERS</div>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+			tulungan mo akong gumawa pa ng mga bagay tulad nito! &lt;3</a>
+		<br>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			tignan ang aking supporters</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			tignan ang aking playtesters</a>
+
+		<br><br>
+
+		<span style="display: inline-block; margin-top: 15px;">
+			♫ music ay
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" and "Friends 2068"</a>
+			ni Komiku
+			<br>
+			&lt;/&gt; <i>Crowds</i> ay
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				fully open source</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	WIN
+</words>
+<words id="sim_start">
+	start simulation
+</words>
+<words id="sim_stop">
+	reset &amp; re-draw
+</words>
+<words id="translations_exist">
+	Fan-made translations:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	What the, no fan-made translations exist yet?!
+</words>
+<words id="translations_add">
+	(add your own!)
+</words>
+<words id="translations_original">
+	<!-- No need to translate this, because, I assume, -->
+	<!-- if someone wants to play the game in English, they can read English -->
+	(original in English)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+	Isang madaliang tugon sa libro ni James Surowiecki na <i>The Wisdom of Crowds</i>
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+	
+	Unang una, hindi ko inaaayaw ang 
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	librong ito.</a>
+	Maganda ang librong ito, at si Surowiecki ay humaharap rin sa katulad lang na tanong:
+	<b>“bakit ang ibang tao ay lumiliko sa kabaliwan at/o karunungan?”</b>
+
+	<br><br>
+
+	Ang sagot ni Surowiecki: gumagawa ng mabubuting desisyon ang mga tao kapag sila ay nag-iisa lamang.
+	Mayroon siyang kwento ukol sa isang county fair,
+	kung saan ang mga tao ay imbitado upang hulaan ang timbang ng isang kalabaw.
+	Nakakagulat, ang average ng <i>lahat</i> ng kanilang hula ay mas malapit kaysa sa <i>iisang</i> hula</i>.
+	Pero, ito nga lang: kailangan nilang hulaan ng <i>magkahiwalay</i> sa kanila.
+	Dahil kung hindi,
+	maiimpluwensiyahan sila ng mga maling sagot,
+	at ang tamong sagot ay mas palayo nang palayo sa kanilang sagot.
+
+	<br><br>
+
+	Pero... hindi ko iniisip na ang "maghiwalay ng mga tauhan" ang buong sagot.
+	Kahit ang mga henyo, mga taong iniisip natin na nag-iisip ng mag-isa,
+	ay na iimpluwensiyahan rin ng iba. Katulad lang ng sinabi ni Sir Isaac Newton,
+	<i>“Kung nakakita pa ako, ito ay sa pamamagitan ng pagtayo sa mga balikat ng mga Higante.”</i>
+
+	<br><br>
+
+	Ngayon, aling ideya ba ang tama?
+	Nanggagaling ba ang karunungan sa pag-iisip ng mag-isa, o kapag kasama ang iba?
+	Ang tamang sagot: "oo".
+
+	<br><br>
+
+	Kaya yun ang isinusubukan kong ipaliwanag sa larong ito:
+	kung paano makakakuha ng "sweet spot" sa pagitan ng pagsasarili at pagdepende sa iba &mdash;
+	iyon ang, kung papaanong makakuha ng makatarungang tauhan.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+	Anu-ano pa bang klaseng koneksiyon ang meron?
+	</h3>
+
+	<div>
+
+	Para magawan nating simple,
+	ang aking mga simulations ay nagpapanggap na ang mga tao ay konektado lamang sa pagkakaibigan,
+	at ang lahat ng pagkakaibigan ay pantay.
+	Ngunit ang mga network scientists <i>ay</i> isinasaalang-alang ang iba pang parran kung paano tayo konektado, tulad ng:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Direksyonal na koneksyon.</b> Si Alice ay ang boss ni Bob, pero hindi boss ni Alice si Bob.
+	Si Carol naman ang magulang ni Dave,pero hindi naman magulang ni Carol si Dave.
+	"Boss" at "parent" ay ang <i>direksyonal</i> na mga relasyon:
+	ang kanilang relasyon ay tanging napupunta lamang sa iisang paraan.
+	Sa kabila naman, ang "kaibigan" ay isang <i>"bidirectional"</i> na relasyon:
+	 ang relasyon ay napupunta sa parehong paraan.(well, sana nga lang)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Tinimbang na Koneksyon.</b> Sina Elinor ay Frankie ay normal lamang na kaibigan.
+	Sina George at Harry naman ay Best Friends Forever.
+	Kahit mayroong parehong "pagkakaibigan" na koneksyon, ang pangalawa ay mas malakas.
+	Isinasabi natin na ang dalawang koneksyon na ito ay may magkakaibang "timbang."
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Tandaan mo lang: <b>itong mga simulation ay mali.</b> Katulad ng kung paano "mali" ang isang mapa.
+	Nakikita mo ba ang kaliwang bahagi ng mapa? Di naman gray na kahon ang mga gusali diyan, ah!
+	Walang lumulutang na salita sa ibabaw ng ciudad! Pero, ang mga mapa ay makapaki-pakinabang hindi <i>dahil</i> sila ay pinasimple,
+	kundi <i>dahil</i> sila ay pinasimple nga. Pareho lang iyan sa mga simulations, o kahit anong siyentipiko na teorya.
+	<i>Siyempre</i> mali sila &mdash; iyon ang dahilan kung bakit sila <i>mapaki-pakinabangan</i>.
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	Anu-ano pa bang klaseng contagions ang meron?
+	</h3>
+
+	<div>
+	
+	Napakarami ang mga klase ng contagions na pwedeng gamitin ng mga network scientists sa pagsisimulate ng "contagions"!
+	Ipinili ko ang pinakasimple, para sa mga layuning pang-edukasyon.
+	Pero ito ang mga iba pang paraan:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Contagions na Randomness</b>.
+	Ang pagiging "exposed" sa isang contagion ay hindi <i>garantisadong</i> nagpapahawa sa iyo,
+	ginagawa lamang itong <i>halos</i>.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Iba-iba ang mga contagion thresholds ng mga tao.</b> 
+	Ikinukunwari ng aking mga simulations na magkakamukha lamang ang thresholds para sa mga lasinggero (50%) o
+	pagiging boluntero (25%) o maling impormasyon (0%). 
+	Syempre, hindi yan totoo sa totoong buhay, at pwedeng magsalamin dito ang sim.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Isang ekolohiya ng contagions.</b>
+	Paano kung mayroong <i>maramihan</i> na contagions, na may <i>magkakaibang</i> thresholds?
+	Halimbawa, ang simpleng "kabaliwan" na contagion at ang complex na "karunungang" contagion.
+	Kung ang isang tao ay nahawa ng kabaliwan, maaari pa ba silang mahawa ng karunungan?
+	at vice versa?
+	Maaari bang mahawa ng isa sa pareho?
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Contagions na nagbabago.</b>
+	Hindi perpektong kumakalat ang mga ideya sa ibang tao tulad kung paanong kumalat ang sakit.
+	Tulad ng laro na Telephone, ang mensahe ay napapaiba sa bawat muling pagsasabi &mdash;
+	at paminsan-minan, mas kumakalat ang bagong ideya kasya sa dati!
+	Kaya, sa ilang panahon, ang mga ideya ay "nagbabago" upang ito ay maging catchy, pwedeng gayahin, at nakakahawa.
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+	
+	<h3>
+	Gusto ko pang matuto! Anu-ano pa ba ang pwede kong basahin/laruin?
+	</h3>
+	
+	<div>
+	
+	Ang paliwanag na ito ay isang pambuwelo para sa iyong kuryusidad,
+    kaya maaari kang sumisid ng mas malalim sa isang malawak na pool ng kaalaman!
+    Narito ang higit pang mga bagay sa mga network o mga social system:
+
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Libro:</b>
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>
+	ni Nicholas Christakis at James Fowler (2009).
+	Isang turismo sa kung papaano ang mga networks ay nag-aapekto sa ating buhay, para sa ikabubuti o ikasasama.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	Ito ay isang excerpt: Paunang Salita at Unang Kabanata
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interactive:</b>
+	<a target="_blank" href="http://ncase.me/trust/">
+	Ang Pagbabago ng Pagkatiwala </a> ni Nicky Case (ako) (2017).
+	Isang laro ukol sa larong teorya sa kung paano nabubuo ang kooperasyon... o kung paano sirain ito.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interaktibo:</b>
+	<a target="_blank" href="http://ncase.me/polygons/">
+	Parabula ng mga Polygons</a> ni Vi Hart at Nicky Case (ako rin) (2014).
+	Isang kwento ukol sa kung paanoang ang mga di-nakakapinsalang desisyon ay maaaring lumikha ng isang mapanganib na mundo .
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	O, kung gusto mo lang makakita ng isang buong galerya ng interaktibo na edu-things, ito ang
+	<a target="_blank" href="http://explorabl.es/">
+	Explorable Explanations</a>,
+	isang hub para sa pag-aaral habang naglalaro!
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+	“lahat ng mga [kolehiyo] na estudyante ang nakainom ng mas marami kumpara sa kanilang mga kaibigan.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	“Mga Bias sa pananaw ng mga pamantayang pag-iinom sa mga kolehiyong estudyante”</a> ni Baer et al (1991)
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+	“Ang Majority Illusion”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	“Ang Majority Illusion sa Social Networks”</a> by Lerman et al (2016).
+	<br>
+	Related: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+	Ang Friendship Paradox</a>.
+	</div>
+</reference>
+<reference id="contagion">
+	
+	<h3>
+	“Mayroong malakas na statistikal na ebidensya <ref id="contagion"></ref> na
+	ang pagsisigarilyo, kalusugan, kasiyahan, paraan ng pagboboto, at lebel ng kooperatiba
+	ay "contagious" o nakakahawa”
+	</h3>
+
+	<div>
+	
+	mula kay Nicholas Christakis at James Fowlerm
+	isang napakaganda at napakatalinong libro,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009). 
+
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+	“ebidensya na ang mga suicides ay [nakakahawa], rin”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	“Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop”</a>
+	ni O'Carroll et al (1994), inendorso ng Centers for Disease Control &amp; Prevention (CDC).
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+	“ebidensya na ang mass shootings ay [nakakahawa], rin”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	“Contagion in Mass Killings and School Shootings”</a> ni Towers et al (2015).
+
+	<br><br>
+
+	Tignan rin: ang
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Don't Name Them</a> campaign,
+	kung saan hinihimok nito ang mga news outlets na <i>HUWAG</i> ipakita ang mga pangalan ng air mass murderers, manifestos, at social media feeds.
+	Nagpapakalat lamang ito ng contagion.
+	Sa halip, dapat ituon ng pansin ng mga news outlets sa mga biktima, unang responders, sibilyan na bayani,
+	at ang gumagaling na komunidad.
+
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+	“Nadamay din ang mga pinansyal na institusyon sa buong mundo noong 2008”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	“Lemmings of Wall Street”</a> ni Cass Sunstein, ay isang pabilisang, hindi teknikal na pagbabasa.
+	Napublish noong Oct 2008, sakto sa pag-crash.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+	“ang complex contagion theory.”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	“Threshold Models of Collective Behavior”</a> ni Granovetter (1978)
+	ang unang beses, sa alam ko, na ang naglarawan ng "complex contagion" model.
+	(pero hindi pa niya ginamit ang pangalang iyon)
+
+	<br><br>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> ni Centola at Macy (2007)
+	nilikha ang parirala na "complex contagion", at
+	at ipiknakita ang mahahalagang pagkakaiba sa pagitan nito at ang "simple contagion".
+
+	<br><br>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	“Evidence for complex contagion models of social contagion from observational data”</a>
+	ni Sprague at House (2017)
+	ipinakita na ang mga complex contagions, sa katotohanan, ay umiiral. (at least, sa social media na datos na ipinag tignan nila)
+
+	<br><br>
+
+	Finally,
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	“Universal behavior in a generalized model of contagion”</a> ni Dodds at Watts (2004)
+	nagpopropose ng model nagpapaisa sa <i>lahat</i> ng klase ng contagions: 
+	simple at complex, biological at social!
+
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+	“ang possum ay may 13 na utong”
+	</h3>
+	<div>
+	nakaayos sa isang pabilog 12 na utong , at isa sa gitna
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+	“groupthink”
+	</h3>
+
+	<div>
+	Itong Orwell-inspired na parirala ay inilikha ni Irving L. Janis noong 1971.
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	Ayon sa kaniyang orihinal na artikulo</a>,
+	Si Janis ay nag-iimbestiga ng mga kaso ng groupthink,inilista ang mga dahilan, at &mdash; mabuti nalang &mdash;
+	ilang posibleng mga remedyo.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+	“bonding at bridging social capital”
+	</h3>
+
+	<div>
+	Ito ang dalawang klase ng social capital &mdash; "bonding" at "bridging" &mdash;
+	inilikha ni Robert Putnam sa kaniyang 2000 na libro,
+	<a target="_blank" href="http://bowlingalone.com/">
+	Bowling Alone</a>. His discovery:
+	across almost <i>all</i> empircal measures of social connectiveness,
+	Americans are more alone than ever.
+	Golly.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+	“bridging social capital ay mayroong 'sweet spot'”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	“The Strength of Weak Ties”</a> ni Granovetter (1973)
+	ipinakita na ang mga koneksyon sa mga grupo ay nakakatulong sa pagkalat ng simpleng contagions (tulad ng impormasyon),
+	pero
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> ni Centola at Macy (2007)
+	ipinakita na ang mga koneksyon sa mga grupo ay hindi nakakatulong sa mga complex na contagions,
+	at maaari pang, mapasagabal sa kanilang pagkalat!
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+	“ang small world network”
+	</h3>
+
+	<div>
+
+	Ang ideya na "small world" ay iginawa ni
+	<a target="_blank" href="http://www.jstor.org/stable/2786545"> 1968 na experiment ni Travers at Milgram </a>,
+	kung saan ipinakita nito na, on average, kahit sinong dalawang tao sa Estados Unidos
+	ay magkakahiwalay sa 6 na pagkakaibigan lamang &mdash; "six degrees of separation"!
+
+	<br><br>
+
+	Ang small-world network ay mas nagiging matematikal sa
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	“Collective dynamics of small-world networks”</a> ni Watts at Strogatz (1998),
+	kung saan gumawa ng isang algorithm sa paggawa ng networks
+	na may parehong mababang average na path length (low degree of separation)
+	at mataas na pagkakakumpol (friends have lots of mutual friends) &mdash;
+    iyon, ang isang network na sakto lang!
+
+	<br><br>
+
+	Pwede mo rin laruin ang
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	ang visual, interactive na pagbagay na papel</a> ni Bret Victor (2011).
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+	“[small world networks] ay naglalarawan kung paano konektado ang ating neurons”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	“Small-world brain networks”</a> ni Bassett &amp; Bullmore (2006).
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+	“[small world networks] nagpapataas ng kolektibong pagkamalikhain”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	“Collaboration and Creativity: The Small World Problem”</a> ni Uzzi &amp; Spiro (2005).
+	Itinalakay ng papel na ito ang social network ng Broadway scene sa paglipas ng panahon,
+	at nadiskubre na, oo, ang network napakamalikhain kapag ito ay isang "small world" network!
+
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+	“[small world networks] ay nagpapataas sa antas ng paghahanap ng solusyon sa problema”
+	</h3>
+
+	<div>
+	See
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	“Social Physics”</a> ni MIT Professor Alex "Sandy" Pentland (2014)
+	para sa batay sa datos na pagtatalakay sa kolektibong katalinuhan.
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+	“[small world networks] ay nakatulong kay John F. Kennedy (muntikan) na makaiwas sa nuclear war!”
+	</h3>
+
+	<div>
+
+	Maliban sa pagkasabog ng NASA Challenger, ang pinakakilalang halimbawa ng groupthink
+	ay ang Bay of Pigs invasion.
+	Noong 1961, si US President John F. Kennedy at ang kaniyang mga advisors ay inisip 
+	&mdash; sa ewan ko nalang na dahilan &mdash;
+	na isang mabuting ideya para sikretong salakayin ang Cuba at tanggalin si Fidel Castro.
+	Pumalpak sila.
+	Actually, mas malala kaysa pumalpak: ito ang nagdulot ng Cuban Missile Crisis noong 1962,
+	<i>ang pinakamalapit sa buong mundo na magkaroon ng nuclear war.</i>
+
+	<br><br>
+
+	Oo, pumalpak talaga diyan si JFK.
+
+	<br><br>
+
+	Pero, pagkatuto niya sa mga aral mula sa Bay of Pigs invasion,
+    iniayos niya ang kaniyang pangkat upang maiwasan ang groupthink.
+	Bukod sa maraming bagay, siya ay:
+	1) aktibong naghihikayat sa mga tao na magsalita ng panunuya,
+	kaya binabawasan ang "contagion threshold" para sa alternatibong mga ideya.
+    At
+	2) hiniwalay niya ang kanyang pangkat sa mga sub-group bago bumuo muli,
+    na nagbigay sa kanilang grupo ng isang "maliit na network ng mundo" na tulad ng disenyo!
+    Sama-sama, ang pag-aayos na ito ay nagpadaan para sa isang malusog na pagkakaiba-iba ng opinyon,
+    ngunit hindi masyadong nabali & mdash; isang karunungan ng mga tauhan.
+
+	<br><br>
+
+	At sa huli, kasama ang dating mga <i>indibidwal</i> na naging desido sa Bay of Pigs,
+	pero nagbago <i>kolektibong</i> magdesisyon sa Cuban Missile Crisis...
+	Ang pangkat ni JFK ay nagkaroon ng isang mapayapang kasunduan sa lider ng Sobyet na si Nikita Khrushchev.
+	Inalis ng mga Sobyet ang kanilang mga missiles mula sa Cuba, at bilang kapalit,
+    ipinapangako ng US na huwag lusubin muli ang Cuba.
+	(at sumang-ayon rin, sa lihim, upang alisin ang mga missiles ng US mula sa Turkey)
+
+	<br><br>
+
+	At iyan ang kuwento kung paano muntikang mamatay ang lahat ng tao sa mundo.
+	Ngunit isang maliit na network ng mundo ang nagligtas sa lahat! Medyo.
+
+	<br><br>
+
+	Pwede mo pang basahin ukol dito
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	sa Harvard Business Review</a>,
+	o sa
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	sa orihinal na  artikulo ng groupthink</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+	“iniimpluwensiyahan natin [...] ang kaibigan ng kaibigan ng ating kaibigan!”
+	</h3>
+
+	<div>
+	Muli, galing sa libro nina Nicholas Christakis at James Fowler,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+	“maging mapag-aalinlangan sa mga ideyang nagpapalaki sa iyo”
+	</h3>
+	<div>
+	oo, pati na ang mga ideyang sa loob <i>nitong</i> pagpapaliwanag.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	★ Sandbox Mode ★
+	</h3>
+
+	<div>
+	Ang mga keyboard shortcuts (1, 2, space, backspace)
+	ay gumagana sa <i>lahat</i> ng puzzles, hindi lang sa Sandbox Mode!
+	Seryoso, pwede mong balikan ang mga nauunang kabanata,
+	at i-edit ang simulation doon.
+	Sa katunayan, yan ang kung paano <i>ko</i> ginawa ang lahat ng puzzles. Have fun!
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+	Sa minamahal kong Patreon supporters:
+	Ang iyong kabutihang-loob ay <i>literal</i> na nagpapakain sakin at nakakapagbayad sa aking upa..
+	Kayo ang nagbibigay sa akin ng kalayaan para makagawa ng mga weird at educational na laro tulad na ito,
+	kaya, mula sa lalim ng aking puso, salamat. &lt;3
+	<br>
+	<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+		(gusto mo kong suportahang gumawa pa ng laro? i-check mo ang aking Patreon!)</a>
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+	Maraming salamat, sa lahat na nag-playtest ng <i>Tauhan</i>
+	sa panahon ng maraming yugto ng buhay nito!
+	
+	<br><br>
+	<b>Ang Prototype:</b>
+	<br>
+	Maria ·
+	Monica Srivastava
+
+	<br><br>
+	<b>Ang Alpha:</b>
+	<br>
+	Glen Chiacchieri ·
+	Kalli Repzeti ·
+	Mali Akmanalp ·
+	Toph Tucker
+
+	<br><br>
+	<b>Ang Beta:</b>
+	<br>
+	Alex Dytrych ·
+	Amit Patel ·
+	Cassandra McClure ·
+	Catherine Ray ·
+	Josh Comeau ·
+	Kayle Sawyer ·
+	Matthew Conlen ·
+	Srini Kadamati ·
+	Vanessa Shen ·
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+
+And that's it! That's the last of what needed to a TRANSLATE
+
+Thank you so, so much for doing this again, wow.
+
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+
+-->
