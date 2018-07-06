@@ -1,0 +1,1707 @@
+<!--
+
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+
+- - - - - - - - - - -
+
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 3600+ WORDS to translate, including
+the Bonus Boxes and References.
+
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+
+Good luck, and thanks again!
+
+<3,
+~ Nicky Case
+
+-->
+
+<!DOCTYPE html>
+<html lang="el"> <!-- lang="(TRANSLATE: set your language code here, same as the page name!) e.g: es, es-ES, pt-BR, ja, it, fr-CA, de, ..." -->
+<head>
+
+	<!-- Meta Info -->
+	<title>Η Σοφία και/ή Τρέλα του Πλήθους</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="ένας διαδραστικός οδηγός των ανθρώπινων δικτύων"/> <!-- content="(TRANSLATE this part only)" -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/cs.html"    hreflang="cs">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="Η Σοφία και/ή Τρέλα του Πλήθους"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="ένας διαδραστικός οδηγός των ανθρώπινων δικτύων"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="Η Σοφία και/ή Τρέλα του Πλήθους"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="ένας διαδραστικός οδηγός των ανθρώπινων δικτύων"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="Η Σοφία και/ή Τρέλα του Πλήθους"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="ένας διαδραστικός οδηγός των ανθρώπινων δικτύων"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=7">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">παράλειψη &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">⨯</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on">ON</span> <!-- TRANSLATE -->
+			<span id="sound_off">OFF</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			Η Σοφία και/ή Τρέλα του Πλήθους <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Γιατί τα πλήθη ανθρώπων συμπεριφέρονται έξυπνα, χαζά, ευγενικά ή βάναυσα; Ένας διαδραστικός οδηγός των ανθρώπινων δικτύων: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Εισαγωγή</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Σχέσεις</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Μεταδόσεις</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Περίπλοκες Μεταδόσεις</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Δεσμοί &amp; Γέφυρες</span> <!-- note: &amp; is html for the "and" sign -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. Μικρός ο Κόσμος</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. Συμπέρασμα...</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Ευχαριστίες</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>★</span>
+				<span>★ Sandbox Mode! ★</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Κι άλλα κουτιά!</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Σύνδεσμοι &amp; Πηγές</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">あ</span></span>
+				<span>Μεταφράσεις</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>φόρτωση...</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/inobounce.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js?v=5"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js?v=5"></script>
+
+<script src="js/sim/Peep.js?v=2"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js?v=2"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!--
+
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span>η</span>
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">ΣΟΦΙΑ</span>
+		<span style="position:relative;top: -10px;">και/ή</span>
+		<span style="font-size: 60px;">ΤΡΕΛΑ</span>
+		<br>
+		<span style="position: relative;top: -11px;">του</span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">ΠΛΗΘΟΥΣ</span>
+	</div>
+
+	<div style="color:#999">
+		<!-- TRANSLATE note: comment out the line below... -->
+		<!--playing time: 30 min • by nicky case, april 2018-->
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		 από τον nicky case • μετάφραση από: Χριστίνα Ρουμελιώτη • <a href='.'>πρωτότυπο στα Αγγλικά</a>
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	φόρτωση...
+</words>
+
+<words id="preloader_play">
+	Ας παίξουμε! <div class="rarr"></div>
+</words>
+
+<!-- Introduction -->
+<!--
+
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+
+-->
+
+<words id="intro">
+
+	<br><br>
+
+	Ο Σερ Ισαάκ Νεύτωνας ήταν αρκετά σίγουρος για την
+	<br>
+	εξυπνάδα του. Εξάλλου, ανακάλυψε το μαθηματικό λογισμό και
+	<br>
+	μια θεωρία για τη βαρύτητα. Θα ήταν λοιπόν αρκετά έξυπνος για να ασχοληθεί με
+	<br>
+	λίγες χρηματοοικονομικές επενδύσεις, σωστά; Τελικά, ωστόσο, έχασε
+	<br>
+	$4,600,000 (σε σημερινά δολάρια) στην πανεθνική κερδοσκοπική
+	<br>
+	μανία, τη φούσκα της South Sea Company το 1720.
+
+	<br><br>
+
+	Όπως είπε αργότερα ο Νεύτωνας: <i>“Μπορώ να υπολογίσω την κίνηση των
+	<br>
+	ουράνιων σωμάτων, αλλά όχι την τρέλα των ανρθώπων.”</i>
+
+	<next>καλά να πάθει <div class="rarr"></div> </next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+
+	Φυσικά, αυτή δεν είναι η μοναδική περίπτωση που
+	<br>
+	αγορές, θεσμοί, ή ολόκληρες
+	<br>
+	δημοκρατίες εκτροχιάστηκαν &mdash; της <i>τρέλας</i> του
+	<br>
+	πλήθους. Ωστόσο, τη στιγμή που χάνεις την πίστη σου στην ανθρωπότητα,
+	<br>
+	βλέπεις πολίτες να συνεργάζονται για να σώσουν ο ένας τον άλλο σε
+	<br>
+	τυφώνες, κοινότητες να δίνουν οι ίδιες λύσεις σε προβλήματα,
+	<br>
+	ανθρώπους να μάχονται για έναν καλύτερο κόσμο &mdash; την <i>σοφία</i> του πλήθους!
+
+	<div style="height:0.9em"></div>
+
+	<b>Αλλά <i>γιατί</i> κάποια πλήθη στρέφονται προς την τρέλα ή τη σοφία;</b> Καμιά θεωρία
+	<br>
+	δε μπορεί να εξηγήσει τα πάντα, αλλά νομίζω ένας καινούργιος τομέας,
+	<br>
+	<b>η επιστήμη των δικτύων</b>, μπορεί να μας οδηγήσει! Η κύρια ιδέα είναι αυτή: για να
+	<br>
+	καταλάβουμε τα πλήθη, δεν πρέπει να κοιτάξουμε τα <i>μεμονωμένα
+	<br>
+	άτομα</i>, αλλά...
+
+	<next>...τις <i>σχέσεις τους.</i> <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>Ας ζωγραφίσουμε ένα δίκτυο!</b>
+	Κάθε σύνδεση αντιπροσωπεύει μια φιλία ανάμεσα σε δύο άτομα:
+</words>
+
+<words id="networks_tutorial_connect">
+	ζωγράφισε για να συνδέσεις
+</words>
+
+<words id="networks_tutorial_disconnect">
+	σβήσε για να&nbsp;&nbsp;&nbsp;αποσυνδέσεις
+</words>
+
+<words id="networks_tutorial_end">
+
+	όταν εξοικειωθείς με το μολύβι σου,
+	<next wiggle>ας συνεχίσουμε <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_threshold">
+
+	Οι κοινωνικές σχέσεις δεν υπάρχουν μόνο για να βγάζουμε ωραίες φωτογραφίες.
+	Τα άτομα <i>στρέφονται προς</i> τις κοινωνικές τους σχέσεις για να καταλάβουν τον κόσμο.
+	Για παράδειγμα, οι άνθρωποι εξετάζουν τους συνομίλικούς τους για
+	να δουν <b>τι ποσοστό των φίλων τους (εκτός από τους ίδιους)</b> είναι,
+	για παράδειγμα, μέθυσοι. <icon name="yellow"></icon>
+
+</words>
+
+<words id="networks_threshold_instruction">
+	<b>Ζωγράφισε/σβήσε συνδέσεις, και δες τι συμβαίνει! <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>ωραία, το κατάλαβα</next>
+</words>
+
+<words id="networks_pre_puzzle">
+	Ωστόσο, τα δίκτυα μπορούν να <i>εξαπατήσουν</i> τα άτομα.
+	Ακριβώς όπως η γη φαίνεται επίπεδη επειδή είμαστε πάνω της,
+	τα άτομα μπορεί να έχουν λανθασμένες ιδέες για την κοινωνία επειδή είναι <i>μέλη</i> της.
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		<i>προαιρετικά</i> έξτρα σημειώσεις! &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		&darr; σύνδεσμοι και πηγές
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+
+	<bon id="books"></bon>
+
+	<br>
+
+	Για παράδειγμα, μια έρευνα το 1991<ref id="drunk"></ref> έδειξε ότι
+	“σχεδόν όλοι οι φοιτητές ανέφεραν ότι οι συμφοιτητές τους πίνουν περισσότερο απ' ότι οι ίδιοι.”
+	Ακούγεται απίθανο!
+	Δε μπορεί να ισχύει.
+	Λοιπόν σύντομα θα καταλάβετε πως γίνεται ζωγραφίζοντας ένα δίκτυο.
+	Ώρα για...
+
+	<next>ΠΑΡΑΠΛΑΝΗΣΗ <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">PUZZLE TIME!</b>
+	<br>
+	Παραπλανήστε τους <i>όλους</i> ώστε να νομίζουν
+	ότι η πλειονότητα των φίλων τους (50% όριο) είναι μέθυσοι <icon name="yellow"></icon>
+	(ακόμα κι αν η αναλογία τους είναι μικρότερη κατά το ήμισυ!)
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>ΠΑΡΑΠΛΑΝΗΘΗΚΑΝ:</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	από 9 άτομα
+</words>
+<words id="networks_puzzle_end">
+	Συγχαρητήρια! Παραπλανήσατε μια ομάδα φοιτητών ώστε να νομίζουν ότι
+	μια πολύ κακή συνήθεια είναι πολύ πιο συχνή απ' ότι στην πραγματικότητα!
+	<next wiggle>...οκ. ευχαριστώ;</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+	Μόλις δημιουργήσατε την Ψευδαίσθηση της Πλειοψηφίας,<ref id="majority"></ref>,
+	η οποία επίσης εξηγεί γιατί οι άνθρωποι πιστεύουν ότι οι πολιτικές τους απόψεις είναι ομόφωνες,
+	ή γιατί ο εξτρεμισμός φαντάζει πολύ πιο συχνός απ' ότι είναι.
+	<i>Τρέλα.</i>
+
+	<bon id="connections"></bon>
+
+	Αλλά οι άνθρωποι όχι απλώς <i>παρατηρούν</i> τις ιδέες και συμπεριφορές των άλλων,
+	αλλά και τις <i>αντιγράφουν</i>.
+	Ας ρίξουμε λοιπόν μια ματιά σε αυτό που οι επιστήμονες αποκαλούν...
+
+	<next>Μεταδόσεις!” <div class="rarr"></div> </next>
+
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+	<i>Ας αφήσουμε το όριο για την ώρα.</i>
+	Κάτω: έχουμε ένα άτομο <icon name="red"></icon> με κάποιες πληροφορίες.
+	Κάποιες <i>λάθος</i>πληροφορίες. "Fake news", όπως λέμε.
+	Και κάθε μέρα, το άτομο αυτό διαδίδει τις πληροφορίες, σαν ιό στους φίλους του/της.
+	Αυτοί τις διαδίδουν στους <i>δικούς τους</i> φίλους, κ.ο.κ.
+	<br>
+	<b>
+	Εκκίνηση της προσομοίωσης! <div class="darr"></div>
+	(δε μπορείτε να ζωγραφίσετε <i>όσο</i> τρέχει η προσομοίωση)
+	</b>
+</words>
+
+<words id="simple_simple_2">
+	Σημείωση: παρά το αρνητικό όνομα, οι "μεταδόσεις"μπορούν να είναι καλές ή κακές (ή και ουδέτερες).
+	Τα στατιστικά αποδεικνύουν <ref id="contagion"></ref> ότι
+	το κάπνισμα, η υγεία, η χαρά, η ψήφος και τα επίπεδα συνεργασίας
+	είναι όλα "μεταδοτικά" --
+	όπως ακόμα και οι αυτοκτονίες<ref id="suicides"></ref> και οι μαζικοί πυροβολισμοί<ref id="shootings"></ref> επίσης.
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle>πολύ καταθλιπτικό <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_cascade">
+	Όντως.
+	Τέλος πάντων, <b>PUZZLE TIME!</b>
+	<br>
+	Φτιάξτε ένα δίκτυο &amp; κάνε την προσομοίωση,
+	ώστε <i>όλοι</i> να προσβληθούν από τη "μετάδοση".
+	<br>
+	(νέος κανόνας: δε μπορείτε να κόψετε τις <i>πυκνές</i> συνδέσεις)
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle>απίθανο! <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_post_cascade">
+	Η διάδοση της τρέλας αυτή λέγεται <b>"κυκεώνας πληροφοριών"</b>.
+	Ο Νεύτωνας παγιδεύτηκε σε έναν τέτοιο κυκεώνα το 1720.
+	Τα χρηματοπιστωτικά ιδρύματα του κόσμου παγιδεύτηκαν σε έναν τέτοιο κυκεώνα το 2008.<ref id="subprime"></ref>
+	<br><br>
+	Ωστόσο: <i>η προσομοίωση αυτή είναι λάθος.</i>
+	Οι περισσότερες ιδέες <i>δεν</i> εξαπλώνονται σαν ιοί.
+	Για πολλές απόψεις και συμπεριφορές, πρέπει να "εκτεθείτε" στη μετάδοση παραπάνω από μία φορά
+	για να "κολλήσετε".
+	Έτσι, οι επιστήμονες δικτύων ανακάλυψαν έναν καινούργιο, καλύτερο τρόπο να
+	περιγράψουν πως οι ιδέες/συμπεριφορές μεταδίδονται, και τον λένε...
+	<next wiggle>“<i>Περίπλοκες</i> Μεταδόσεις!” <div class="rarr"></div> </next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+
+	Ας επιστρέψουμε στο παράδειγμα με τα "όρια" και το  <icon name="yellow"></icon> αλκόολ!
+	Την πρώτη φορά όταν παίξατε, τα άτομα δεν άλλαξαν τη συμπεριφορά τους.
+
+	<br><br>
+
+	Τώρα, ας δούμε τι γίνεται αν τα άτομα αρχίσουν να πίνουν
+	<i>όταν το κάνουν και 50%+ των φίλων τους!</i>
+	<b>Πριν αρχίσετε την προσομοίωση, αναρωτηθείτε τι νομίζετε ότι <i>μάλλον</i> θα γίνει.</b>
+
+	<br><br>
+
+	<b>Τώρα, τρέξτε την προσομοίωση και δείτε τι γίνεται πραγματικά! <div class="rarr"></div> </b>
+
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+
+		Σε αντίθεση με την προηγούμενη μετάδοση των "fake news" <icon name="red"></icon>,
+		αυτή η μετάδοση <icon name="yellow"></icon>  <i>δεν</i> μεταδίδεται σε όλους!
+		Τα πρώτα άτομα "κολλάνε", επειδή παρότι συνδέονται με μόνο έναν
+		μέθυσο, αυτός ο μέθυσος είναι το 50% των φίλων τους. (είναι λίγο μοναχικοί)
+		Αντιθέτως, το άτομο κοντά στο τέλος της αλυσίδας <i>δεν</i> "κόλλησε",
+		γιατί ενώ συνδεόταν με έναν μέθυσο,
+		δεν πέρασαν το όριο του 50%+.
+
+		<div style="height:0.75em"></div>
+
+		Το <i>σχετικό</i> % των "μολυσμένων" φίλων είναι σημαντικό.
+		<i>Αυτή</i> είναι η διαφορά μεταξύ της θεωρίας των <b>πολύπλοκων μεταδόσεων</b> <ref id="complex"></ref>,
+		και της απλής θεωρίας <b>απλής μετάδοσης</b> όπως οι ιοί.
+		(μπορούμε να πούμε ότι οι "απλές μεταδόσεις" είναι απλά μεταδόσεις με "όριο μετάδοσης πάνω από 0%")
+
+		<div style="height:0.75em"></div>
+
+		Ωστόσο, οι μεταδόσεις δεν είναι απαραίτητα κακές &mdash;
+		άρα αρκετά για την <i>τρέλα</i> του πλήθους - ας μιλήσουμε για την...
+		<next>... <i>σοφία του;</i></next>
+
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+	Έχουμε εδώ ένα άτομο <icon name="blue"></icon> που προσφέρεται να... ας πούμε,
+	σώσει ανθρώπους σε φυσικές καταστροφές, να διδάξει σε ευπαθή παιδιά στην τοπική κοινότητα, ή κάτι παρόμοιο.
+	Η ουσία είναι, πρόκειται για μια "καλή" περίπλοκη μετάδοση.
+	Αυτή τη φορά, ας πούμε ότι το όριο είναι 25% &mdash;
+	τα άτομα γίνουν εθελοντές, αλλά μόνο αν το 25% η περισσότερο των φίλων τους κάνουν το ίδιο.
+	Χρειάζεται ενθάρρυνση για τις καλές πράξεις!
+
+	<br><br>
+
+	<b>&larr; "Μεταδόστε" σε όλους την καλοσύνη!</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+		<b>ΣΗΜΕΙΩΣΗ:</b> Ο εθελοντισμός είναι μόνο <i>μια</i> απο πολλές περίπλοκες μεταδόσεις!
+		Άλλα παραδείγματα: ποσοστό ψηφοφορίας, συνήθειες,
+		αλλαγή απόψεων,
+		η αφιέρωση χρόνο για την κατανόηση ενός θέματος &mdash; οτιδήποτε
+		χρειάζεται πανω από μια "έκθεση".
+		Οι περίπλοκες μεταδόσεις δεν είναι <i>απαράιτητα</i> καλές,
+		αλλά η καλοσύνη και η σοφία είναι περίπλοκες μεταδόσεις.
+
+		<div style="height:0.75em"></div>
+
+		(Ένα καλό παράδειγμα μιας <i>απλής</i> μετάδοσης;
+		Συνήθως είναι κομμάτια πληροφορίας όπως "το πόσουμ έχει 13 ρώγες"<ref id="possum"></ref>)
+
+		<bon id="contagions"></bon>
+
+		Τώρα, για να δούμε την <i>πραγματική</i> δύναμη και παραξενιά των περίπλοκων μεταδόσεων, ας κοιτάξουμε...
+
+		<next>...ένα προηγούμενο puzzle <div class="rarr"></div> </next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+	Το θυμάστε? Αυτή τη φορά, με μια <i>περίπλοκη</i> μετάδοση <icon name="blue"></icon>, θα είναι λίγο δυσκολότερο...
+	<br>
+	<b>Προσπαθήστε να "κολλήσουν" όλοι με σοφία! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+	(πατήστε άνετα 'εκκίνηση' και <i>δοκιμάστε</i> όσες λύσεις θέλετε)
+</words>
+
+<words id="complex_cascade_end">
+	<next wiggle>HOT DANG <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+	Μπορεί να νομίζετε ότι πρέπει απλά να συνεχίσετε να προστείθετε συνδέσεις για να μεταδόσετε οποιαδήποτε μετάδοση,
+	"πολύπλοκη" ή "απλή", καλή ή κακή, σοφή η τρελή.
+	Ισχύει όμως αυτό; Ας ξαναδούμε...
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle>...ένα άλλο προηγούμενο puzzle <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_prevent">
+	Αν πατήσετε την "εκκίνηση" η περίπλοκη μετάδοση <icon name="blue"></icon> θα μεταδοθεί σε όλους.
+	Καμιά έκπληξη.
+	Αλλά τώρα ας κάνουμε το <i>αντίθετο</i> απ΄ό,τι κάναμε πριν:
+	<b>ας ζωγραφίσουμε ένα δίκτυο για να <i>αποτρέψουμε</i> την μετάδοση σε όλους! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+	βλέπετε;
+	Ενώ οι περισσότερες συνδέσεις βοηθούν τη μετάδοση μιας <i>απλής</i> ιδέας,
+	<b>παραπάνω συνδέσεις μπορούν να δυσχεράνουν τη μετάδοση πιο <i>περίπλοκων</i> ιδεών!</b>
+	(σίγουρα σκέφτεστε το ίντερνετ, έτσι;)
+	Και αυτό δεν είναι απλά ένα θεωρητικό θέμα. Μπορεί να είναι ζήτημα ζωής...
+</words>
+
+<words id="complex_prevent_end">
+	<next wiggle>...ή θανάτου. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_groupthink">
+
+	Οι άνθρωποι της NASA ήταν έξυπνοι.
+	Δηλαδή, χρησιμοποίησαν τις θεωρίες του Νεύτωνα και έφτασαν στο φεγγάρι.
+	Τέλος πάντων, το 1986,
+	<i>παρά τις προειδοποιήσεις των μηχανικών</i>,
+	πραγματοποίησαν την εκτόξευση του <i>Challenger</i>,
+	η οποία απέτυχε και σκότωσε 7 ανθρώπους.
+	Η άμεση αιτία:
+	είχε πολύ κρύο εκείνο το πρωί.
+
+	<div style="height:0.9em"></div>
+
+	Η λιγότερο άμεση αιτία: η διοίκηση αγνόησε τις προειδοποιήσεις των μηχανικών.
+	Γιατί; Λόγω της <b>ομαδικής σκέψης</b><ref id="groupthink"></ref>.
+	Όταν μια ομάδα είναι <i>υπερβολικά</i> κοντά, (όπως είναι συνήθως στην κορυφή των οργανώσεων)
+	γίνονται λιγότερο ανεκτικοί σε ιδέες που μπορεί να απειλήσουν τη συνοχή και το εγώ τους.
+
+	<div style="height:0.9em"></div>
+
+	Κάπως έτσι οι οργανισμοί πέφτουν στην τρέλα του πλήθους.
+	Πως μπορούμε να "προβλέψουμε" ώστε το πλήθος να στραφεί στη <i>σοφία;</i>
+	Εν συντομία, δύο λέξεις:
+
+	<next>Δεσμοί &amp; Γέφυρες <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+	&larr; Υπερβολικά λίγες συνδέσεις, και η ιδέα δε μπορεί να εξαπλωθεί.
+	<br>
+	Υπεροβολικά πολλές, και εμφανίζεται η ομαδική σκέψη. <div class="rarr"></div>
+</words>
+
+<words id="bonding_2">
+	<b>
+	Φτιάξτε ένα δίκτυο που βρίσκεται στη χρυσή τομή:
+	αρκετές συνδέσεις για τη μετάδοση μιας περίπλοκης ιδέας!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+	Απλό!
+	Ο αριθμός των συνδέσεων <i>στο εσωτερικό</i> μιας ομάδας λέγεται <b>κοινωνικό κεφάλαιο δεσμών</b><ref id="social_capital"></ref>.
+	Και οι συνδέσεις...
+	<next wiggle>...<i>ανάμεσα</i> σε ομάδες;</next>
+</words>
+
+<words id="bridging_1">
+	Όπως μπορεί να έχετε παρατηρήσει,
+	ο αριθμός των συνδέσεων <i>ανάμεσα</i> σε δυο ομάδες λέγεται
+	<b>κοινωνικό κεφάλαιο γέφυρα</b>.
+	Αυτό είναι σημαντικό, γιατί βοηθά τις ομάδες να μην κλείνονται στο καβούκι τους!
+	<br>
+	<b>Φτιάξτε μια γέφυρα για να "κολλήσουν" όλοι με περίπλοκη σοφία:</b>
+</words>
+
+<words id="bridging_end">
+	Όπως και για τους δεσμούς, υπάρχει μια χρυσή τομή και για τις γέφυρες.<ref id="bridge"></ref>
+	(extra πρόκληση: φτιάξτε μια τόσο ισχυρή γέφρα ώστε η περίπλοκη μετάδοση
+	<i>να μην</i> μπορεί να περάσει!)
+	Τώρα που ξέρουμε πως να "σχεδιάσουμε" συνδέσεις <i>στο εσωτερικό</i> και <i>ανάμεσα</i> στις ομάδες, ας...
+	<next wiggle>...κάνουμε και τα δύο!</next>
+</words>
+
+<words id="bb_1">
+
+	<b style="font-size:2em">ΤΕΛΙΚΟ PUZZLE!</b>
+	<br>
+	Φτιάξτε συνδέσεις στο εσωτερικό των ομάδων (δεσμοί) και ανάμεσά τους (γέφυρες)
+	για να μεταδώσετε τη σοφία σε όλους:
+
+</words>
+<words id="bb_2">
+
+	Συγχαρητήρια, φτιάξατε ένα πολύ ιδιαίτερο δίκτυο!
+	Τα δίκτυα με τη σωστή αναλογία δεσμών και γεφύρων
+	είναι πολύ σημαντικά, και λέγονται...
+	<next wiggle>“Δίκτυα Μικρός Κόσμος” <div class="rarr"></div> </next>
+
+</words>
+<words id="bb_small_world_1">
+
+	<i>"Ενώτητα χωρίς ομοιομορφία". "Διαφορετικότητα χωρίς διαιρέσεις". "E Pluribus Unum: από τα πολλά, το ένα".</i>
+	<br>
+	Όπως και να το πούμε,
+	άνθρωποι σε διαφορετικό τόπο και χρόνο φτάνουν στο ίδιο συμπέρασμα:
+	<b>
+	μια υγιής κοινωνία χρειάζεται το σωστό αριθμό δεσμών <i>στο εσωτερικό</i> των ομάδων
+	και γεφύρων <i>ανάμεσά</i> τους.
+	</b>
+	Δηλαδή:
+
+</words>
+<words id="bb_small_world_2">
+	Όχι αυτό...
+	<br>
+	(γιατί οι ιδέες δε μεταδίδονται)
+</words>
+<words id="bb_small_world_3">
+	ούτε αυτό...
+	<br>
+	(γιατί θα έχουμε ομαδική σκέψη)
+</words>
+<words id="bb_small_world_4">
+	...αλλά <i>ΑΥΤΟ:</i>
+</words>
+<words id="bb_small_world_5">
+
+	Οι επιστήμονες δικτύων έχουν έναν μαθηματικό ορισμό γι' αυτή τη σοφία:
+	το <b> δίκτυο μικρού κόσμου - small world network </b><ref id="small_world"></ref>.
+	Η ιδανική αυτή αναλογία δεσμών και γεφύρων περιγράφει το πως
+	συνδέονται οι νευρώνες μας<ref id="swn_neurons"></ref>,
+	προρωθεί τη συλλογική δημιουργικότητα<ref id="swn_creativity"></ref>
+	και την εξυπνάδα<ref id="swn_social_physics"></ref>,
+	και κάποτε βοήθησε τον πρόεδρο των ΗΠΑ John F. Kennedy να αποφύγει (μόλις) έναν πυρηνικό πόλεμο!<ref id="swn_jfk"></ref>
+	Άρα ναι, όντως είναι σημαντικό.
+
+</words>
+<words id="bb_small_world_end">
+	<next>οκ, ας συνοψίσουμε... <div class="rarr"></div> </next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+	(ψψψ... να σου πω ένα μυστικό;<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+	Μετάδοση:
+</words>
+<words id="sandbox_contagion_simple">
+	απλή
+</words>
+<words id="sandbox_contagion_complex">
+	περίπλοκη
+</words>
+<words id="sandbox_color_chooser">
+	Χρώμα Μετάδοσης:
+</words>
+<words id="sandbox_tool_chooser">
+	Επιλογή εργαλείου...
+</words>
+
+<words id="sandbox_tool_pencil">
+	Δημιουργία Δικτύου
+</words>
+<words id="sandbox_tool_add">
+	Προσθήκη Ατόμου
+</words>
+<words id="sandbox_tool_add_infected">
+	Προσθήκη "Μόλυνσης"
+</words>
+<words id="sandbox_tool_move">
+	Μετακίνηση Ατόμου
+</words>
+<words id="sandbox_tool_delete">
+	Διαγραφή Ατόμου
+</words>
+<words id="sandbox_tool_clear">
+	<b>ΚΑΘΑΡΙΣΜΟΣ</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+	(...ή χρήση του πληκτρολογίου!)
+</words>
+
+<words id="sandbox_shortcuts">
+	[1]: Προσθήκη Ατόμου &nbsp;&nbsp;&nbsp; [2]: Προσθήκη "Μόλυνσης"
+	<br>
+	[Space]: Μετακίνηση &nbsp;&nbsp;&nbsp; [Backspace]: Διαγραφή
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+
+	<div style="font-size: 30px;">
+		ΣΥΜΠΕΡΑΣΜΑΤΙΚΑ: πρόκειται για...
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 88px;
+	    top: 20px;
+	    line-height: 100px; display:block;
+	">
+	    Μεταδόσεις &amp; Συνδέσεις
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 125px;
+	    left: 250px;
+	">
+		<b>Μεταδόσεις:</b>
+		Όπως οι νευρώνες μεταδίδουν σήματα στον εγκέφαλο,
+		οι άνθρωποι μεταδίδουν απόψεις &amp; συμπεριφορές σε μια κοινωνία.
+		Όχι μόνο επηρεάζουμε τους φίλους μας,
+		αλλά και τους φίλους των φίλων μας, και ακόμα τους φίλους των φίλων των φίλων μας!<ref id="three_degrees"></ref>
+		(“γίνε η αλλαγή που θες να δεις στον κόσμο” κλπ κλπ)
+		Αλλά, όπως και με τους νευρώνες, δεν είναι μόνο τα σήματα που μετράνε, αλλά και οι...
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 275px;
+	    left: 250px;
+	">
+		<b>Συνδέσεις:</b>
+		Υπερβολικά λίγες συνδέσεις, και οι ιδέες δεν μεταδίδονται.
+		Υπερβολικά <i>πολλές</i> συνδέσεις και οι περίπλοκες ιδέες χάνονται στην ομαδική σκέψη.
+		Η λύση είναι το δίκτυο μικρού κόσμου,η βέλτιστη αναλογία
+		δεσμών και γεφύρων: <i>e pluribus unum.</i>
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #999;
+	">
+		(θες να φτιάξεις τις δικές σου προσομοιώσεις;
+		τσέκαρε το Sandbox Mode, κάνε κλικ στο (★)!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+		Οπότε τι γίνεται με την αρχική μας ερώτηση;
+		Γιατί <i>κάποια</i> πλήθη στρέφονται στην...
+	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 460px;
+	    right: 0px;
+	">
+		<next>...σοφία και/ή τρέλα;</next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+		Από το Νεύτωνα στη NASA και την
+		<br>
+		επιστήμη δικτύων, έχουμε καλύψει πολλά
+		<br>
+		σήμερα. Εν τέλει, η τρέλα του πλήθους
+		<br>
+	  δεν οφείλεται αναγκαστικά στα μεμονομένα <i>άτομα</i>, αλλά στο
+		<br>
+		ότι είμαστε παγιδευμένοι στον κοινωνικό ιστό.
+
+		<div style="height:0.9em"></div>
+
+		Αυτό <i>ΔΕΝ</i> σημαίνει ότι δεν έχουμε ατομική ευθύνη,
+		<br>
+		αφού επίσης <i>είμαστε μέρος</i> του ιστού αυτου. Γι' αυτό, βελτιώστε τις μεταδόσεις σας:
+		<br>
+		σκεφτείτε παραπάνω τις ιδέες που σας κολακεύουν<ref id="flatter"></ref>, προσπαθήστε να κατανοήσετε
+		<br>
+		τις περίπλοκες ιδέες. Και βελτιώστε τις συνδέσεις σας: συνδεθείτε με τους
+		<br>
+		ομοίους σας, αλλά γεφυρώστε και τα πολιτιστικά/ πολιτικά χάσματα.
+
+		<div style="height:0.9em"></div>
+
+	  Μπορούμε να φτιάξουμε ένα σοφό δίκτυο. Σίγουρα είναι δυσκολότερο από το να ζωγραφίζουμε
+		<br>
+		γραμμές σε μια οθόνη...
+
+		<next>...αλλά αξίζει.</next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+		“Οι μεγαλύτεροι θρίαμβοι και οι τραγωδίες της ιστορίας συμβαίνουν,
+		όχι επειδή οι άνθρωποι είναι στοιχειωδώς καλοί ή κακοί,
+		αλλά επειδή οι άνθρωποι είναι στοιχειωδώς άνθρωποι.”
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Neil Gaiman &amp; Terry Pratchett
+	<div style="height:0.8em"></div>
+	<next small>&lt;3</next>
+</words>
+
+<!-- Credits -->
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+
+		<span style="color:#777; position:relative; top:5px;">
+			δημιουργός</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			παίξε τα άλλα μου παιχνίδια</a> ·
+		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
+			ακολούθησε στο tweeter</a>
+
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			πολλή αγάπη και ευχαριστίες στους:</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			υποστηρικτές μου στο PATREON</div>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+			βοήθα με να φτιάξω κι άλλα τέτοια! &lt;3</a>
+		<br>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			δες τους υποστηρικτές μου</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			δες τους playtesters</a>
+
+		<br><br>
+
+		<span style="display: inline-block; margin-top: 15px;">
+			♫ μουσική:
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" και "Friends 2068"</a>
+			από: Komiku
+			<br>
+			&lt;/&gt; <i>Crowds</i> is
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				πλήρως open source</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	ΝΙΚΗ
+</words>
+<words id="sim_start">
+	εκκίνηση προσομοίωσης
+</words>
+<words id="sim_stop">
+	επανεκκίνηση &amp; ξαναδημιουργία
+</words>
+<words id="translations_exist">
+	Μεταφράσεις:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	What the, no fan-made translations exist yet?!
+</words>
+<words id="translations_add">
+	(add your own!)
+</words>
+<words id="translations_original">
+	<!-- No need to translate this, because, I assume, -->
+	<!-- if someone wants to play the game in English, they can read English -->
+	(original in English)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+	Μια σύντομη απάντηση στο βιβλίο του James Surowiecki, <i>The Wisdom of Crowds</i>
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+
+	Κατ' αρχάς, δε διαφωνώ με αυτό
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	το βιβλίο.</a>
+	Είναι καλό βιβλίο, και ο Surowiecki προσπάθησε να απαντήσει την ίδια ερώτηση:
+	<b>“γιατί κάποια πλήθη στρέφονται προς τη σοφία ή την τρέλα;”</b>
+
+	<br><br>
+
+	Η απάντηση του Surowiecki: τα πλήθη λαμβάνουν καλές αποφάσεις όταν όλοι είναι όσο πιο ανεξάρτητοι γίνεται.
+	HΔιηγείται την ιστορία ενός πανηγυριού,
+	όπου οι συμμετέχοντες κλήθηκαν να μαντέψουν το βάρος μιας αγελάδας.
+	Παραδόξως, ο μέσος όρος <i>όλων</i> των απαντήσεών τους ήταν καλύτερος από οποιαδήποτε <i>μεμονωμένη</i> άποψη</i>.
+	Ωστόσο, το σημαντικό είναι ότι ο καθένας πρέπει να μαντέψει <i>ανεξάρτητα</i> από τους άλλους.
+	Αλλιώς,
+	θα επηρεαστούν από τις προηγούμενες λανθασμένες εκτιμήσεις των άλλων,
+	και ο μέσος όρος θα αλλάξει.
+
+	<br><br>
+
+	Ωστόσο... δε νομίζω ότι το να "γίνουν όλοι όσο πιο ανεξάρτητοι γίνεται" είναι η πλήρης απάντηση.
+	Ακόμα και οι ευφυΐες, άτομα τα οποία θεωρούμε πολύ ανεξάρτητα,
+	επηρεάζονται πολύ από τους άλλους. Όπως είπε ο Νεύτωνας,
+	<i>“Αν κατάφερα να δω μακριά, ήταν επειδή στεκόμουν στους ώμους Γιγάντων.”</i>
+
+	<br><br>
+
+	Ποια ιδέα είναι η σωστή;
+	Η σοφία έγκειται στο να σκέφτεσαι μόνος/η σου ή με τους άλλους;
+	Η απάντηση είναι: "ναι".
+
+	<br><br>
+
+	Αυτό θα προσπαθήσω να εξηγήσω:
+	πώς να βρεθεί αυτή η χρυσή τομή ανάμεσα στην ανεξαρτησία και την αλληλεξάρτηση &mdash;
+	πώς, δηλαδή, να γίνει ένα πλήθος σοφό.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+	Τι είδους συνδέσεις υπάρχουν;
+	</h3>
+
+	<div>
+
+	Για λόγους απλούστευσης,
+	οι προσομοιώσεις μου υποθέτουν ότι μόνο οι άνθρωποι μπορούν να συνδεθούν μέσω της φιλίας,
+	και ότι όλες οι φιλίες είναι οι ίδιες.
+	Αλλά οι επιστήμονες δικτύων <i>αναγνωρίζουν</i> και άλλους τρόπους με τους οποίους μπορούμε να συνδεθούμε, όπως:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Κατευθυντικές συνδέσεις.</b> Η Αλίκη είναι το αφεντικό του Γιώργου, αλλά ο Γιώργος δεν είναι το αφεντικό της Αλίκης.
+	Η Κατερίνα είναι γονέας του Δαυίδ, αλλά ο Δαυίδ δεν είναι γονέας της Κατερίνας.
+	Το "αφεντικό" &amp; ο "γονέας" είναι <i>κατευθυντικές</i> σχέσεις:
+	η σχέση "πηγαίνει" προς μια μόνο κατεύθυνση
+	Αντιθέτως, οι "φίλοι" είναι σχέση <i>αμφίδρομη</i>:
+	η σχέση έχει δύο κατευθύνσεις. (ευελπιστώ)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Σταθμισμένες συνδέσεις.</b> Η Ελεάνα και ο Χάρης απλά γνωρίζονται.
+	Ο Γιάννης με το Χάρη είναι κολλητάρια.
+	Παρότι υπάρχει μια σύνδεση "φιλίας" και στις δύο περιπτώσεις, η δεύτερη είναι πιο δυνατή.
+	Λέμε ότι αυτές οι δύο σχέσεις "σταθμίζονται" διαφορετικά.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Θυμηθείτε: <b>όλες οι προσομοιώσεις αυτές είναι λάθος.</b> με τον ίδιο τρόπο που όλοι οι χάρτες είναι "λάθος".
+	Βλέπετε τον χάρτη στα αριστερά; Τα κτήρια δεν είναι γκρι μονόχρωμα κουτιά!
+	Δεν αιωρούνται γράμματα πάνω από την πόλη! Ωστόσο, οι χάρτες δεν είναι χρήσιμοι <i>παρότι</i> είναι απλοποιημένοι,
+	αλλά είναι χρήσιμοι <i>εξαιτίας</i> αυτού. Το ίδιο ισχύει για μια προσομοίωση, ή οποιαδήποτε επιστημονική θεωρία.
+	<i>Φυσικά</i> είναι "λάθος" &mdash; αυτό τις κάνει <i>χρήσιμες</i>.
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	Τι άλλου είδους μεταδόσεις υπάρχουν;
+	</h3>
+
+	<div>
+
+	Υπάρχουν πάρα πολλοί τρόποι που μπορούν οι επιστήμονες να προσομοιώσουν τις "μεταδόσεις"!
+	Διάλεξα την πιο απλή για εκπαιδευτικούς σκοπούς.
+	Αλλά υπάρχουν κι άλλοι τρόποι:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Τυχαίες Μεταδόσεις</b>.
+	Η "έκθεση" σε μια μετάδοση δεν <i>εγγυάται</i> τη μόλυνση,
+	απλά την κάνει πιο <i>πιθανή</i>.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Διαφορετικά άτομα έχουν διαφορετικά όρια μετάδοσης.</b>
+	Στις προσομοιώσεις μου υποτίθεται ότι όλοι έχουν το ίδιο όριο για να γίνουν μέθυσοι (50%) ή
+	για τον εθελοντισμό (25%) ή τα fake news (0%).
+	Φυσικά, αυτό δε συμβαίνει στην πραγματική ζωή, και θα μπορούσε να υπάρξει μια πιο αντιπροσωπευτική προσομοίωση.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Οικολογία μεταδόσεων.</b>
+	Κι αν υπήρχαν <i>πολλαπλές</i> μεταδόσεις, με <i>διαφορετικά</i> όρια;
+	Για παράδειγμα, μια απλή μετάδοση "τρέλας" και μια περίπλοκη μετάδοση "σοφίας".
+	Αν κάποιος έχει επηρεαστεί από την τρέλα, μπορεί να επηρεαστεί από τη σοφία;
+	Ή το αντίθετο;
+	Μπορεί κανείς να επηρεαστεί και από τα δύο;
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Μεταδόσεις που μεταλλάσσονται και αλλάζουν.</b>
+	Οι ιδέες δεν περνάνε από το ένα άτομο στο άλλο με όμοιο τρόπο όπως οι ιοί.
+	Όπως στο σπασμένο τηλέφωνο, το μήνυμα αλλάζει σιγά σιγά &mdash;
+	και μερικές φορές το αποτέλεσμα είναι ακόμα πιο μεταδοτικό!
+	Έτσι, σταδιακά οι ιδέες "μεταλλάσσονται" για να μεταδίδονται πιο γρήγορα.
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+
+	<h3>
+	Θέλω να μάθω κι άλλα! Τι άλλο μπορώ να διαβάσω/ παίξω;
+	</h3>
+
+	<div>
+
+	Με αυτή την εξήγηση ήθελα απλά να σου κινήσω την περέργεια,
+	ώστε να βουτήξεις στη γνώση!
+	Περισσότερα για τα δίκτυα και τα κοινωνικά δίκτυα:
+
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Βιβλίο:</b>
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Συνδεδεμένοι</a>
+	των: Nicholas Christakis και James Fowler (2009).
+	Η εκπληκτική δύναμη των κοινωνικών δικτύων και πώς αυτά διαμορφώνουν τη ζωή μας.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	Ένα απόσπασμα: Πρόλογος &amp; Κεφάλαιο 1
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Διαδραστικό:</b>
+	<a target="_blank" href="http://ncase.me/trust/">
+	The Evolution of Trust</a> από: Nicky Case (εγώ) (2017).
+	Ένα παιχνίδι σχετικά με το πώς δημιουργείται ή καταστρέφεται η συνεργασία.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Διαδραστικό:</b>
+	<a target="_blank" href="http://ncase.me/polygons/">
+	Parable of the Polygons</a> από: Vi Hart και Nicky Case (επίσης εγώ) (2014).
+	Μια ιστορία σχετικά με το πώς αθώες επιλογές μπορούν να φτιάξουν έναν επικίνδυνο κόσμο.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Αν θες ολόκληρη τη βιβλιοθήκη με τα διαδραστικά καλούδια, δες εδώ:
+	<a target="_blank" href="http://explorabl.es/">
+	Explorable Explanations</a>,
+	μάθε διασκεδάζοντας!
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+	“σχεδόν όλοι οι φοιτητές είπαν ότι οι φίλοι τους πίνουν περισσότερο απ' όσο οι ίδιοι'.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	“Biases in the perception of drinking norms among college students”</a> by Baer et al (1991)
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+	“Η ψευδαίσθηση της πλειοψηφίας”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	“The Majority Illusion in Social Networks”</a> by Lerman et al (2016).
+	<br>
+	Σχετικό: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+	The Friendship Paradox</a>.
+	</div>
+</reference>
+<reference id="contagion">
+
+	<h3>
+	“τα στατιστικά αποδεικνύουν ότι
+	το κάπνισμα, η υγεία, η χαρά, η ψηφοφορία και τα επίπεδα συνεργασίας είναι όλα
+	μεταδοτικά”
+	</h3>
+
+	<div>
+
+	Από το καλογραμμένο βιβλίο των Nicholas Christakis και James Fowler,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Συνδεδεμένοι</a> (2009).
+
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+	“αποδείξεις ότι και οι αυτοκτονίες είναι μεταδοτικές”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	“Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop”</a>
+	by O'Carroll et al (1994), endorsed by the frickin' Centers for Disease Control &amp; Prevention (CDC).
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+	“αποδείξεις ότι και οι μαζικοί πυροβολισμοί είναι επίσης μεταδοτικοί”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	“Contagion in Mass Killings and School Shootings”</a> by Towers et al (2015).
+
+	<br><br>
+
+	Δείτε ακόμα: η καμπάνια
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Don't Name Them</a>,
+	που συνιστά στα μέσα ενημέρωσης <i>ΝΑ ΜΗΝ</i> δημοσιοποιούν τα ονόματα, τα μανιφέστο και τα προφίλ δολοφόνων.
+	Αυτό αυξάνει τη μετάδοση.
+	Αντιθέτως, τα μέσα θα πρέπει να επικεντρώνονται στα θύματα, τους διασώστες, τους πολίτες-ήρωες,
+	και την κοινότητα που θρηνεί και επουλώνεται.
+
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+	“<Τα χρηματοπιστωτικά συστήματα του κόσμου παγιδεύτηκαν σε έναν τέτοιο κυκεώνα το 2008.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	“Lemmings of Wall Street”</a> by Cass Sunstein, διαβάζεται γρήγορα και εύκολα.
+	-Δημοσιεύτηκε τον Οκτώβριο του 2008, αμέσως μετά την κρίση.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+	“η θεωρία περίπλοκων μεταδόσεων.”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	“Threshold Models of Collective Behavior”</a> by Granovetter (1978)
+	-είναι η πρώτη φορά, απ΄όσο γνωρίζω, που κάποιος περιγράφει μια θεωρία περίπλοκων μεταδόσεων - "complex contagions".
+	(δεν χρησιμοποίησε αυτή τη συγκεκριμένη ορολογία)
+
+	<br><br>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> by Centola &amp; Macy (2007)
+	-για τη φράση "περίπλοκες μεταδόσεις", "complex contagions", και
+	για τις σημαντικές διαφορές με την "απλή μετάδοση", "simple contagion".
+
+	<br><br>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	“Evidence for complex contagion models of social contagion from observational data”</a>
+	by Sprague &amp; House (2017)
+	-με εμπειρικά δεδομένα αποδεικνύεται ότι οι περίπλοκες μεταδόσεις υπάρχουν. (ή τουλάχιστον στα δεδομένα κοινωνικών δικτύων που εξετάσθηκαν)
+
+	<br><br>
+
+	Τέλος,
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	“Universal behavior in a generalized model of contagion”</a> by Dodds &amp; Watts (2004)
+	-προτείνει ένα μοντέλο που συνδυάζει <i>όλα</i> τα είδη μεταδόσεων:
+	απλές και περίπλοκες, βιολογικές και κοινωνικές!
+
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+	“το πόσουμ έχει 13 ρώγες”
+	</h3>
+	<div>
+	έχουν ένα δαχτυλίδι από 12 ρώγες, συν μία στη μέση
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+	“groupthink - ομαδική σκέψη”
+	</h3>
+
+	<div>
+	Τη φράση εμπνεύστηκε από τον Όργουελ ο Irving L. Janis το 1971.
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	Στο πρωτότυπο άρθρο του</a>,
+	ο Janis εξετάζει περιπτώσεις ομαδικής σκέψης, τις αιτίες τους και &mdash; ευτυχώς &mdash;
+	πιθανές λύσεις.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+	“κοινωνικό κεφάλαιο δεσμών και γεφύρων - bonding and bridging social capital”
+	</h3>
+
+	<div>
+	Αυτά τα δύο είδη κεφαλαίου, &mdash; "δεσμών - bonding" και "γεφύρων - bridging" &mdash;
+	ονομάστηκαν από τον Robert Putnam στο βιβλίο του το 2000,
+	<a target="_blank" href="http://bowlingalone.com/">
+	Bowling Alone</a>. Η ανακάλυψή του:
+	σύμφωνα με <i>όλους</i> τους εμπειρικούς δείκτες κοινωνικής συνδεσιμότητας,
+	οι Αμερικάνοι δεν ήταν ποτέ τόσο μόνοι.
+	Ουάου.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+	“υπάρχει μια χρυσή τομή στο γεφύρωμα”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	“The Strength of Weak Ties”</a> by Granovetter (1973)
+	 - δείχνει ότι οι συνδέσεις ανάμεσα σε ομάδες ευνοούν τις απλές μεταδόσεις (όπως οι πληροφορίες),
+	αλλά
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> by Centola &amp; Macy (2007)
+	- δείχνει ότι οι συνδέσεις ανάμεσα σε ομάδες μπορεί να μην ευνοούν τις περίπλοκες μεταδόσεις,
+	αλλά αντιθέτως τις εμποδίζουν!
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+	“το δίκτυο μικρού κόσμου - small world network”
+	</h3>
+
+	<div>
+
+	Η ιδέα αυτή αναπτύχθηκε στο πείραμα του
+	<a target="_blank" href="http://www.jstor.org/stable/2786545">Travers &amp; Milgram το 1969 </a>,
+	που έδειξε ότι, κατά μέσο όρο, οποιαδήποτε δύο τυχαία άτομα στις ΗΠΑ
+	βρίσκονταν μόλις 6 φιλίες μακριά &mdash; "six degrees of separation"!
+
+	<br><br>
+
+	Το δίκτυο μικρού κόσμου γίνεται πιο μαθηματικό στο:
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	“Collective dynamics of small-world networks”</a> by Watts &amp; Strogatz (1998),
+	- προτείνει έναν αλγόριθμο για τη δημιουργία δικτύων
+	τόσο με χαμηλό μέσο μήκος γραμμής (low degree of separation)
+	και υψηλή συνεκτικότητα (high clustering) (οι φίλοι έχουν πολλούς κοινούς φίλους) &mdash;
+	δηλαδή, ένα δίκτυο που πετυχαίνει τη χρυσή τομή!
+
+	<br><br>
+
+	Παίξτε επίσης:
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	- μια οπτική, διαδραστική εφαρμογή αυτής της εργασίας από τον </a> Bret Victor (2011).
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+	“[τα δίκτυα μικρού κόσμου] περιγράφουν πώς συνδέονται οι νευρώνες μας”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	“Small-world brain networks”</a> by Bassett &amp; Bullmore (2006).
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+	“[τα δίκτυα μικρού κόσμου] προωθούν τη συλλογική δημιουργικότητα”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	“Collaboration and Creativity: The Small World Problem”</a> by Uzzi &amp; Spiro (2005).
+	Η εργασία αναλύει το κοινωνικό δίκτυο του Μπρόντγουεϊ ανά το χρόνο,
+	και καταλήγει ότι όντως, είναι περισσότερο δημιουργικό όταν είναι ένα "δίκτυο μικρού κόσμου"!
+
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+	“[τα δίκτυα μικρού κόσμου] αυξάνουν τη συλλογική εξυπνάδα”
+	</h3>
+
+	<div>
+	Δείτε:
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	“Social Physics”</a> by MIT Professor Alex "Sandy" Pentland (2014)
+	- μια εργασία βασισμένη σε δεδομένα σχετικά με τη συλλογική ευφυΐα.
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+	“[τα δίκτυα μικρού κόσμου] βοήθησαν τον John F. Kennedy να αποφύγει (μόλις) τον πυρηνικό πόλεμο!”
+	</h3>
+
+	<div>
+
+	Εκτός από την έκρηξη του Challenger της NASA, το πιο γνωστό παράδειγμα της ομαδικής σκέψης (groupthink)
+	ήταν το φιάσκο του Bay of Pigs.
+	Το 1961, ο πρόεδρος των ΗΠΑ John F. Kennedy και οι σύμβουλοί του νόμισαν
+	&mdash; για κάποιο λόγο &mdash;
+	ότι θα ήταν καλή ιδέα να εισβάλουν κρυφά στην Κούβα και να διώξουν τον Φιντέλ Κάστρο.
+	Απέτυχαν.
+	Βασικά, ακόμα χειρότερα: οδήγησαν στην κρίση των πυραύλων της Κούβας το 1962,
+	<i>ότι πιο κοντινό σε πυρηνικό πόλεμο έχει γίνει ποτέ.</i>
+
+	<br><br>
+
+	Κι όμως, ο Κένεντι την πάτησε σε εκείνη τη φάση.
+
+	<br><br>
+
+	Ωστόσο, έχοντας μάθει το μάθημά του από το φιάσκο του Bay of Pigs,
+	ο Κένεντι αναδιαμόρφωσε την ομάδα του για να αποφύγει την ομαδική σκέψη.
+	Μεταξύ άλλων, πήρε τα εξής μέτρα:
+	1) παρότρυνε τον κόσμο να εκφράσουν τις αντιδράσεις τους,
+	χαμηλώνοντας έτσι το "όριο μετάδοσης" για διαφορετικές ιδέες.
+	Και
+	2) χώρισε την ομάδα του σε υπο-ομάδες πριν να συγκεντρωθούν,
+	δημιουργώντας ένα σύστημα σαν "δίκτυο μικρού κόσμου"!
+	Αυτή η διαμόρφωση επέτρεψε μια υγιή πολυφωνία,
+	χωρίς να κατακερματίζει &mdash; τη σοφία του πλήθους.
+
+	<br><br>
+
+	Έτσι, με τα ίδια <i>άτομα</i> που πήραν τις αποφάσεις στην υπόθεση Bay of Pigs,
+	αλλά οργανωμένα <i>συλλογικά</i> διαφορετικά για να αποφασίσουν σχετικά με την κρίση πυραύλων της Κούβας...
+	η ομάδα του Κένεντι μπόρεσε να φτάσει σε μια ειρηνική συμφωνία με τον ηγέτη της ΕΣΣΔ Νικίτα Χρουστσόφ.
+	Οι Ρώσοι θα απομάκρυναν τους πυραύλους από την Κούβα, και σε αντάλλαγμα,
+	οι ΗΠΑ δε θα ξαναέκαναν επέμβαση στη χώρα.
+	(συμφώνησαν επίσης, μυστικά, να αφαιρεθούν οι πύραυλοι των ΗΠΑ από την Τουρκία)
+
+	<br><br>
+
+	Αυτή είναι η ιστορία του πώς η ανθρωπότητα σχεδόν αυτοκαταστράφηκε.
+	Αλλά ένα δίκτυο μας έσωσε όλους, κατά κάποιον τρόπο!
+
+	<br><br>
+
+	Διαβάστε περισσότερα:
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	στο Harvard Business Review</a>,
+	ή στο
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	πρωτότυπο άρθρο σχετικά με την ομαδική σκέψη - groupthink</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+	“επηρεάζουμε [...] τους φίλους των φίλων των φίλων μας!”
+	</h3>
+
+	<div>
+	Και πάλι, από το υπέροχο βιβλίο των Nicholas Christakis και James Fowler
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Συνδεδεμένοι</a> (2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+	“σκεφτείτε τις ιδέες που σας κολακεύουν”
+	</h3>
+	<div>
+	ειδικότερα τις ιδέες που βρίσκονται <i>εδώ</i>.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	★ Sandbox Mode ★
+	</h3>
+
+	<div>
+	Οι συντομεύσεις (1, 2, space, backspace)
+	λειτουργούν σε <i>όλα</i> τα puzzle, όχι μόνο στο Sandbox Mode!
+	Σοβαρά, δοκιμάστε να πάτε σε ένα κεφάλαιο,
+	και να αλλάξετε την προσομοίωση.
+	Ουσιαστικά, έτσι <i>έφτιαξα εγώ</i> όλα αυτά τα puzzle. Διασκεδάστε!
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+	Για τους υποστηρικτές μου στο Patreon:
+	Η γενναιοδωρία σας <i>κυριολεκτικά</i> μου παρέχει φαΐ και νοίκι.
+	Μου δίνετε την ελευθερία να φτιάχνω αυτά τα παράξενα εκπαιδευτικά παιχνίδια,
+	οπότε, από το βάθος της καρδιάς μου, σας ευχαριστώ. &lt;3
+	<br>
+	<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+		(θέλετε να με υποστηρίξετε ώστε να φτιάξω περισσότερα τέτοια; δείτε τη σελίδα μου στο Patreon!)</a>
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+	Ευχαριστώ όλους όσους δοκίμασαν το <i>Crowds</i>
+	κατά τη διάρκεια της ανάπτυξής του.
+
+	<br><br>
+	<b>The Prototype:</b>
+	<br>
+	Maria ·
+	Monica Srivastava
+
+	<br><br>
+	<b>The Alpha:</b>
+	<br>
+	Glen Chiacchieri ·
+	Kalli Repzeti ·
+	Mali Akmanalp ·
+	Toph Tucker
+
+	<br><br>
+	<b>The Beta:</b>
+	<br>
+	Alex Dytrych ·
+	Amit Patel ·
+	Cassandra McClure ·
+	Catherine Ray ·
+	Josh Comeau ·
+	Kayle Sawyer ·
+	Matthew Conlen ·
+	Srini Kadamati ·
+	Vanessa Shen ·
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+
+And that's it! That's the last of what needed to a TRANSLATE
+
+Thank you so, so much for doing this again, wow.
+
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+
+-->

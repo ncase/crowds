@@ -40,3 +40,4 @@ zh-TW: 繁體中文
 ja: 日本語
 es-MX: Español (Mexicano)
 cs: Česky
+el: Ελληνικά
