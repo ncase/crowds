@@ -41,3 +41,4 @@ ja: 日本語
 es-MX: Español (Mexicano)
 cs: Česky
 el: Ελληνικά
+fl: Pilipino
