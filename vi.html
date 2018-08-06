@@ -1,0 +1,1654 @@
+<!--
+
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+-->
+
+<!DOCTYPE html>
+<html lang="vi"> <!-- lang="(TRANSLATE: set your language code here, same as the page name!) e.g: es, es-ES, pt-BR, ja, it, fr-CA, de, ..." -->
+<head>
+
+	<!-- Meta Info -->
+	<title>Sự khôn ngoan và/hay sự điên cuồng của đám đông</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="Một trò chơi tương tác giải thích về mạng lưới xã hội của con người"/> <!-- content="(TRANSLATE this part only)" -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/cs.html"    hreflang="cs">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/es-MX.html" hreflang="es-MX">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="Sự khôn ngoan và/hay sự điên cuồng của đám đông"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="Một trò chơi tương tác giải thích về mạng lưới xã hội của con người"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="Sự khôn ngoan và/hay sự điên cuồng của đám đông"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="Một trò chơi tương tác giải thích về mạng lưới xã hội của con người"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="Sự khôn ngoan và/hay sự điên cuồng của đám đông"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="Một trò chơi tương tác giải thích về mạng lưới xã hội của con người"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/vi.html">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=7">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">bỏ qua &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">⨯</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on">Bật</span> <!-- TRANSLATE -->
+			<span id="sound_off">Tắt</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			Sự khôn ngoan và/hay sự điên cuồng của đám đông <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Vì sao trong nhóm người ta lại cư xử thông minh, ngu ngốc, tốt bụng hay độc ác? Một trò chơi tương tác về mạng lưới con người: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Giới thiệu</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Sự kết nối</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Sự lây lan</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Sự lây lan phức tạp</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Liên kết &amp; Bắc cầu</span> <!-- note: &amp; is html for the "and" sign -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. Một thế giới nhỏ bé</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. Kết luận...</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Tác quyền</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>★</span>
+				<span>★ Sân chơi riêng! ★</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Nội dung thêm!</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Liên kết ngoài</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">あ</span></span>
+				<span>Các bản dịch</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>đang tải...</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js?v=2"></script>
+
+<script src="js/sim/Peep.js?v=2"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js?v=2"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!--
+
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span>Sự</span>
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">KHÔN NGOAN</span>
+		<span style="position:relative;top: -10px;">/</span>
+		<span style="font-size: 60px;">ĐIÊN RỒ</span>
+		<br>
+		<span style="position: relative;top: -11px;">của</span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">ĐÁM ĐÔNG</span>
+	</div>
+
+	<div style="color:#999">
+		<!-- TRANSLATE note: comment out the line below... -->
+		thời gian chơi: 30 phút •
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		tác giả nicky case • dịch bởi [Nghia Le] • <!-- <a href='.'>original in English</a> -->
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	đang tải...
+</words>
+
+<words id="preloader_play">
+	Bắt đầu chơi <div class="rarr"></div>
+</words>
+
+<!-- Introduction -->
+<!--
+
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+
+-->
+
+<words id="intro">
+
+	<br><br>
+
+	Ngài Issac Newton khá chắc rằng mình là một người <br>
+	thông minh. Sau khi phát minh ra giải tích và luật vạn <br>
+	vật hấp dẫn, ông ta đủ thông minh để thực hiện vài vụ đầu tư <br>
+	tài chính, phải không? Nhưng, ông ấy đã mất $4.600.000 <br>
+	(đổi ra đồng $ hiện tại) trong vụ bong bóng kinh tế <br>
+	South Sea Bubble năm 1720.
+
+	<br><br>
+
+	Theo như Newton nói: <i>“Tôi có thể tính được chuyển động của các <br>
+	vật thể trong vũ trụ, nhưng không tính được sự điên cuồng của con người.”</i>
+
+	<next>quá buồn cho ông <div class="rarr"></div> </next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+
+	Tất nhiên, đó không phải lần duy nhất mà <br>
+	các thị trường, các cơ quan, hay cả nền dân chủ <br>
+	trở nên rối tung &mdash; sự <i>điên cuồng</i> của đám đông. <br>
+	Vậy mà ngay khi bạn vừa mất niềm tin vào nhân loại, bạn lại thấy <br>
+	con người hợp tác để giúp đỡ nhau trong thiên tai, <br>
+	cộng đồng cùng chung sức giải quyết các vấn đề xã hội, cùng <br>
+	đấu tranh vì một thế giới tốt đẹp hơn &mdash; sự <i>khôn ngoan</i> của đám đông!
+
+	<div style="height:0.5em"></div>
+
+	<b>Nhưng <i>tại sao</i> một số đám đông lại trở nên điên cuồng, hoặc khôn ngoan?</b><br>
+	Không có lý thuyết nào có thể giải thích mọi thứ, nhưng tôi tin <br>
+	lĩnh vực nghiên cứu <b>khoa học mạng lưới</b> có thể giúp ta tìm ra câu trả lời! <br>
+	Và ý chính của thuyết này như sau: để có thể hiểu về đám đông, <br>
+	ta không nên nhìn vào những <i>cá nhân</i>, mà nên nhìn vào...
+
+	<next>...những <i>sự kết nối</i> của họ. <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>Hãy vẽ 1 mạng lưới!</b>
+	Mỗi một kết nối biểu thị một tình bạn giữa 2 người
+</words>
+
+<words id="networks_tutorial_connect">
+	Vẽ 1 kết nối.
+</words>
+
+<words id="networks_tutorial_disconnect">
+	gạch để &nbsp;&nbsp;&nbsp;xóa
+</words>
+
+<words id="networks_tutorial_end">
+
+	mời bạn nghịch thoải mái, khi nào xong thì
+	<next wiggle>tiếp tục nào <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_threshold">
+
+	Quan hệ xã hội không chỉ là chuyện vẽ vời cho vui.
+	Người ta còn <i>dựa vào</i> các mối quan hệ của mình để hiểu về thế giới xung quanh.
+	Ví dụ, mọi người nhìn vào bạn bè, đồng nghiệp mình để
+	tìm ra <b>bao nhiêu % trong số bạn bè của họ</b> (không tính bản thân) là
+	những kẻ say xỉn. <icon name="yellow"></icon>
+
+</words>
+
+<words id="networks_threshold_instruction">
+	<b>Vẽ/xóa kết nối, và quan sát điều gì xảy ra! <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>Ok, đã hiểu.</next>
+</words>
+
+<words id="networks_pre_puzzle">
+	Tuy nhiên, quan hệ xã hội có thể <i>đánh lừa</i> con người.
+	Cũng như việc Trái đất có vẻ là phẳng vì chúng ta sống trên nó,
+	con người có thể hiểu sai về xã hội bởi vì họ ở <i>bên trong</i> nó.
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		<i>tùy ý</i> tài liệu tham khảo &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		&darr; liên kết ngoài
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+
+	<bon id="books"></bon>
+
+	<br>
+
+	Ví dụ, một nghiên cứu năm 1991<ref id="drunk"></ref> chỉ ra rằng
+	“hầu hết mọi sinh viên khai rằng bạn bè của họ uống rượu nhiều hơn họ.”
+	Nhưng điều đó là không thể!
+	Làm sao có thể như vậy?
+	Bạn sắp tự mình tìm ra câu trả lời, bằng cách vẽ một mạng lưới.
+	Đã đến lúc để
+
+	<next>ĐÁNH LỪA MỌI NGƯỜI <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">GIẢI ĐỐ!</b>
+	<br>
+	Hãy lừa <i>mọi người</i> để họ suy nghĩ rằng
+	phần lớn bạn bè của họ (ít nhất đạt ngưỡng 50%) là những kẻ say xỉn <icon name="yellow"></icon>
+	(mặc dù những người bình thường đông gấp đôi!)
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>ĐÃ LỪA:</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	trong số 9 người
+</words>
+<words id="networks_puzzle_end">
+	Chúc mừng! Bạn đã khiến một nhóm sinh viên tin vào
+	sự thịnh hành của một xã hội thiếu lành mạnh! Tốt lắm!
+	<next wiggle>...ờờờ...xin cảm ơn?</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+	Cái bạn vừa tạo ra được gọi là "Ảo Tưởng Số Đông"<ref id="majority"></ref>,
+	nó cũng giải thích cho việc người ta nghĩ rằng ai cũng theo tư tưởng chính trị của mình,
+	hoặc tại sao sự phổ biến của chủ nghĩa cực đoan được thổi phồng trong tưởng tượng nhiều người.
+	<i>Sự điên rồ.</i>
+
+	<bon id="connections"></bon>
+
+	Nhưng người ta không chỉ đứng đó <i>quan sát một cách thụ động</i> ý tưởng
+	và hành vi của người khác, mà họ còn chủ động <i>làm theo.</i>
+	Nên bây giờ, hãy tìm hiểu cái thứ mà các nhà khoa học mạng lưới gọi là...
+
+	<next>“Sự lây lan!” <div class="rarr"></div> </next>
+
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+	<i>Hãy tạm gác lại các "ngưỡng" một lúc.</i>
+	Ở bên dưới: chúng ta có một người  <icon name="red"></icon> với một số thông tin.
+	Một số thông tin <i>sai lệch</i>. "Tin vịt", như cách gọi của giới trẻ ngày nay.
+	Và mỗi ngày, người đó loan tin, như một con virus, đến bạn bè của người đó.
+	Rồi những người đó lại báo cho <i>bạn bè của họ</i>. Cứ như vậy.
+	<br>
+	<b>
+	Bắt đầu mô phỏng! <div class="darr"></div>
+	(ghi chú: bạn không thể vẽ <i>khi</i> quá trình mô phỏng đang thực hiện)
+	</b>
+</words>
+
+<words id="simple_simple_2">
+	Lưu ý: mặc dù có cái tên khá tiêu cực, "sự lây lan" có thể tốt hoặc xấu (hoặc trung lập hay mơ hồ).
+	Có bằng chứng thống kê rõ ràng<ref id="contagion"></ref> rằng
+	hút thuốc, sức khỏe, hạnh phúc, xu hướng biểu quyết và mức độ hợp tác
+	đều có khả năng lây nhiễm --
+	và có cả các chứng minh rằng sự tự sát<ref id="suicides"></ref> và xả súng hàng loạt<ref id="shootings"></ref> cũng vậy.
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle>đáng rầu nhỉ? <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_cascade">
+	Thật sự thì đúng là vậy.
+	Dù sao thì, đã đến lúc <b>GIẢI ĐỐ!</b>
+	<br>
+	Vẽ một mạng lưới &amp; chạy mô phỏng,
+	để cho <i>mọi người</i> bị ảnh hưởng bởi "sự lây lan".
+	<br>
+	(luật mới: bạn không thể xóa các kết nối <i>dày</i>)
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle>Quá tuyệt luôn! <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_post_cascade">
+	Sự lây lan điên cuồng này được gọi là <b>"thác thông tin"</b>.
+	Newton thất bại vì một thác thông tin như vậy vào năm 1720.
+	Khủng hoảng tài chính thế giới năm 2008 xảy ra cũng vì thế.<ref id="subprime"></ref>
+	<br><br>
+	Tuy nhiên: <i>mô phỏng này không đúng.</i>
+	Hầu hết ý tưởng <i>không</i> phát tán như virus.
+	Với nhiều tín ngưỡng và hành vi, bạn cần "tiếp xúc" với sự lây lan nhiều hơn một lần
+	để bị "nhiễm".
+	Vì vậy, các nhà khoa học mạng lưới đã nảy ra một cách mô tả mới, tốt hơn
+	cho việc diễn đạt sự phát tán ý tưởng/hành vi, và họ gọi nó là...
+	<next wiggle>“Sự lây lan <i>phức tạp</i>!” <div class="rarr"></div> </next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+
+	Hãy quay trở lại ví dụ về "ngưỡng" và say xỉn <icon name="yellow"></icon>!
+	Lưu ý là mô phỏng mà bạn chạy lần đầu tiên không khiến người thường trở nên say xỉn.
+
+	<br><br>
+
+	Bây giờ hãy mô phỏng chuyện xảy ra khi mọi người bắt đầu uống rượu
+	<i>nếu 50%+ bạn bè của họ uống!</i>
+	<b>Trước khi bắt đầu, bạn hãy tự hỏi điều gì <i>sẽ</i> xảy ra.</b>
+
+	<br><br>
+
+	<b>Giờ hãy chạy mô phỏng và xem thực hư thế nào! <div class="rarr"></div> </b>
+
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+
+		Không giống như sự lây lan "tin vịt" trước đó <icon name="red"></icon>,
+		sự lây lan này <icon name="yellow"></icon> <i>không</i> ảnh hưởng đến tất cả!
+		Vài người đầu tiên bị "nhiễm", vì mặc dù họ chỉ tiếp xúc với 1
+		người say, người đó chiếm tới 50% số bạn của họ. (phải, họ cô đơn)
+		Ngược lại, người gần cuối của chuỗi <i>không bị</i> "nhiễm",
+		vì mặc dù họ tiếp xúc với một người bạn say xỉn,
+		người bạn đó không đạt ngưỡng 50% tổng số bạn bè.
+
+		<div style="height:0.75em"></div>
+
+		Số phần trăm <i>tương đối</i> của những người bạn bị "nhiễm" có ảnh hưởng lớn trong trườn hợp này.
+		<i>Đó là</i> sự khác nhau giữa <b>thuyết lây lan phức tạp</b><ref id="complex"></ref>,
+		và <b>thuyết lây-lan-như-virus đơn giản </b>
+		(bạn có thể nghĩ "lây lan đơn giản" chỉ là sự lây lan với ngưỡng 0%)
+
+		<div style="height:0.75em"></div>
+
+		Tuy nhiên, sự lây lan chưa chắc đã là xấu &mdash;
+		vậy là ta đã nói đủ về sự <i>điên cuồng</i> đám đông, thế còn...
+		<next>...sự <i>khôn ngoan</i> của đám đông?</next>
+
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+	Ở đây, chúng ta có một người <icon name="blue"></icon> làm thiện nguyện. Chẳng hạn như
+	việc cứu hộ bão lũ, hoặc dạy trẻ em bị thiệt thòi ở cộng đồng địa phương, 
+	hoặc một việc nghĩa hiệp đại loại thế.
+	Mấu chốt là, đây là sự lây lan "tốt".
+	Lần này, ta để ngưỡng ở 25% &mdash;
+	mọi người sẵn sàng tình nguyện, nhưng chỉ khi ít nhất 25% số bạn bè của họ cùng làm.
+	Này, thiện chí thì cũng cần ít khuyến khích của xã hội chứ.
+
+	<br><br>
+
+	<b>&larr; Hãy làm cho mọi người "nhiễm" cái thiện!</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+		<b>LƯU Ý:</b> Tình nguyện chỉ là <i>một</i> trong nhiều sự lây lan phức tạp!
+		Ngoài ra còn có: đi bầu cử, phát triển thói quen sống,
+		thách thức niềm tin cá nhân,
+		dành thời gian tìm hiểu cặn kẽ một vấn đề &mdash; bất cứ việc gì mà
+		cần nhiều hơn một lần "tiếp xúc".
+		Lây lan phức tạp không <i>nhất thiết</i> là khôn ngoan,
+		nhưng quá trình trở nên khôn ngoan là một sự lây lan phức tạp.
+
+		<div style="height:0.75em"></div>
+
+		(Vậy trong đời thực, ví dụ của sự lây lan <i>đơn giản</i> là gì?
+		Thường là những dữ kiện vặt như, "chồn possum có 13 núm vú"<ref id="possum"></ref>)
+
+		<bon id="contagions"></bon>
+
+		Để <i>thực sự</i> diễn đạt sức mạnh và sự kì lạ của lây lan phức tạp, hãy quay lại...
+
+		<next>...một câu đố trước đây<div class="rarr"></div> </next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+	Nhớ cái này không? Lần này là với lây lan <i>phức tạp</i> <icon name="blue"></icon>, nó sẽ khó hơn một tẹo...
+	<br>
+	<b>Thử "lây nhiễm" mọi người với trí khôn phức tạp! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+	(cứ tự nhiên ấn 'bắt đầu mô phỏng' và <i>thử</i> bao nhiêu lần cũng được)
+</words>
+
+<words id="complex_cascade_end">
+	<next wiggle>QUÁ ĐÃ<div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+	Có thể bạn nghĩ là chỉ cần thêm các kết nối để phát tán bất kì sự lây lan nào,
+	dù nó là sự lây lan "phức tạp" hay "đơn giản", tốt hay xấu, khôn hay điên.
+	Liệu có thật là như vậy? Hãy quay lại với...
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle>...một câu đố khác trước đó <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_prevent">
+	Nếu bạn bắt đầu mô phỏng, sự lây lan phức tạp <icon name="blue"></icon> sẽ phát tán ra khắp nơi.
+	Không có gì bất ngờ.
+	Nhưng bây giờ, hãy làm <i>ngược lại</i> tất cả những gì chúng ta đã làm trước đó:
+	<b>vẽ một mạng lưới <i>để chống lại</i> sự lây lan ra tất cả mọi người! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+	Bạn thấy không?
+	Trong khi thêm kết nối luôn tăng sự phát tán của ý tưởng <i>đơn giản</i>,
+	<b>việc thêm kết nối có thể làm giảm sự phát tán của ý tưởng <i>phức tạp</i>!</b>
+	(khiến bạn suy gẫm về mặt trái của internet, phải không?)
+	Và đây không chỉ là vấn đề trên lý thuyết. Nó có thể trở thành vấn đề sống...
+</words>
+
+<words id="complex_prevent_end">
+	<next wiggle>...hoặc chết. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_groupthink">
+
+	Những người làm việc ở NASA là những người thông minh.
+	Họ dùng các lý thuyết của Newton để đưa ta lên gặp chị Hằng.
+	Nhưng, vào năm 1986,
+	<i>mặc cho sự cảnh báo từ các kỹ sư</i>,
+	họ phóng <i>tàu con thoi Challenger</i>,
+	nó đã phát nổ và khiến 7 người thiệt mạng.
+	Nguyên nhân trực tiếp:
+	Sáng hôm đó trời quá lạnh.
+
+	<div style="height:0.9em"></div>
+
+	Nguyên nhân sâu xa hơn: các nhân viên quản lý đã không nghe theo lời cảnh báo của các kỹ sư.
+	Vì sao? Vì <b>tư duy tập thể</b><ref id="groupthink"></ref>.
+
+	Khi một nhóm người có quan hệ quá mật thiết (như những người ở các vị trí lãnh đạo), họ thường sẽ chống lại những ý tưởng
+	phức tạp đi ngược lại quan điểm hoặc cái tôi của họ.
+
+	<div style="height:0.9em"></div>
+
+	Vậy nên, đó là cách mà một tổ chức có thể rơi vào tình trạng điên rồ của đám đông.
+	Nhưng làm sao để ta có thể "sắp đặt" cho <i>sự khôn ngoan</i> của đám đông diễn ra?
+	Nói ngắn gọn, ta cần 2 thứ:
+
+	<next>Liên kết &amp; Bắc cầu <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+	&larr; Quá ít sự kết nối, ý tưởng không thể truyền đi.
+	<br>
+	Quá nhiều sự kết nối, và bạn sẽ bị tư duy tập thể. <div class="rarr"></div>
+</words>
+
+<words id="bonding_2">
+	<b>
+	Hãy vẽ một nhóm chỉ cần vừa đủ liên kết để ý tưởng phức tạp lan rộng!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+	Thật đơn giản!
+	Số lượng kết nối <i>trong</i> một nhóm được gọi là <b>vốn xã hội liên kết</b><ref id="social_capital"></ref>.
+	Thế còn những sự kết nối
+	<next wiggle>...<i>giữa</i> các nhóm?</next>
+</words>
+
+<words id="bridging_1">
+	Có thể bạn đã đoán được,
+	số lượng các kết nối <i>giữa</i> các nhóm được gọi là
+	<b>vốn xã hội bắc cầu</b>.
+	Yếu tố này quan trọng vì nó giúp các nhóm thoát khỏi cái phòng cách âm của họ!
+	<br>
+	<b>Hãy xây dựng một chiếc cầu, để "nhiễm" mọi người với trí khôn phức tạp:</b>
+</words>
+
+<words id="bridging_end">
+	Tương tự như liên kết, bắc cầu cũng có một điểm hoàn hảo.<ref id="bridge"></ref>
+	(thử thách thêm: thử vẽ một cái cầu dày đến mức sự lây lan phức tạp
+	<i>không thể</i> xảy ra!)
+	Giờ chúng ta đã biết cách "thiết kế" những sự kết nối <i>bên trong</i> và <i>giữa</i> các nhóm, hãy...
+	<next wiggle>...làm CẢ HAI cùng một lúc!</next>
+</words>
+
+<words id="bb_1">
+
+	<b style="font-size:2em">CÂU ĐỐ CUỐI!</b>
+	<br>
+	Vẽ các kết nối bên trong nhóm (liên kết) và giữa các nhóm (bắc cầu)
+	để lây lan sự khôn ngoan cho toàn bộ đám đông:
+
+</words>
+<words id="bb_2">
+
+	Chúc mừng, bạn vừa vẽ một loại mạng lưới rất đặc biệt!
+	Mạng lưới với sự phối hợp tốt của liên kết và bắc cầu
+	là rất quan trọng, và được gọi là
+	<next wiggle>“Mạng lưới Small-world” <div class="rarr"></div> </next>
+
+</words>
+<words id="bb_small_world_1">
+
+	<i>"Thống nhất mà không đồng nhất". "Đa dạng mà không chia rẽ". "E Pluribus Unum: từ nhiều, thành một".</i>
+	<br>
+	Không quan trọng nó được diễn tả thế nào,
+	con người ở các thời điểm lịch sử và văn hóa khác nhau thường cùng đến với một bài học:
+	<b>
+	một xã hội lành mạnh cần sự kết hợp hoàn hảo của liên kết <i>bên trong</i> nhóm
+	và cầu nối <i>giữa</i> các nhóm.
+	</b>
+	Nghĩa là:
+
+</words>
+<words id="bb_small_world_2">
+	Không phải cái này...
+	<br>
+	(vì ý tưởng không thể lan truyền)
+</words>
+<words id="bb_small_world_3">
+	hay cái này...
+	<br>
+	(vì sẽ tạo thành tư duy tập thể)
+</words>
+<words id="bb_small_world_4">
+	...mà là <i>CÁI NÀY:</i>
+</words>
+<words id="bb_small_world_5">
+
+	Các nhà khoa học mạng lưới có một định nghĩa toán học về bài học lâu đời này:
+	<b>Mạng lưới Small-world</b><ref id="small_world"></ref>.
+	Sự kết hợp tối ưu của liên kết và bắc cầu phản ánh cơ chế kết nối giữa
+	các tế bào thần kinh<ref id="swn_neurons"></ref>,
+	thúc đẩy sáng tạo tập thể<ref id="swn_creativity"></ref>
+	và giải quyết vấn đề tập thể<ref id="swn_social_physics"></ref>,
+	và ngay cả đã có lần nó đã giúp tổng thống Mỹ John F. Kennedy (vừa đủ) tránh chiến tranh hạt nhân!<ref id="swn_jfk"></ref>
+	Vậy nên, dù được gọi là "thế giới nhỏ" ("Small-world") nhưng đây lại là một vấn đề lớn.
+
+</words>
+<words id="bb_small_world_end">
+	<next>Ok, hãy tóm gọn lại nào... <div class="rarr"></div> </next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+	(pst... Muốn biết một bí mật không?<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+	Sự lây lan:
+</words>
+<words id="sandbox_contagion_simple">
+	đơn giản
+</words>
+<words id="sandbox_contagion_complex">
+	phức tạp
+</words>
+<words id="sandbox_color_chooser">
+	Màu sắc của sự lây lan:
+</words>
+<words id="sandbox_tool_chooser">
+	Chọn công cụ...
+</words>
+
+<words id="sandbox_tool_pencil">
+	Kết nối
+</words>
+<words id="sandbox_tool_add">
+	Người thường
+</words>
+<words id="sandbox_tool_add_infected">
+	Người "bị ảnh hưởng"
+</words>
+<words id="sandbox_tool_move">
+	Kéo/thả người
+</words>
+<words id="sandbox_tool_delete">
+	Xóa người
+</words>
+<words id="sandbox_tool_clear">
+	<b>XÓA TẤT CẢ</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+	(...hoặc, dùng phím tắt!)
+</words>
+
+<words id="sandbox_shortcuts">
+	[1]: Người thường &nbsp;&nbsp;&nbsp; [2]: Người "bị ảnh hưởng"
+	<br>
+	[Space]: Kéo/thả &nbsp;&nbsp;&nbsp; [Backspace]: Xóa
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+
+	<div style="font-size: 30px;">
+		KẾT LUẬN: tất cả đều quy về...
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 88px;
+	    top: 20px;
+	    line-height: 100px; display:block;
+	">
+	   	Sự lây lan &amp; Sự kết nối
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 125px;
+	    left: 250px;
+	">
+		<b>Sự lây lan:</b>
+		Như cách tế bào thần kinh truyền tín hiệu trong não,
+		con người truyền tư tưởng &amp; hành vi trong xã hội.
+		Chúng ta không chỉ tác động đến bạn bè ta,
+		chúng ta còn tác động đến bạn của bạn bè, và kể cả bạn của bạn của bạn bè!<ref id="three_degrees"></ref>
+		(giống như câu nói “hãy trở thành sự thay đổi mà bạn muốn nhìn thấy trên thế giới”, v.v.)
+		Nhưng cũng như tế bào thần kinh, không chỉ có tín hiệu là thứ quan trọng, mà còn là...
+	</div>
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 290px;
+	    left: 250px;
+	">
+		<b>Sự kết nối:</b>
+		Quá ít sự kết nối thì ý tưởng phức tạp không thể lan rộng.
+		Quá <i>nhiều</i> sự kết nối thì ý tưởng phức tạp sẽ bị chà đạp bởi tư duy tập thể.
+		Cái khó là làm sao tạo ra được mạng lưới small-world, với sự kết hợp tối ưu của
+		liên kết và bắc cầu: <i>e pluribus unum.</i>
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #999;
+	">
+		(Muốn tạo ra mô phỏng của riêng bạn?
+		hãy thử chế độ Sân Chơi Riêng, bằng cách nhấn nút (★) bên dưới!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+		Thế còn câu hỏi mà chúng ta đã đặt ra từ ban đầu?
+		Vì <i>sao</i> một số đám đông trở nên...
+	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 460px;
+	    right: 0px;
+	">
+		<next>...khôn ngoan và/hay điên cuồng?</next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+		Từ Newton đến NASA cho đến
+		<br>
+		khoa học mạng lưới, chúng ta đã đề cập đến được nhiều thứ
+		<br>
+		trong ngày hôm nay. Tóm lại, sự điên cuồng của đám đông
+		<br>
+		không nhất thiết là vì <i>các cá thể độc lập</i>, mà vì cách chúng
+		<br>
+		ta bị mắc kẹt trong một mạng lưới.
+
+		<div style="height:0.5em"></div>
+
+		Điều đó <i>KHÔNG</i> có nghĩa là ta có thể chối bỏ trách nhiệm cá nhân, vì
+		<br>
+		chính chúng ta cũng là người góp phần <i>dệt nên</i> mạng lưới đó. Vì thế, hãy cải thiện
+		<br>
+		sự lây lan của bạn: hãy trở nên hoài nghi về những ý tưởng
+		<br>
+		tâng bốc bạn<ref id="flatter"></ref>, bỏ thời gian ra để hiểu những ý tưởng phức tạp.
+		<br>
+		Và, hãy cải thiện các kết nối của bạn: liên kết với những người cùng
+		tư tưởng, nhưng cũng xây cầu nối bắc qua sự phân chia văn hóa, chính trị.
+
+		<div style="height:0.5em"></div>
+
+		Chúng ta có thể dệt nên một mạng lưới đầy khôn ngoan trí tuệ. Tất nhiên
+		<br>
+		việc đó khó hơn là vẽ vời nghịch ngợm trên màn hình, nhưng kết quả của nó thì...
+
+		<next>...thật xứng đáng biết bao.</next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+		“Những khúc khải hoàn và tấn bi kịch trong lịch sử được tạo ra,
+		không phải vì người ta căn bản là tốt hoặc căn bản là xấu,
+		mà là vì người ta căn bản là người.”
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Neil Gaiman &amp; Terry Pratchett
+	<div style="height:0.8em"></div>
+	<next small>&lt;3</next>
+</words>
+
+<!-- Credits -->
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+
+		<span style="color:#777; position:relative; top:5px;">
+			Được tạo bởi:</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			xem những tác phẩm khác của tôi</a> ·
+		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
+			theo dõi tôi trên Twitter</a>
+
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			Xin cảm ơn</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NHỮNG NGƯỜI ĐÃ ỦNG HỘ TÔI</div>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			xem tên &amp; bức vẽ về họ</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			xem những người thử nghiệm</a>
+		<br>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+			giúp tôi làm thêm nhiều tác phẩm hơn! &lt;3</a>
+
+		<br><br>
+
+		<span style="display: inline-block; margin-top: 15px;">
+			♫ Bài nhạc được sử dụng trong tác phẩm này:
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" and "Friends 2068"</a>
+			của Komiku
+			<br>
+			&lt;/&gt; Tác phẩm <i>Crowds</i> này
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				hoàn toàn mã nguồn mở</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	WIN
+</words>
+<words id="sim_start">
+	bắt đầu mô phỏng
+</words>
+<words id="sim_stop">
+	đặt lại &amp; vẽ lại
+</words>
+<words id="translations_exist">
+	Các bản dịch do fan làm:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	What the, no fan-made translations exist yet?!
+</words>
+<words id="translations_add">
+	(tạo một bản dịch)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+	Phản hồi nhanh về sách của James Surowiecki: <i>Trí khôn của đám đông</i>
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+
+	Trước hết, tôi không chê bai gì
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	cuốn sách này.</a>
+	Đây là một sách hay, và Surowiecki cũng cố trả lời câu hỏi như tôi:
+	<b>“vì sao có đám đông trở nên điên cuồng, hoặc khôn ngoan?”</b>
+
+	<br><br>
+
+	Câu trả lời của Surowiecki: đám đông đưa ra quyết định đúng đắn khi mọi người độc lập nhất có thể.
+	Ông ấy đưa ra câu chuyện về một hội chợ,
+	nơi người dân được mời để đoán cân nặng của một con bò.
+	Ngạc nhiên thay, giá trị dự đoán trung bình của <i>tất cả</i> mọi người là chính xác hơn dự đoán của bất kì <i>một cá nhân</i> nào.
+	Nhưng đây mới là vấn đề: mọi người phải đoán <i>độc lập</i> với nhau.
+	Nếu không thì,
+	họ sẽ bị ảnh hưởng bới những dự đoán sai trước đó,
+	và giá trị trung bình sẽ thay đổi đáng kể.
+
+	<br><br>
+
+	Tuy nhiên... Tôi không nghĩ "khiến mọi người độc lập nhất có thể" là câu trả lời đầy đủ.
+	Kể cả các thiên tài, người chúng ta thường đánh giá nhầm là những người nghĩ độc lập nhất,
+	cũng vẫn bị ảnh hưởng sâu sắc bởi những người khác. Như Isaac Newton từng nói,
+	<i>“Nếu tôi có thể nhìn xa hơn, đó là vì tôi đang đứng trên vai những người khổng lồ.”</i>
+
+	<br><br>
+
+	Thế ý tưởng nào mới đúng?
+	Sự khôn ngoan có đến từ việc nghĩ cho chính mình, hay nghĩ với mọi người?
+	Câu trả lời là: "có".
+
+	<br><br>
+
+	Đây chính là điều tôi muốn giải thích trong phần mở rộng này:
+	làm thế nào để đạt được điểm hoàn hảo giữa độc lập và phụ thuộc &mdash;
+	nghĩa là, làm sao để có được một đám đông khôn ngoan.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+	Có những loại kết nối nào khác?
+	</h3>
+
+	<div>
+
+	Để cho đơn giản,
+	sự mô phỏng của tôi giả định rằng con người chỉ có thể kết nối qua tình bạn,
+	và tình bạn nào cũng như nhau.
+	Nhưng những nhà khoa học mạng lưới <i>cũng</i> xem xét các kết nối khác, như là:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Kết nối một chiều.</b> Alice là sếp của Bob, nhưng Bob nào phải là sếp của Alice.
+	Carol là phụ huynh của Dave, nhưng Dave không phải phụ huynh của Carol.
+	"Sếp" &amp; "phụ huynh" là các quan hệ <i>đơn phương</i>:
+	mối quan hệ chỉ đi theo 1 chiều.
+	Ngược lại, "bạn bè" là quan hệ <i>song phương</i>:
+	mối quan hệ đi theo cả 2 chiều. (à thì, hy vọng thế)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Kết nối có trọng số.</b> Elinor và Frankie chỉ là người quen.
+	George và Harry là bạn vào sinh ra tử.
+	Mặc dù đều có "tình bạn" trong cả 2 trường hợp, cái thứ hai mạnh hơn.
+	Chúng ta nói rằng 2 kết nối này có "trọng lượng" khác nhau.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Hãy nhớ: <b>tất cả những mô phỏng này đều không đúng.</b> cùng một lý do với mọi bản đồ đều "không đúng".
+	Bạn có thấy bản đồ bên trái? Các tòa nhà thật không phải những khối màu xám vô nghĩa!
+	Các địa danh không nổi trên thành phố! Tuy nhiên, bản đồ hữu dụng không phải vì chúng <i>đúng y như thật</i>,
+	mà <i>vì</i> chúng được <i>đơn giản hóa</i>. Tương tự với việc mô phỏng, hoặc bất cứ lý luận khoa học nào.
+	<i>Tất nhiên</i> chúng "không đúng" &mdash; đó là lý do chúng <i>có ích</i>.
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	Có những loại lây lan nào khác?
+	</h3>
+
+	<div>
+
+	Có rất rất nhiều cách để các nhà khoa học mạng lưới mô phỏng "sự lây lan"!
+	Tôi đã lấy cái đơn giản nhất, cho mục đích giáo dục.
+	Nhưng đây là một số cách khác:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Sự lây lan ngẫu nhiên</b>.
+	"Tiếp xúc" với sự lây lan không <i>đảm bảo</i> bạn bị nhiễm,
+	nó chỉ <i>tăng</i> khả năng lây nhiễm.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Mỗi người có ngưỡng lây lan khác nhau.</b>
+	Mô phỏng của tôi giả định rằng mỗi người có cùng một ngưỡng cho say xỉn (50%) hay
+	trở thành tình nguyện viên (25%) hay tung tin đồn nhảm (0%).
+	Tất nhiên, nó không đúng ngoài đời thực, và bạn có thể điều chỉnh mô phỏng cho đúng hơn.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Một hệ sinh thái của sự lây lan.</b>
+	Vậy nếu có <i>nhiều</i> sự lây lan, với các ngưỡng <i>khác nhau</i>?
+	Ví dụ, một sự lây lan "điên rồ" đơn giản và một sự lây lan "không ngoan" phức tạp.
+	Nếu có người bị nhiễm "điên rồ", liệu họ có thể bị ảnh hưởng bởi "khôn ngoan"?
+	Hay ngược lại?
+	Liệu có ai có thể bị nhiễm cả hai?
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Sự lây lan có đột biến và tiến hóa.</b>
+	Ý tưởng không được truyền tải hoàn hảo từ người này sang người kia như virus.
+	Cũng như trò chơi Tin Truyền Miệng, thông tin thường bị thay đổi với mỗi lần kể lại &mdash;
+	và đôi lúc thông tin đột biến lại dễ lây nhiễm hơn cả nguyên bản!
+	Vì thế, qua thời gian, ý tưởng "tiến hóa" thành bắt tai hơn, dễ sao chép hơn, dễ lây nhiễm hơn.
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+
+	<h3>
+	Tôi muốn tìm hiểu thêm! Còn gì tôi có thể đọc hoặc chơi chăng?
+	</h3>
+
+	<div>
+
+	Phần mở rộng này chỉ là bàn đạp cho trí tò mò của bạn,
+	để bạn có thể lặn sâu hơn trong biển kiến thức!
+	Đây là một số thứ về mạng lưới và hệ thống xã hội:
+
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Sách:</b>
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>
+	của Nicholas Christakis và James Fowler (2009).
+	Tài liệu tham quan dễ đọc cho thấy mạng lưới có thể ảnh hưởng ta tốt xấu thế nào.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	Trích đoạn: Preface &amp; Chapter 1
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Tương tác:</b>
+	<a target="_blank" href="http://ncase.me/trust/">
+	The Evolution of Trust</a> của Nicky Case (tôi) (2017).
+	Một trò chơi vận dụng lý thuyết trò chơi nói về sự hợp tác được tạo ra hay...phá hủy thế nào.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Tương tác:</b>
+	<a target="_blank" href="http://ncase.me/polygons/">
+	Parable of the Polygons</a> của Vi Hart và Nicky Case (vẫn là tôi) (2014).
+	Câu chuyện về làm sao những lựa chọn vô hại lại dẫn đến một thế giới độc hại.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Hoặc nếu bạn muốn thấy hết toàn thể bộ sưu tập về tài liệu giáo dục tương tác, đây là
+	<a target="_blank" href="http://explorabl.es/">
+	Explorable Explanations</a>,
+	một nơi để chơi mà học!
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+	“Hầu hết mọi sinh viên khai rằng bạn bè của họ uống rượu nhiều hơn họ.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	“Biases in the perception of drinking norms among college students”</a> của Baer và các tác giả khác (1991)
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+	“Ảo tưởng số đông”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	“The Majority Illusion in Social Networks”</a> của Lerman và các tác giả khác (2016).
+	<br>
+	Có liên quan: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+	The Friendship Paradox</a>.
+	</div>
+</reference>
+<reference id="contagion">
+
+	<h3>
+	“Có bằng chứng thống kê rõ ràng rằng hút thuốc, sức khỏe, hạnh phúc, xu hướng biểu quyết và mức độ hợp tác
+	đều có khả năng lây nhiễm”
+	</h3>
+
+	<div>
+
+	Từ quyển sách tuyệt vời và dễ đọc của Nicholas Christakis and James Fowler's,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009).
+
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+	“và có cả các chứng minh rằng sự tự sát cũng có khả năng lây nhiễm”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	“Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop”</a>
+	của O'Carroll và các tác giả khác (1994), được ủng hộ bởi Centers for Disease Control &amp; Prevention (CDC).
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+	“và có cả các chứng minh rằng các vụ xả súng hàng loạt cũng có khả năng lây nhiễm”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	“Contagion in Mass Killings and School Shootings”</a> của Towers và các tác giả khác (2015).
+
+	<br><br>
+
+	Tham khảo thêm: chiến dịch vận động
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Don't Name Them</a>
+	khuyến cáo các thông tấn xã <i>KHÔNG NÊN</i> đăng tải tên tuổi, tuyên bố và các trang mạng xã hội của các tội phạm giết người hàng loạt.
+	Làm như vậy sẽ tăng sự lây nhiễm của các ý tưởng của họ.
+	Thay vì vậy, các thông tấn xã nên tập trung đưa tin về nạn nhân, cảnh sát, cứu thương, những thường dân quả cảm,
+	cũng như quá trình thương tiếc và phục hồi của cộng đồng.
+
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+	“Khủng hoảng tài chính thế giới năm 2008.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	“Lemmings of Wall Street”</a> của Cass Sunstein, tài liệu đọc nhanh, không có nhiều khái niệm chuyên môn.
+	Ấn hành vào tháng 10 năm 2008, ngay sau khi vụ khủng hoảng xảy ra.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+	“Lý thuyết về sự lây lan phức tạp.”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	“Threshold Models of Collective Behavior”</a> của Granovetter (1978),
+	tài liệu này đánh dấu lần đầu tiên, theo như tôi biết, việc miêu tả một mô hình "lây lan phức tạp"
+	(mặc dù tác giả không dùng cùng một cụm từ đó).
+
+	<br><br>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> của Centola &amp; Macy (2007),
+	tài liệu này đặt ra cụm từ "lây lan phức tạp",
+	và cho thấy những điểm khác biệt quan trọng giữa khái niệm đó và "lây lan đơn giản".
+
+	<br><br>
+	
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	“Evidence for complex contagion models of social contagion from observational data”</a>
+	của Sprague &amp; House (2017)
+	chứng minh rằng sự lây lan phức tạp có xuất hiện (ít nhất là trong các dữ liệu mạng xã hội mà họ nghiên cứu).
+
+	<br><br>
+
+	Sau cùng,
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	“Universal behavior in a generalized model of contagion”</a> của Dodds &amp; Watts (2004)
+	đề xướng một mô hình thống nhất <i>tất cả</i> các loại lây lan:
+	đơn giản, phức tạp, qua cơ chế sinh học cũng như cơ chế xã hội!
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+	“chồn opossum có 13 núm vú”
+	</h3>
+	<div>
+	12 cái xếp thành vòng tròn + 1 cái ở giữa
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+	“Tư duy tập thể”
+	</h3>
+
+	<div>
+	Cụm từ có cảm hứng từ Orwell này được đặt ra bởi Irving L. Janis vào 1971.
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	Trong tài liệu gốc của ông</a>,
+	Janis nghiên cứu các trường hợp tư duy tập thể, liệt kê các nguyên nhân, và &mdash; may thay &mdash;
+	liệt kê một số giải pháp.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+	“vốn xã hội liên kết và vốn xã hội bắc cầu”
+	</h3>
+
+	<div>
+	Hai loại vốn xã hội &mdash; "liên kết" và "bắc cầu" &mdash;
+	được đặt tên bởi Robert Putnam trong quyển sách sâu sắc của ông vào năm 2000,
+	<a target="_blank" href="http://bowlingalone.com/">
+	Bowling Alone</a>. Khám phá của ông:
+	Thông qua hầu hết <i>tất cả</i> các tiêu chuẩn có thể quan sát về sự gắn kết xã hội,
+	Người Mỹ hiện nay cô đơn hơn bao giờ hết.
+	Trời ạ.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+	“vốn xã hội bắc cầu có một điểm hoàn hảo”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	“The Strength of Weak Ties”</a> của Granovetter (1973)
+	cho thấy liên kết giữa các nhóm hỗ trợ sự lây lan đơn giản (như truyền thông tin),
+	nhưng
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> của Centola &amp; Macy (2007)
+	cho thấy liên kết giữa các nhóm có thể không hỗ trợ sự lây lan phức tạp,
+	mà thực vậy, chúng còn có thể hạn chế sự lây lan!
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+	“Mạng lưới small-world (thế giới nhỏ bé)”
+	</h3>
+
+	<div>
+
+	Ý tưởng về "thế giới nhỏ bé" được nhiều người biết đến qua
+	<a target="_blank" href="http://www.jstor.org/stable/2786545">thí nghiệm của Travers &amp; Milgram vào 1969</a>,
+	thí nghiệm cho thấy rằng, tính trung bình, hai người Mỹ bất kỳ nào
+	cũng chỉ cách nhau bằng 6 mối quan hệ bạn bè &mdash; "sáu độ cách biệt"!
+
+	<br><br>
+
+	Mạng lưới small-world được bổ sung thêm cơ sở toán học với
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	“Collective dynamics of small-world networks”</a> của Watts &amp; Strogatz (1998),
+	tài liệu này đặt ra một thuật toán để tạo ra mạng lưới
+	với khoảng cách liên kết thấp (độ cách biệt thấp)
+	và độ tập trung cao (nhiều người bạn là bạn chung của nhau) &mdash;
+	đây cũng chính là một mạng lưới đạt được điểm hoàn hảo!
+
+	<br><br>
+
+	Bạn cũng có thể chơi với
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	phần mềm tương tác mô phỏng tài liệu đó</a> của Bret Victor (2011).
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+	“[Mạng lưới small-world] mô tả cách các tế báo thần kinh kết nối”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	“Small-world brain networks”</a> của Bassett &amp; Bullmore (2006).
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+	“[Mạng lưới small-world] thúc đẩy sáng tạo tập thể”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	“Collaboration and Creativity: The Small World Problem”</a> của Uzzi &amp; Spiro (2005).
+	Tài liệu này phân tích mạng lưới xã hội của các nhóm nghệ sỹ Broadway trong một thời gian dài
+	và phát hiện ra rằng, đúng vậy, mạng lưới có tính sáng tạo cao nhất khi nó là loại
+	mạng lưới "small-world"!
+	
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+	“[Mạng lưới small-world] thúc đẩy giải quyết vấn đề tập thể”
+	</h3>
+
+	<div>
+	Xem tài liệu
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	“Social Physics”</a> của Giáo Sư MIT Alex "Sandy" Pentland (2014)
+	về một phương pháp tiếp cận trí thông minh tập thể trên cơ sở dữ liệu.
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+	“[Mạng lưới small-world] giúp tổng thống Mỹ John F. Kennedy (vừa đủ) tránh chiến tranh hạt nhân!”
+	</h3>
+
+	<div>
+
+	Bên cạnh vụ nổ phi thuyền Challenger của NASA, ví dụ nổi tiếng nhất về tư duy tập thể
+	là sự kiện Vịnh Con Lợn.
+	Năm 1961, tổng thống Mỹ John F. Kennedy và đội ngũ cố vấn của ông tin rằng
+	&mdash; bằng cách nào đó &mdash;
+	sẽ thật tuyệt vời nếu họ bí mật xâm lược Cuba và lật đổ Fidel Castro.
+	Họ thất bại.
+	Thật ra, còn tệ hơn cả thất bại: Nó dẫn đến Khủng Hoảng Tên Lửa Cuba năm 1962,
+	<i>lúc thế giới phải đối mặt gần nhất với chiến tranh hạt nhân.</i>
+
+	<br><br>
+
+	Thế đó, JFK thật sự đã làm rối tung mọi chuyện.
+
+	<br><br>
+
+	Tuy nhiên, với bài học rút ra từ vụ Vịnh Con Lợn,
+	JFK cải tổ đội ngũ của ông để tránh tư duy tập thể.
+	Tiêu biểu là, ông ấy:
+	1) tích cực khuyến khích mọi người phê bình đánh giá, qua đó làm giảm "ngưỡng lây nhiễm" để các ý tưởng khác nhau được phát triển
+	và
+	2) ông ấy chia nhỏ đội ngũ của mình thành các nhóm nhỏ trước khi họp mặt toàn bộ,
+	điều đó khiến nhóm của ông được thiết kế theo mô hình mạng lưới "small-world"!
+	Tựu chung lại, sự sắp xếp này cho phép các ý kiến đa dạng hơn,
+	mà lại không quá chia rẽ &mdash; sự khôn ngoan của đám đông.
+
+	<br><br>
+
+	Và thế là, cũng cùng với <i>những cá thể</i> tạo ra sự kiện Vịnh Con Lợn,
+	nhưng được cải tổ <i>tập thể</i> để giải quyết vụ Khủng Hoảng Tên Lửa Cuba...
+	Nhóm của Kennedy đã đạt được thỏa thuận hòa bình với người lãnh đạo Xô Viết - Nikita Khrushchev.
+	Liên Xô sẽ loại bỏ tên lửa của họ khỏi Cuba, bù lại,
+	Mỹ phải hứa không được xâm chiếm Cuba nữa.
+	(và cũng đồng ý, trong bí mật, loại bỏ tên lửa Mỹ khỏi Thổ Nhĩ Kỳ)
+
+	<br><br>
+
+	Và đó là câu chuyện về lần cả nhân loại suýt chết.
+	May mà có một mạng lưới "small-world" cứu vãn được tình hình! Đại loại là thế.
+
+	<br><br>
+
+	Bạn có thể đọc thêm về chuyện này
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	trên trang Harvard Business Review</a>,
+	hoặc từ
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	tài liệu gốc về tư duy tập thể</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+	“Chúng ta không chỉ tác động đến bạn bè ta, chúng ta còn tác động đến bạn của bạn bè, và kể cả bạn của bạn của bạn bè!”
+	</h3>
+
+	<div>
+	Một lần nữa, từ quyển sách tuyệt vời của Nicholas Christakis và James Fowler,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+	“hãy hoài nghi về những ý tưởng tâng bốc bạn”
+	</h3>
+	<div>
+	đúng vậy, kể cả các ý tưởng bên trong <i>phần mở rộng này</i>.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	★ Chế độ Sân Chơi Riêng ★
+	</h3>
+
+	<div>
+	Bạn có thể dùng các phím tắt (1, 2, space, backspace)
+	ở <i>mọi</i> câu đố, không chỉ ở chế độ Sân Chơi Riêng!
+	Thật đấy, quay lại một chương nào đó thử xem,
+	và thay đổi mô phỏng ngay tại chỗ đó nữa.
+	Thật ra, đó chính là cách <i>tôi</i> tạo ra những câu đố ấy. Chơi vui!
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+	Dành cho
+	<a target="_blank" href="https://www.patreon.com/ncase">những người đã ủng hộ tôi trên trang Patreon</a>:
+	Tôi thành thật biết ơn sâu sắc.
+	Sự hào phóng của các bạn đã <i>thực sự</i> giúp tôi mua đồ ăn và trả tiền thuê nhà,
+	và cho phép tôi được tự do sáng tạo để tạo ra những trò chơi toán học/xã hội ngộ nghĩnh này.
+	Từ tận đáy lòng mình, xin cảm ơn!
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+	Cảm ơn, những người đã chơi thử <i>Crowds</i>
+	trong nhiều giai đoạn của tác phẩm!
+
+	<br><br>
+	<b>Phiên bản Prototype:</b>
+	<br>
+	Maria ·
+	Monica Srivastava
+
+	<br><br>
+	<b>Phiên bản Alpha:</b>
+	<br>
+	Glen Chiacchieri ·
+	Kalli Repzeti ·
+	Mali Akmanalp ·
+	Toph Tucker
+
+	<br><br>
+	<b>Phiên bản Beta:</b>
+	<br>
+	Alex Dytrych ·
+	Amit Patel ·
+	Cassandra McClure ·
+	Catherine Ray ·
+	Josh Comeau ·
+	Kayle Sawyer ·
+	Matthew Conlen ·
+	Srini Kadamati ·
+	Vanessa Shen ·
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+
+And that's it! That's the last of what needed to a TRANSLATE
+
+Thank you so, so much for doing this again, wow.
+
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+
+-->
