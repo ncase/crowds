@@ -1,0 +1,1651 @@
+<!--
+
+La sagesse et/ou folie des foules
+by Nicky Case | apr 2018
+
+- - - - - - - - - - -
+
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 3600+ WORDS to translate, including
+the Bonus Boxes and References.
+
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+
+Good luck, and thanks again!
+
+<3,
+~ Nicky Case
+
+-->
+
+<!DOCTYPE html>
+<html lang="fr"> <!-- lang="(TRANSLATE: set your language code here, same as the page name!) e.g: es, es-ES, pt-BR, ja, it, fr-CA, de, ..." -->
+<head>
+
+	<!-- Meta Info -->
+	<title>La sagesse et/ou folie des foules</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="un guide interactif des réseaux humains"/> <!-- content="(TRANSLATE this part only)" -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/cs.html"    hreflang="cs">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/es-MX.html" hreflang="es-MX">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="La sagesse et/ou folie des foules"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="un guide interactif des réseaux humains"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="La sagesse et/ou folie des foules"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="un guide interactif des réseaux humains"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="La sagesse et/ou folie des foules"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="un guide interactif des réseaux humains"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/fr.html">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=7">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">passer &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">⨯</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on">ON</span> <!-- TRANSLATE -->
+			<span id="sound_off">OFF</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			La sagesse et/ou folie des foules <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Pourquoi les groupes de gens se comportent parfois intelligemment, et des fois de manière idiote, gentille ou cruelle ? Un guide interactif des réseaux humains&nbsp;: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Introduction</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Connexions</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Contagions</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Contagions complexes</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Liens &amp; Ponts</span> <!-- note: &amp; is html for the "and" sign !!todo -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. Le monde est petit</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. En conclusion...</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Crédits</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>★</span>
+				<span>★ Mode bac à sable ! ★</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Bonus !</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Liens &amp; Références</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">あ</span></span>
+				<span>Traductions</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>chargement...</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js"></script>
+
+<script src="js/sim/Peep.js"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!--
+
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span>La</span>
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">SAGESSE</span>
+		<span style="position:relative;top: -10px;">et/ou</span>
+		<span style="font-size: 60px;">FOLIE</span>
+		<br>
+		<span style="position: relative;top: -11px;">des</span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">FOULES</span>
+	</div>
+
+	<div style="color:#999">
+		<!-- TRANSLATE note: comment out the line below... -->
+		<!-- Temps de jeu: 30 min • par nicky case, april 2018 -->
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		Par nicky case • Traduit par @clemkeirua • <a href='.'>original en anglais</a>
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	chargement...
+</words>
+
+<words id="preloader_play">
+	C'est parti ! <div class="rarr"></div>
+</words>
+
+<!-- Introduction -->
+<!--
+
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+
+-->
+
+<words id="intro">
+
+	<br><br>
+
+	Sir Isaac Newton était plutôt sûr d'être un
+	<br>
+	malin. Après tout, avec l'invention du calcul différentiel
+	<br>
+	et de la théorie de la gravité, il aurait dû être assez futé pour
+	<br>
+	des investissements financiers, non&nbsp;? Hé bien, pour faire court, il a
+	<br>
+	perdu 4&nbsp;600&nbsp;000&nbsp;$ (en dollars d'aujourd'hui) dans la folie spéculative
+	<br>
+	nationale appelée <i>Bulle des mers du Sud</i> de 1720.
+
+	<br><br>
+
+	Comme il l'a dit ensuite&nbsp;: <i>«Je peux calculer le mouvement des
+	<br>
+	corps célestes, mais pas la folie du peuple.»</i>
+	<br>
+
+	<next>oui, dommage <div class="rarr"></div> </next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+	Bien sûr, ce n'est pas la seule
+	<br>
+	fois où les marchés, les institutions ou
+	<br>
+ 	des démocraties se sont détraquées &mdash; la <i>folie</i> des
+	<br>
+	foules. Et pourtant, au moment où on perd foi en l'humanité,
+	<br>
+	on trouve des gens qui s'organisent pour se porter secours
+	<br>
+ 	lors des ouragans, des communautés qui trouvent des solutions,
+	<br>
+
+	des gens qui combattent pour un monde meilleur &mdash; la <i>sagesse</i> des foules&nbsp;!
+
+	<div style="height:0.9em"></div>
+
+	<b><i>Pourquoi</i> certaines foules sont folles, d'autres sages&nbsp;?</b> Aucune théorie
+	<br>
+	ne peut tout expliquer, mais je pense qu'un nouveau champ d'étude,
+	<br>
+	la <b>science des réseaux</b>, peut nous guider&nbsp;! Son idée centrale&nbsp;:
+	<br>
+	pour comprendre les foules, il ne faut pas regarder les
+	<br>
+
+	<i>individus</i>, mais…
+
+	<next>…leurs <i>connexions.</i> <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>Dessinons un réseau&nbsp;!</b>
+	Chaque lien représente une amitié entre deux personnes&nbsp;:
+</words>
+
+<words id="networks_tutorial_connect">
+	dessinez pour connecter
+</words>
+
+<words id="networks_tutorial_disconnect">
+	coupez pour&nbsp;&nbsp;&nbsp;&nbsp;déconnecter
+</words>
+
+<words id="networks_tutorial_end">
+	quand vous avez fini de gribouiller et jouer,
+	<next wiggle>on continue&nbsp;! <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_threshold">
+
+	Les connexions sociales servent à à faire bien plus que de jolies images.
+	Les individus <i>se tournent vers</i> leurs connexions sociales pour comprendre leur monde.
+	Par exemple, les gens regardent leurs pairs
+	pour savoir quel <b>% de leurs amis</b> (sans se compter eux) sont,
+	disons, de gros buveurs. <icon name="yellow"></icon>
+
+</words>
+
+<words id="networks_threshold_instruction">
+	<b>Dessinez/effacez des connexions, et regardez ce qui arrive&nbsp;! <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>cool, j'ai compris</next>
+</words>
+
+<words id="networks_pre_puzzle">
+	Cependant, les réseaux peuvent <i>tromper</i> les gens.
+	Comme la Terre peut sembler plate car on est dessus,
+	des gens peuvent se faire une image fausse de la société car ils en <i>font partie</i>.
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		Notes <i>optionnelles</i> bonus&nbsp;! &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		&darr; liens et références
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+
+	<bon id="books"></bon>
+
+	<br>
+
+	Par exemple, une étude de 1991<ref id="drunk"></ref> a montré que «presque tous les étudiants d'[université] considèrent que leurs amis boivent plus qu'eux»
+	Mais cela parait impossible&nbsp;!
+	Comment cela se peut-il&nbsp;?
+	Hé bien, vous allez inventer la réponse vous-même, en dessinant un réseau.
+
+	Il est temps de...
+
+	<next>TROMPER TOUT LE MONDE <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">PUZZLE TIME&nbsp;!</b>
+	<br>
+	Faites croire à <i>tout le monde</i>
+	que la majorité de leurs amis (seuil à 50%) sont de gros buveurs <icon name="yellow"></icon>
+	(même s'il y a deux fois moins de gros buveurs&nbsp;!)
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>VICTIMES:</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	parmi 9 personnes
+</words>
+<words id="networks_puzzle_end">
+	Félicitations&nbsp;! Vous avez fait croire chez un groupe d'étudiants
+	à la prévalence d'une norme sociale incroyablement malsaine&nbsp;! Bien joué&nbsp;!
+
+	<next wiggle>...euh. Merci&nbsp;?</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+	Ce que vous venez de créer s'appelle l'Illusion de la majorité<ref id="majority"></ref>.
+	Elle explique également pourquoi les gens pensent que leurs idées politique font consensus,
+	ou pourquoi l'extrémisme semble plus courant qu'il ne l'est vraiment.
+	<i>Folie.</i>
+
+	<bon id="connections"></bon>
+
+	Mais les gens n'<i>observent</i> pas simplement passivement les idées et comportements des autres&nbsp;:
+	ils les <i>copient</i> activement.
+	Nous allons donc maintenant regarder ce qu'on appelle…
+
+	<next>les «contagions&nbsp;!» <div class="rarr"></div> </next>
+
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+	<i>Oublions un moment cette histoire de «seuil».</i>
+	Ci-dessous&nbsp;: voici une personne <icon name="red"></icon> avec une information.
+	Une fausse info, «fake news» comme on dit.
+	Et tous les jours, cette personne répand la rumeur, comme un virus, à ses amis.
+	Qui la répandent à leur tour à <i>leurs</i> amis. Et ainsi de suite.
+	<br>
+	<b>
+	Démarrez la simulation&nbsp;! <div class="darr"></div>
+	(p.s.&nbsp;: pas de dessin <i>quand</i> la simulation tourne)
+	<br>
+	</b>
+</words>
+
+<words id="simple_simple_2">
+	Note: malgré le nom négatif, les «contagions» peuvent être bonnes ou mauvaises (ou neutres, ou ambigües).
+	Les données statistiques tendent à démontrer fortement<ref id="contagion"></ref> que
+	fumer, la santé, la joie, les motifs de vote et les niveaux de coopération
+	sont tous «contagieux» - <br>
+	et indiquent que les suicides<ref id="suicides"></ref> et les fusillades<ref id="shootings"></ref>
+	le sont également.
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle>c'est déprimant <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_cascade">
+	En effet.
+	Peu importe, <b>PUZZLE TIME!</b>
+	<br>
+	Dessinez un réseau &amp; lancez la simulation,
+	afin que <i>tous</i> soient infectés par la «contagion».
+	<br>
+	(nouvelle règle&nbsp;: vous ne pouvez pas couper les connexions <i>épaisses</i>)
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle>fan-tas-tique&nbsp;! <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_post_cascade">
+	Cette folie qui se répand s'appelle une <b>«cascade d'information»</b>.
+	M. Newton s'est pris dans une telle cascade en 1720.
+	Les institutions financières mondiales se sont prises dans une telle cascade en 2008.<ref id="subprime"></ref>
+	<br><br>
+
+	Cependant, <i>cette simulation est fausse.</i>
+	La plupart des idées <i>ne se répandent pas</i> comme des virus.
+	Pour beaucoup de croyances et de comportement, il faut être exposé à la contagion plus d'une fois pour être «infecté».
+	Les chercheurs en réseaux ont donc trouvé une meilleure nouvelle manière
+	de décrire comment les idées et comportement se répandent, ils l'appellent...
+	<next wiggle>«les contagions <i>complexes</i>!» <div class="rarr"></div> </next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+	Reprenons les seuils et l'exemple des gros&nbsp;buveurs&nbsp;<icon name="yellow"></icon>&nbsp;!
+	Quand vous avez joué la première fois, les gens ne changeaient pas leur comportement.
+
+	<br><br>
+
+	Maintenant, simulons ce qui arrive quand les gens commencent à boire
+	<i>quand plus de 50% de leurs amis boivent&nbsp;!</i>
+
+	<b>Avant de démarrer, essayez de deviner ce qui <i>devrait</i> arriver.</b>
+
+	<br><br>
+
+	<b>Maintenant, démarrez la simulation. Regardez ce qui arrive vraiment&nbsp;!</b>
+
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+
+		Contrairement à la précédente contagion des fausses rumeurs <icon name="red"></icon>,
+		cette contagion <icon name="yellow"></icon> n'atteint <i>pas</i> tout le monde&nbsp;!
+
+		Les premières personnes ont été «infectées»&nbsp;: un seul gros buveur représente 50% de leurs amis (oui, ils sont solitaires).
+		Par contre, la personne à la fin de la chaîne n'a <i>pas</i> été «infectée»&nbsp;:
+		malgré l'exposition à un ami gros buveur,
+		il y a moins de 50% de gros buveurs parmi ses amis.
+
+		<div style="height:0.75em"></div>
+
+		Ce % <i>relatif</i> d'amis «infectés» est important.
+		C'est la différence entre la théorie des <b>contagions complexes</b><ref id="complex"></ref>,
+		et notre théorie naïve des <b>contagions simples</b> qui se répandent comme des virus.
+		(On peut dire que les «contagions simples» sont des contagions avec un seuil de 0%.)
+
+		<div style="height:0.75em"></div>
+
+		Cependant, les contagions ne sont pas nécessairement mauvaises &mdash;
+		assez de <i>folie</i> des foules, pourquoi pas…
+		<next>… la <i>sagesse</i> des foules&nbsp;?</next>
+
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+	Ici, nous avons un volontaire <icon name="blue"></icon> pour… je ne sais pas,
+	sauver des gens lors d'un ouragan, offrir des cours à des élèves en difficulté du quartier, ou quelque chose de cool de ce genre.
+
+	L'idée, c'est que c'est une «bonne» contagion complexe.
+	Cette fois-ci, cependant, disons que le seuil est seulement de 25% &mdash;
+	Les gens veulent se porter volontaires, mais seulement si 25% ou plus de leurs amis le font également.
+	Hé, la bonne volonté a besoin d'un peu d'encouragement social.
+
+	<br><br>
+
+	<b>&larr; «Infectez» tout le monde avec des ondes positives&nbsp;!</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+		<b>NOTE&nbsp;:</b> faire du bénévolat est <i>une</i> des nombreuses contagions complexes&nbsp;!
+		Il y a également&nbsp;: les résultats de vote, les habitudes de vie, défier ses croyances, prendre le temps de comprendre un problème profondément &mdash; tout ce qui a besoin de plus qu'une «exposition».
+		Les contagions complexes ne sont pas <i>nécessairement</i> sages, mais être sage est une contagion complexe.
+
+		<div style="height:0.75em"></div>
+
+		(Que serait une contagion <i>simple</i> dans la vie réelle&nbsp;?
+		Souvent des anecdotes, comme, «l'oppossum a 13 mamelles»<ref id="possum"></ref>)
+
+		<bon id="contagions"></bon>
+
+		Pour <i>vraiment</i> montrer la puissance et l'étrangeté des contagions complexes, revisitons…
+
+		<next>…un puzzle précédent <div class="rarr"></div> </next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+	Vous vous en souvenez&nbsp;? Cette fois-ci, avec une contagion<icon name="blue"></icon> <i>complexe</i>, ce sera un peu plus dur…
+	<br>
+	<b>Essayez d'«infecter» tout le monde de sagesse complexe&nbsp;! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+	(Appuyez sur «Démarrer» et <i>essayez</i> autant de solutions que vous le désirez)
+</words>
+
+<words id="complex_cascade_end">
+	<next wiggle>BON SANG <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+	Bon, vous vous dites peut-être qu'il suffit d'ajouter des connexions pour répandre une contagion,
+	«complexe» ou «simple», bonne ou mauvaise, sage ou folle.
+	Mais en est-il ainsi&nbsp;? Hé bien, revisitons…
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle>…un autre puzzle précédent<div class="rarr"></div> </next>
+</words>
+
+<words id="complex_prevent">
+	Si vous appuyez sur «Démarrer», la contagion complexe<icon name="blue"></icon> va toucher tout le monde.
+	Pas de surprise.
+	Cette fois-ci, faisons le <i>contraire</i> de tout ce que nous avons fait avant&nbsp;:<br>
+	<b>dessinez un réseau qui <i>empêche</i> la contagion d'atteindre tout le monde&nbsp;! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+	Vous voyez&nbsp;?
+	Bien qu'un nombre plus important de connexions aide toujours à répandre des idées simples,
+	<b>cela peut gêner le développement d'idées <i>complexes</i>&nbsp;!</b>
+	(ça fait se poser des questions au sujet d'Internet, hein ?)
+	Et ce n'est pas juste un problème théorique. Cela peut être une question de vie…
+</words>
+
+<words id="complex_prevent_end">
+	<next wiggle>…ou de mort. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_groupthink">
+
+	Les gens à la NASA sont intelligents.
+	Ils ont utilisé les théories de Newton pour nous envoyer sur la Lune&nbsp;!
+	Pourtant, en 1986, <i>malgré les avertissements des ingénieurs</i>,
+	ils ont lancé <i>Challenger</i>, qui a explosé et tué 7 personnes.
+	La raison&nbsp;: il faisait trop froid ce jour-là.
+
+	<div style="height:0.9em"></div>
+
+	En fait, les managers ont ignoré les avertissements des ingénieurs.
+	Pourquoi&nbsp;? À cause de l'<b>effet de groupe</b><ref id="groupthink"></ref>.
+	Quand un groupe est trop uni (cela tend à être le cas au sommet des institutions),
+	il résiste aux idées complexes qui mettent en péril leurs croyances ou leur égo.
+
+	<div style="height:0.9em"></div>
+
+	C'est comme ça que les institutions tombent dans la folie des foules.
+
+	Mais comment en «concevoir» qui exploitent la <i>sagesse</i> des foules ?
+	En deux mots&nbsp;:
+
+	<next>liens &amp; ponts <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+	&larr; Pas assez de connexions, l'idée ne peut se propager.
+	<br>
+	Trop de connexions, l'effet de groupe apparaît. <div class="rarr"></div>
+</words>
+
+<words id="bonding_2">
+	<b>
+	Dessinez un groupe qui est dans le juste milieu&nbsp;:
+	suffisamment connecté pour répandre une idée complexe&nbsp;!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+	Facile&nbsp;!
+	Le nombre de connexions <i>dans</i> un groupe est appelé <b>capital social de relations</b><ref id="social_capital"></ref>.
+	Qu'en est-il des connexions…
+	<next wiggle>…<i>entre</i> groupes ?</next>
+</words>
+
+<words id="bridging_1">
+	Comme vous l'avez peut-être deviné,
+	le nombre de connexions <i>entre</i> des groupes s'appelle le
+	<b>capital social de ponts</b>.
+	C'est important, car cela aide les groupes à sortir de leurs caisses de résonance&nbsp;!
+	<br>
+	<b>Construisez un pont pour «infecter» tout le monde de sagesse complexe&nbsp;:</b>
+</words>
+
+<words id="bridging_end">
+	Comme pour les liens, il y a aussi un juste milieu pour les ponts.<ref id="bridge"></ref>
+	(challenge supplémentaire&nbsp;: essayez de dessiner un pont si épais que la contagion complexe
+	<i>ne puisse pas</i> passer à travers!)
+	Maintenant que nous savons comment «concevoir» des connexions <i>à l'intérieur</i> et <i>entre</i> des groupes, faisons…
+	<next wiggle>… LES DEUX en même temps&nbsp;!</next>
+</words>
+
+<words id="bb_1">
+
+	<b style="font-size:2em">PUZZLE FINAL !</b>
+	<br>
+	Dessinez des connexions à l'intérieur de groupes (liens) et entre des groupes (ponts)
+	pour répandre la sagesse à toute la foule&nbsp;:
+
+</words>
+<words id="bb_2">
+
+	Félicitations, vous venez de dessiner un type très spécial de réseau&nbsp;!
+	Les réseaux avec un juste équilibre entre liens et ponts
+	sont profondément importants, et ils sont appelés...
+	<next wiggle>“réseaux petits mondes” <div class="rarr"></div> </next>
+
+</words>
+<words id="bb_small_world_1">
+
+	<i>«Unité sans uniformité». «Diversité sans division». «E Pluribus Unum: de plusieurs, un».</i>
+	<br>
+	Peu importe comment c'est formulé,
+	les individus à travers les époques et les cultures arrivent souvent à la même conclusion&nbsp;:
+	<b>
+	une société saine nécessite un équilibre de liens <i>à l'intérieur</i> de groupes
+	et de ponts <i>entre</i> des groupes.
+	</b>
+	C'est à dire&nbsp;:
+
+</words>
+<words id="bb_small_world_2">
+	Pas ceci…
+	<br>
+	(car les idées ne peuvent pas se répandre)
+</words>
+<words id="bb_small_world_3">
+	ni cela…
+	<br>
+	(car l'effet de groupe s'y manifesterait)
+</words>
+<words id="bb_small_world_4">
+	…mais <i>CECI:</i>
+</words>
+<words id="bb_small_world_5">
+
+	Les scientifiques des réseaux ont maintenant une définition mathématique pour cette sagesse ancienne:
+	le <b>réseau «petit monde»</b><ref id="small_world"></ref>.
+	Ce mélange optimal de liens et ponts décrit comment
+	nos neurones sont connectés<ref id="swn_neurons"></ref>,
+	encourage la créativité collective<ref id="swn_creativity"></ref>
+	et la résolution de problèmes<ref id="swn_social_physics"></ref>,
+	et a même une fois aidé le président américain John F. Kennedy à éviter une guerre nucléaire&nbsp;!<ref id="swn_jfk"></ref>
+	Donc, oui, les «petits mondes» sont importants.
+
+</words>
+<words id="bb_small_world_end">
+	<next>ok, récapitulons… <div class="rarr"></div> </next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+	(pst… un secret&nbsp;?<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+	Contagion&nbsp;:
+</words>
+<words id="sandbox_contagion_simple">
+	simple
+</words>
+<words id="sandbox_contagion_complex">
+	complexe
+</words>
+<words id="sandbox_color_chooser">
+	Couleur de contagion&nbsp;:
+</words>
+<words id="sandbox_tool_chooser">
+	Choisis un outil…
+</words>
+
+<words id="sandbox_tool_pencil">
+	Dessine un réseau
+</words>
+<words id="sandbox_tool_add">
+	Ajoute quelqu'un
+</words>
+<words id="sandbox_tool_add_infected">
+	Ajoute un <i>Infecté</i>
+</words>
+<words id="sandbox_tool_move">
+	Déplace quelqu'un
+</words>
+<words id="sandbox_tool_delete">
+	Supprime quelqu'un
+</words>
+<words id="sandbox_tool_clear">
+	<b>TOUT EFFACER</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+	(…ou utilise le clavier&nbsp;!)
+</words>
+
+<words id="sandbox_shortcuts">
+	Ajoute [1]: quelqu'un&nbsp;&nbsp;[2]: un <i>Infecté</i><br>
+	[Space]: Déplace<br>
+	[Backspace]: Supprime
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+
+	<div style="font-size: 30px;">
+		EN CONCLUSION&nbsp;: tout est question de…
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 88px;
+	    top: 20px;
+	    line-height: 100px; display:block;
+	">
+	    contagions &amp; connexions
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 125px;
+	    left: 250px;
+	">
+		<b>Contagions&nbsp;:</b>
+		Comme les neurones et les signaux dans le cerveau,
+		les gens transmettent des croyances &amp; des comportements dans la société.
+		On influence nos amis, les amis de nos amis,
+		et même les amis des amis de nos amis&nbsp;!<ref id="three_degrees"></ref>
+		(«Sois le changement que tu veux voir dans le monde», etc etc)…
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 275px;
+	    left: 250px;
+	">
+		<b>Connexions&nbsp;:</b>
+		Pas assez de liens et les idées complexes ne peuvent se répandre.
+
+		<i>Trop</i> de liens et les idées complexes sont écrasées par l'effet de groupe.
+		L'astuce, c'est de construire un réseau «petit monde», le mélange optimal de liens et de ponts&nbsp;: <i>e pluribus unum.</i>
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #aaa;
+	">
+		(Tu veux faire ta propre simulation&nbsp;?
+		Teste le mode Bac à sable en cliquant sur le bouton (★) ci-dessous&nbsp;!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+		Qu'en est-il de la question du tout début&nbsp;:
+		Pourquoi certains foules deviennent…
+	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 460px;
+	    right: 0px;
+	">
+		<next>… sages et/ou folles ?</next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+		De Newton à la NASA à la
+		<br>
+		science des réseaux, on a dit beaucoup
+		<br>
+		aujourd'hui. En résumé, la folie des foules
+		<br>
+		n'est pas nécessairement due à des <i>individus</i>, mais à
+		<br>
+		comment on est piégé dans la toile collante d'un réseau.
+
+		<div style="height:0.9em"></div>
+
+		On ne doit toutefois <i>PAS</i> négliger sa responsabilité personnelle,
+		<br>
+		car nous sommes aussi <i>acteurs</i> de cette toile.
+		<br>
+		Pour améliorer vos contagions&nbsp;: soyez sceptique des idées flatteuses<ref id="flatter"></ref>,
+		<br>
+		prenez le temps de comprendre les idées complexes.
+		<br>
+		Et, pour améliorer vos connexions&nbsp;: créez des liens avec des gens aux idées proches,
+		<br>
+		mais aussi au-delà des fossés culturels et politiques.
+
+		<div style="height:0.9em"></div>
+		On peut tisser une toile sage. C'est plus dur que
+		<br>
+		gribouiller des lignes sur un écran…
+
+		<next>… mais ça vaut le coup.</next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+		«Les grands triomphes et tragédies de l'histoire sont causés<br>
+		non par des gens fondamentalement bon ou mauvais,<br>
+		mais par des gens qui sont fondamentalement des gens.»
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Neil Gaiman &amp; Terry Pratchett
+	<div style="height:0.8em"></div>
+	<next small>&lt;3</next>
+</words>
+
+<!-- Credits -->
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+
+		<span style="color:#777; position:relative; top:5px;">
+			créé par</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			jouer à mes autres trucs</a>
+
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			beaucoup d'amours et de remerciements à
+			</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			MES SUPPORTERS PATREON</div>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			voir les noms &amp; dessins des supporters</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			voir les testeurs</a>
+		<br>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+		aidez-moi à faire plus de choses comme ça &lt;3</a>
+
+		<br><br>
+
+		<span style="display: inline-block; margin-top: 15px;">
+			♫ musique
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" &amp; "Friends 2068"</a>
+			par Komiku
+			<br>
+			&lt;/&gt; <i>Crowds</i> est
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				complètement open source</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	VICTOIRE
+</words>
+<words id="sim_start">
+	Démarrer la simulation
+</words>
+<words id="sim_stop">
+	Réessayer
+</words>
+<words id="translations_exist">
+	Traductions par les fans&nbsp;:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	Quoi, il n'y a pas de traductions par les fans&nbsp;!?
+</words>
+<words id="translations_add">
+	(ajoutez la vôtre&nbsp;!)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+	Une réponse rapide à <i>La sagesse des foules</i> de James Surowiecki
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+
+	Tout d'abord, je ne rejette pas complètement  
+	<a target="_blank" href="https://fr.wikipedia.org/wiki/La_Sagesse_des_foules">
+	ce livre.</a>
+	C'est un bon livre, et Surowiecki essayait de traiter la même question que moi&nbsp;:
+	<b>«pourquoi certaines foules deviennent folles, et d'autres sages&nbsp;?»</b>
+
+	<br><br>
+
+	La réponse de Surowiecki&nbsp;: les foules peuvent prendre des bonnes décisions quand tout le monde est aussi indépendant que possible.
+	Il raconte l'histoire d'une fête de village, où les habitants de la ville sont invités à deviner le poids d'un boeuf.
+
+	Étonnamment, la moyenne de <i>toutes</i> les estimations était meilleure que <i>chacune</i> des estimations.
+	Mais, voici le truc&nbsp;: les gens devaient deviner <i>indépendamment</i> des autres. Sinon, ils seraient influencés par des estimations antérieures incorrectes, et la réponse moyenne serait fortement biaisée.
+
+	<br><br>
+
+	Mais… je ne crois pas que «rendre tout le monde aussi indépendant que possible» soit la réponse complète.
+	Même les génies, que l'on caractérise à tort comme les penseurs les plus indépendants, sont profondément influencés par les autres.
+	Comme le disait sir Isaac Newton,
+	<i>«Si j'ai vu si loin, c'est parce que j'étais juché sur les épaules de géants»</i>
+
+	<br><br>
+
+	Donc, quelle idée est correcte&nbsp;?
+	Est-ce que la sagesse vient de penser par soi-même, ou de penser avec les autres&nbsp;?
+	La réponse est&nbsp;: «oui».
+
+	<br><br>
+
+	C'est ce que j'essaie d'expliquer dans cette explication explorable&nbsp;: il faut trouver l'équilibre entre indépendance et interdépendance &mdash;
+	c'est ce qui nous permet de devenir une foule sage.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+    Quels autres types de connexions existent&nbsp;?
+    </h3>
+
+    <div>
+    Par souci de simplicité, mes simulations prétendent que les gens sont seulement reliés par leurs amitiés, et que les amitiés sont égales.
+    Mais les scientifiques des réseaux considèrent d'autres manières d'être reliés, comme par exemple&nbsp;:
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Les liens directionnels.</b> Alice est le chef de Bob, mais Bob n'est pas le chef d'Alice.
+	Carole est la mère de Dave, mais Dave n'est pas la mère de Carole.
+	«Chef» &amp; «père/mère» sont des relations <i>directionnelles</i>&nbsp;:
+	la relation va seulement dans un sens.
+	Au contraire, l'«amitié» est une relation <i>bidirectionnelle</i>&nbsp;: la relation va dans les deux sens (enfin, on espère).
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Les liens pondérés.</b> Eléonore et Frank sont de simples connaissances.
+	George et Harry sont les meilleurs amis.
+	Même s'il y a un lien d'«amitié» dans les deux cas, le second est plus fort.
+	On dit que ces deux connexions ont différents «poids».
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Souvenez vous&nbsp;: <b>toutes ces simulations sont fausses.</b> De la même manière que toutes les cartes sont «fausses».
+	Vous voyez la carte à gauche&nbsp;? Les maisons ne sont pas des blocs gris sans détails&nbsp;!
+	Les mots ne flottent pas au dessus des villes&nbsp;! Pourtant, les cartes sont utiles, non pas <i>malgré</i> leurs simplifications, mais <i>parce qu'elles sont</i> simplifiées.
+	C'est pareil pour les simulations, ou pour toute théorie scientifique.
+	<i>Bien sûr</i>, elles sont fausses &mdash; c'est ce qui les rend <i>utiles</i>.
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	Quelles autres types de contagions existent&nbsp;?
+	</h3>
+
+	<div>
+	Il y a tellement, tellement de manière de simuler les «contagions» pour les chercheurs en réseaux&nbsp;! J'ai choisi le plus simple, dans un souci pédagogique. Mais voici d'autres manières de faire&nbsp;:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Contagions par l'aléatoire</b>.
+	Être «exposé» à une contagion ne <i>garantit</i> pas que vous serez infecté, cela rend seulement l'infection plus <i>probable</i>.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Les gens ont différents seuils de contagion.</b>
+	Mes simulations considèrent que tout le monde a le même seuil pour l'alcool (50%), le volontariat (25%) ou les fausses informations (0%).
+	Bien sûr, ce n'est pas vrai dans la vie, et vous pourriez inclure cela dans votre simulation.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Une écologie de contagions.</b>
+	Et s'il y avait <i>plusieurs</i> contagions, avec <i>différents</i> seuils ?
+	Par exemple, une contagion simple de «folie» et une contagion complexe de «sagesse». Si quelqu'un est infecté par la folie, peut-il toujours être infecté par la sagesse&nbsp;? Ou le contraire&nbsp;? Est-ce qu'on peut être infecté avec les deux&nbsp;?
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Les contagions mutent et évoluent.</b>
+	Les idées ne se transmettent pas parfaitement d'une personne à une autre comme le font les virus. Comme le jeu du téléphone arabe, le message est altéré chaque fois que quelqu'un le re-raconte &mdash;
+	et parfois la nouvelle version sera plus infectieuse que l'originale&nbsp;!
+	Donc, au cours du temps, les idées «évoluent» pour devenir plus attractives, copiables et contagieuses.
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+
+	<h3>
+	Je veux en savoir plus&nbsp;! Des livres ou jeux sur le sujet&nbsp;?
+	</h3>
+
+	<div>
+
+	Cette explication explorable était juste un tremplin pour votre curiosité, pour vous faire plonger plus profondément dans une vaste piscine de connaissances !
+
+	Voici plus de contenu sur les réseaux ou les systèmes sociaux&nbsp;:
+
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Livre :</b>
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>
+	par Nicholas Christakis and James Fowler (anglais, 2009).
+	Une visite accessible de la façon dont nos réseaux affectent nos vies, pour le meilleur comme pour le pire.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	Voici un extrait&nbsp;: Préface &amp; Chapitre 1
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interactif&nbsp;:</b>
+	<a target="_blank" href="http://ncase.me/trust/">
+	L'évolution de la confiance</a> par Nicky Case (moi) (2017).
+	Un jeu sur la théorie des jeux, sur comment la coopération se construit… ou se détruit.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interactif&nbsp;:</b>
+	<a target="_blank" href="http://ncase.me/polygons/">
+	La parabole des polygones</a> par Vi Hart et Nicky Case (moi aussi) (2014).
+	Une histoire&nbsp;: comment des choix inoffensifs peuvent créer un monde dangereux.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Ou, si vous voulez seulement une galerie complète de machins interactifs éducatifs, voici les
+	<a target="_blank" href="http://explorabl.es/">
+	Explications explorables</a>,
+	une plateforme pour apprendre par le jeu&nbsp;!
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+	«presque tous les étudiants d'[université] considèrent que leurs amis boivent plus qu'eux»
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	«Biases in the perception of drinking norms among college students»</a> par Baer et al (1991)
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+	l'«illusion de la majorité»
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	«The Majority Illusion in Social Networks»</a> par Lerman et al (2016).
+	<br>
+	Lié&nbsp;: <a target="_blank" href="https://fr.wikipedia.org/wiki/Paradoxe_de_l'amiti%C3%A9">
+	le paradoxe de l'amitié</a>.
+	</div>
+</reference>
+<reference id="contagion">
+
+	<h3>
+	«Les données statistiques tendent à démontrer fortement que
+	fumer, la santé, la joie, les motifs de vote et les niveaux de coopération
+	sont tous "contagieux"»
+	</h3>
+
+	<div>
+	Par l'excellent et accessible à tous,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (anglais, 2009), de Nicholas Christakis et James Fowler
+
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+	«et indiquent que les suicides sont également [contagieux]»
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	«Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop»</a>
+	par O'Carroll et al (1994), soutenu par le Centre pour le Contrôle et la Prévention des Maladies (CDC).
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+	«et indiquent que les fusillades sont [contagieuses] également»
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	«Contagion in Mass Killings and School Shootings»</a> par Towers et al (2015).
+
+	<br><br>
+
+	Voir également&nbsp;: la campagne
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Don't Name Them</a> (ne les nommez pas),
+	qui demande aux media de <i>NE PAS</i> diffuser les noms des auteurs de massacres, leurs manifestes ou le contenu de leurs réseaux sociaux.
+	Cela répand la contagion.
+	À la place, les media devraient parler des victimes, des premiers secours, des héros civils et de la communauté qui fait son deuil.
+
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+	«Les institutions financières mondiales se sont prises dans une telle cascade en 2008.»
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	«Lemmings of Wall Street»</a> par Cass Sunstein est une lecture rapide, non technique.
+	Publiée en Octobre 2008, juste au début du krach.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+	«la théorie des contagion complexes.»
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	«Threshold Models of Collective Behavior»</a> par Granovetter (1978)
+	est la première fois, à ma connaissance, où quelqu'un a décrit un modèle de «contagion complexe».
+	(même s'il n'a pas utilisé ce nom en particulier).
+
+	<br><br>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	«Evidence for complex contagion models of social contagion from observational data»</a>
+	par Sprague &amp; House (2017)
+	montre que les contagions complexes existent bien. (Au moins, dans les données de media sociaux qu'ils ont regardées.)
+
+	<br><br>
+
+	Enfin,
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	«Universal behavior in a generalized model of contagion»</a> par Dodds &amp; Watts (2004)
+	propose un modèle qui unifie <i>tout</i> type de contagions&nbsp;:
+	simple et complexes, biologiques et sociales&nbsp;!
+
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+	«l'oppossum a 13 mamelles»
+	</h3>
+	<div>
+	arrangé en un anneau de 12 mamelles, plus une au milieu
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+	«effet de groupe»
+	</h3>
+
+	<div>
+	Cette phrase à la Orwell nous vient d'Irving L. Janis en 1971.
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	Dans son article original</a>,
+	Janis investigue des cas d'effet de groupe, en liste les causes, et &mdash; merci &mdash;
+	des remèdes possibles.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+	«capital social de liens et ponts»
+	</h3>
+
+	<div>
+	Ces deux types de capitaux sociaux &mdash; "liens" et "ponts" &mdash; ont été nommés par Robert Putnam dans son livre clairvoyant de 2000,
+	<a target="_blank" href="http://bowlingalone.com/">Bowling Alone</a> (en anglais).
+	Sa découverte&nbsp;: à travers presque toutes les mesures empiriques de connectivité sociale, les américains sont plus seuls que jamais.
+	Mince alors.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+	«il faut aussi trouver un équilibre pour les ponts»
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	«The Strength of Weak Ties»</a> par Granovetter (1973)
+	a montré que les liens à travers les groupes aident à répandre de simples contagions (comme les informations) mais
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	«Complex Contagions and the Weakness of Long Ties»</a> par Centola &amp; Macy (2007)
+	a montré que les liens entre les groupes peuvent ne pas aider à répandre les contagions complexes, et en fait, gêner leur développement&nbsp;!
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+	«le réseau "petit monde"»
+	</h3>
+
+	<div>
+	L'idée d'un «petit monde» a été popularisée par l'expérience de
+	<a target="_blank" href="http://www.jstor.org/stable/2786545">Travers &amp; Milgram en 1969</a>,
+	qui a montré qu'en moyenne, deux personnes choisies au hasard aux États-Unis sont séparées par six amis &mdash; «six degrés de séparation» !
+
+	<br><br>
+	Le réseau «petit monde» s'est étoffé mathématiquement avec
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	«Collective dynamics of small-world networks»</a> par Watts &amp; Strogatz (1998),
+	qui ont proposé un algorithme pour créer des réseaux avec à la fois des courtes longueurs de chemin (de petits degrés de séparation) et un fort taux d'amas (les amis ont beaucoup d'amis mutuels) &mdash;
+	c'est à dire, des réseaux qui atteignent un juste milieu&nbsp;!
+
+	<br><br>
+
+	Vous pouvez également jouer avec
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	l'adaptation visuelle interactive de ce papier</a> par Bret Victor (2011).
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+	«[les réseaux petit monde] décrivent comment nos neurones sont connectés»
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	«Small-world brain networks»</a> par Bassett &amp; Bullmore (2006).
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+	«[les réseaux petit monde] encouragent la créativité collective»
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	«Collaboration and Creativity: The Small World Problem»</a> par Uzzi &amp; Spiro (2005).
+	Ce papier a analysé le réseau social de la scène de Broadway à travers le temps, et a découvert, que, ouais, le réseau est le plus créatif lorsqu'il est un «petit monde»&nbsp;!
+
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+	«[les réseaux petit monde] encouragent la résolution de problèmes»
+	</h3>
+
+	<div>
+	Voir
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	«Social Physics»</a> par MIT Professor Alex «Sandy» Pentland (2014)
+	pour une approche de l'intelligence collective basée sur les données.
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+	«[les réseaux petit monde] ont aidé une fois le président américain John F. Kennedy à (presque) éviter la guerre nucléaire»
+	</h3>
+
+	<div>
+
+	En plus de l'explosion de Challenger, l'exemple le plus notable d'effet de groupe est le fiasco de la baie des Cochons.
+	En 1961, le président américain Kennedy et son équipe de conseillers pensaient
+	&mdash; pour une raison ou une autre &mdash;
+	que ce serait une bonne idée d'envahir secrètement Cuba et renverser Fidel Castro.
+	Ils ont échoué.
+	En fait, c'est pire&nbsp;: cela a mené à la crise des missiles cubains de 1962,
+	<i>le plus proche dont le monde ait été d'une guerre nucléaire globale.</i>
+
+	<br><br>
+	Ouais, JFK s'est bien planté sur celle là.
+
+	<br><br>
+
+	Mais, ayant appris quelques trucs lors du fiasco de la baie des Cochons,
+
+	JFK a réorganisé son équipe pour éviter l'effet de groupe.
+	Il a notamment:
+	1) encouragé activement les gens à fournir des critiques, ce qui a réduit le «seuil de contagion» pour des idées alternatives
+	et
+	2) il a découpé son équipe en sous-groupes avant de les rassembler, ce qui a donné à leur groupe une structure proche des «réseaux petit monde»&nbsp;!
+	Cet arrangement a permis une diversité d'opinion plus saine, sans qu'elle soit trop fracturée &mdash; une sagesse des foules.
+
+	<br><br>
+
+	Et donc, avec les mêmes <i>individus</i> qui avaient précédemment décidé de la baie des Cochons, mais réarrangée <i>collectivement</i> pour décider de la crise des missiles cubains… l'équipe de JFK a pu atteindre un accord de paix avec le leader soviétique Nikita Khrushchev.
+	Les Russes devaient retirer leurs missiles de Cuba, et en échange, les Américains devaient promettre de ne pas envahir Cuba à nouveau.
+	(et aussi, en secret, retirer les missiles américains de Turquie)
+
+	<br><br>
+
+	C'est l'histoire de la fois où l'humanité a presque failli s'éteindre. Un réseau «petit monde» a tout sauvé, en quelque sorte!
+
+	<br><br>
+
+	Vous pouvez en lire plus dans
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	Harvard Business Review</a>,
+	ou dans
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	l'article original sur l'effet de groupe</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+	«on influence [...] les amis des amis de nos amis&nbsp;!»
+	</h3>
+
+	<div>
+	A nouveau, du fantastique livre de Nicholas Christakis et James Fowler,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (anglais, 2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+	«soyez sceptique des idées qui vous flattent»
+	</h3>
+	<div>
+	oui, y compris les idées dans <i>cette</i> explication explorable.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	★ Mode Bac à sable ★
+	</h3>
+
+	<div>
+	Les raccourcis clavier (1, 2, espace, effacer)
+	fonctionnent dans <i>tous</i> les puzzles, pas juste le mode bac à sable&nbsp;!
+	Sérieusement, vous pouvez retourner dans un chapitre différent, et y éditer la simulation sur place.
+	En fait, c'est comme ça que <i>j'</i>ai créé tous ces puzzles. Amusez-vous bien&nbsp;!
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+	À 
+	<a target="_blank" href="https://www.patreon.com/ncase">mes supporters sur Patreon</a>:
+	je suis profondément reconnaissant.
+	Votre générosité me nourrit et paye mon loyer (littéralement), et me fournit la liberté créative de faire ces étrangs jeux de maths/sciences sociales.
+	Du fond du coeur, merci !
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+	Merci à tous ceux qui ont testé <i>Crowds</i>
+	durant les nombreuses étapes de sa vie !
+	
+	<br><br>
+	<b>Le prototype&nbsp;:</b>
+	<br>
+	Maria ·
+	Monica Srivastava
+
+	<br><br>
+	<b>L'alpha&nbsp;:</b>
+	<br>
+	Glen Chiacchieri ·
+	Kalli Repzeti ·
+	Mali Akmanalp ·
+	Toph Tucker
+
+	<br><br>
+	<b>La beta&nbsp;:</b>
+	<br>
+	Alex Dytrych ·
+	Amit Patel ·
+	Cassandra McClure ·
+	Catherine Ray ·
+	Josh Comeau ·
+	Kayle Sawyer ·
+	Matthew Conlen ·
+	Srini Kadamati ·
+	Vanessa Shen ·
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+
+And that's it! That's the last of what needed to a TRANSLATE
+
+Thank you so, so much for doing this again, wow.
+
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+
+-->

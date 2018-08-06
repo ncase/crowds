@@ -233,6 +233,7 @@ SLIDES.push(
 {
 	remove:[
 		{type:"box", id:"complex_cascade"},
+		{type:"box", id:"complex_cascade_feel_free"},
 		{type:"box", id:"end"}
 	],
 	move:[
