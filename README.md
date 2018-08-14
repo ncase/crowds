@@ -40,6 +40,7 @@ And if no one else is, PLEASE CREATE A NEW ISSUE in this repo
 so that others know you're working on it!]**
 
 **Translations done so far:**
+[Deutsch](http://ncase.me/crowds/de.html)
 [Português](http://ncase.me/crowds/pt.html)
 [Italiano](http://ncase.me/crowds/it.html)
 [Français](http://ncase.me/crowds/fr.html)
