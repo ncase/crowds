@@ -44,3 +44,4 @@ cs: Česky
 el: Ελληνικά
 fl: Pilipino
 ko: 한국어
+pl: Polski
