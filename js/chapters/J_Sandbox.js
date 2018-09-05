@@ -27,7 +27,7 @@ SLIDES.push(
 		// Simulation UI
 		{
 			type:"box",
-			x:35, y:400,
+			x:35, y:425,
 			sim_ui:"red"
 		},
 
