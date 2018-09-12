@@ -22,7 +22,7 @@ subscribe("reference/show", function(ref_id){
 	// HACK: IF IT'S PATREON PEOPLE, *NOW* SHOW IFRAME
 	if(ref_id=="supporters"){
 		$("#modal_content").innerHTML = footnote+'<br><br>'+
-			'<iframe src="supporters" width="730" height="330" style="border:none; margin:0 auto; display:block"></iframe>';
+			'<iframe src="supporters/" width="730" height="330" style="border:none; margin:0 auto; display:block"></iframe>';
 	}
 
 	if($("reference#"+ref_id).getAttribute("large")){
