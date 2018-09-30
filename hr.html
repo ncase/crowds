@@ -1,0 +1,1696 @@
+<!--
+
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+
+- - - - - - - - - - -
+
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 3600+ WORDS to translate, including
+the Bonus Boxes and References.
+
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+
+Good luck, and thanks again!
+
+<3,
+~ Nicky Case
+
+-->
+
+<!DOCTYPE html>
+<html lang="en"> <!-- lang="(TRANSLATE: set your language code here, same as the page name!) e.g: es, es-ES, pt-BR, ja, it, fr-CA, de, ..." -->
+<head>
+
+	<!-- Meta Info -->
+	<title>Mudrost i/ili ludost gomile</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="Interaktivni vodič kroz ljudske mreže"/> <!-- content="(TRANSLATE this part only)" -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/cs.html"    hreflang="cs">
+	<link rel="alternate" href="http://ncase.me/crowds/de.html"    hreflang="de">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="Mudrost i/ili ludost gomile"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="Interaktivni vodič kroz ljudske mreže"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="Mudrost i/ili ludost gomile"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="Interaktivni vodič kroz ljudske mreže"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="Mudrost i/ili ludost gomile"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="Interaktivni vodič kroz ljudske mreže"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=7">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">preskoči &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">⨯</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on">SVIRA</span> <!-- TRANSLATE -->
+			<span id="sound_off">UGAŠENO</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			Mudrost i/ili ludost gomile <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Zašto se grupe ljudi ponašaju pametno, glupo, ljubazno i ​​okrutno? Interaktivni vodič za društvene mreže: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Uvod</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Veze</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Zaraze</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Složene zaraze</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Povezivanje &amp; premošćivanje</span> <!-- note: &amp; is html for the "and" sign -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. Svijet je mali</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. Zaključak</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Zahvale</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>★</span>
+				<span>★ Igraonica! ★</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+			
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Bonus bilješke!</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Poveznice &amp; Reference</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">あ</span></span>
+				<span>Prijevodi</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+			
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+	
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>učitava se...</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/inobounce.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js?v=5"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js?v=5"></script>
+
+<script src="js/sim/Peep.js?v=2"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js?v=2"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!-- 
+
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span></span>
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">MUDROST</span>
+		<span style="position:relative;top: -10px;">i/ili</span>
+		<span style="font-size: 60px;">LUDOST</span>
+		<br>
+		<span style="position: relative;top: -11px;"></span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">GOMILE</span>
+	</div>
+
+	<div style="color:#999">
+		<!-- TRANSLATE note: comment out the line below... -->
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		napravio nicky case, preveo Hrvoje Šimić • <a href='/'>engleski original</a>
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	učitavam...
+</words>
+
+<words id="preloader_play">
+	idemo! <div class="rarr"></div> 
+</words>
+
+<!-- Introduction -->
+<!--
+
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+
+-->
+
+<words id="intro">
+
+	<br><br>
+
+	Isaac Newton je mislio kako je jako pametan.
+	<br>
+	Nakon što je izumio diferencijalni račun i otkrio
+	<br>
+	zakon gravitacije, ne bi mu trebao biti neki problem
+	<br>
+	snaći se s investicijama na burzi? Da skratim priču, Isaac je
+	<br>
+	izgubio 4 600 000 u današnjim dolarima u velikom spekulacijskom
+	<br>
+	balonu koji je završio krahom Južnomorske kompanije 1720. godine.
+
+	<br><br>
+
+	Gospon Newton je naknadno izjavio:<br>
+	<i>“Mogu izračunati kretanja
+	nebeskih tijela, ali ne i ludost ljudi.”</i>
+
+	<next>ah, baš mi ga je žao <div class="rarr"></div> </next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+
+	To, naravno, nije bio jedini trenutak
+	<br>
+	kad je tržišta, institucije ili cijele države
+	<br>
+	preuzela <b>ludost gomile</b>.
+	<br>
+	Pa opet, čim izgubimo povjerenje u čovječanstvo,
+	<br>
+	vidimo građane kako se koordiniraju da spase jedni druge
+	<br>
+	za vrijeme nepogoda, kad zajednice rješavaju probleme,
+	<br>
+	kad se ljudi bore za bolji svijet: <b>mudrost gomile</b>!
+
+	<div style="height:0.9em"></div>
+
+	<b>No <i>zašto</i> neke gomile podlegnu ludosti, a druge mudrosti?</b>
+	<br>
+	Nijedna teorija ne može objasniti sve, ali mislim kako 
+	<br>
+	novo polje istraživanja, <b>znanost mreža</b>, može pomoći!
+	<br>
+	U njenoj srži je ova ideja: kako bi razumijeli gomile, 
+	<br>
+    trebamo gledati ne na <i>pojedince</i>, nego na...
+
+	<next>...njihove <i>veze.</i> <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>Nacrtajmo mrežu!</b>
+	Svaka veza predstavlja prijateljstvo dvoje ljudi:
+</words>
+
+<words id="networks_tutorial_connect">
+	nacrtaj vezu
+</words>
+
+<words id="networks_tutorial_disconnect">
+	prekriži&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;da odvojiš
+</words>
+
+<words id="networks_tutorial_end">
+
+	kad ti bude dosta crtanja i igranja, klikni gumb da
+	<next wiggle>nastavimo <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_threshold">
+
+	Društvene veze su puno više od lijepih sličica.
+	Ljudi <i>promatraju</i> svoje veze kako bi shvatili svijet.
+	Na primjer, ljudi gledaju svoje prijatelje kako bi otkrili
+	koliki <b>udio njihovih prijatelja</b> se, recimo,
+	opija. <icon name="yellow"></icon>
+
+</words>
+
+<words id="networks_threshold_instruction">
+	<b>Nacrtaj i izbriši veze, pa vidi što će se dogoditi! <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>kul, skužio sam</next>
+</words>
+
+<words id="networks_pre_puzzle">
+	Međutim, naše mreže nas mogu <i>prevariti</i>.
+	Kao što se Zemlja čini ravna kad stojimo na njoj,
+	ljudi mogu steći krivu percepciju o društvu gledajući ga <i>iznutra</i>.
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		<i>dodatne</i> bilješke! &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		&darr; poveznice i reference
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+	
+	<bon id="books"></bon>
+
+	<br>
+
+	Na primjer, studija iz 1991.<ref id="drunk"></ref> pokazala je kako
+	"su gotovo svi studenti rekli kako njihovi prijatelji piju više od njih."
+	No to se čini nemoguće!
+	Kako to može biti?
+	Upravo ćete otkriti sami, crtajući mrežu.
+	Vrijeme je da...
+
+	<next>PREVARITE SVE <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">ZAGONETKA!</b>
+	<br>
+	Prevarite <i>sve</i> da misle kako
+	se većina njihovih prijatelja (bar 50%) opija <icon name="yellow"></icon>
+	(iako su u manjini 2 naprema 1!)
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>PREVARENI:</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	od 9 ljudi
+</words>
+<words id="networks_puzzle_end">
+	Čestitam! Izmanipulirao si grupu studenata da misli
+	kako je nevjerojatno nezdravo ponašanje uobičajeno! Bravo!
+	<next wiggle>...uuh... hvala?</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+	Upravo ste stvorili Iluziju većine<ref id="majority"></ref>,
+	koja objašnjava zašto ljudi misle da su njihovi politički stavovi konsenzus,
+	ili zašto name se ekstremizam čini učestalijim nego što stvarno jest.
+	<i>Ludost.</i>
+
+	<bon id="connections"></bon>
+
+	No ljudi se ne ograničavaju na <i>promatranje</i> drugih,
+	oni ih aktivno <i>kopiraju</i>.
+	Pogledajmo ono što mrežni znanstvenici zovu:
+	
+	<next>“Zarazama!” <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+	<i>Ostavimo začas pojam "praga" sa strane.</i>
+	Ispod imamo osobu <icon name="red"></icon> s nekom informacijom.
+	Nekom <i>dez</i>informacijom. "Fake news", što bi se reklo.
+	Svaki dan, ta osoba širi glasinu, poput virusa, svojim prijateljima.
+	A oni to šire dalje <i>svojim</i> prijateljima. I tako dalje.
+	<br>
+	<b>
+	Klikni <div class="darr"></div>
+	(p.s: ne možeš crtati <i>dok</i> se simulacija vrti)
+	</b>
+</words>
+
+<words id="simple_simple_2">
+	Pazi: Usprkos negativnom imenu, "zaraza" može biti i dobra i loša (ili neutralna ili dvosmislena).
+	Postoje jaki statistički dokazi <ref id="contagion"></ref> kako
+	su pušenje, zdravlje, sreća, glasanje i razine suradnje
+	"zarazni" --
+	pa čak i neki dokazi da su samoubojstva<ref id="suicides"></ref> i masovne pucnjave<ref id="shootings"></ref> također.
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle>to je depresivno <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_cascade">
+	Stvarno je.
+	Enivejs, <b>ZAGONETKA!</b>
+	<br>
+	Nacrtaj mrežu &amp; pokreni simulaciju,
+	tako da se <i>svi</i> "zaraze".
+	<br>
+	(novo pravilo: ne možeš rezati <i>debele</i> veze)
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle>fan-tastično <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_post_cascade">
+	Ovo širenje ludila se zove <b>"informacijska kaskada"</b>.
+	Newton je nasjeo na takvu kaskadu u 1720.
+	Svjetske financijske institucije su nasjele na sličnu kaskadu 2008.<ref id="subprime"></ref>
+	<br><br>
+	Međutim, <i>ova simulacija je u krivu.</i>
+	Većina ideja se ne širi poput virusa.
+	Za puno uvjerenja i ponašanja, trebate biti "izloženi" zarazi više puta da bi se zarazili.
+	Tako da su znanstvenici smislili novi, bolji način kako se ideje i ponašanja šire, i zovu ga...
+	<next wiggle>“<i>Složena</i> zaraza!” <div class="rarr"></div> </next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+
+	Vratimo se na primjer s "pragovima" i "opijanjem" <icon name="yellow"></icon>!
+	Kad smo ovo igrali prvi put, ljudi nisu promijenili svoje ponašanje.
+
+	<br><br>
+
+	Sad simulirajmo što će se dogoditi ako ljudi počnu piti
+	<i>kad se bar 50% njihovih prijatelja opija</i>.
+	<b>Prije nego što pokrenete simulaciju, razmislite što bi se <i>trebalo</i> dogoditi.</b>
+
+	<br><br>
+	
+	<b>Sad pokrenite simulaciju da vidite što će se stvarno dogoditi! <div class="rarr"></div> </b>
+
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+		
+		Za razliku od ranije zaraze "lažnim vijestima" <icon name="red"></icon>,
+		ova zaraza <icon name="yellow"></icon> se ne širi na sve!
+		Prvih par ljudi se zarazi zato što imaju samo dva prijatelja, od kojih se jedan opija.
+		S druge strane, osoba na kraju lanca se <i>nije</i> "zarazila" jer ima tri prijatelja,
+		pa opijanje jednog ne prelazi njihov prag od 50%.
+
+		<div style="height:0.75em"></div>
+
+		Relativni postotak "zaraženih" prijatelja je ono što je bitno.
+		<i>U tome</i> je razlika između teorije <b>složene zaraze</b><ref id="complex"></ref>,
+		i naše jednostavne širi-se-kao-virus teorije <b>jednostavne zaraze</b>.
+		(mogli bi reći kako je kod jednostavnih zaraza prag pozitivan ali beskonačno malen)
+
+		<div style="height:0.75em"></div>
+
+		No, zaraze nisu nužno loše &mdash;
+		zato nemojmo više o kolektivnim <i>ludostima</i>, što ćemo s
+		<next>...kolektivnom <i>mudrosti</i>?</next>
+
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+	Ovdje imamo čovjeka <icon name="blue"></icon> koji volontira da... ne znam,
+	spašava ljude, ili podučava siromašnu djecu, ili nešto tako fora.
+	Poanta je da je to "dobra" društvena zaraza.
+	Ovaj put ćemo reći da je prag samo 25% &mdash; ljudi su spremni volontirati,
+	ali samo ako 25% ili više njihovih prijatelja radi isto.
+	Hej, dobra volja treba malo društvenog poticaja.
+
+	<br><br>
+
+	<b>&larr; Zarazi sve dobrim vibracijama!</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+		<b>PAZI:</b> Volontiranje je samo <i>jedan</i> od mnogih složenih zaraza.
+		
+		Ostale uključuju: odaziv birača, životne navike, izazivanje osobnih uvjerenja,
+		odvajanje vremena da duboko shvatite neki problem &mdash; bilo što koja treba više od jedne "izloženosti".
+		Složene zaraze nisu <i>nužno</i> mudre, ali za stjecanje mudrosti je potrebna složena zaraza.
+
+		<div style="height:0.75em"></div>
+
+		(Što je onda <i>jednostavna</i> zaraza iz stvarnog života?
+		Obično nevažne informacije, poput "oposum ima 13 bradavica"<ref id="possum"></ref>)
+
+		<bon id="contagions"></bon>
+
+		E sad, da bi <i>stvarno</i> pokazali moć i čudnovatost složenih zaraza, vratimo se...
+
+		<next>...na raniju zagonetku <div class="rarr"></div> </next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+	Sjećaš se ovog? Sad, koristeći složenu zarazu <icon name="blue"></icon>, bit će malo teže...
+	<br>
+	<b>Pokušaj "zaraziti" sve! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+	(slobodno klikni gore i <i>isprobaj</i> koliko god rješenja želiš)
+</words>
+
+<words id="complex_cascade_end">
+	<next wiggle>TO SE TRAŽI <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+	Može ti se učiniti kako samo trebaš dodavati veze da bi proširio zarazu,
+	bila ona "složena" ili "jednostavna", dobra ili loša, mudra ili luda.
+	No je li stvarno tako? Pogledajmo još jednom...
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle>...raniju zagonetku <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_prevent">
+	Ako klikneš gumb ispod, složena zaraza <icon name="blue"></icon> će se samo raširiti.
+	Ništa iznenađujuće.
+	Ali sad ćemo pokušati nešto <i>obrnuto</i> od svega što smo dosad pokušavali:
+	<b>nacrtati mrežu da <i>spriječimo</i> zarazu da se svugdje raširi! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+	Vidiš?
+	Iako više veza uvijek pomaže širenju <i>jednostavnih</i> ideja,
+	<b>više veza može naštetiti širenju <i>složenih</i> ideja!</b>
+	(dođe ti da se upitaš što je s Internetom, ha?)
+	I ovo nije samo teoretski problem. Ovo može biti pitanje života...
+</words>
+
+<words id="complex_prevent_end">
+	<next wiggle>...i smrti. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_groupthink">
+	
+	Ljudi u NASA-i su bili jako pametni.
+	Upotrijebili su Newtonove teorije da nas dovedu na Mjesec.
+	No, 1986. godine <i>unatoč upozorenjima inženjera</i>
+	lansirali su <i>Challenger</i> koji je eksplodirao i ubio 7 ljudi.
+	Neposredni uzrok nesreće: to jutro je bilo prehladno.
+
+	<div style="height:0.9em"></div>
+
+	Nešto manje neposredni uzrok: menadžeri su ignorirali upozorenja inženjera.
+	Zašto? Zbog <b>groupthinka</b><ref id="groupthink"></ref>.
+	Kad je grupa <i>preblisko</i> povezana, (kao što to zna biti na vrhovima institucija)
+	postaju otporni na složene ideje koje prkose njihovim uvjerenjima ili egu.
+
+	<div style="height:0.9em"></div>
+
+	Tako institucije mogu podleći ludosti gomile.
+	No kako ih možemo "dizajnirati" za <i>mudrost</i> gomile?
+	U dvije riječi:
+
+	<next>povezivanje i premošćivanje <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+	&larr; Premalo veza, i ideja se ne može proširiti.
+	<br>
+	Previše veza, i dobiješ groupthink. <div class="rarr"></div> 
+</words>
+
+<words id="bonding_2">
+	<b>
+	Nacrtaj grupu koja pogađa točan omjer:
+	da bude točno onoliko povezana koliko je potrebno da se proširi složena ideja!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+	Jednostavno!
+	Broj veza <i>unutar</i> grupe naziva se <b>društveni kapital povezivanja</b><ref id="social_capital"></ref>.
+	Ali što ćemo s vezama...
+	<next wiggle>...<i>između</i> grupa?</next>
+</words>
+
+<words id="bridging_1">
+	Kao što ste već mogli pretpostaviti,
+	broj veza <i>između</i> grupa se zove
+	<b>društveni kapital premošćivanja</b>.
+	On je važan, jer pomaže grupama da izađu iz svojih zatvorenih jeko-komora.
+	<br>
+	<b>Napravi most i "zarazi" sve složenom mudrosti:</b>
+</words>
+
+<words id="bridging_end">
+	Poput povezivanja, postoji i optimalna točka za premošćivanje.<ref id="bridge"></ref>
+	(dodatni izazov: pokušajte nacrtati most tako debeo da složena zaraza <i>ne može</i> preći preko!)
+	Sada kada znamo kako treba "dizajnirati" veze <i>unutar</i> i <i>između</i> grupa, napravimo...
+	<next wiggle>...istodobno oboje!</next>
+</words>
+
+<words id="bb_1">
+
+	<b style="font-size:2em">POSLJEDNJA ZAGONETKA!</b>
+	<br>
+	Nacrtaj veze unutar i između grupa kako bi raširio mudrost na sve:
+
+</words>
+<words id="bb_2">
+
+	Čestitam, upravo si nacrtao vrlo posebnu vrstu mreže!
+	Mreže koje imaju pravi miks povezivanja i premošćivanja
+	su vrlo važne, i zovu se...
+	<next wiggle>“Mreže malih svjetova” <div class="rarr"></div> </next>
+
+</words>
+<words id="bb_small_world_1">
+
+	<i>"Jedinstvo bez ujednačenosti", "Različitosti bez podijela", "E Pluribus Unum: od mnoštva, jedno".</i>
+	<br>
+	Kako god to izrazili, ljudi su kroz vrijeme i kulture često dolazili do istog mudrog zaključka:
+	<b>
+	zdravo društvo treba naći mjeru povezanosti <i>unutar</i> grupa i mostova <i>između</i> njih.
+	</b>
+	To jest:
+
+</words>
+<words id="bb_small_world_2">
+	Ne ovo...
+	<br>
+	(jer se ideje ne mogu širiti)
+</words>
+<words id="bb_small_world_3">
+	niti ovo...
+	<br>
+	(jer ćete dobiti groupthink)
+</words>
+<words id="bb_small_world_4">
+	...nego <i>OVO:</i>
+</words>
+<words id="bb_small_world_5">
+	
+	Mrežni znanstvenici sad imaju matematičku definiciju ove drevne mudrosti:
+	<b>mali svijet</b><ref id="small_world"></ref>.
+	Ova optimalna mješavina povezivanja i premošćivanja opisuje kako
+	naši povezani neuroni<ref id="swn_neurons"></ref>,
+	potiču kolektivnu kreativnost<ref id="swn_creativity"></ref>
+	i rješavanje problema<ref id="swn_social_physics"></ref>,
+	čak su jednom pomognli američkom predsjedniku Johnu F. Kennedyu da (za dlaku) izbjegne nuklearni rat!<ref id="swn_jfk"></ref>
+	Dakle, mali svijetovi su velika stvar.
+
+</words>
+<words id="bb_small_world_end">
+	<next>ok, ajmo ovo zaključiti... <div class="rarr"></div> </next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+	(pst... želiš znati tajnu?<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+	Zaraza:
+</words>
+<words id="sandbox_contagion_simple">
+	jednostavna
+</words>
+<words id="sandbox_contagion_complex">
+	složena
+</words>
+<words id="sandbox_color_chooser">
+	Boja zaraze:
+</words>
+<words id="sandbox_tool_chooser">
+	Odaberite alat...
+</words>
+
+<words id="sandbox_tool_pencil">
+	Crtanje mreže
+</words>
+<words id="sandbox_tool_add">
+	Nova osoba
+</words>
+<words id="sandbox_tool_add_infected">
+	Nova "zaražena" osoba
+</words>
+<words id="sandbox_tool_move">
+	Premjesti
+</words>
+<words id="sandbox_tool_delete">
+	Izbriši
+</words>
+<words id="sandbox_tool_clear">
+	<b>IZBRIŠI SVE</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+	(...ili koristite prečace!)
+</words>
+
+<words id="sandbox_shortcuts">
+	[1]: Nova osoba &nbsp; [2]: Nova "zaražena"
+	<br>
+	[Space]: Premjesti   [⌫BkSp]: Izbriši
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+	
+	<div style="font-size: 30px;">
+		ZAKLJUČAK: radi se o...
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 88px;
+	    top: 20px;
+	    line-height: 100px; display:block;
+	">
+	    Zarazama i vezama
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 125px;
+	    left: 250px;
+	">
+		<b>Zaraze:</b>
+		Kao što neuroni prenose signale u mozgu,
+		ljudi prenose uvjerenja i ponašanja u društvu.
+		Ne samo da utječemo na naše prijatelje,
+		utječemo i na prijatelje naših prijatelja, 
+		pa čak i na prijatelje njihovih prijatelja!<ref id = "three_degrees"> </ref>
+		("Budi promjena koju želiš vidjeti na svijetu")
+		Ali, kao i kod neurona, nisu samo signali važni, već i ...
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 275px;
+	    left: 250px;
+	">
+		<b>Veze:</b>
+		Premalo veza i složene ideje se ne mogu širiti.
+		Previše veza i složene ideje guši groupthink.
+		Trik je izgraditi mrežu malih svjetova, optimalnu mješavinu
+		povezivanja i premošćivanja: <i>e pluribus unum.</i>
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #999;
+	">
+		(želite li napraviti svoje simulacije?
+		probajte Sandbox mod, klikom na gumb ★ ispod!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+		Dakle, što je s našim pitanjem s početka?
+		Zašto se neke gomile okrenu...	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 460px;
+	    right: 0px;
+	">
+		<next>...mudrosti, a druge ludosti?</next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+		Od Newtona, preko NASA-e,
+		<br>
+		do mrežne znanosti, pokrili smo puno
+		<br>
+		toga danas. Ukratko, ludilo gomile nije nužno
+		<br>
+		uzrokovano ponašanjem <i>pojedinaca</i>, nego je posljedica
+		<br>
+		odnosa među pojedincima u njihovim društvenim mrežama.
+
+		<div style="height:0.9em"></div>
+
+		No to <i>ne</i> znači da ne postoji osobna odgovornost,
+		<br>
+		jer smo mi oni koji <i>pletu</i> tu istu mrežu. Stoga budi skeptičan 
+		<br>
+		oko ideja koje ti laskaju<ref id="flatter"></ref>, potrudi se razumijeti
+		<br>
+		složene ideje. Poboljšaj svoje veze s onima koji su ti slični,
+		<br>
+		ali i izgradi mostove preko kulturnih i političkih ponora.
+
+		<div style="height:0.9em"></div>
+
+		Zajedno možemo isplesti mudru mrežu.
+		<br>
+		Naravno, to je teže nego crtati
+		po ekranu...
+
+		<next>...ali svejedno se isplati.</next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+		"Veliki trijumfi i tragedije povijesti dogodili su se
+		ne zato što su ljudi u svojoj biti dobri ili u svojoj biti loši,
+		nego zato što su ljudi u svojoj biti ljudi.”
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Neil Gaiman &amp; Terry Pratchett
+	<div style="height:0.8em"></div>
+	<next small>♥</next>
+</words>
+
+<!-- Credits --> 
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+	
+		<span style="color:#777; position:relative; top:5px;">
+			stvorio</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			igraj moje druge igre</a> ·
+		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
+			prati me na tweeteru</a>
+		
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			puno ljubavi i zahvale</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			ZA MOJE PATREON SUPORTERE</div>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+			pomozi mi da napravim više ovakvih stvari! &lt;3</a>
+		<br>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			vidi moje suportere</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			vidi moje probne igrače</a>
+
+		<br><br>
+
+		<span style="display: inline-block; margin-top: 15px;">
+			♫ glazba:
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" and "Friends 2068"</a>
+			by Komiku
+			<br>
+			&lt;/&gt; <i>Gomile</i> su
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				potpuno open source</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	BRAVO
+</words>
+<words id="sim_start">
+	pokreni simulaciju
+</words>
+<words id="sim_stop">
+	resetiraj
+</words>
+<words id="translations_exist">
+	Prijevodi:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	What the, no fan-made translations exist yet?!
+</words>
+<words id="translations_add">
+	(dodaj svoju!)
+</words>
+<words id="translations_original">
+	<!-- No need to translate this, because, I assume, -->
+	<!-- if someone wants to play the game in English, they can read English -->
+	(original na engleskom)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+	Brzi odgovor na knjigu <i>The Wisdom of Crowds</i> Jamesa Surowieckija
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+	
+	Najprije, ne pljucam na <a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	ovu knjigu.</a>
+	To je dobra knjiga, a Surowiecki se pokušava suočiti s istim pitanjem koje sam ja:
+	<b>“zašto se neke gomile okreću ludosti, a druge mudrosti?”</b>
+
+	<br><br>
+
+	Surowieckijev odgovor: gomila donosi dobre odluke kada svatko razmišlja neovisno.
+	On daje priču seoskog sajma, na kojem su posjetitelji pogađali težinu vola.
+	Iznenađujuće, prosjek <i>svih</i> njihovih procjena bio je bolji nego <i>ijedna</i> pojedinačna procjena.
+	
+	Ali jedna stvar je ključna: ljudi moraju pogađati neovisno o drugima.
+	Inače će biti pod utjecajem ranijih pogrešnih pogađanja,
+	i prosječni odgovor će odlutati na krivu stranu.
+
+	<br><br>
+
+	Ali... ne mislim da je "budimo neovisni što je više moguće" odgovor.
+	Čak i geniji, koje pogrešno nazivamo najneovisnim misliocima,
+	duboko su pod utjecajem drugih. Kao što je Isaac Newton rekao:
+	<i>“Ako sam vidio dalje od drugih, to je zato što sam stajao na ramenima divova.”</i>
+
+	<br><br>
+
+	Dakle, koja je ideja ispravna?
+	Proizlazi li mudrost iz razmišljanja svojom glavom ili razmišljanja zajedno s drugima?
+	Odgovor je: "da".
+
+	<br><br>
+
+	Tako ću pokušati objasniti u ovom istraživom eseju:
+	kako doći do prave ravnoteže između neovisnosti i međuovisnosti &mdash;
+	to jest, kako dobiti mudru gomilu.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+	Koje druge vrste veza postoje?
+	</h3>
+
+	<div>
+
+	Zbog jednostavnosti,
+	moje simulacije pretvaraju da se ljudi mogu povezati samo kroz prijateljstva,
+	i da su sva prijateljstva jednaka.
+	No, mrežni znanstvenici razmatraju i druge načine na koje možemo biti povezani, kao što su:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Usmjerene veze.</b> 
+	Alice je šefica Bobu, ali Bob nije šef Alice.
+	Carol je roditelj Daveu, ali Dave nije roditelj od Carol.
+	"Šef" i "roditelj" su <i>usmjerene</i> veze:
+	odnos je jednosmjeran.
+	Nasuprot tome, "prijateljstvo" je <i>dvosmjerna</i> veza:
+	odnos ide u oba smjera. (nadam se)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Ponderirane veze.</b>
+	Elinor i Frankie su samo poznanici.
+	George i Harry su najbolji prijatelji.
+	Iako u oba slučaja postoji veza "prijateljstva", druga veza je jača.
+	Kažemo kako te dvije veze imaju različite "težine".
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Zapamtite: <b>sve ove simulacije su pogrešne.</b>
+    Na isti način na koji je svaka karta "pogrešna".
+	Vidite li kartu slijeva?
+	Prave zgrade nisu sivi pravokutnici!
+	U stvarnosti, slova ne lebde iznad grada!
+	Karte nisu korisne <i>unatoč</i> tome što pojednostavljuju,
+	nego <i>baš zato</i> što pojednostavljuju.
+	Isto vrijedi i za simulacije, ili bilo koju znanstvenu teoriju.
+	<i>Naravno</i> da su "krive" &mdash; to ih i čini <i>korisnima</i>.
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	Koje druge vrste zaraza postoje?
+	</h3>
+
+	<div>
+	
+	Postoji mnogo načina na koje mrežni znanstvenici mogu simulirati "zaraze"!
+	Odabrao sam najjednostavniji, u obrazovne svrhe.
+	Ali evo drugih načina na koje možete to učiniti:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Zaraze sa slučajnošću</b>.
+	Biti "izložen" zarazi ne <i>jamči</i> da ćete biti zaraženi,
+	samo to čini <i>vjerojatnijim</i>.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Ljudi imaju različite pragove zaraze.</b> 
+	Moje simulacije pretvaraju se da svatko ima isti prag za piće (50%) ili
+	volontiranje (25%) ili dezinformacije (0%).
+	Naravno, to nije istina u stvarnom životu, i to bi simulacija mogla odražavati.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Ekologija zaraze.</b>
+	Što ako postoji <i>više</i> zaraza, s <i> različitim </i> pragovima?
+	Na primjer, jednostavna zaraza ludosti i složena zaraza mudrosti.
+	Ako je netko zaražen ludošću, može li se još uvijek zaraziti mudrošću?
+	Ili obrnuto?
+	Može li netko biti zaražen s oboje?
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Zaraze koje se mijenjaju i razvijaju.</b>
+	Ideje ne prolaze savršeno od osobe do osobe na način na koji to rade virusi.
+	Poput igranja Telefona, poruka se mutira sa svakim prenošenjem &mdash;
+	i ponekad će mutant biti zarazniji od izvornog oblika!
+	Dakle, ideje "evoluiraju" kako bi bile privlačnije, umnožive, zarazne.
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+	
+	<h3>
+	Želim saznati više! Što još mogu čitati i/ili igrati?
+	</h3>
+	
+	<div>
+	
+	Ovo istraživačko objašnjenje bilo je samo odskočna daska za vašu znatiželju,
+	tako da možete zaroniti dublje u ogromnu bazu znanja!
+	Evo još par stvari na webu i društvenim medijima:
+
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Book:</b>
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>
+	by Nicholas Christakis and James Fowler (2009).
+	Pristupačan pregled kako naše mreže utječu na naše živote, za dobro ili loše.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	Evo izvatka: Preface &amp; Chapter 1
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interaktivna priča:</b>
+	<a target="_blank" href="http://www.varljiv.org/evolucija-povjerenja/">
+	Evolucija povjerenja</a>, autor Nicky Case (2017).
+	Igra o teoriji igara, o izgradnji suradnje ... ili o uništenju.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interactive:</b>
+	<a target="_blank" href="http://ncase.me/polygons/">
+	Parable of the Polygons</a>, autori: Vi Hart i Nicky Case (2014).
+	Priča o tome kako obični odabiri mogu stvoriti štetan svijet.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Ili, ako želite vidjeti cijelu galeriju interaktivnih edu-stvari, posjetite
+	<a target="_blank" href="http://explorabl.es/">
+	Explorable Explanations</a>,
+	središte za učenje kroz igru!
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+	“virtually all [college] students reported that their friends drank more than they did.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	“Biases in the perception of drinking norms among college students”</a>, Baer et al (1991)
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+	“Iluzija većine”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	“The Majority Illusion in Social Networks”</a> Lerman et al (2016).
+	<br>
+	Vezano: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+	The Friendship Paradox</a>.
+	</div>
+</reference>
+<reference id="contagion">
+	
+	<h3>
+	“strong statistical evidence that
+	smoking, health, happiness, voting patterns, and cooperation levels
+	are all contagious”
+	</h3>
+
+	<div>
+	
+	Iz prekrasno napisane i pristupačne knjige Nicholasa Christakisa i Jamesa Fowlera
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009). 
+
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+	“ima ponešto dokaza da su samoubojstva također [zarazna]”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	“Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop”</a>,
+	O'Carroll et al (1994), koje podržava Centers for Disease Control &amp; Prevention (CDC).
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+	“some evidence that mass shootings are [contagious], too”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	“Contagion in Mass Killings and School Shootings”</a>, Towers et al (2015).
+
+	<br><br>
+
+	Also see: the
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Don't Name Them</a> campaign,
+	which urges that news outlets <i>DO NOT</i> air mass murderers' names, manifestos, and social media feeds.
+	This spreads the contagion.
+	Instead, news outlets should focus on the victims, first responders, civilian heroes,
+	and the grieving, healing community.
+
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+	“The world's financial institutions fell for such a cascade in 2008.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	“Lemmings of Wall Street”</a> by Cass Sunstein, is a quick, non-technical read.
+	Published in Oct 2008, right in the wake of the crash.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+	“the complex contagion theory.”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	“Threshold Models of Collective Behavior”</a> by Granovetter (1978)
+	was the first time, as far as I know, anyone described a "complex contagion" model.
+	(although he didn't use that specific name)
+
+	<br><br>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> by Centola &amp; Macy (2007)
+	coined the phrase "complex contagion", and
+	showed the important differences between that and "simple contagion".
+
+	<br><br>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	“Evidence for complex contagion models of social contagion from observational data”</a>
+	by Sprague &amp; House (2017)
+	empirically showed that complex contagions do, in fact, exist. (at least, in the social media data they looked at)
+
+	<br><br>
+
+	Finally,
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	“Universal behavior in a generalized model of contagion”</a> by Dodds &amp; Watts (2004)
+	proposes a model that unifies <i>all</i> kinds of contagions: 
+	simple and complex, biological and social!
+
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+	“the possum has 13 nipples”
+	</h3>
+	<div>
+	arranged in a ring of 12 nipples, plus one in the middle
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+	“groupthink”
+	</h3>
+
+	<div>
+	This Orwell-inspired phrase was coined by Irving L. Janis in 1971.
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	In his original article</a>,
+	Janis investigates cases of groupthink, lists its causes, and &mdash; thankfully &mdash;
+	some possible remedies.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+	“bonding and bridging social capital”
+	</h3>
+
+	<div>
+	These two types of social capital &mdash; "bonding" and "bridging" &mdash;
+	were named by Robert Putnam in his insightful 2000 book,
+	<a target="_blank" href="http://bowlingalone.com/">
+	Bowling Alone</a>. His discovery:
+	across almost <i>all</i> empirical measures of social connectiveness,
+	Americans are more alone than ever.
+	Golly.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+	“bridging social capital has a sweet spot”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	“The Strength of Weak Ties”</a> by Granovetter (1973)
+	showed that connections across groups helps spread simple contagions (like information),
+	but
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> by Centola &amp; Macy (2007)
+	showed that connections across groups may not help complex contagions,
+	and it fact, can hurt their spread!
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+	“the small world network”
+	</h3>
+
+	<div>
+
+	The idea of the "small world" was popularized by
+	<a target="_blank" href="http://www.jstor.org/stable/2786545">Travers &amp; Milgram's 1969 experiment</a>,
+	which showed that, on average, any two random people in the United States
+	were just six friendships apart &mdash; "six degrees of separation"!
+
+	<br><br>
+
+	The small-world network got more mathematical meat on its bones with
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	“Collective dynamics of small-world networks”</a> by Watts &amp; Strogatz (1998),
+	which proposed an algorithm for creating networks
+	with both low average path length (low degree of separation)
+	and high clustering (friends have lots of mutual friends) &mdash;
+	that is, a network that hits the sweet spot!
+
+	<br><br>
+
+	You can also play with
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	the visual, interactive adaptation of that paper</a> by Bret Victor (2011).
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+	“[small world networks] describe how our neurons are connected”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	“Small-world brain networks”</a> by Bassett &amp; Bullmore (2006).
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+	“[small world networks] give rise to collective creativity”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	“Collaboration and Creativity: The Small World Problem”</a> by Uzzi &amp; Spiro (2005).
+	This paper analyzed the social network of the Broadway scene over time,
+	and discovered that, yup, the network's most creative when it's a "small world" network!
+
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+	“[small world networks] give rise to collective problem-solving”
+	</h3>
+
+	<div>
+	See
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	“Social Physics”</a> by MIT Professor Alex "Sandy" Pentland (2014)
+	for a data-based approach to collective intelligence.
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+	“[small world networks] helped John F. Kennedy (barely) avoid nuclear war!”
+	</h3>
+
+	<div>
+
+	Besides the NASA Challenger explosion, the most notorious example of groupthink
+	was the Bay of Pigs fiasco.
+	In 1961, US President John F. Kennedy and his team of advisors thought
+	&mdash; for some reason &mdash;
+	it would be a good idea to secretly invade Cuba and overthrow Fidel Castro.
+	They failed.
+	Actually, worse than failed: it led to the Cuban Missile Crisis of 1962,
+	<i>the closest the world had ever been to full-scale nuclear war.</i>
+
+	<br><br>
+
+	Yup, JFK really screwed up on that one.
+
+	<br><br>
+
+	But, having learnt some hard lessons from the Bay of Pigs fiasco,
+	JFK re-organized his team to avoid groupthink.
+	Among many things, he:
+	1) actively encouraged people to voice criticism,
+	thus lowering the "contagion threshold" for alternate ideas.
+	And
+	2) he broke his team up into sub-groups before reconvening,
+	which gave their group a "small world network"-like design!
+	Together, this arrangement allowed for a healthy diversity of opinion,
+	but without being too fractured &mdash; a wisdom of crowds.
+
+	<br><br>
+
+	And so, with the same <i>individuals</i> who decided the Bay of Pigs,
+	but re-arranged <i>collectively</i> to decide on the Cuban Missile Crisis...
+	JFK's team was able to reach a peaceful agreement with Soviet leader Nikita Khrushchev.
+	The Soviets would remove their missiles from Cuba, and in return,
+	the US would promise not to invade Cuba again.
+	(and also agreed, in secret, to remove the US missiles from Turkey)
+
+	<br><br>
+
+	And that's the story of how all of humanity almost died.
+	But a small world network saved the day! Sort of.
+
+	<br><br>
+
+	You can read more about this
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	on Harvard Business Review</a>,
+	or from
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	the original article on groupthink</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+	“we influence [...] our friends' friends' friends!”
+	</h3>
+
+	<div>
+	Opet, iz prekrasne knjige Nicholasa Christakisa i Jamesa Fowlera
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+	“be skeptical of ideas that flatter you”
+	</h3>
+	<div>
+	da, uključujući ideje u <i>ovom</i> explorable eseju.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	★ Sandbox Mode ★
+	</h3>
+
+	<div>
+	Prečaci (1, 2, razmak, unazad) rade u <i>svim</i> zagonetkama, a ne samo Sandbox modu!
+	Ozbiljno, možete se vratiti na drugo poglavlje i urediti simulaciju tamo.
+	Tako sam ja stvorio sve ove zagonetke. 
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+	Dear Patreon supporters:
+	Your generosity <i>literally</i> feeds me and pays my rent.
+	You give me the freedom to make these weird educational games,
+	so, from the bottom of my heart, thank you. &lt;3
+	<br>
+	<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+		(want to support me in making more stuff like this? check out my Patreon!)</a>
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+	Thank you, everyone who playtested <i>Crowds</i>
+	during its many stages of life!
+	
+	<br><br>
+	<b>The Prototype:</b>
+	<br>
+	Maria ·
+	Monica Srivastava
+
+	<br><br>
+	<b>The Alpha:</b>
+	<br>
+	Glen Chiacchieri ·
+	Kalli Repzeti ·
+	Mali Akmanalp ·
+	Toph Tucker
+
+	<br><br>
+	<b>The Beta:</b>
+	<br>
+	Alex Dytrych ·
+	Amit Patel ·
+	Cassandra McClure ·
+	Catherine Ray ·
+	Josh Comeau ·
+	Kayle Sawyer ·
+	Matthew Conlen ·
+	Srini Kadamati ·
+	Vanessa Shen ·
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+
+And that's it! That's the last of what needed to a TRANSLATE
+
+Thank you so, so much for doing this again, wow.
+
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+
+-->
