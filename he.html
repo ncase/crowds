@@ -1,0 +1,1697 @@
+﻿<!--
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+- - - - - - - - - - -
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 3600+ WORDS to translate, including
+the Bonus Boxes and References.
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+Good luck, and thanks again!
+<3,
+~ Nicky Case
+-->
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl"> <!-- lang="(TRANSLATE: set your language code here, same as the page name!) e.g: es, es-ES, pt-BR, ja, it, fr-CA, de, ..." -->
+<head>
+
+	<!-- Meta Info -->
+	<title>חוכמה ו/או שיגעון של המונים</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="מדריך אינטראקטיבי לרשת אנושית"/> <!-- content="(TRANSLATE this part only)" -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="חוכמה ו/או שיגעון של המונים"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="מדריך אינטראקטיבי לרשת אנושית"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="חוכמה ו/או שיגעון של המונים"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="מדריך אינטראקטיבי לרשת אנושית"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="חוכמה ו/או שיגעון של המונים"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="מדריך אינטראקטיבי לרשת אנושית"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=6">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">דלג &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">?</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<span dir="ltr"><div id="sound_icon"></div></span>
+			<span id="sound_on">דלוק</span> <!-- TRANSLATE -->
+			<span id="sound_off">כבוי</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			חוכמה ו/או שיגעון של המונים <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			למה קבוצות של אנשים מתנהגים בחוכמה, טמטום, נחמדות, אכזריות? מדריך אינטראקטיבי לרשת אנושית: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. מבוא</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. קשרים</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. הידבקות</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. הידבקות מורכבת</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. קישור וגישור</span> <!-- note: &amp; is html for the "and" sign -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. זה עולם קטן</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. לסיכום...</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. קרדיט</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>?</span>
+				<span>? מצב ארגז חול! ?</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+			
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>ארגזי בונוס!</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>קישורים והפניות</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">?</span></span>
+				<span>תרגומים</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+			
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+	
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>...טוען</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/inobounce.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js?v=5"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js?v=5"></script>
+
+<script src="js/sim/Peep.js?v=2"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js?v=2"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!-- 
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span></span>
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">חוכמה</span>
+		<span style="position:relative;top: -10px;">ו/או</span>
+		<span style="font-size: 60px;">שיגעון</span>
+		<br>
+		<span style="position: relative;top: -11px;">של</span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">ההמון</span>
+	</div>
+
+	<div style="color:#999">
+		<!-- TRANSLATE note: comment out the line below... -->
+		זמן משחק: 30 דקות • מאת nicky case אפריל 2018
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		<!-- by nicky case • translated by [your name] • <a href='.'>המקור באנגלית</a> -->
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	טוען...
+</words>
+
+<words id="preloader_play">
+	<div class="rarr"></div> למשחק!
+</words>
+
+<!-- Introduction -->
+<!--
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+-->
+
+<words id="intro">
+
+	<br><br>
+
+	סר איזק ניוטון היה בטוח שהוא
+	<br>
+	בר דעת. אני מתכוון, אחרי שהמציא חשבון
+	<br>
+	ותיאורית כוח הכבידה, הוא אמור להיות נבון מספיק לעשות
+	<br>
+	מעט השקעות פיננסיות, נכון? בכל אופן, בקצרה, הוא
+	<br>
+	הפסיד 4,600,000$ (בשער העכשווי) בטירוף
+	<br>
+	הספקולציה הארצית הידוע כבועת הים הדומי של 1720.
+
+	<br><br>
+
+	כפי שמר ניוטון טען מאוחר יותר: <i>"אני יכול לחשב תנועה של
+	<br>
+	גופים שמימיים, אך לא את טירופם של אנשים."</i>
+
+	<next><div class="rarr"></div> כן, באסה לו</next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+
+	כמובן, זוהי לא הפעם
+	<br>
+	הראשונה שהמסחר, המוסדות
+	<br>
+	והדמוקרטיה כולה התבלגנו &mdash; ה<i>שיגעון</i> של
+	<br>
+	ההמון. אך עדיין, בדיוק כשאתה מאבד תקווה באנושות,
+	<br>
+	אתה רואה אזרחים עושים שמיניות באוויר כדי להציל אחד את השני
+	<br>
+	בהוריקנים, קהילות יוצרות פתרונות כדי לפתור בעיות,
+	<br>
+	אנשים נלחמים בשביל עולם טוב יותר! &mdash; ה<i>חוכמה</i> של ההמון.
+
+	<div style="height:0.9em"></div>
+
+	<b>אך <i>למה</i> ישנם המונים שהם חכמים וכאלה שמטורפים?</b> אין תיאוריה
+	<br>
+	שיכולה להסביר הכול, אבל אני חושב שנושא מחקר חדש,
+	<br>
+	<b>מדע רשתות</b>, יכול להדריך אותנו! והרעיון המרכזי הוא זה: כדי
+	<br>
+	להבין את ההמונים, אנו לא צריכים להסתכל על <i>האדם
+	<br>
+	היחיד</i> אלא על...
+
+	<next><div class="rarr"></div> ...הקשרים שלו. </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>בואו נצייר רשת!</b>
+	כל חיבור ייצג את הקשר בין 2 אנשים:
+</words>
+
+<words id="networks_tutorial_connect">
+	צייר בשביל לחבר
+</words>
+
+<words id="networks_tutorial_disconnect">
+	תחתוך בשביל&nbsp;&nbsp;&nbsp;לנתק
+</words>
+
+<words id="networks_tutorial_end">
+	
+	כשתסיים לשרבט ולשחק,
+	<next wiggle><div class="rarr"></div> בואו נמשיך</next>
+
+</words>
+
+<words id="networks_threshold">
+
+	קשרים חברתיים, נועדו ליותר מצילום תמונות יפות.
+	אנשים <i>מתבוננים</i> על הקשרים החברתיים שלהם כדי להבין את עולמם.
+	למשל, אנשים מסתכלים על העמיתים שלהם כדי
+	להבין <b>איזה % מהם (לא כולל עצמם)</b> הם,
+	נגיד שתיינים.<icon name="yellow"></icon>
+	
+</words>
+
+<words id="networks_threshold_instruction">
+	<b>צייר/מחק קשרים, וראה מה קורה! <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>מגניב, הבנתי</next>
+</words>
+
+<words id="networks_pre_puzzle">
+	אבל, רשת יכולה <i>לעבוד</i> על אנשים.
+	בדיוק כמו שהעולם נראה שטוח כי אנחנו נמצאים עליו,
+	אנשים יכולים לקבל מושג מוטעה על החברה בגלל שהם <i>נמצאים</i> בה.
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		<i>אופציונלי</i> הערות נוספות! &uarr;
+	</div>
+	<div style="position:absolute; left:68px; top:10px;">
+		&darr; קישורים והפניות
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+	
+	<bon id="books"></bon>
+
+	<br>
+
+	למשל, מחקר בשנת 1991<ref id="drunk"></ref> הראה ש 
+	"כמעט כל הסטודנטים [במכללות] דיווחו שחבריהם שתו יותר מהם".
+	אך זה נראה כבלתי אפשרי!
+	איך דבר כזה יכול להיות?
+	ובכן, אתה הולך להמציא את התשובה בעצמך, בכך שתצייר רשת.
+	זה הזמן ל...
+
+	<next><div class="rarr"></div> לעבוד על כולם</next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">זה הזמן לפאזל!</b>
+	<br>
+	תעבוד <i>על כולם</i> כך שיחשבו
+	שמרבית חבריהם (סף של 50%) הם שתיינים <icon name="yellow"></icon>
+	(אפילו שמספר השתיינים נמוך מאלו שלא כך שיש 2 לא שתיינים לכל-1 שתיין!)
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>רימית</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	מתוך 9 אנשים
+</words>
+<words id="networks_puzzle_end">
+	כל הכבוד! תחמנת קבוצה של סטודנטים להאמין
+	בשכיחות של נורמה חברתית לא בריאה! המשך כך!
+	<next wiggle>...אממ. תודה?</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+	מה שיצרת כרגע נקרא אשליית ההמון<ref id="majority"></ref>,
+	שגם כן מסביר למה אנשים חושבים שההשקפות הפוליטיות שלהם הם הסכמה כללית,
+	או למה קיצוניות נראה יותר שכיח מכפי שהוא.
+	<i>שיגעון.</i>
+
+	<bon id="connections"></bon>
+
+	אבל אנשים לא סתם באופן פסיבי <i>מתבוננים </i> על רעיונות והתנהגויות של אחרים,
+	הם באופן פעיל <i>מחקים</i> אותם.
+	אז כעט, בואו נתבונן על משהו שחוקרי רשתות קוראים לו...
+
+	<next><div class="rarr"></div> "הידבקות!"</next>
+
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+	<i>בואו נניח בצד את "הסף" בינתיים.</i>
+	לפנינו: יש אדם <icon name="red"></icon> שיש לו מידע מסוים.
+	מידע מטעה. "חדשות מזויפות", כמו שהילדים המגניבים אומרים.
+	וכל יום, אותו אדם מפיץ את השמועה, כמו וירוס, לחברים שלו.
+	וחבריו מפיצים את זה לחבריהם. וכך הלאה.
+	<br>
+	<b>
+	התחל את הסימולציה! <div class="darr"></div>
+	(נ.ב: לא תוכל לצייר <i>כל עוד</i> הסימולציה רצה)
+	</b>
+</words>
+
+<words id="simple_simple_2">
+	<div style="position:relative; right: 310px; top:10px;">
+	הערה: למרות השם השלילי, "הידבקות" יכול להיות טוב או רע (או ניטרלי או דו-משמעי).
+	קיימת הוכחה סטטיסטית חזקה<ref id="contagion"></ref>
+	שעישון, בריאות, אושר, דפוסי הצבעות, ורמת שיתוף פעולה
+	הם כולם "מידבקים" --
+	ואפילו חלק מההוכחות שהתאבדות<ref id="suicides"></ref> והרג המוני<ref id="shootings"></ref> גם מידבקים.</div>
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle><div class="rarr"></div> ובכן, זה מדכא</next>
+</words>
+
+<words id="simple_cascade">
+	אכן כך.
+	בכל מקרה, <b>זה הזמן לפאזל!</b>
+	<br>
+	צייר רשת והרץ את הסימולציה,
+	כך <i>שכולם</i> יחלו ב"הידבקות".
+	<br>
+	(חוק חדש: לא תוכל לחתוך את החיבורים <i>העבים</i> )
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle><div class="rarr"></div> פאנטסטי</next>
+</words>
+
+<words id="simple_post_cascade">
+	הפיזור המשוגע הזה נקרא <b>"מפל מידע"</b>.
+	אדון ניוטון נפל בכזה מפל בשנת 1720.
+	המוסד הפיננסי העולמי נפל בכזה מפל בשנת 2008.<ref id="subprime"></ref>
+	<br><br>
+	למרות זאת: <i>הסימולציה הזו שגויה.</i>
+	רוב הרעיונות <i>אינם</i> מופצים כמו וירוסים.
+	בהרבה אמונות והתנהגויות, הנך צריך להיות "חשוף" להידבקות יותר פעם אחת
+	כדי להיות "מודבק".
+	אז, חוקרי רשתות המציאו דרך חדשה,  וטובה יותר
+	לתאר איך רעיונות/התנהגויות מופצים, והם קוראים לזה...
+	<next wiggle><div class="rarr"></div> “הידבקויות <i>מורכבות</i>!”</next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+	<div style="position:relative; right: 500px; top:0px;">
+	בואו נחזיר את "הסף" ודוגמת השתיינות <icon name="yellow"></icon>!
+	כששיחקת בזה בפעם הראשונה, אנשים לא שינו את התנהגותם.
+
+	<br><br>
+
+	כעת, בואו נדמה מה קורה אם אנשים מתחילים לשתות
+	<i>כאשר +50% מהחברים שלהם שותים!</i> 
+	<b>לפני שתתחיל את הסימולציה, שאל את עצמך מה אתה חושב <i>שצריך</i> לקרות.</b>
+
+	<br><br>
+	
+	<b><div class="rarr"></div> עכשיו, הרץ את הסימולציה, וראה מה באמת קורה!</b>
+	</div>
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+	<div style="position:relative; right: 500px; top:0px;">
+		
+		בניגוד להידבקות "חדשות מזויפות" שהוזכר קודם <icon name="red"></icon> ,
+		ההידבקות הזו <icon name="yellow"></icon> <i>לא</i> מופצת לכולם!
+		האנשים הראשונים "שנדבקו", בגלל שלמרות שהם נחשפו רק לשתיין אחד,
+		אותו שתיין היווה 50% מחבריו. (כן, הם בודדים)
+		בניגוד לכך, האדם שלקראת סוף השרשרת <i>לא</i> "נדבק",
+		בגלל שכל עוד הם היו חשופים לחבר שתיין,
+		הם לא עברו את סף ה +50%.
+
+		<div style="height:0.75em"></div>
+
+		ה % <i>היחסי</i> של החברים "המודבקים" חשוב.
+		<i>זה</i> ההבדל בין תיאוריית ה <b>ההידבקות מורכבת</b> <ref id="complex"></ref>,
+		לבין תיאוריית ה <b>הידבקות הפשוטה</b> והתמימה זה-מתפשט-כמו-וירוס.
+		(אפשר להגיד ש"הידבקות פשוטה" זה רק הידבקות עם "יותר מ 0%" סף זיהום)
+
+		<div style="height:0.75em"></div>
+
+		עם זאת, הידבקות לא בהכרח רעה &mdash;
+		אז מספיק עם <i>שיגעון</i> ההמון, מה לגבי...
+		<next>...<i>חוכמת</i> ההמון?</next>
+		</div>
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+	כאן, יש לנו אדם <icon name="blue"></icon> שהתנדב ל... לא יודע,
+	להציל אנשים בהוריקן, או ללמד ילדים מקופחים בקהילה המקומית שלהם, או משהו מגניב כמו זה.
+	הנקודה היא, שזו הידבקות מורכבת "טובה".
+	הפעם, נגיד שהסף הוא רק 25% &mdash;
+	אנשים מוכנים להתנדב, רק אם 25% או יותר מחבריהם עושים זאת, גם.
+	היי, רצון טוב צריך קצת עידוד חברתי.
+
+	<br><br>
+
+	<b>"תדביק" את כולם באווירה טובה! &larr;</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+		<b>הערה:</b> התנדבות היא רק <i>אחת</i> מן ההידבקויות המורכבות!
+		אחרים מוסיפים: שיעור ההצבעה, סגנון חיים, הרגלים, 
+		לאתגר את האמונות שלך,
+		לקחת זמן להבין את הבעיה לעומק &mdash; כל דבר
+		שצריך יותר מ"חשיפה" אחת.
+		הידבקות מורכבת אינה <i>בהכרח</i> חכמה,
+		אבל להיות חכם זו הידבקות מורכבת.
+
+		<div style="height:0.75em"></div>
+
+		(אז מהי הידבקות <i>פשוטה</i> בחיים האמתיים?
+		בדרך כלל זה דומה לטריוויה, כמו, "לאפוסום יש 13 פטמות"<ref id="possum"></ref>)
+
+		<bon id="contagions"></bon>
+
+		כעת, כדי <i>באמת</i> להראות את הכוח והמוזרות של הידבקויות מורכבות, בואו נבקר שוב...
+
+		<next><div class="rarr"></div> ...בפאזל קודם</next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+	זוכרים את זה? הפעם, עם הידבקות <i>מורכבת</i> <icon name="blue"></icon>, זה יהיה קצת יותר קשוח...
+	<br>
+	<b>נסה "להדביק" את כולם עם חוכמה מורכבת! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+	(תרגיש חופשי ללחוץ על 'התחל' <i>ולנסות</i> כמה פתרונות שתרצה)
+</words>
+
+<words id="complex_cascade_end">
+	<next wiggle>לעזאזל <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+	עכשיו, אתה כנראה חושב שרק צריך להמשיך ולהוסיף חיבורים כדי להפיץ את ההידבקות,
+	"מורכבת" או "פשוטה", טובה או רעה, חכמה או משוגעת.
+	אך האם זה באמת כך? ובכן, בואו נבקר שוב...
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle><div class="rarr"></div> ...עוד פאזל קודם</next>
+</words>
+
+<words id="complex_prevent">
+	אם תלחץ "התחל" למטה, ההידבקות המורכבת <icon name="blue"></icon> פשוט תתחיל להתפשט לכולם.
+	זו לא הפתעה.
+	אבל הפעם, בואו נעשה <i>ההפך</i> מכל מה שעשינו עד כה:
+	<b>צייר רשת כדי <i>למנוע</i> מההידבקות להתפשט לכולם! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+	<div style="position:relative; right: 310px; top:10px;">
+	אתה רואה?
+	בזמן שיותר חיבורים כל הזמן יעזרו להפיץ את הרעיונות <i>הפשוטים</i>,
+	<b>יותר חיבורים יכולים לפגוע בהפצה של רעיונות <i>מורכבים</i>!</b>
+	(גורם לך לתהות לגבי האינטרנט, הא?)
+	וזו לא רק בעיה תיאורתית. זה יכול להיות עניין של חיים...
+	</div>
+</words>
+
+<words id="complex_prevent_end">
+	<next wiggle><div class="rarr"></div> ...או מוות.</next>
+</words>
+
+<words id="complex_groupthink">
+	<div style="position:relative; right: 500px; top:0px;">	
+	האנשים ב NASA היו ברי דעת.
+	אני מתכוון, הם השתמשו בתאוריות של ניוטון כדי להביא אותנו לירח.
+	בכל מקרה, בקצרה, בשנת 1986,
+	<i>למרות האזהרות של המכונאים,</i>
+	הם שיגרו את ה <i>Challenger</i>,
+	שהתפוצצה והרגה 7 אנשים.
+	הסיבה המידית: 
+	היה קר מדי באותו בוקר.
+
+	<div style="height:0.9em"></div>
+
+	הסיבה הפחות מידית: המנהלים התעלמו מהאזהרות של המכונאים.
+	למה? בגלל <b>חשיבה קבוצתית</b><ref id="groupthink"></ref>.
+	כשקבוצה קרובה <i>יותר</i> מדי, (כפי שהם נוטים להיות בראש המוסדות)
+	הם נהיים חסינים לרעיונות מורכבים שמאתגרים את האמונות או את האגו שלהם.
+
+	<div style="height:0.9em"></div>
+
+	אז, ככה מוסדות יכולים ליפול בשיגעון ההמון.
+	אבל איך אנחנו יכולים "לעצב" <i>לחוכמת</i> ההמון?
+	בקצרה, שתי מילים:
+
+	<next><div class="rarr"></div> לקשר ולגשר</next>
+	</div>
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+	מעט מאוד קשרים ורעיון לא יוכל להתפרץ. &larr;
+	<br>
+	<div class="rarr"></div> קשרים רבים מידי ותקבל חשיבה קבוצתית.
+</words>
+
+<words id="bonding_2">
+	<b>
+	צייר קבוצה שפוגעת בנקודה המתוקה:
+	מקושרת מספיק על מנת להפיץ רעיון מורכב!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+	מספיק פשוט!
+	מספר הקשרים <i>בתוך</i> קבוצה נקרא <b>קשרי הון חברתי</b><ref id="social_capital"></ref>.
+	אך מה לגבי הקשרים...
+	<next wiggle>...<i>בין</i> קבוצות?</next>
+</words>
+
+<words id="bridging_1">
+	כמו שכבר בטח ניחשת, 
+	מספר הקשרים <i>בין</i> קבוצות נקרא
+	<b>גישור הון חברתי</b>.
+	זה חשוב בגלל שזה עוזר לקבוצות להיחלץ החוצה מתאי ההד הבודדים שלהם!
+	<br>
+	<b>בנה גשר על מנת "להדביק" את כולם בחוכמה מורכבת:</b>
+</words>
+
+<words id="bridging_end">
+	כמו קישור, יש נקודה מתוקה בשביל גישור, גם.<ref id="bridge"></ref>
+	(אתגר נוסף: נסה לצייר גשר כל כך עבה שההידבקות המורכבת
+	<i>לא תוכל</i> לעבור דרכה!)
+	
+	עכשיו שאנחנו יודעים איך "לעצב" קשרים <i>בתוך</i> ו<i>בין</i> קבוצות, בואו...
+	<next wiggle>...נעשה את שניהם במקביל!</next>
+</words>
+
+<words id="bb_1">
+	<div style="position:relative; right: 650px; top:0px;">
+	<b style="font-size:2em">פאזל סופי!</b>
+	<br>
+	צייר חיבורים בתוך קבוצות (קישור) ובין קבוצות (גישור)
+	על מנת להפיץ חוכמה לכל ההמון:
+	</div>
+</words>
+<words id="bb_2">
+	<div style="position:relative; right: 650px; top:0px;">
+	כל הכבוד, ציירת כרגע סוג מאוד מיוחד של רשת!
+	רשתות עם שילוב נכון של קישור וגישור
+	מאוד חשובות, והם נקראות...
+	<next wiggle><div class="rarr"></div> “רשת עולם קטן”</next>
+	</div>
+</words>
+<words id="bb_small_world_1">
+
+	<i>"אחדות ללא אחידות". "מגוון ללא חלוקה". "E Pluribus Unum: מתוך רבים, יחיד"..</i>
+	<br>
+	לא חשוב איך זה מנוסח,
+	אנשים מתרבויות וזמנים שונים בדרך כלל מגיעים לאותה פיסת חוכמה:
+	<b>
+	חברה בריאה צריכה נקודה מתוקה של קשרים <i>בתוך</i> קבוצות
+	וגשרים <i>בין</i> קבוצות.
+	</b>
+	זה:
+
+</words>
+<words id="bb_small_world_2">
+	<div style="position:relative; right: 650px; top:0px;">
+	לא זה...
+	<br>
+	(כי רעיונות לא יוכלו להתפשט)
+	</div>
+</words>
+<words id="bb_small_world_3">
+	גם לא זה...
+	<br>
+	(בגלל שתקבל חשיבה קבוצתית)
+</words>
+<words id="bb_small_world_4">
+	...אבל <i>זה:</i>
+</words>
+<words id="bb_small_world_5">
+	<div style="position:relative; right: 350px; top:0px;">
+	למדעני רשת יש עכשיו הגדרה מתמטית לחוכמה קדומה:
+	<b>רשת של העולם הקטן</b><ref id="small_world"></ref>.
+	השילוב האופטימלי בין קישור+גישור מתאר איך
+	הנוירונים שלנו מקושרים<ref id="swn_neurons"></ref>,
+	מטפח יצירתיות קולקטיבית<ref id="swn_creativity"></ref>
+	ופתרון בעיות<ref id="swn_social_physics"></ref>,
+	ופעם אף עזרה לנשיא ארה"ב ג'ון קנדי למנוע (בקושי) מלחמה גרעינית!<ref id="swn_jfk"></ref>
+	אז כן, עולמות קטנים הם ביג דיל.
+	</div>
+</words>
+<words id="bb_small_world_end">
+	<next><div class="rarr"></div> אוקיי, בוא נסיים את זה...</next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+	(פסססט... רוצה לדעת סוד?<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+	הידבקות:
+</words>
+<words id="sandbox_contagion_simple">
+	פשוט
+</words>
+<words id="sandbox_contagion_complex">
+	מורכב
+</words>
+<words id="sandbox_color_chooser">
+	צבע ההידבקות:
+</words>
+<words id="sandbox_tool_chooser">
+	בחר כלי...
+</words>
+
+<words id="sandbox_tool_pencil">
+	צייר רשת
+</words>
+<words id="sandbox_tool_add">
+	הוסף אדם
+</words>
+<words id="sandbox_tool_add_infected">
+	הוסף "מודבק"
+</words>
+<words id="sandbox_tool_move">
+	גרור אדם
+</words>
+<words id="sandbox_tool_delete">
+	מחק אדם
+</words>
+<words id="sandbox_tool_clear">
+	<b>נקה הכל</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+	(...או, השתמש בקיצורי מקלדת)
+</words>
+
+<words id="sandbox_shortcuts">
+	[1]: הוסף אדם &nbsp;&nbsp;&nbsp; [2]: הוסף "מודבק"
+	<br>
+	[Space]: גרור &nbsp;&nbsp;&nbsp; [Backspace]: מחק
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+	
+	<div style="position: absolute; font-size: 30px; top: -20px;">
+		לסיכום: הכל סובב סביב...
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 88px;
+	    top: 0px;
+	    line-height: 100px; display:block;
+	">
+	    הידבקות וקשרים
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 100px;
+	    left: 250px;
+	">
+		<b>הדבקות:</b>
+		כמו שנוירונים מעבירים אותות במוח,
+		כך אנשים מעבירים אמונות והתנהגויות בחברה.
+		לא רק שאנחנו משפיעים על חברינו,
+		אנו משפיעים גם על החברים של חברים שלנו , ואף על חברים של חברים של חברים שלנו!<ref id="three_degrees"></ref>
+		("תהיה השינוי שאתה רוצה לראות בעולם" וכו' וכו')
+		אבל, כמו עם נוירונים, לא רק האותות חשובים אלא גם...
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 275px;
+	    left: 250px;
+	">
+		<b>קשרים:</b>
+		מעט מידי קשרים ורעיון מורכב לא יוכל להתפשט.
+		הרבה <i>מידי</i> קשרים ורעיונות מורכבים ידרסו ע"י חשיבה קבוצתית.
+		הטריק הוא לבנות רשת עולם קטן, השילוב האופטימלי של
+		קישור וגישור: <i>e pluribus unum.</i>
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #999;
+	">
+		(רוצה ליצור סימולציה משלך?
+		תבדוק את מצב ארגז חול, בלחיצה על הכפתור (★) למטה!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+		אז, מה השאלה הראשונית שלנו?
+		למה המון מסוים הופך ל...
+	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 460px;
+	    right: 0px;
+	">
+		<next>...חכם ו\או מטורף?</next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+		מניוטון לנאסה למדעי
+		<br>
+		רשתות, כיסינו פה הרבה
+		<br>
+		היום. בקצרה, שגעון ההמונים
+		<br>
+		לא בהכרח תלוי <i>באדם יחיד</i>, אלא תלוי
+		<br>
+		באיך אנחנו נלכדים ברשת דביקה.
+
+		<div style="height:0.9em"></div>
+
+		זה <i>לא</i> אומר שיש לזנוח אחריות אישית, כי אנחנו גם <i>האורגים</i>
+		<br>
+		של הרשת הזאת. אז, שפר את ההדבקה שלך: תהיה סקפטי
+		<br>
+		לרעיונות המחמיאים לך<ref id="flatter"></ref>, השקע זמן בלהבין רעיונות
+		<br>
+		מורכבים. ושפר את הקשרים שלך: התחבר לחבר'ה דומים,
+		<br>
+		אבל תבנה גם גשרים על פני מחלוקות תרבותיות\פוליטיות.
+
+		<div style="height:0.9em"></div>
+
+		אנו יכולים לארוג רשת חכמה. ברור שזה קשה יותר 
+		<br>
+		מלשרבט קווים על מסך...
+
+		<next><div style="font-size: 20px">...אבל ממש, ממש שווה את זה.</div></next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+		"הניצחונות והטרגדיות הגדולים בהיסטוריה נגרמים,
+		לא ע"י אנשים  טובים או רעים מהיסוד,
+		אלא ע"י אנשים שנהיים מטבעם אנשים."
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Neil Gaiman &amp; Terry Pratchett
+	<div style="height:0.8em"></div>
+	<next small>3&gt;</next>
+</words>
+
+<!-- Credits --> 
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+	
+		<span style="color:#777; position:relative; top:5px;">
+			נוצר על ידי</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			שחק בדברים נוספים שלי</a> ·
+		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
+			עקוב אחריי בטוויטר</a>
+		
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			הרבה אהבה ותודה ל</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			MY PATREON SUPPORTERS</div>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+			עזור לי ליצור עוד כמו המשחק הזה! 3&gt;</a>
+		<br>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			צפה בתומכים שלי.</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			צפה בבוחני המשחק שלי</a>
+
+		<br><br>
+
+		<span style="display: inline-block; margin-top: 15px;">
+			מוזיקה היא
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" ו- "Friends 2068"</a>
+			ע"י Komiku
+			<br>
+			&lt;/&gt; <i>"המונים"</i> הוא
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				קוד לגמרי פתוח</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	נצחון
+</words>
+<words id="sim_start">
+	התחל סימולציה
+</words>
+<words id="sim_stop">
+	לעצור ולצייר מחדש
+</words>
+<words id="translations_exist">
+	תרגום שיצרו מעריצים:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	What the, no fan-made translations exist yet?!
+</words>
+<words id="translations_add">
+	(הוסף את שלך!)
+</words>
+<words id="translations_original">
+	<!-- No need to translate this, because, I assume, -->
+	<!-- if someone wants to play the game in English, they can read English -->
+	(original in English)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+	תגובה מהירה לג'יימס סורוביצקי <i>The Wisdom of Crowds</i>
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+	
+	קודם כל, אני לא חולק על
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	הספר הזה.</a>
+	זה ספר טוב, וסורוביצקי (Surowiecki) ניסה להתקיל את אותה שאלה שאני:
+	
+	<b>“למה חלק מההמון פונה לשיגעון, או לחוכמה?”</b>
+
+	<br><br>
+	
+	סורוביצקי (Surowiecki) עונה: המון עושה החלטות טובות כשכולם עצמאיים ככל האפשר.
+	הוא נותן מספר סיפור של מחוז הוגן,
+	איפה שאנשי המחוז הוזמנו לנחש את משקלו של שור.
+	מפתיע, הממוצע של <i>כל</i> הניחושים שלהם היה יותר טוב מכל <i>אחד</i> שניחש</i>.
+	אבל, הנה הקושי: האנשים צריכים לנחש <i>בנפרד</i> מכל השאר.
+	אחרת,
+	הם יהיו מושפעים ע"י ניחושים שגויים קודמים,
+	וממוצע התשובות יהיה מאוט מוטה.
+
+	<br><br>
+
+	אבל... אני לא חושב "לגרום לכולם להיות עצמאיים ככל האפשר" זו התוצאה המלאה.
+	אפילו גאונים, שאנחנו מאפיינים לא נכון כהכי חושבים עצמאיים,
+	הם מאוד מושפעים מאחרים. כמו שסר איזיק ניוטון אמר,
+	אם ראיתי רחוק יותר, זה בגלל שעמדתי כל כתפי ענקים.
+	<i>“אם ראיתי רחוק יותר, זה בגלל שעמדתי כל כתפי ענקים.”</i>
+
+	<br><br>
+
+	אז, איזה מהרעיונות נכון?
+	האם חוכמה מגיעה ממחשבה עצמית, או מחשבה עם אחרים?
+	התשובה היא: "כן".
+
+	<br><br>
+
+	אז זה מה שאני אנסה להסביר בהסבר המעניין הזה:
+	איך להשיג את הנקודה המתוקה הזו בין עצמעות לבין תלות הדדית &mdash;
+	זהו זה, איך להשיג המון חכם.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+	איזה עוד סוגי קשרים קיימים?
+	</h3>
+
+	<div>
+
+	למען הפשטות,
+	הסימולציות שלי מעמידות פנים שאנשים יכולים להיות קשורים רק דרך חברות,
+	ושכל החברויות שוות.
+	אבל חוקרי רשתות לוקחים בחשבון דרכים אחרות שאנו יכולים להתחבר, כמו למשל:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>חיבורים כיווניים.</b> אליס היא המנהלת של בוב, אבל בוב לא המנהל של אליס.
+	קרול היא ההורה של דייב, אבל דייב הוא לא ההורה של קרול.
+	"בוס" &amp; "הורה" הם קשרים <i>כיווניים</i>:
+	היחסים הולכים רק בכיוון אחד.
+	לעומת זאת, "חברים" זה יחסים <i>דו-כיווניים</i>:
+	היחסים הולכים לשני הצדדים. (ובכן, בתקווה)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>חיבור עם משקל.</b> אלינור ופרנקי הם רק מכרים.
+	ג'ורג' ו הארי הם שני חברים הכי טובים.
+	אפילו שיש שם קשר "חברות" בשני המקרים, השני יותר חזק.
+	אנחנו אומרים שלשני הקשרים האלו יש משקלים שונים
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	רק תזכור: <b>כל הסימולציות האלו שגויות.</b> באותה דרך שכל מפה היא "שגויה".
+	אתה רואה את המפה משמאל? בניינים אינם אבנים אפורות חסרי כל תכונה!
+	מילים לא מרחפות מעל ערים! למרות זאת, מפות הן שימושיות לא <i>למרות</i> שהם פשוטות,
+	אבל <i>בגלל</i> שהם פשוטות. אותו דבר בסימולציה, או כל תיאוריה מדעית.
+	<i>כמובן</i> שהם "שגויות" &mdash; זה מה שעושה אותם <i>שימושיות</i>.
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	איזה עוד סוגים של הידבקות קיימים?
+	</h3>
+
+	<div>
+	
+	יש כלכך, כלכך הרבה דרכים שחוקרי רשתות יכולים לדמה "הידבקות"!
+	בחרתי את הכי פשוטהף למטרה לימודית.
+	אבל הנה דרכים אחרות שיכולות לעשות זאת:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>הידבקות עם אקראיות</b>.
+	להיות "חשוף" להידבקות לא <i>מבטיח</i> שאתה תידבק,
+	זה רק מעלה את <i>הסבירות</i>.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>לאנשים יש סף הידבקות שונה.</b> 
+	הסימולציות שלי מעמידות פנים שלכולם יש אותו סף לשתיינים (50%) או
+	התנדבות (25%) או מידע מטעה (0%).
+	כמובן, שזה לא נכון בחיים האמיתיים, ותוכל לעשות שהסימולציה שלך שתשקף זאת.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>אקולוגיה של הידבקות.</b>
+	מה אם היו <i>הרבה</i> הידבקויות, עם סף <i>שונה</i>?
+	לדוגמא, הידבקות "שיגעון" פשוטה והידבקות "חוכמה" מורכבת.
+	אם מישהו מודבק בשיגעון, הם עדיין יכולים להדבק בחוכמה?
+	או להיפך?
+	מישהו יכול להיות מודבק בשניהם?
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>הידבקויות שעוברות מוטציות ומתפתחות.</b>
+	רעיונות לא עוברים בשלמותם מאדם לאדם כמו שוירוס עובר.
+	כמו משחק "טלפון שבור", ההודעה עוברת מוטציה כל פעם שמספרים לאדם הבא &mdash;
+	ולפעמים המוטציה תהיה יותר מידבקת מהמקורית!
+	אז, עם הזמן, רעיונות "מתפתחים" למשהו יותר קליט, יכולים להיות מועתקים, מידבקים.
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+	
+	<h3>
+	אני רוצה ללמוד עוד! מה עוד אני יכול לקרוא ו/או לשחק?
+	</h3>
+	
+	<div>
+	
+	ההסבר המעניין הזה היה רק מקפצה לסקרנות שלך,
+	שתוכל לצלול עמוק יותר לבריכה עמוקה של ידע!
+	הנה עוד דברים על רשתות או מערכות חברתיות:
+
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>ספר:</b>
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>
+	מאת ניקולס כריסטקיס וג'יימס פאולר (2009).
+	סיור נגיש של איך הרשתות שלנו משפיעות על חיינו, לטוב או לרע.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	הנה קטע: פסקה ופרק 1
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>אינטראקטיבי:</b>
+	<a target="_blank" href="http://ncase.me/trust/">
+	האבולוציה של אמון</a> מאת ניקי קייס (אני) (2017).
+	משחק על תאוריית המשחק של איך שיתוף פעולה נבנה... או נהרס.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>אינטראקטיבי:</b>
+	<a target="_blank" href="http://ncase.me/polygons/">
+	משל של המצולעים</a> מאת וי הארט וניקי קייס (גם אני) (2014).
+	סיפור על איך בחירות לא מזיקות יכולות ליצור עולם מזיק.
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	או, אם אתה רק רוצה לראות גלריה שלמה של דברים אינטראקטיביים לימודיים, הנה
+	<a target="_blank" href="http://explorabl.es/">
+	הסברים מעניינים</a>,
+	מרכז ללמידה דרך משחק!
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+	"כמעט כל הסטודנטים [במכללות] דיווחו שחבריהם שתו יותר מהם."
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	“Biases in the perception of drinking norms among college students”</a> מאת Bear ואחרים (1991).
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+	"אשליית הרוב"
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	“The Majority Illusion in Social Networks”</a> מאת Lerman ואחרים (2016).
+	<br>
+	Related: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+	פרדוקס החברות</a>.
+	</div>
+</reference>
+<reference id="contagion">
+	
+	<h3>
+	"עובדה סטטיסטית חזקה
+	שעישון, בריאות, אושר, דפוס הצבעות ורמת שיתוף פעולה
+	הם כולם מידבקים"
+	</h3>
+
+	<div>
+	מאת ניקולס כריסטקיס (Nicholas Christakis) וג'יימס פאולר (James Fowler)
+	כתבו נהדר, ספר נגיש,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009). 
+
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+	"כמה הוכחות שהתאבדות [מידבקת], גם"
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	“Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop”</a>
+	מאת אוקארול (Carroll) ואחרים (1994) מאושר ע"י מרכזי פריקין לניהול והימנעות מחלות (CDC).
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+	"כמה הוכחות שהרג המוני זה[מידבק], גם"
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	“Contagion in Mass Killings and School Shootings”</a> מאת Towers ואחרים (2015).
+
+	<br><br>
+
+	כמו כן ראה:
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Don't Name Them</a> חברה,
+	שאומרת שחדשות <i>לא חייבים</i> לפרסם שמות של רוצחים, את המפגינים שלהם ואת מה שפרסמו ברשתות חברתיות.
+	זה מפיץ את ההידבקות.
+	במקום זאת, חדשות צריכות להתרכז בקורבנות, המגיבים הראשונים לאירוע, אזרחים גיבורים,
+	ואת האבל של חברה מחלימה.
+
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+	המוסד הפיננסי העולמי נפל בכזה מפל בשנת 2008.
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	“Lemmings of Wall Street”</a> מאת קאס סאנסטיין (Cass Sunstein), קריאה זריזה ולא טכנית.
+	יצא לאור באוקטובר 2008, ממש בתחילת המפולת.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+	"תיאוריית ההידבקות המורכבת."
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	“Threshold Models of Collective Behavior”</a> מאת גרנובטר (Granovetter) (1978)
+	זה הייתה הפעם הראשונה, למיטב ידיעתי, שמישהו תיאר את המודל "הידבקות מורכבת".
+	)למרות שהוא לא השתמש בשם הספציפי הזה)
+
+	<br><br>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> מאת סנטולה ומייסי (Centola &amp; Macy) (2007)
+	טבעו את הביטוי "הידבקות מורכבת",
+	והראו את ההבדל החשוב בין זה ל"הידבקות פשוטה".
+
+	<br><br>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	“Evidence for complex contagion models of social contagion from observational data”</a>
+	מאת ספראג והאוס (Sprague &amp; House) (2017)
+	הראו באופן אמפירי שהידבקות מורכבת, בעצם קיימת. (לפחות, במידע מרשתות חברתיות שהם הסתכלו)
+
+	<br><br>
+
+	Finally,
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	“Universal behavior in a generalized model of contagion”</a> מאת דודס וואטס (Dodds &amp; Watts) (2004)
+	הציעו מודל שמאחד <i>את כל</i> את כל סוגי ההידבקויות:
+	פשוטה ומורכבת, ביולוגית וחברתית!
+
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+	"לאופוסום יש 13 פטמות"
+	</h3>
+	<div>
+	מסודר בטבעת של 12 פטמות, ועוד אחת באמצע
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+	"חשיבה קבוצתית"
+	</h3>
+
+	<div>
+	ההשראה לביטוי של אורוול (Orwell) טבע ארוויל ל. ג'אניס (Irving L. Janis) בשנת 1971.
+	
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	במאמר האורגינלי שלו</a>,
+	ג'אניס חקר מקרים של חשיבה קבוצתית, רשם את הסיבות, ו &mdash; למזלו &mdash;
+	כמה פתרונות אפשריים.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+	"קישור וגישור הון חברתי"
+	</h3>
+
+	<div>
+	שני סוגים אלה של הון חברתי &mdash; "קישור" ו"גישור" &mdash;
+	נקראו ע"י רוברט פוטנם (Robert Putnam) בספר משנת 2000 מלא התובנות,
+	<a target="_blank" href="http://bowlingalone.com/">
+	Bowling Alone</a>. התגלית שלו:
+	על פני כמעט <i>כל</i> מדד אמפירי של חיבור חברתי,
+	אמריקאים יותר בודדים מאי פעם.
+	ואו.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+	"לגישור הון חברתי יש נקודה מתוקה"
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	“The Strength of Weak Ties”</a> מאת גרנובטר (Granovetter) (1973)
+	הראה שקשרים בין קבוצות עוזר להפיץ הידבקות פשוטה (כמו מידע),
+	אבל
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> מאת סנטולה ומייסי (Centola &amp; Macy) (2007)
+	הראה שקשרים בין קבוצות יכולים שלא לעזור להידבקות מורכבת,
+	ולמעשה, יכול להפריע להפצה שלו!
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+	"רשת העולם הקטן"
+	</h3>
+
+	<div>
+
+	רעיון העולם הקטן נעשה מוכר פופולארי ע"י
+	<a target="_blank" href="http://www.jstor.org/stable/2786545">טרוור ומילגרם (Travers &amp; Milgram) בניסוי בשנת 1969</a>,
+	שהראה שבממוצע כל שני אנשים רנדומליים בארצות הברית
+	היו בסה"כ במרחק של 6 חברויות- "6 דרגות של הפרדה"! 
+
+	<br><br>
+
+	רשת העולם הקטן קיבלה יותר בשר על עצמותייה עם
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	“Collective dynamics of small-world networks”</a> מאת ואטס וסטרוגטס (Watts &amp; Strogatz) (1998),
+	אשר הציעו אלגוריתם ליצירת רשתות
+	עם ממוצע אורך מעבר נמוך (דרגה נמוכה של הפרדה)
+	וגם עם קיבוץ גבוה (לחברים יש הרבה חברים משותפים) &mdash;
+	זו רשת שנוגעת בנקודה המתוקה!
+
+	<br><br>
+
+	אתה יכול לשחק גם עם
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	הויזואליזציה, הסתגלות אינטראקטיבית של המאמר</a> מאת ברט ויקטור (Bret Victor) (2011).
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+	"[רשת עולם קטן] מתארת אין הניורונים שלנו מחוברים"
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	“Small-world brain networks”</a> מאת באסט ובולמור (Bassett &amp; Bullmore) (2006).
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+	"[רשת עולם קטן] מטפחת יצירתיות קולקטיבית"
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	“Collaboration and Creativity: The Small World Problem”</a> מאת אוזי וספירו (Uzzi &amp; Spiro) (2005).
+	המאמר הזה מנתח את הרשת החברתית של הסצנה של ברודווי במהלך הזמן,
+	ומגלה ש, כן, הרשת היא הכי יצירתית כשהיר רשת "עולם קטן"!
+
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+	"[רשת עולם קטן] מעוררת את פתרון הבעיות של הקולקטיב"
+	</h3>
+
+	<div>
+	See
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	“Social Physics”</a> מאת פרופסור אלכס "סנדי" פנטלנד (MIT Professor Alex "Sandy" Pentland) (2014)
+	על גישה מבוססנת נתונים לבינה של הקולקטיב.
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+	"[רשת עולם קטן] עזרה (בקושי) לנשיא קנדי (John F. Kennedy) להמנע ממלחמה גרעינית!"
+	</h3>
+
+	<div>
+
+	מלבד הפיצוץ של נאסה, הדוגמא שהכי ידועה לשמצה של חשיבה קבוצתית
+	הייתה 'כישלון מפרץ החזירים'.
+	ב1961 נשיא ארה"ב ג'ון קנדי וקבוצת יועציו חשבו
+	&mdash; מאיזו שהיא סיבה &mdash;
+	שזה יהיה רעיון טוב לפלוש בחשאיות לקובה והדיח את פידל קסטרו.
+	הם כשלו.
+	למעשה יותר מכשלו: זה הוביל למשבר הטילים הקובאני של 1962,
+	<i>הכי קרוב שהעולם היה אי פעם למלחמה גרעינית.</i>
+
+	<br><br>
+
+	כן, הנשיא קנדי בהחלט פישל בפעם ההיא.
+
+	<br><br>
+
+	אבל הוא למד כמה שיעורים קשים מכישלון מפרץ החזירים,
+	הנשיא קנדי ארגן את הצוות שלו מחדש על מנת למנוע חשיבה קבוצתית.
+	מבין כמה דברים הוא:
+	1. עודד אנשים להביע ביקורת,
+	וכך הוריד את "סף ההידבקות" לרעיונות חלופיים.
+	ו
+	2. חילק את הקבוצה שלו לתת קבוצות לפני שחיבר אותה מחדש,
+	מה שגרם לקבוצה שלו להוות "רשת עולם קטן"- כמו עיצוב!
+	יחד, הסידור גרם למגוון בריא של דעות,
+	אבל כזה שהיה שברירי מידי &mdash; חכמת ההמונים.
+
+	<br><br>
+
+	וכך, עם אותם <i>האנשים</i> שהחליטו על מפרץ החזירים,
+	התארגנו מחדש <i>יחד</i> להחליט בעניין משבר הטילים הקובני...
+	הצוות של הנשיא קנדי הצליח להגיע להסכם שלום עם המנהיג הסובייטי ניקיטה חרושצ'וב.
+	הסובייטים יזיזו את טיליהם מקובה ובתמורה,
+	ארה"ב תבטיח לא לפלוש לקובה יותר.
+	(עוד הוחלט בחשאיות  שארה"ב תזיז את טיליה מטורקיה)
+
+	<br><br>
+
+	וזהו הסיפור על איך כמעט נמחקה האנושות.
+	אבל רשת העולם הקטן הצילה את היום! סוג של.
+
+	<br><br>
+
+	אתה יכול לקרוא עוד בנושא
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	ב Harvard Business Review</a>,
+	או מ
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	הכתבה המקורית של חשיבה קבוצתית</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+	"אנחנו משפיעים [...] על החברים של החברים של החברים שלנו!"
+	</h3>
+
+	<div>
+	שוב מאת ניקולס כריסטאקיס (Nicholas Christakis) ו ג'יימס פאולר (James Fowler)
+	ספר נפלא,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	מחוברים</a> (2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+	"תהיה סקפטי לרעיונות המחמיאים לך"
+	</h3>
+	<div>
+	כן, כולל הרעיונות בהסבר המוסבר הזה.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	? מצב ארגז חול ?
+	</h3>
+
+	<div>
+	קיצורי המקלדת (1, 2, space, backspace)
+	עובדים ב<i>כל</i> הפאזל, לא רק בארגז חול!
+	ברצינות, אתה יכול לחזור לפרק שונה
+	ולערוך שם את הסימולציה ממש שם.
+	למעשה, זא איך <i>שאני</i> יצרתי את כל הפאזלים האלו. תהנה!
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+	ספונסרים יקרים:
+	אתם באדיבות <i>במלוא מובן המילה</i> מאכילים אותי ומשלמים את השכר דירה.
+	אתם נותנים לי את החופש לעשות את המשחקים המלמדים והמוזרים האלה,
+	אז, מעומק ליבי, תודה. 3&gt;
+	<br>
+	<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+		)רוצה לתמוך בי ביצירת דברים כמו זה? בדוק את ה Patreon שלי!(</a>
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+	תודה, לכל מי שניסה <i>ההמון</i>
+	בזמן כל שלבי החיים שלו!
+	
+	<br><br>
+	<b>האב טיפוס:</b>
+	<br>
+	Maria ·
+	Monica Srivastava
+
+	<br><br>
+	<b>The Alpha:</b>
+	<br>
+	Glen Chiacchieri ·
+	Kalli Repzeti ·
+	Mali Akmanalp ·
+	Toph Tucker
+
+	<br><br>
+	<b>הביתא:</b>
+	<br>
+	Alex Dytrych ·
+	Amit Patel ·
+	Cassandra McClure ·
+	Catherine Ray ·
+	Josh Comeau ·
+	Kayle Sawyer ·
+	Matthew Conlen ·
+	Srini Kadamati ·
+	Vanessa Shen ·
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+And that's it! That's the last of what needed to a TRANSLATE
+Thank you so, so much for doing this again, wow.
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+-->

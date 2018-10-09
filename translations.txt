@@ -46,3 +46,4 @@ fl: Pilipino
 ko: 한국어
 hr: Hrvatski
 pl: Polski
+he: Hebrew
