@@ -1,0 +1,1652 @@
+<!--
+
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+
+- - - - - - - - - - -
+
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 3600+ WORDS to translate, including
+the Bonus Boxes and References.
+
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+
+Good luck, and thanks again!
+
+<3,
+~ Nicky Case
+
+-->
+
+<!DOCTYPE html>
+<html lang="en"> <!-- lang="(TRANSLATE: set your language code here, same as the page name!) e.g: es, es-ES, pt-BR, ja, it, fr-CA, de, ..." -->
+<head>
+
+	<!-- Meta Info -->
+	<title>Mądrość i/lub Szaleństwo Tłumów</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="interaktywny przewodnik po sieciach społecznych"/> <!-- content="(TRANSLATE this part only)" -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/cs.html"    hreflang="cs">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="Mądrość i/lub Szaleństwo Tłumów"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="interaktywny przewodnik po sieciach społecznych"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="Mądrość i/lub Szaleństwo Tłumów"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="interaktywny przewodnik po sieciach społecznych"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="Mądrość i/lub Szaleństwo Tłumów"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="interaktywny przewodnik po sieciach społecznych"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://sin.github.io/crowds/pl.html">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=7">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">Pomiń &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">⨯</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on"></span> <!-- TRANSLATE -->
+			<span id="sound_off"></span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			Mądrość i/lub Szaleństwo Tłumów <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Dlaczego grupy ludzi zachowują się mądrze, głupio, życzliwie, okrutnie? Interaktywny przewodnik po sieciach społecznych: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Wprowadzenie</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Powiązania</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Infekcje</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Złożone infekcje</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Wiązania i pomosty</span> <!-- note: &amp; is html for the "and" sign -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. Mały świat</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. Podsumowanie</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Autorzy</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>★</span>
+				<span>★ Tryb piaskownicy! ★</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Dodatkowe notatki!</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Linki i adnotacje</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">あ</span></span>
+				<span>Tłumaczenia</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>ładowanie...</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/inobounce.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js?v=5"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js?v=5"></script>
+
+<script src="js/sim/Peep.js?v=2"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js?v=2"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!--
+
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">Mądrość</span>
+		<span style="position:relative;top: -10px;">i/lub</span>
+		<span style="font-size: 60px;">Szaleństwo</span>
+		<br>
+		<span style="position: relative;top: -11px;"></span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">Tłumów</span>
+	</div>
+
+	<div style="color:#999">
+		<!-- TRANSLATE note: comment out the line below... -->
+		<!-- playing time: 30 min • by nicky case, april 2018 -->
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		autor: nicky case • tłumaczenie: mateusz sienkan • <a href='.'>original in English</a>
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	ładowanie...
+</words>
+
+<words id="preloader_play">
+	zagrajmy! <div class="rarr"></div>
+</words>
+
+<!-- Introduction -->
+<!--
+
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+
+-->
+
+<words id="intro">
+
+	<br><br><br>
+	Sir Isaac Newton uważał się za bystrzaka!
+	<br>
+	Wynalazł przecież rachunek różniczkowy i teorię grawitacji,
+	<br>
+	powinien więc poradzić sobie inwestując na giełdzie, prawda?
+	<br>
+	W każdym razie, mówiąc krótko, stracił 4 600 000 dolarów
+	<br>
+	(w przeliczeniu na dzisiejsze) na szale spekulacyjnym w 1720 roku,
+	<br>
+	znanym jako Bańka Mórz Południowych.
+
+	<br><br>
+
+	Newton powiedział później, że
+	<br>
+	<i>“może przewidzieć ruch gwiazd, ale nie szaleństwo ludzi.”</i>
+
+	<next>taak, trudna sprawa<div class="rarr"></div> </next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+
+	Oczywiście, to nie jedyny raz, gdy
+	<br>
+	rynki, instytucje, a nawet całe demokracje
+	<br>
+	wyrwały się spod kontroli &mdash; <i>szaleństwo</i> tłumów.
+	<br>
+	A jednak, gdy już zaczynasz tracić wiarę w ludzkość,
+	<br>
+	dostrzegasz akcje ratunkowe podczas huraganów,
+	<br>
+	społeczności wspólnie znajdujące rozwiązania problemów,
+	<br>
+	ludzi walczących o lepsze jutro &mdash; <i>mądrość</i> tłumów!
+
+	<div style="height:0.9em"></div>
+
+	<b>Ale <i>dlaczego</i> niektóre tłumy zwracają się ku szaleństwu lub mądrości?</b>
+	<br>
+	Żadna teoria nie może wyjaśnić wszystkiego, ale myślę,
+	<br>
+	że nowa dziedzina nauki, <b>network science</b>,
+	<br>
+	może przybliżyć nam odpowiedź! Jej główną ideą jest:
+	<br>
+	aby zrozumieć tłumy, powinniśmy spojrzeć nie na
+	<br>
+	<i>pojedyncze osoby</i>, tylko...
+
+	<next>...<i>powiązania</i> między nimi. <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>Narysujmy sieć!</b>
+	Każde połączenie reprezentuje przyjaźń pomiędzy dwoma osobami:
+</words>
+
+<words id="networks_tutorial_connect">
+	narysuj by połączyć
+</words>
+
+<words id="networks_tutorial_disconnect">
+	&nbsp;&nbsp;&nbsp; przekreśl &nbsp;&nbsp;&nbsp; by rozdzielić
+</words>
+
+<words id="networks_tutorial_end">
+
+	gdy już skończysz gryzmolić i bawić się,
+	<next wiggle>kontynuuj <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_threshold">
+
+	Okej, społeczne powiązania to coś więcej, niż rysowanie ładnych obrazków. Ludzie budują swój obraz świata <i>obserwując</i> otaczające ich osoby. Na przykład, patrzą po swoich znajomych, aby dowiedzieć się <b>jaki % ich przyjaciół (nie licząc ich samych)</b> nadużywa alkoholu. <icon name="yellow"></icon>
+
+</words>
+
+<words id="networks_threshold_instruction">
+	<b>Rysuj/przecinaj powiązania i zobacz co się stanie! <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>okej, rozumiem</next>
+</words>
+
+<words id="networks_pre_puzzle">
+	Sieci mogą też <i>oszukiwać</i> ludzi.
+	Podobnie jak Ziemia wydaje się płaska, bo na niej jesteśmy,
+	ludzie mogą wyciągać błędne wnioski na temat społeczeństwa, ponieważ <i>są jego częścią</i>.
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		<i>opcjonalne</i>, dodatkowe notatki! &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		&darr; linki i adnotacje
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+
+	<bon id="books"></bon>
+
+	<br>
+
+	Na przykład, badanie<ref id="drunk"></ref> z 1991 roku wykazało: „niemalże wszyscy studenci twierdzą, że ich znajomi piją więcej, niż w rzeczywistości”.
+	Ale to wydaje się nieprawdopodobne!
+	Jak to możliwe?
+	Cóż, za chwilę sam/a odkryjesz odpowiedź, rysując sieć. Nadszedł czas by…
+
+	<next>OSZUKAĆ WSZYSTKICH <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">CZAS NA QUIZ!</b>
+	<br>
+	Przekonaj <i>wszystkich</i> by myśleli, że większość ich znajomych (próg 50%) nadużywa alkoholu <icon name="yellow"></icon>
+	<br>
+	(mimo, że osoby nadużywające alkoholu stanowią tylko 1/3 grupy!)
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>OSZUKANO:</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	na 9 osób
+</words>
+<words id="networks_puzzle_end">
+	Gratulacje! Zmanipulowałeś/aś grupę studentów, by uwierzyła w powszechność tej niewiarygodnie szkodliwej normy społecznej!
+	<br>
+	Tak trzymaj!
+	<next wiggle>...uch, dzięki?</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+	To co właśnie stworzyłeś/aś nazywane jest <i>Iluzją większości</i><ref id="majority"></ref>,
+	wyjaśnia ona również dlaczego ludzie myślą, że ich poglądy polityczne należą do większości,
+	lub dlaczego ekstremizm wydaje się powszechniejszy niż jest w rzeczywistości.
+	<i>Szaleństwo.</i>
+
+	<bon id="connections"></bon>
+
+	Ale ludzie nie tylko pasywnie <i>obserwują</i> przekonania i zachowania innych,
+	również aktywnie je <i>kopiują</i>.
+	Okej, to teraz przyjrzyjmy się czemuś, co naukowcy nazywają…
+
+	<next>„Infekcjami!” <div class="rarr"></div> </next>
+
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+	<i>Odłóżmy na chwilę kwestię „progów” na bok.</i>
+	Poniżej mamy osobę <icon name="red"></icon> posiadającą pewną informację.
+	<i>Nieprawdziwą</i> informację. „Fake newsa”, jak to się teraz mówi.
+	<br>
+	Każdego dnia osoba ta rozpowszechnia plotkę wśród swoich znajomych, jak wirusa.
+	<br>
+	A oni rozpowszechniają ją wśród <i>swoich</i> znajomych. I tak dalej.
+	<br>
+	<b>
+	Rozpocznij symulację! <div class="darr"></div>
+	(nie możesz rysować <i>podczas gdy</i> symulacja jest uruchomiona)
+	</b>
+</words>
+
+<words id="simple_simple_2">
+	Uwaga: mimo negatywnej nazwy, „infekcje” mogą być dobre lub złe (lub neutralne lub niejasne).
+	Istnieją mocne statystyczne dowody<ref id="contagion"></ref>, że palenie, zdrowie, szczęście, wzorce głosowania i współpraca są „zaraźliwe” —
+	a nawet pewne przesłanki, że samobójstwa<ref id="suicides"></ref> i masowe strzelaniny<ref id="shootings"></ref> również.
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle>cóź, to smutne <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_cascade">
+	Rzeczywiście tak jest.
+	W każdym razie, <b>CZAS NA QUIZ!</b>
+	<br>
+	Narysuj sieć i uruchom symulację,
+	tak by <i>każdy</i> został „zainfekowany”.
+	<br>
+	(nowa zasada: nie możesz przecinać <i>pogrubionych</i> powiązań)
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle>fan-tas-tycz-nie <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_post_cascade">
+	Takie rozprzestrzenianie się szaleństwa nazywa się <b>„kaskadą informacyjną”</b>.
+	Newton padł ofiarą takiej kaskady w 1720 roku. Światowe instytucje finansowe padły ofiarą kaskady w 2008.<ref id="subprime"></ref>
+	<br><br>
+	Jednakże: <i>ta symulacja jest błędna.</i>
+	Większość idei <i>nie</i> rozprzestrzenia się jak wirusy.
+	Na wiele wierzeń i zachowań trzeba być „wystawionym” więcej niż jeden raz, aby zostać „zainfekowanym”.
+	Więc naukowcy wymyślili nowy, lepszy sposób opisywania rozprzestrzeniania się idei/zachowań i nazwali go…
+	<next wiggle>“<i>Złożonymi</i> infekcjami!” <div class="rarr"></div> </next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+	Wróćmy do „progów” oraz przykładu z nadużywaniem alkoholu <icon name="yellow"></icon>!
+	Gdy grałeś/aś pierwszy raz, ludzie nie zmieniali swojego zachowania.
+
+	<br><br>
+
+	Teraz sprawdźmy co się stanie, jeśli ludzie też zaczną nadużywać alkoholu <i>gdy więcej niż 50% ich znajomych pije za dużo!</i>
+	<b>Zanim zaczniesz symulację, zastanów się co według Ciebie <i>powinno</i> się wydarzyć.</b>
+
+	<br><br>
+
+	<b>Uruchom symulację i zobacz co naprawdę się stanie! <div class="rarr"></div></b>
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+		W przeciwieństwie do naszego wcześniejszego zarażającego „fake newsa” <icon name="red"></icon>, ta infekcja <i>nie</i> rozprzestrzenia się na każdego!
+		Pierwsze kilka osób zostało „zainfekowanych”, ponieważ choć są wystawieni na wpływ tylko jednego pijaka, ten pijak stanowi 50% ich znajomych. (tak, są bardzo samotni)
+		<br>
+		W przeciwieństwie do nich, osoba blisko końca łańcucha <i>nie</i> została „zainfekowana”, bo choć została wystawiona na wpływ pijaka, to nie przekroczyła progu 50%+.
+
+		<div style="height:0.75em"></div>
+
+		Ten <i>relatywny</i> % „zainfekowanych” znajomych ma znaczenie.
+		<i>To jest</i> różnica pomiędzy teorią <b>złożonych infekcji</b><ref id="complex"></ref>, a naszą naiwną rozprzestrzenia-się-jak-wirus teorią <b>prostych infekcji</b>.
+		(można uznać, że „proste infekcje są po prostu infekcjami z progiem zarażania „więcej niż 0%”)
+
+		<div style="height:0.75em"></div>
+
+		Jednakże, infekcje nie muszą być złe &mdash;
+		więc dość już tego <i>szaleństwa</i> tłumu, co powiesz na…
+		<next>...<i>mądrość</i> tłumu?</next>
+
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+	Tutaj mamy osobę <icon name="blue"></icon>, która jako wolontariusz… no nie wiem, ratuje ludzi podczas huraganów lub udziela korepetycji dzieciom ze swojej lokalnej społeczności, czy coś takiego.
+	Rzecz w tym, że jest to „pozytywna” złożona infekcja.
+	Jednak tym razem ustalmy, że próg wynosi tylko 25% &mdash;
+	ludzie chętnie zostają wolontariuszami, ale tylko jeśli 25% lub więcej ich znajomych też już to robi.
+	<br>
+	Hej, dobra wola wymaga trochę społecznej zachęty.
+
+	<br><br>
+
+	<b>&larr; „Zainfekuj” wszystkich pozytywnymi wibracjami!</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+		<b>Uwaga:</b> Wolontariat jest tylko <i>jedną</i> z wielu złożonych infekcji!
+		Inne to: frekwencja wyborcza, zdrowe nawyki, kwestionowanie własnych przekonań, poświęcanie czasu na głębsze zrozumienie problemu &mdash; wszystko co potrzebuje więcej niż pojedynczej „ekspozycji”.
+		Złożone infekcje <i>niekoniecznie</i> muszą być mądre,
+		ale bycie mądrym jest złożoną infekcją.
+
+		<div style="height:0.75em"></div>
+
+		(Więc czym są prawdziwe <i>proste</i> infekcje?
+		<br>
+		Zwykle drobnymi ciekawostkami, jak na przykład „opos ma 13 sutków”<ref id="possum"></ref>)
+
+		<bon id="contagions"></bon>
+
+		Aby <i>naprawdę</i> pokazać potęgę i niesamowitość złożonych infekcji, powróćmy teraz do…
+
+		<next>...wcześniejszej zagadki <div class="rarr"></div> </next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+	Pamiętasz to? Tym razem, dzięki <i>złożonej</i> infekcji, będzie trochę trudniej…
+	<br>
+	<b>Spróbuj „zainfekować” złożoną mądrością każdego! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+	(po prostu naciśnij 'start' i <i>wypróbuj</i> tyle rozwiązań ile tylko chcesz)
+</words>
+
+<words id="complex_cascade_end">
+	<next wiggle>O JA CIĘ KRĘCĘ <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+	Teraz możesz myśleć, że wystarczy jedynie dodawać więcej połączeń, aby rozprzestrzenić dowolną infekcję,
+	„złożoną” lub „prostą”, dobrą lub złą, mądrą lub szaloną.
+	Ale czy na pewno? Cóż, wróćmy do…
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle>…innej wcześniejszej zagadki <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_prevent">
+	Jeśli naciśniesz „start” poniżej, złożona infekcja <icon name="blue"></icon> po prostu rozprzestrzeni się na każdego.
+	Bez niespodzianek.
+	Ale teraz, zróbmy całkowitą <i>odwrotność</i> tego co robiliśmy dotychczas:
+	<b>narysuj sieć tak, by <i>zapobiec</i> rozprzestrzenieniu się infekcji na każdego! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+	Widzisz?
+	Choć więcej połączeń będzie zawsze pomagać w rozprzestrzenianiu się <i>prostych</i> idei,
+	<b>dodatkowe połączenia mogą zaszkodzić w rozprzestrzenianiu się <i>złożonych</i> idei!</b>
+	(to sprawiło, że zastanawiasz się nad Internetem, co?)
+	<br>
+	Nie jest to tylko teoretyczny problem. Może być sprawą życia…
+</words>
+
+<words id="complex_prevent_end">
+	<next wiggle>…lub śmierci. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_groupthink">
+
+	Ludzie w NASA byli bystrzakami.
+	Przecież użyli teorii Newtona by wysłać ludzi na Księżyc.
+	W każdym razie, krótko mówiąc, w 1986 roku,
+	<i>pomimo ostrzeżeń inżynierów</i>,
+	wystrzelili <i>Challengera</i>,
+	który eksplodował i zabił 7 osób.
+	Bezpośrednia przyczyna:
+	tamtego ranka było zbyt zimno.
+
+	<div style="height:0.9em"></div>
+
+	Mniej bezpośrednia przyczyna: menadżerowie zignorowali ostrzeżenia inżynierów.
+	Dlaczego? Z powodu <b>syndromu grupowego myślenia</b><ref id="groupthink"></ref>.
+	Gdy grupa jest <i>zbyt</i> ściśle związana, (a tak się dzieje w kadrach kierowniczych instytucji)
+	staje się odporna na złożone idee, które kwestionują ich przekonania lub ego.
+
+	<div style="height:0.9em"></div>
+
+	W ten sposób instytucje padają ofiarą szaleństwa tłumów.
+	Ale jak możemy „zaprojektować” nasze tłumy na <i>mądrość</i>?
+	W skrócie, dwa słowa:
+
+	<next>Wiązanie i pomostowanie <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+	&larr; Za mało połączeń, idea nie może się rozprzestrzenić.
+	<br>
+	Za dużo połączeń, pojawia się gromadomyślenie. <div class="rarr"></div>
+</words>
+
+<words id="bonding_2">
+	<b>
+	Narysuj grupę znajdując złoty środek:
+	wystarczająco powiązań by rozprzestrzenić złożoną ideę!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+	Łatwizna! Liczba połączeń <i>wewnątrz</i> grupy nazywana jest <b>wiążącym kapitałem społecznym</b><ref id="social_capital"></ref>.
+	Ale co z połączeniami…
+	<next wiggle>...<i>pomiędzy</i> grupami?</next>
+</words>
+
+<words id="bridging_1">
+	Jak już pewnie się domyślasz,
+	liczba połączeń <i>pomiędzy</i> grupami nazywana jest <b>kapitałem społecznym pomostowym</b>.
+	Jest to ważne, ponieważ pomaga członkom grupy otworzyć się na idee kwestionujące ich dotychczasowe przekonania.
+	<b>Zbuduj most, by „zainfekować” wszystkich złożoną mądrością:</b>
+</words>
+
+<words id="bridging_end">
+	Pomostowanie również ma swój złoty środek.<ref id="bridge"></ref>
+	(zadanie z kaktusem: spróbuj narysować most tak gruby, że złożona infekcja <i>nie</i> może przez niego przejść!)
+	Skoro już wiemy jak „projektować” powiązania <i>wewnątrz</i> i <i>pomiędzy</i> grupami, zróbmy…
+	<next wiggle>...OBYDWIE te rzeczy na raz!</next>
+</words>
+
+<words id="bb_1">
+
+	<b style="font-size:1.5em">FINAŁOWY QUIZ!</b>
+	<br>
+	Narysuj połączenia wewnątrz grup (wiązanie) i pomiędzy grupami (pomostowanie)
+	aby rozprzestrzenić mądrość po całym tłumie:
+
+</words>
+<words id="bb_2">
+
+	Gratulacje, właśnie narysowałeś/aś bardzo wyjątkowy rodzaj sieci!
+	Sieci z odpowiednią ilością wiązań i pomostów są nadzwyczaj ważne, nazywane są…
+	<next wiggle>“Sieciami Small World” <div class="rarr"></div> </next>
+
+</words>
+<words id="bb_small_world_1">
+
+	<i>"Jedność bez jednolitości". "Różnorodność bez podziałów". "E Pluribus Unum: z wielu, jeden".</i>
+	<br>
+
+	Niezależnie jak to sformułujemy,
+	ludzie na przestrzeni wieków i kultur często dochodzą do tego samego wniosku:
+	<b>
+	zdrowe społeczeństwo potrzebuje odpowiedniej liczby powiązań <i>wewnątrz</i> grup oraz pomostów <i>pomiędzy</i> grupami.
+	</b>
+	Czyli:
+
+</words>
+<words id="bb_small_world_2">
+	Nie tego...
+	<br>
+	(bo idee nie mogą się rozprzestrzeniać)
+</words>
+<words id="bb_small_world_3">
+	ani tego...
+	<br>
+	(bo pojawia się groupthink)
+</words>
+<words id="bb_small_world_4">
+	...tylko <i>TEGO:</i>
+</words>
+<words id="bb_small_world_5">
+
+	Naukowcy dysponują dziś matematyczną definicją tej starożytnej mądrości: <b>sieć small-world</b><ref id="small_world"></ref>.
+	Ten optymalny miks wiązań i pomostów opisuje jak
+	połączone są nasze neurony<ref id="swn_neurons"></ref>,
+	sprzyja zbiorowej kreatywności<ref id="swn_creativity"></ref>
+	oraz rozwiązywaniu problemów<ref id="swn_social_physics"></ref>,
+	a nawet pomógł kiedyś prezydentowi USA Johnowi F. Kennedy'emu uniknąć (o mały włos) wojny nuklearnej!<ref id="swn_jfk"></ref>
+	<br>
+	Więc, tak, małe światy to wielka sprawa.
+
+</words>
+<words id="bb_small_world_end">
+	<next>okej, podsumujmy... <div class="rarr"></div> </next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+	(pst... chcesz poznać sekret?<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+	Infekcja:
+</words>
+<words id="sandbox_contagion_simple">
+	prosta
+</words>
+<words id="sandbox_contagion_complex">
+	złożona
+</words>
+<words id="sandbox_color_chooser">
+	Kolor infekcji:
+</words>
+<words id="sandbox_tool_chooser">
+	Wybierz narzędzie...
+</words>
+
+<words id="sandbox_tool_pencil">
+	Rysuj Sieć
+</words>
+<words id="sandbox_tool_add">
+	Dodaj Osobę
+</words>
+<words id="sandbox_tool_add_infected">
+	Dodaj Zainfekowanego
+</words>
+<words id="sandbox_tool_move">
+	Przesuń
+</words>
+<words id="sandbox_tool_delete">
+	Usuń
+</words>
+<words id="sandbox_tool_clear">
+	<b>WYCZYŚĆ WSZYSTKO</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+	(...lub, użyj skrótów!)
+</words>
+
+<words id="sandbox_shortcuts">
+	[1]: Dodaj Osobę &nbsp;&nbsp;&nbsp; [2]: Dodaj Zainf.
+	<br>
+	[Spacja]: Przesuń &nbsp;[Backspace]: Usuń
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+
+	<div style="font-size: 30px;">
+		PODSUMOWUJĄC: w tym wszystkim chodzi o...
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 88px;
+	    top: 20px;
+	    line-height: 100px; display:block;
+	">
+	    Infekcje i powiązania
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 125px;
+	    left: 250px;
+	">
+		<b>Infekcje:</b>
+		Jak neurony przekazują sygnały w mózgu,
+		tak ludzie przekazują wierzenia i zachowania w społeczeństwie.
+		Wpływamy nie tylko na naszych znajomych, ale też znajomych naszych znajomych, a nawet znajomych tych ostatnich!<ref id="three_degrees"></ref>
+		Tak jak i w świecie neuronów, nie tylko sygnały mają znaczenie, ale również…
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 275px;
+	    left: 250px;
+	">
+		<b>Powiązania:</b>
+		Za mało powiązań &mdash; złożone idee nie mogą się rozprzestrzeniać.
+		Za <i>dużo</i> powiązań &mdash; złożone idee zostają zdławione przez groupthink.
+		Sztuczka polega na tym by zbudować sieć small-world, optymalny miks powiązań i pomostów: <i>e pluribus unum.</i>
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #999;
+	">
+		(chcesz stworzyć własną symulację?
+		Zobacz Tryb piaskownicy, klikając przycisk (★) poniżej!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+		A co z pytaniem, które zadaliśmy na początku?
+		<i>Dlaczego</i> niektóre tłumy zwracają się ku…
+	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 460px;
+	    right: 0px;
+	">
+		<next>...mądrości lub szaleństwu?</next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+		Od Newtona, przez NASA, po
+		<br>
+		network science, omówiliśmy dziś wiele rzeczy.
+		<br>
+		Podsumowując, szaleństwo tłumów może być kreowane
+		<br>
+		nie tylko przez <i>pojedyncze osoby</i>, ale i to w jaki sposób
+		<br>
+		są one uwięzione w lepkiej pajęczynie sieci społecznych.
+
+		<div style="height:0.9em"></div>
+
+		To <i>nie</i> oznacza porzucenia osobistej odpowiedzialności,
+		<br>
+		jesteśmy wszak <i>twórcami</i> tej sieci. Ulepszaj więc swoje infekcje:
+		<br>
+		bądź sceptyczny/a wobec idei, które Ci schlebiają<ref id="flatter"></ref>, poświęcaj czas
+		<br>
+		na zrozumienie złożonych idei. Oraz ulepszaj swoje powiązania:
+		<br>
+		buduj więzi z podobnymi do siebie, ale również mosty przez
+		<br>
+		podziały polityczne i kulturowe.
+
+		<div style="height:0.9em"></div>
+
+		Możemy utkać mądrą sieć. Oczywiście jest to trudniejsze
+		<br>
+		niż rysowanie kresek na ekranie, ale efekty...
+
+		<next>...są tego warte.</next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+		„Wszystkie triumfy i katastrofy tego świata ludzie powodują
+		<br>
+		nie dlatego, że są z gruntu dobrzy, albo z gruntu źli,
+		<br>
+		lecz dlatego, że są ludźmi.”
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Neil Gaiman i Terry Pratchett
+	<div style="height:0.8em"></div>
+	<next small>&lt;3</next>
+</words>
+
+<!-- Credits -->
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+
+		<span style="color:#777; position:relative; top:5px;">
+			stworzone przez</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			zobacz inne moje dzieła</a> ·
+		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
+			śledź mnie na twitterze</a>
+
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			dużo miłości i wielkie dzięki dla</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			MOICH PATRONÓW NA PATREONIE</div>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+			pomóż mi zrobić więcej takich rzeczy! &lt;3</a>
+		<br>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			zobacz moich patronów</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			zobacz testerów</a>
+
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px;">
+			tłumaczenie na język polski</span>
+		<div style="font-size: 2.5em; line-height: 1.0em;">
+			MATEUSZ SIENKAN</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+		<span style="display: inline-block; margin-top: 15px;">
+			♫ muzyka to
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" i "Friends 2068"</a>
+			autorstwa Komiku
+			<br>
+			&lt;/&gt; <i>Mądrość i/lub Szaleństwo Tłumów</i> jest
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				w całości open source</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	WYGRANA
+</words>
+<words id="sim_start">
+	rozpocznij symulację
+</words>
+<words id="sim_stop">
+	resetuj
+</words>
+<words id="translations_exist">
+	Tłumaczenia:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	What the, no fan-made translations exist yet?!
+</words>
+<words id="translations_add">
+	(dodaj swoje!)
+</words>
+<words id="translations_original">
+	<!-- No need to translate this, because, I assume, -->
+	<!-- if someone wants to play the game in English, they can read English -->
+	(original in English)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+	Krótka odpowiedź na <i>The Wisdom of Crowds</i> Jamesa Surowieckiego
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+
+	Zacznę od tego, że nie krytykuję
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	tej książki.</a>
+	To dobra książka, a Surowiecki próbował odpowiedzieć na to samo pytanie co ja: <b>“Dlaczego niektóre tłumy zwracają się ku mądrości lub szaleństwu?”</b>
+
+	<br><br>
+
+	Odpowiedź Surowieckiego: tłumy podejmują dobre decyzje, gdy każdy jest tak niezależny jak to tylko możliwe.
+	Surowiecki podaje przykład jarmarku, na którym mieszkańcy zostali poproszeni o zgadnięcie ile waży wół.
+	Co okazało się bardzo zaskakujące, średnia ze <i>wszystkich</i> odpowiedzi była lepsza od <i>wszystkich</i> indywidualnych odpowiedzi.
+	Sęk w tym, że ludzie musieli zgadywać <i>niezależnie</i> od siebie.
+	W przeciwnym razie sugerowaliby się wcześniejszymi, niepoprawnymi odpowiedziami, a średnia zostałaby mocno wypaczona.
+
+	<br><br>
+
+	Ale… nie sądzę by „spraw by każdy był tak niezależny jak to tylko możliwe” było pełną odpowiedzią.
+	Nawet geniusze, których nieprawidłowo uznajemy za najbardziej niezależnych myślicieli, są pod bardzo mocnym wpływem innych. Jak powiedział Sir Isaac Newton,
+	<i>„Jeśli widzę dalej, to tylko dlatego, że stoję na ramionach olbrzymów”.</i>
+
+	<br><br>
+
+	Więc która odpowiedź jest prawidłowa?
+	Czy mądrość pochodzi z samodzielnego myślenia, czy myślenia z innymi?
+	Odpowiedź brzmi: „tak”.
+
+	<br><br>
+
+	To właśnie będę próbował wyjaśnić w tym interaktywnym przewodniku:
+	jak znaleźć złoty środek pomiędzy niezależnością, a współzależnością &mdash;
+	inaczej mówiąc, jak uzyskać mądry tłum.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+	Czy istnieją inne rodzaje powiązań?
+	</h3>
+
+	<div>
+
+	Dla uproszczenia,
+	tworząc symulacje udawałem, że ludzie mogą być połączeni jedynie przez przyjaźń, a wszystkie przyjaźnie są sobie równe.
+	Ale naukowcy rozpatrują również <i>inne</i> rodzaje powiązań, takie jak:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Powiązania jednokierunkowe.</b> Alicja jest szefową Roberta, ale Robert nie jest szefem Alicji.
+	Karolina jest rodzicem Dawida, ale Dawid nie jest rodzicem Karoliny.
+	„Szef” i „rodzic” są powiązaniami <i>jednokierunkowymi</i>:
+	relacja jest jednostronna.
+	Natomiast „przyjaźń” to powiązanie <i>dwukierunkowe</i>:
+	relacja jest dwustronna. (cóż, mam nadzieję)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Powiązania ważone.</b> Helena i Franciszek są tylko znajomymi.
+	Jurek i Henryk są najlepszymi przyjaciółmi.
+
+	Chociaż obydwie relacje są powiązaniami tego samego typu, ta druga jest silniejsza.
+	Można powiedzieć, że powiązania te mają różne „wagi”.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Pamiętaj: <b>wszystkie te symulacje są błędne.</b> Tak samo jak każda mapa jest „błędna”.
+	Widzisz mapę po lewej? Budynki nie są szarymi bryłami pozbawionymi szczegółów!
+	Słowa nie unoszą się nad miastami! Jednak mapy są użyteczne nie <i>pomimo</i>, ale <i>dzięki temu</i>, że są uproszczone. To samo dotyczy symulacji i każdej teorii naukowej.
+	<i>Oczywiście</i>, że są „błędne” &mdash; to czyni je <i>przydatnymi</i>.
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	Czy istnieją inne rodzaje infekcji?
+	</h3>
+
+	<div>
+
+	Istnieje naprawdę bardzo, bardzo wiele sposobów na jakie naukowcy mogą symulować „infekcje”!
+	Wybrałem najprostsze w celach edukacyjnych.
+	Oto na jakie inne sposoby można to zrobić:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Infekcje z losowością</b>.
+	Bycie „wystawionym” na kontakt z infekcją nie <i>gwarantuje</i>, że zostanie się zarażonym, staje się to tylko bardziej <i>prawdopodobne</i>.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Ludzie mający różne progi zarażenia.</b>
+	Moje symulacje udają, że każdy ma te same progi dla nadużywania alkoholu (50%), działalności społecznej (25%) i dezinformacji (0%).
+	Oczywiście nie tak to wygląda w realnym świecie i możesz sprawić, by Twoja symulacja to odzwierciedlała.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Ekosystem infekcji.</b>
+	Co gdyby było <i>wiele</i> infekcji, z <i>różnymi</i> progami zarażania?
+	Na przykład, prosta infekcja „szaleństwa” i złożona infekcja „mądrości”.
+	Jeśli ktoś jest zarażony szaleństwem, czy może zostać zarażony mądrością?
+	A w drugą stronę?
+	Czy można zostać zainfekowanym jednym i drugim?
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Infekcje które mutują i ewoluują.</b>
+	Wierzenia i zachowania nie rozprzestrzeniają sie bezbłędnie od jednej osoby do drugiej tak jak wirus.
+	Tak jak w grze w głuchy telefon, wiadomości ulegają zmianom z każdym kolejnym powtórzeniem &mdash;
+	czasami mutant staje się bardziej zaraźliwy od oryginału!
+	Idee z czasem „ewoluują” i stają się bardziej atrakcyjne, kopiowalne, zaraźliwe.
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+
+	<h3>
+	Chcę dowiedzieć się więcej! Co jeszcze warto zobaczyć?
+	</h3>
+
+	<div>
+
+	Ten interaktywny przewodnik był tylko trampoliną dla twojej ciekawości!
+	Oto więcej materiałów na temat sieci i systemów społecznych:
+
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Książka:</b>
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>,
+	Nicholas Christakis i James Fowler (2009).
+	Łatwy w odbiorze przewodnik po tym jak sieci wpływają na nasze życia, na dobre i na złe.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	Tutaj przeczytasz fragment: Przedmowa i Rozdział 1
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interaktywne:</b>
+	<a target="_blank" href="https://sin.github.io/trust/">
+	Ewolucja Zaufania</a>, Nicky Case (ja) (2017).
+	Gra o teorii gier i tym jak współpraca jest budowana… lub niszczona.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interaktywne:</b>
+	<a target="_blank" href="http://booschie.github.io/polygons-pl/">
+	Przypowieść o Kąciakach</a>, Vi Hart i Nicky Case (również ja) (2014).
+	Opowieść o tym jak nieszkodliwe wybory mogą prowadzić do świata, w którym dzieje się krzywda.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Jeśli chcesz zobaczyć całą galerię interaktywnych edukacyjnych rzeczy, oto
+	<a target="_blank" href="http://explorabl.es/">
+	Explorable Explanations</a>,
+	hub dla nauki przez zabawę!
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+	„Niemalże wszyscy studenci twierdzą, że ich znajomi piją więcej, niż w rzeczywistości”.
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	„Biases in the perception of drinking norms among college students”</a>, Baer i in. (1991)
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+	“Iluzja większości”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	„The Majority Illusion in Social Networks”</a>, Lerman i in. (2016).
+	<br>
+	Zobacz też: <a target="_blank" href="https://pl.wikipedia.org/wiki/Paradoks_przyja%C5%BAni">
+	Paradoks przyjaźni</a>.
+	</div>
+</reference>
+<reference id="contagion">
+
+	<h3>
+	„mocne statystyczne dowody, że palenie, zdrowie, szczęście, wzorce głosowania i współpraca są „zaraźliwe”
+	</h3>
+
+	<div>
+	Ze świetnie napisanej i łatwej w odbiorze książki Nicholasa Christakisa i Jamesa Fowlera, <a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009).
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+	„przesłanki, że samobójstwa również są zaraźliwe”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	„Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop„</a>,
+	O'Carroll i in. (1994), aprobowane przez Centra Kontroli i Prewencji Chorób (CDC)
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+	„przesłanki, że masowe strzelaniny również są zaraźliwe”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	„Contagion in Mass Killings and School Shootings”</a>, Towers i in. (2015)
+
+	<br><br>
+
+	Zobacz też: kampania
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Don't Name Them</a>,
+	która przekonuje serwisy informacyjne aby <i>NIE</i> publikować nazwisk, manifestów i informacji zamieszczanych w mediach społecznościowych przez morderców.
+	Przyczynia się to do rozprzestrzeniania infekcji.
+	Zamiast tego serwisy informacyjne powinny skupiać się na ofiarach, świadkach, bohaterach i rozpaczających społecznościach.
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+	„Światowe instytucje finansowe padły ofiarą kaskady [informacyjnej] w 2008.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	„Lemmings of Wall Street”</a>, autorstwa Cassa Sunsteina, to krótka i wolna od technicznego żargonu lektura. Opublikowana w październiku 2008 roku, tuż po załamaniu się rynków.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+	„teoria złożonej infekcji”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	„Threshold Models of Collective Behavior”</a>, Granovetter (1978) &mdash;
+	z tego co wiem, to pierwsza publikacja, w której opisano model „złożonej infekcji” (aczkolwiek nazwa ta nie została użyta)
+
+	<br><br>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	„Complex Contagions and the Weakness of Long Ties”</a>, Centola i Macy (2007)
+	pierwsze użycie określenia „złożona infekcja” i wskazanie na istotne różnice pomiędzy złożonymi, a prostymi infekcjami.
+
+	<br><br>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	„Evidence for complex contagion models of social contagion from observational data”</a>, Sprague i House (2017)
+	empirycznie udowodnili, że złożone infekcje naprawdę istnieją. (a przynajmniej w mediach społecznościowych)
+
+	<br><br>
+
+	Wreszcie,
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	„Universal behavior in a generalized model of contagion”</a>, Dodds i Watts (2004) zaproponowali model, który zunifikował <i>wszystkie</i> rodzaje infekcji: proste i złożone, biologiczne i społeczne!
+
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+	„opos ma 13 sutków”
+	</h3>
+	<div>
+	ułożone w pierścień z 12 sutków, plus jeden pośrodku
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+	„groupthink” („gromadomyślenie”, „syndrom grupowego myślenia”)
+	</h3>
+
+	<div>
+	To zainspirowane Orwellem określenie zostało ukute przez Irving L. Janis w 1971 roku.
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	W tym artykule</a>,
+	Janis bada przypadki gromadomyślenia, wylicza jego przyczyny, oraz &mdash; na szczęście &mdash;
+	niektóre możliwe środki zaradcze.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+	„kapitał społeczny wiążący (bonding) i pomostowy (bridging)”
+	</h3>
+
+	<div>
+	Te dwa rodzaje kapitału społecznego &mdash; wiążący i pomostowy &mdash;
+	zostały wprowadzone przez Roberta Putnama w jego wnikliwej książce z 2000 roku,
+	<a target="_blank" href="http://bowlingalone.com/">
+	Samotna gra w kręgle</a>. Jego odkrycie:
+	według prawie <i>wszystkich</i> empirycznych wskaźników, Amerykanie są bardziej samotni niż kiedykolwiek. Ojej.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+	„pomostowanie również ma swój złoty środek”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	„The Strength of Weak Ties”</a>, Granovetter (1973) wykazał, że połączenia pomiędzy grupami pomagają rozprzestrzeniać proste infekcje (takie jak informacje), ale
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	„Complex Contagions and the Weakness of Long Ties”</a>, Centola, Macy (2007)
+	pokazuje, że połączenia pomiędzy grupami mogą nie pomagać złożonym infekcjom, a nawet zaszkodzić w ich rozprzestrzenianiu!
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+	„sieć small-world”
+	</h3>
+
+	<div>
+
+	Koncepcja „małego świata” została spopularyzowana przez
+	<a target="_blank" href="http://www.jstor.org/stable/2786545">eksperyment Traversa i Milgrama w 1969 roku</a>,
+	który pokazał, że dowolne dwie osoby w Stanach Zjednoczonych dzieli od siebie jedynie sześć znajomości &mdash; <a target="_blank" href="https://pl.wikipedia.org/wiki/Sze%C5%9B%C4%87_stopni_oddalenia">„sześć stopni oddalenia”</a>!
+
+	<br><br>
+
+	Sieć small-world uzyskała matematyczne podstawy dzięki
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	„Collective dynamics of small-world networks”</a> Wattsa i Strogatza (1998),
+	którzy zaproponowali algorytm tworzenia sieci
+	z zarówno niską średnią odległością pomiędzy węzłami (mniej stopni oddalenia),
+	jak i wysokim klastrowaniem (znajomi mają wielu wspólnych znajomych) &mdash;
+	czyli sieci, które znajdują złoty środek!
+
+	<br><br>
+
+	Możesz również pobawić się
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	wizualną, interaktywną adaptacją tej pracy</a> stworzoną przez Breta Victora (2011).
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+	„[sieć small-world] opisuje jak połączone są nasze neurony”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	„Small-world brain networks”</a>, Bassett i Bullmore (2006)
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+	„[sieć small-world] sprzyja zbiorowej kreatywności”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	„Collaboration and Creativity: The Small World Problem”</a>, Uzzi i Spiro (2005). Ta praca analizuje jak sieci społeczne Broadway'u zmieniają się wraz z upływem czasu i odkryła, że sieć jest najbardziej kreatywna, jeśli jest siecią „small-world”!
+
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+	„[sieć small-world] sprzyja kolektywnemu rozwiązywaniu problemów”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	„Social Physics”</a> profesora MIT Alexa "Sandy" Pentlanda (2014) –
+	oparte na danych podejście do kolektywnej inteligencji.
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+	”[sieć small-world] pomogła prezydentowi USA Kennedy'emu uniknąć wojny”
+	</h3>
+
+	<div>
+
+	Poza eksplozją Challengera, najbardziej znanym przykładem gromadomyślenia jest nieudana próba inwazji w Zatoce Świń.
+	W 1961 roku, prezydent USA John F. Kennedy, wraz ze swoim zespołem doradców, myślał &mdash; z bliżej nieznanych powodów &mdash; że dobrze byłoby potajemnie zaatakować Kubę i obalić Fidela Castro.
+	Nie udało się.
+	Tak właściwie, gorzej niż nie udało: doprowadziło to do kryzysu kubańskiego w 1962 roku, <i>nigdy wcześniej ani później świat nie był tak blisko wojny jądrowej.</i>
+
+	<br><br>
+
+	Taak, JFK naprawdę się wtedy nie popisał.
+
+	<br><br>
+
+	Jednak po wyciągnięciu wniosków z porażki w Zatoce Świń,
+	JFK zreorganizował swój zespół aby zapobiec gromadomyśleniu.
+	Spośród wielu rzeczy:
+	1) aktywnie zachęcał ludzi do wyrażania krytyki,
+	obniżając w ten sposób „próg zarażania” alternatywnymi pomysłami.
+	2) podzielił swój zespół na podgrupy, przed ponownym połączeniem,
+	co nadało jego zespołowi strukturę „sieci small-world”!
+	Zmiany te pozwoliły na  zdrową różnorodność opinii,
+	ale bez tworzenia podziałów &mdash; mądrość tłumu.
+
+	<br><br>
+
+	No i tak, dzięki <i>tym samym osobom</i>, które decydowały w sprawie Zatoki Świń,
+	ale przeorganizowanym <i>kolektywnie</i>, zespół Kennedy'ego był w stanie osiągnąć pokojowe porozumienie z sowieckim przywódcą Nikitą Chruszczowem. 
+	Sowieci usunęli swoje pociski balistyczne z Kuby, a w zamian,
+	Amerykanie obiecali nie najeżdżać ponownie Kuby.
+	(również potajemnie zgodzili się usunąć amerykańskie pociski z Turcji)
+
+	<br><br>
+
+	Jest to historia o tym, jak cała ludzkość niemal zginęła.
+	Ale sieć small-world uratowała dzień! Tak jakby.
+
+	<br><br>
+
+	Możesz przeczytać o tym więcej na
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	Harvard Business Review</a>
+	lub w
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	oryginalnym artykule o gromadomyśleniu</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+	„wpływamy [...] na znajomych znajomych naszych znajomych!”
+	</h3>
+
+	<div>
+	Również ze świetnej książki Nicholasa Christakisa i Jamesa Fowlera,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+	”bądź sceptyczny/a wobec idei, które Ci schlebiają”
+	</h3>
+	<div>
+	Tak, włączając w to idee przedstawione w <i>tym</i> interaktywnym przewodniku.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	★ Tryb piaskownicy ★
+	</h3>
+
+	<div>
+	Skróty klawiaturowe (1, 2, spacja, backspace)
+	działają we <i>wszystkich</i> symulacjach, nie tylko w trybie piaskownicy!
+	Serio! Możesz wrócić do symulacji w poprzednich rozdziałach i dowolnie je zmieniać.
+	To w ten sposób <i>stworzyłem</i> wszystkie te łamigłówki. Miłej zabawy!
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+	Drodzy patroni na Patreonie:
+	Wasza hojność <i>dosłownie</i> karmi mnie i opłaca moje rachunki!
+	Dajecie mi wolność tworzenie tych dziwnych edukacyjnych gier,
+	więc z głębi mojego serca, dziękuję wam. &lt;3
+	<br>
+	<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">(chcesz wesprzeć mnie w tworzeniu rzeczy podobnych do tego? Zajrzyj na mojego Patreona!)</a>
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+	Dziękuję wszystkim osobom, które testowały <i>Mądrość i/lub Szaleństwo Tłumów</i>
+	na wszystkich etapach tworzenia!
+
+	<br><br>
+	<b>Prototyp:</b>
+	<br>
+	Maria ·
+	Monica Srivastava
+
+	<br><br>
+	<b>Wersja Alfa:</b>
+	<br>
+	Glen Chiacchieri ·
+	Kalli Repzeti ·
+	Mali Akmanalp ·
+	Toph Tucker
+
+	<br><br>
+	<b>Wersja Beta:</b>
+	<br>
+	Alex Dytrych ·
+	Amit Patel ·
+	Cassandra McClure ·
+	Catherine Ray ·
+	Josh Comeau ·
+	Kayle Sawyer ·
+	Matthew Conlen ·
+	Srini Kadamati ·
+	Vanessa Shen ·
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+
+And that's it! That's the last of what needed to a TRANSLATE
+
+Thank you so, so much for doing this again, wow.
+
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+
+-->
