@@ -10,9 +10,6 @@ function Scratch(){
 
 	self.scratchIn = function(){
 
-		// SOUND!
-		SOUNDS.scratch_in.play();
-
 		// anim
 		self.startUpdateLoop(false, function(){
 			self.canvas.style.display = "none";
@@ -22,8 +19,6 @@ function Scratch(){
 
 	self.scratchOut = function(){
 
-		// SOUND!
-		SOUNDS.scratch_in.play();
 
 		// anim
 		self.canvas.style.display = "block";

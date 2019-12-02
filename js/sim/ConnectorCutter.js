@@ -10,21 +10,6 @@ function ConnectorCutter(config){
 	self.isCutting = false;
 	self.cutTrail = [];
 
-	// SNIP & PLUCK SOUND
-	var _SNIP_SOUND = 0;
-	var _SNIP = function(){
-		_SNIP_SOUND = (_SNIP_SOUND+1)%3;
-		SOUNDS["snip"+_SNIP_SOUND].play();
-	};
-	var _PLUCK_SOUND_INDEX = 0;
-	var _PLUCK_SOUND = [0,1,2,3,2,1];
-	var _PLUCK = function(){
-		var soundName = "pluck"+_PLUCK_SOUND[_PLUCK_SOUND_INDEX];
-		SOUNDS[soundName].play();
-		_PLUCK_SOUND_INDEX++;
-		if(_PLUCK_SOUND_INDEX >= _PLUCK_SOUND.length) _PLUCK_SOUND_INDEX=0;
-	};
-
 	// Update!
 	self.state = 0; // 0-nothing | 1-connecting | 2-cutting
 	self.sandbox_state = 0; // 0-pencil | 1-add_peep | 2-add_infected | 3-move | 4-delete | 5-bomb
@@ -63,10 +48,6 @@ function ConnectorCutter(config){
 						self.state = 1; // START CONNECTING
 						self.connectFrom = peepClicked;
 
-						// SOUND!
-						SOUNDS.pencil_short.volume(0.37);
-						SOUNDS.pencil_short.play();
-
 					}else{
 						self.state = 2; // START ERASING
 					}
@@ -81,13 +62,6 @@ function ConnectorCutter(config){
 						var peepReleased = self.sim.getHoveredPeep(20);
 						if(peepReleased){
 							var successfulConnection = self.sim.addConnection(self.connectFrom, peepReleased);
-
-							// SOUND!
-							if(successfulConnection){
-								SOUNDS.pencil.volume(0.37);
-								SOUNDS.pencil.play();
-							}
-
 						}
 					}
 
@@ -172,10 +146,6 @@ function ConnectorCutter(config){
 					var contagionLevel = self.sim.contagion; // hack for sandbox: keep contagion the same
 					self.sim.clear();
 					self.sim.contagion = contagionLevel;
-
-					// Sound!
-					SOUNDS.boom.play();
-
 				}
 
 			}

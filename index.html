@@ -116,99 +116,6 @@ Good luck, and thanks again!
 
 	</div>
 	
-	<!-- Navigation: Audio, Contents, Share, Translations -->
-	<div id="navigation_container">
-		<div id="sound" mute="no">
-			<div id="sound_icon"></div>
-			<span id="sound_on">ON</span> <!-- TRANSLATE -->
-			<span id="sound_off">OFF</span> <!-- TRANSLATE -->
-		</div>
-		<div id="sharing">
-			<a id="fb" target="_blank" href="TODO"></a>
-			<a id="tw" target="_blank" href="TODO"></a>
-			<a id="em" target="_blank" href="TODO"></a>
-			<span id="share_title">
-			The Wisdom and/or Madness of Crowds <!-- TRANSLATE -->
-			</span>
-			<span id="share_desc">
-			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
-			Why do groups of people act smart, dumb, kind, cruel? An interactive guide to human networks: <!-- TRANSLATE -->
-			</span>
-		</div>
-		<div id="navigation">
-
-			<!-- The chapters -->
-			<!-- TRANSLATE all the Chapter names! -->
-			<div chapter="Introduction">
-				<span>0</span>
-				<span>0. Introduction</span>
-			</div>
-			<div chapter="Networks">
-				<span>1</span>
-				<span>1. Connections</span>
-			</div>
-			<div chapter="Simple">
-				<span>2</span>
-				<span>2. Contagions</span>
-			</div>
-			<div chapter="Complex">
-				<span>3</span>
-				<span>3. Complex Contagions</span>
-			</div>
-			<div chapter="BB">
-				<span>4</span>
-				<span>4. Bonding &amp; Bridging</span> <!-- note: &amp; is html for the "and" sign -->
-			</div>
-			<div chapter="SmallWorld">
-				<span>5</span>
-				<span>5. It's A Small World</span>
-			</div>
-			<div chapter="Conclusion">
-				<span>6</span>
-				<span>6. In Conclusion...</span>
-			</div>
-			<div chapter="Credits">
-				<span>7</span>
-				<span>7. Credits</span>
-			</div>
-			<div chapter="Sandbox">
-				<span>★</span>
-				<span>★ Sandbox Mode! ★</span>
-			</div>
-
-			<!-- A divider -->
-			<span class="nav_divider"></span>
-			
-			<!-- Bonus Notes & References -->
-			<div modal="bonus">
-				<span>?</span>
-				<span>Bonus Boxes!</span> <!-- TRANSLATE -->
-			</div>
-			<div modal="references">
-				<span style="margin-top: 7px; font-size: 35px;">*</span>
-				<span>Links &amp; References</span> <!-- TRANSLATE -->
-			</div>
-			<div modal="translations">
-			<span style="margin-top:5px; position:relative;"><span style="
-				    position: absolute;
-				    top: -8px;
-				    left: 6px;
-				">A</span><span style="
-				    position: absolute;
-				    font-size: 16px;
-				    top: -1px;
-				    left: 16px;
-				">あ</span></span>
-				<span>Translations</span> <!-- TRANSLATE -->
-			</div>
-
-			<!-- The hover bubble -->
-			<span id="nav_bubble"></span>
-			
-		</div>
-		<div id="translations"></div>
-		<div id="social"></div>
-	</div>
 	
 	<!-- The Pencil -->
 	<div id="pencil_container">
@@ -239,7 +146,7 @@ Good luck, and thanks again!
 <script src="js/slideshow/Pencil.js"></script>
 <script src="js/slideshow/Boxes.js"></script>
 <script src="js/slideshow/Scratch.js"></script>
-<script src="js/slideshow/Navigation.js"></script>
+
 <script src="js/slideshow/SimUI.js"></script>
 <script src="js/slideshow/SandboxUI.js"></script>
 <script src="js/slideshow/Modal.js?v=5"></script>
@@ -808,11 +715,6 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 	<next>ok, let's wrap this up... <div class="rarr"></div> </next>
 </words>
 
-<!-- Sandbox -->
-
-<words id="sandbox_caption">
-	(pst... wanna know a secret?<ref id="sandbox"></ref>)
-</words>
 
 <words id="sandbox_contagion">
 	Contagion:
@@ -837,10 +739,7 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 	Add Person
 </words>
 <words id="sandbox_tool_add_infected">
-	Add "Infected"
-</words>
-<words id="sandbox_tool_move">
-	Drag Person
+	Add Smoker
 </words>
 <words id="sandbox_tool_delete">
 	Delete Person
@@ -849,193 +748,7 @@ Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
 	<b>CLEAR IT ALL</b>
 </words>
 
-<words id="sandbox_shortcuts_label">
-	(...or, use keyboard shortcuts!)
-</words>
 
-<words id="sandbox_shortcuts">
-	[1]: Add Person &nbsp;&nbsp;&nbsp; [2]: Add "Infected"
-	<br>
-	[Space]: Drag &nbsp;&nbsp;&nbsp; [Backspace]: Delete
-</words>
-
-<!-- Conclusion -->
-
-<words id="conclusion_1">
-	
-	<div style="font-size: 30px;">
-		IN CONCLUSION: it's all about...
-	</div>
-	<div style="
-		width: 100%;
-	    position: absolute;
-	    font-size: 88px;
-	    top: 20px;
-	    line-height: 100px; display:block;
-	">
-	    Contagions &amp; Connections
-	</div>
-
-	<div style="
-	    width: 710px;
-	    position: absolute;
-	    top: 125px;
-	    left: 250px;
-	">
-		<b>Contagions:</b>
-		Like how neurons pass signals in a brain,
-		people pass beliefs &amp; behaviors in a society.
-		Not only do we influence our friends,
-		we also influence our friends' friends, and even our friends' friends' friends!<ref id="three_degrees"></ref>
-		(“be the change you wanna see in the world” etc etc)
-		But, like neurons, it's not just signals that matter, it's also...
-	</div>
-
-	<div style="
-	    width: 710px;
-	    position: absolute;
-	    top: 275px;
-	    left: 250px;
-	">
-		<b>Connections:</b>
-		Too few connections and complex ideas can't spread.
-		Too <i>many</i> connections and complex ideas get crushed by groupthink.
-		The trick is to build a small world network, the optimal mix of
-		bonding and bridging: <i>e pluribus unum.</i>
-	</div>
-
-	<div style="
-	    width: 350px;
-	    position: absolute;
-	    top: 410px;
-	    left: 220px;
-	    text-align: center;
-	    color: #999;
-	">
-		(wanna make your own simulations?
-		check out Sandbox Mode, by clicking the (★) button below!)
-	</div>
-
-	<div style="
-	    width: 400px;
-	    position: absolute;
-	    top: 395px;
-	    right: 0px;
-	    text-align: right;
-	">
-		So, what about our question from the very beginning?
-		Why <i>do</i> some crowds turn to...
-	</div>
-	<div style="
-	    width: 300px;
-	    position: absolute;
-	    top: 460px;
-	    right: 0px;
-	">
-		<next>...wisdom and/or madness?</next>
-	</div>
-
-</words>
-
-<words id="conclusion_2">
-	<span style="line-height:1.4em; display:block;">
-
-		<div style="height:0.5em"></div>
-
-		From Newton to NASA to
-		<br>
-		network science, we've covered a lot here
-		<br>
-		today. Long story short, the madness of crowds
-		<br>
-		is not necessarily due to the <i>individual people</i>, but due
-		<br>
-		to how we're trapped in a network's sticky web.
-
-		<div style="height:0.9em"></div>
-
-		That <i>does NOT</i> mean abandoning personal responsibility, for
-		<br>
-		we're also the <i>weavers</i> of that web. So, improve your contagions:
-		<br>
-		be skeptical of ideas that flatter you<ref id="flatter"></ref>, spend time understanding
-		<br>
-		complex ideas. And, improve your connections: bond with similar
-		<br>
-		folk, but also build bridges across cultural/political divides.
-
-		<div style="height:0.9em"></div>
-
-		We can weave a wise web. Sure, it's harder than doodling
-		<br>
-		lines on a screen...
-
-		<next>...but so, so worth it.</next>
-
-	</span>
-</words>
-
-<words id="conclusion_3">
-	<i>
-		“The great triumphs and tragedies of history are caused,
-		not by people being fundamentally good or fundamentally bad,
-		but by people being fundamentally people.”
-	</i>
-	<br>
-	<span style="position:relative; top:5px">~</span> Neil Gaiman &amp; Terry Pratchett
-	<div style="height:0.8em"></div>
-	<next small>&lt;3</next>
-</words>
-
-<!-- Credits --> 
-
-<words id="credits">
-
-	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
-	
-		<span style="color:#777; position:relative; top:5px;">
-			created by</span>
-		<div style="font-size: 3em; line-height: 1.0em;">
-			NICKY CASE</div>
-		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
-			play my other shtuff</a> ·
-		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
-			follow my tweeter</a>
-		
-		<br><br>
-
-		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
-			lots of love and thanks to</span>
-		<div style="font-size: 3em; line-height: 1.0em;">
-			MY PATREON SUPPORTERS</div>
-		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
-			help me make more like this! &lt;3</a>
-		<br>
-		<a onclick='publish("reference/show", ["supporters"]);'>
-			see my supporters</a> ·
-		<a onclick='publish("reference/show", ["playtesters"]);'>
-			see my playtesters</a>
-
-		<br><br>
-
-		<span style="display: inline-block; margin-top: 15px;">
-			♫ music is
-			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
-				"Friends 2018" and "Friends 2068"</a>
-			by Komiku
-			<br>
-			&lt;/&gt; <i>Crowds</i> is
-			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
-				fully open source</a>
-		</span>
-
-		<br>
-
-		<bon id="further_reading"></bon>
-
-	</div>
-
-</words>
 
 <!-- x. misc -->
 <words id="WIN">

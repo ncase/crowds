@@ -46,34 +46,6 @@ function SandboxUI(container){
 		_updateContagion();
 	},1);
 
-	///////////////////////////
-	// Choose Color of Peeps //
-	///////////////////////////
-
-	var colorChooserLabel = document.createElement("div");
-	colorChooserLabel.innerHTML = getWords("sandbox_color_chooser");
-	colorChooserLabel.style.marginTop = "0.5em";
-	var colorChooser = new ChooseOne({
-		options:[
-			1, // red
-			2, // yellow
-			3, // blue
-			4, // green
-			5, // pink
-		],
-		makeButton:function(value){
-			var button = document.createElement("div");
-			button.className = "choose_color";
-			button.style.backgroundPosition = (-40*value)+"px 0px";
-			return button;
-		},
-		oninput:function(value){
-			// update sim
-			slideshow.simulations.sims[0].options.infectedFrame = value;
-		}
-	});
-	container.appendChild(colorChooserLabel);
-	container.appendChild(colorChooser.dom);
 
 	////////////////////////////
 	// Choose Tool for Pencil //

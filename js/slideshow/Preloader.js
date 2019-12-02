@@ -9,17 +9,6 @@ subscribe("prepreload", function(){
 		{id:"peeps", image:"sprites/peeps.png"},
 		{id:"pencil", image:"sprites/pencil.png"},
 
-		// Sound Effects
-		{id:"pencil", audio:"audio/pencil.mp3"},
-		{id:"pencil_short", audio:"audio/pencil_short.mp3"},
-		{id:"snip0", audio:"audio/snip0.mp3"},
-		{id:"snip1", audio:"audio/snip1.mp3"},
-		{id:"snip2", audio:"audio/snip2.mp3"},
-
-		// UI
-		{id:"sound", image:"sprites/ui/sound.png"},
-		{id:"sharing", image:"sprites/ui/sharing.png"},
-
 	],function(progress){
 		if(progress==1){
 			publish("prepreload/done");
@@ -35,29 +24,7 @@ subscribe("preload", function(){
 
 	Preload([
 
-		// Music
-		{id:"bg_music", audio:"audio/bg_music.mp3"},
-
-		// Sound Effects
-		{id:"bonk", audio:"audio/bonk.mp3"},
-		{id:"boom", audio:"audio/boom.mp3"},
-		{id:"button0", audio:"audio/button0.mp3"},
-		{id:"button1", audio:"audio/button1.mp3"},
-		{id:"button2", audio:"audio/button2.mp3"},
-		{id:"chimes", audio:"audio/chimes.mp3"},
-		{id:"contagion", audio:"audio/contagion.mp3"},
-		{id:"party", audio:"audio/party.mp3"},
-		{id:"party_short", audio:"audio/party_short.mp3"},
-		{id:"pluck0", audio:"audio/pluck0.mp3"},
-		{id:"pluck1", audio:"audio/pluck1.mp3"},
-		{id:"pluck2", audio:"audio/pluck2.mp3"},
-		{id:"pluck3", audio:"audio/pluck3.mp3"},
-		{id:"pop", audio:"audio/pop.mp3"},
-		{id:"scratch_in", audio:"audio/scratch_in.mp3"},
-		{id:"scratch_out", audio:"audio/scratch_out.mp3"},
-		{id:"squeak_down", audio:"audio/squeak_down.mp3"},
-		{id:"squeak_up", audio:"audio/squeak_up.mp3"},
-		{id:"trash", audio:"audio/trash.mp3"},
+		
 
 		// For the slides
 		{id:"icons/blue", image:"sprites/icons/blue.png"},
@@ -88,7 +55,6 @@ subscribe("preload", function(){
 ///////////////////////////////////////////
 
 var IMAGES = {}; // todo: actually USE these images
-var SOUNDS = {};
 function Preload(assets, onProgress){
 
 	var loaded = 0;
@@ -107,12 +73,6 @@ function Preload(assets, onProgress){
 			IMAGES[asset.id] = img;
 		}
 
-		// Audio
-		if(asset.audio){
-			var sound = new Howl({ src:[asset.audio] });
-			sound.once('load', _onAssetLoad);
-			SOUNDS[asset.id] = sound;
-		}
 
 	});
 

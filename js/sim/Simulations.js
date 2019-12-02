@@ -126,14 +126,6 @@ function Sim(config){
 
 	self.id = config.id;
 
-	// CONTAGION SOUND
-	//var _CONTAGION_SOUND = 0;
-	var _PLAY_CONTAGION_SOUND = function(){
-		//_CONTAGION_SOUND = (_CONTAGION_SOUND+1)%3;
-		//SOUNDS["contagion"+_CONTAGION_SOUND].play();
-		SOUNDS.contagion.volume(0.75);
-		SOUNDS.contagion.play();
-	};
 
 	// Canvas
 	if(config.fullscreen){
@@ -377,13 +369,6 @@ function Sim(config){
 		if(self.wonBefore) return;
 		self.wonBefore = true;
 
-		// SOUND!
-		if(bounds && bounds.small){
-			SOUNDS.party_short.play();
-		}else{
-			SOUNDS.party.play();
-		}
-
 		// AMOUNT OF CONFETTI
 		var AMOUNT_OF_CONFETTI = 100;
 		if(bounds && bounds.small){
@@ -451,26 +436,6 @@ function Sim(config){
 
 	self.nextStep = function(){
 
-		// SOUND! If anyone can be infected, play Contagion sound.
-		// Otherwise play Bonk sound ONCE
-		var canBeInfected = self.peeps.filter(function(peep){
-			return !peep.infected && peep.isPastThreshold;
-		}).length;
-		var isEveryoneInfected = true;
-		self.peeps.forEach(function(peep){
-			if(!peep.infected) isEveryoneInfected=false;
-		});
-		if(canBeInfected>0){
-			_PLAY_CONTAGION_SOUND();
-		}else if(self._canPlayBonkSound && !isEveryoneInfected){
-			self._canPlayBonkSound = false;
-
-			if(!self.options.NO_BONK){
-				SOUNDS.bonk.play();
-			}
-			
-		}
-
 		// "Infect" the peeps who need to get infected
 		setTimeout(function(){
 			self.STEP++;
@@ -530,10 +495,6 @@ function Sim(config){
 				_draggingOffset.x = _draggingPeep.x-self.mouse.x;
 				_draggingOffset.y = _draggingPeep.y-self.mouse.y;
 
-				// Sound!
-				SOUNDS.squeak_down.volume(0.6);
-				SOUNDS.squeak_down.play();
-
 			}
 		}
 	};
@@ -541,10 +502,6 @@ function Sim(config){
 		self._stopMove();	
 	}));
 	self._stopMove = function(){
-		
-		// Sound!
-		SOUNDS.squeak_up.volume(0.6);
-		SOUNDS.squeak_up.play();
 
 		_draggingPeep = null;
 
@@ -559,8 +516,6 @@ function Sim(config){
 	}));
 	self._addPeepAtMouse = function(infected){
 
-		// SOUND
-		SOUNDS.pop.play();
 
 		self.addPeep(self.mouse.x, self.mouse.y, infected);
 
@@ -570,9 +525,6 @@ function Sim(config){
 		self._deletePeep();	
 	}));
 	self._deletePeep = function(){
-
-		// SOUND
-		SOUNDS.trash.play();
 
 		var toDeletePeep = self.getHoveredPeep(0);
 		if(toDeletePeep) self.removePeep(toDeletePeep);

@@ -181,13 +181,3 @@ function Slideshow(){
 	}
 
 }
-
-////////////////////////////////
-// BUTTON SOUNDS COZ WHATEVER //
-////////////////////////////////
-
-var _BUTTON_SOUND = 0;
-subscribe("sound/button",function(){
-	_BUTTON_SOUND = (_BUTTON_SOUND+1)%3;
-	SOUNDS["button"+_BUTTON_SOUND].play();
-});

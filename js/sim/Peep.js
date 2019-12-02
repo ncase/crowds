@@ -13,33 +13,10 @@ function Peep(config){
 	self.numFriends = 0;
 	self.numInfectedFriends = 0;
 	self.isPastThreshold = false;
-	self.faceX = 0;
-	self.faceY = 0;
-	self.faceBlink = 0;
 	self.isMajority = false;
 	var _faceFollow = 0.75+(Math.random()*0.1);
 	self.update = function(){
 
-		// Face position!
-		var faceVector = {
-			x: (self.sim.mouse.x-self.x)/5,
-			y: (self.sim.mouse.y-self.y)/5
-		};
-		faceVector.mag = Math.sqrt(faceVector.x*faceVector.x + faceVector.y*faceVector.y);
-		var max_distance = 5;
-		if(faceVector.mag>max_distance){
-			faceVector.x = faceVector.x * (max_distance/faceVector.mag);
-			faceVector.y = faceVector.y * (max_distance/faceVector.mag);
-		}
-		self.faceX = self.faceX*_faceFollow + faceVector.x*(1-_faceFollow);
-		self.faceY = self.faceY*_faceFollow + faceVector.y*(1-_faceFollow);
-
-		// Blink?
-		if(!self.faceBlink){
-			if(Math.random()<0.002) self.faceBlink=true;
-		}else{
-			if(Math.random()<0.07) self.faceBlink=false;
-		}
 
 		// Friends connected... or infected
 		var friends = self.sim.getFriendsOf(self);
