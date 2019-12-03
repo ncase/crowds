@@ -10,6 +10,9 @@ function ConnectorCutter(config){
 	self.isCutting = false;
 	self.cutTrail = [];
 
+	var _SNIP = function(){
+	};
+
 	// Update!
 	self.state = 0; // 0-nothing | 1-connecting | 2-cutting
 	self.sandbox_state = 0; // 0-pencil | 1-add_peep | 2-add_infected | 3-move | 4-delete | 5-bomb
