@@ -33,7 +33,7 @@ function Sprite(config){
 
 		ctx.save();
 		ctx.translate(self.x, self.y);
-		ctx.rotate(self.rotation);
+		//ctx.rotate(self.rotation);
 		if(self.scale){
 			ctx.scale(self.scale, self.scale);
 		}else{

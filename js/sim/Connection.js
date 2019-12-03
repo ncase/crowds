@@ -19,7 +19,7 @@ function Connection(config){
 	// Dot Sprite
 	self.dotSprite = new Sprite({
 		img: "peeps",
-		frames:6, sw:200, sh:200,
+		frames:6, sw:400, sh:400,
 	});
 	self.dotSprite.pivotX = 100;
 	self.dotSprite.pivotY = 100;

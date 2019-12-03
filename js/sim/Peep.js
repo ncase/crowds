@@ -128,10 +128,10 @@ function Peep(config){
 	var _initSpriteScale = 0.3;
 	self.sprite = new Sprite({
 		img: "peeps",
-		frames:6, sw:200, sh:200,
+		frames:6, sw:400, sh:400,
 	});
-	self.sprite.pivotX = 100;
-	self.sprite.pivotY = 100;
+	self.sprite.pivotX = 200;
+	self.sprite.pivotY = 200;
 	self.sprite.scale = _initSpriteScale;
 
 	// Prop Sprite
