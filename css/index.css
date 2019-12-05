@@ -1,10 +1,10 @@
 /* FONT FACE */
 @font-face {
-	font-family: "PatrickHand";
+	font-family: "calibri";
 	font-style: normal;
 	font-weight: 400;
-	src: url(PatrickHand-Regular.ttf) format('truetype');
-}
+	/* src: url(PatrickHand-Regular.ttf) format('truetype'); */
+} 
 
 /* HTML & BODY */
 html, body{
