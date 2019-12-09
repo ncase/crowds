@@ -20,62 +20,48 @@ function ConnectorCutter(config){
 
 		var mouse = self.sim.mouse;
 
-		// TOTAL HACK: if you're clicking within the sandbox UI, FORGET IT
-		if(self.sim.SANDBOX_MODE){
-			if(mouse.x>0 && mouse.x<280){
-				if(mouse.justPressed){
-					return; // FORGET ITTTTTT
-				}
-			}
+
+		// JUST CLICKED & SIM'S RUNNING? STOP
+		if(Simulations.IS_RUNNING && mouse.justPressed){
+			Simulations.IS_RUNNING = false;
+			publish("sim/stop");
 		}
 
-		// IF SANDBOX STATE = PENCIL, complex mouse shtuff
-		if(self.sandbox_state==0){
+		// only if sim is NOT RUNNING
+		if(!Simulations.IS_RUNNING){
 
-			// JUST CLICKED & SIM'S RUNNING? STOP
-			if(Simulations.IS_RUNNING && mouse.justPressed){
-				Simulations.IS_RUNNING = false;
-				publish("sim/stop");
-			}
+			// JUST CLICKED, and state=0... can either start connecting or cutting!
+			if(mouse.justPressed && self.state===0){
+				
+				// Clicked on a peep?
+				var peepClicked = self.sim.getHoveredPeep(20);
+				if(peepClicked){
 
-			// only if sim is NOT RUNNING
-			if(!Simulations.IS_RUNNING){
+					self.state = 1; // START CONNECTING
+					self.connectFrom = peepClicked;
 
-				// JUST CLICKED, and state=0... can either start connecting or cutting!
-				if(mouse.justPressed && self.state===0){
-					
-					// Clicked on a peep?
-					var peepClicked = self.sim.getHoveredPeep(20);
-					if(peepClicked){
-
-						self.state = 1; // START CONNECTING
-						self.connectFrom = peepClicked;
-
-					}else{
-						self.state = 2; // START ERASING
-					}
-
+				}else{
+					self.state = 2; // START ERASING
 				}
 
-				// JUST RELEASED, and state!=0... can either stop connecting or cutting!
-				if(mouse.justReleased && self.state!==0){
+			}
 
-					// End connect?
-					if(self.state==1){
-						var peepReleased = self.sim.getHoveredPeep(20);
-						if(peepReleased){
-							var successfulConnection = self.sim.addConnection(self.connectFrom, peepReleased);
-						}
+			// JUST RELEASED, and state!=0... can either stop connecting or cutting!
+			if(mouse.justReleased && self.state!==0){
+
+				// End connect?
+				if(self.state==1){
+					var peepReleased = self.sim.getHoveredPeep(20);
+					if(peepReleased){
+						var successfulConnection = self.sim.addConnection(self.connectFrom, peepReleased);
 					}
-
-					// back to normal
-					self.state = 0; 
-
 				}
 
-			}else{
-				self.state = 0;
+				// back to normal
+				self.state = 0; 
+
 			}
+
 
 			// In "NORMAL" state... tell Pencil what frame to go to
 			if(self.state==0){
@@ -109,9 +95,6 @@ function ConnectorCutter(config){
 				if(wasLineCut==1){ // snip!
 					_SNIP();
 				}
-				if(wasLineCut==-1){ // uncuttable
-					_PLUCK();
-				}
 			
 				// Add to trail
 				self.cutTrail.unshift([mouse.x,mouse.y]); // add to start
@@ -123,41 +106,6 @@ function ConnectorCutter(config){
 
 		}else{
 			self.state=0;
-		}
-
-		// IF SANDBOX STATE = ADD/DELETE PEEP or BOMB, just click to activate!
-		if(self.sandbox_state!=0){
-			if(mouse.justPressed){
-
-				// Add Peep
-				if(self.sandbox_state==1){
-					self.sim._addPeepAtMouse(false); // not infected
-				}
-
-				// Add Infected Peep
-				if(self.sandbox_state==2){
-					self.sim._addPeepAtMouse(true); // IS infected
-				}
-
-				// Delete Peep
-				if(self.sandbox_state==4){
-					self.sim._deletePeep();
-				}
-
-				// BOMB
-				if(self.sandbox_state==5){
-					var contagionLevel = self.sim.contagion; // hack for sandbox: keep contagion the same
-					self.sim.clear();
-					self.sim.contagion = contagionLevel;
-				}
-
-			}
-		}
-
-		// IF SANDBOX STATE = MOVE...
-		if(self.sandbox_state==3){
-			if(mouse.justPressed) self.sim._startMove();
-			if(mouse.justReleased) self.sim._stopMove();
 		}
 
 		// If trail too long, or NOT cutting, pop trail from end

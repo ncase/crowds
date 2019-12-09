@@ -12,18 +12,6 @@ function Simulations() {
 
   self.sims = [];
 
-  // Clear All Sims
-  self.clear = function() {
-    Simulations.IS_RUNNING = false;
-    $("#container").removeAttribute("sim_is_running");
-
-    self.sims.forEach(function(sim) {
-      self.dom.removeChild(sim.canvas);
-      sim.kill();
-    });
-    self.sims = [];
-  };
-
   // Add Sims
   self.add = function(config) {
     config = cloneObject(config);
@@ -213,33 +201,6 @@ function Sim(config) {
     self.peeps.forEach(function(peep) {
       peep.update();
     });
-
-    // secret editor...
-    // drag Peep
-    if (_draggingPeep) {
-      _draggingPeep.x = self.mouse.x + _draggingOffset.x;
-      _draggingPeep.y = self.mouse.y + _draggingOffset.y;
-      _draggingPeep.velocity.x = 0;
-      _draggingPeep.velocity.y = 0;
-    }
-
-    // update confetti & winword...
-    self.confetti.forEach(function(confetti) {
-      confetti.x += confetti.vx;
-      confetti.y += confetti.vy;
-      confetti.spin += confetti.spinSpeed;
-
-      confetti.vy += confetti.g;
-
-      confetti.vx *= 0.95;
-      confetti.vy *= 0.95;
-    });
-    if (self.winWord.ticker >= 0) {
-      self.winWord.ticker += 1 / 60;
-      if (self.winWord.ticker > 3) {
-        self.winWord.ticker = -1;
-      }
-    }
 
     // On update! (for arbitrary sim-specific logic)
     self.onupdate(self);

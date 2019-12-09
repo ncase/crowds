@@ -24,17 +24,8 @@ subscribe("preload", function(){
 
 	Preload([
 
-		
-
 		// For the slides
-		{id:"icons/blue", image:"sprites/icons/blue.png"},
-		{id:"icons/gray", image:"sprites/icons/gray.png"},
-		{id:"icons/red", image:"sprites/icons/red.png"},
-		{id:"icons/yellow", image:"sprites/icons/yellow.png"},
-		{id:"confetti", image:"sprites/confetti.png"},
-		{id:"nasa", image:"sprites/nasa.png"},
 		{id:"red_button", image:"sprites/red_button.png"},
-		{id:"sandbox_tools", image:"sprites/sandbox_tools.png"},
 		{id:"scratch", image:"sprites/scratch.png"},
 		{id:"small_world", image:"sprites/small_world.png"},
 		{id:"tutorial_connect", image:"sprites/tutorial_connect.png"},
@@ -60,7 +51,7 @@ function Preload(assets, onProgress){
 	var loaded = 0;
 	var _onAssetLoad = function(){
 		loaded++;
-		onProgress(loaded/assets.length);
+		onProgress(1);
 	};
 
 	assets.forEach(function(asset){

@@ -1,7 +1,6 @@
 /******************************************
 
 THE SLIDESHOW
-- background: fullscreen iframe (so can draw everywhere)
 - foreground: words & pictures
 
 ******************************************/
@@ -14,9 +13,6 @@ function Slideshow(){
 
 	// The DOM & properties...
 	self.dom = $("#slideshow");
-	self.slideIndex = 0;
-	self.currentSlide = null;
-	self.currentState = null;
 
 	// My stuff...
 	self.boxes = new Boxes();
@@ -24,35 +20,14 @@ function Slideshow(){
 	self.scratch = new Scratch();
 	
 	// GOTO and NEXT
-	var _delay = 300;
-	self.IS_TRANSITIONING = false;
-	self.goto = function(index, forceClear){
-
-		// Wait for transition to finish!
-		if(self.IS_TRANSITIONING) return;
-		self.IS_TRANSITIONING = true;
-		
+	self.goto = function(index){
+	
 		// Which slide?
 		self.slideIndex = index;
-		var isFirstSlide = (self.currentSlide==null);
 		var slide = SLIDES[self.slideIndex];
 
-		// Clear?
-		var _delayNewSlide = 0;
-		if((slide.clear || forceClear) && !isFirstSlide){
-			_delayNewSlide = 800;
-			self.scratch.scratchOut(); // Scratch out
-			$("#container").removeAttribute("sim_is_running"); // remove that UI
-			Simulations.IS_RUNNING = false; // STAHP
-		}
 
 		_setTimeout(function(){
-
-			// Scratch in?
-			if(_delayNewSlide>0){
-				self.clear();
-				self.scratch.scratchIn(); // Scratch in
-			}
 
 			// Remove stuff
 			slide.remove = slide.remove || [];
@@ -101,7 +76,6 @@ function Slideshow(){
 
 			// Add stuff
 			slide.add = slide.add || [];
-			var _delayAdd = ((slide.remove.length + slide.move.length)>0) ? _delay : 0;
 			_setTimeout(function(){
 				var withFade = ((slide.remove.length + slide.move.length)>0);
 
@@ -121,26 +95,12 @@ function Slideshow(){
 					}
 				})
 
-			}, _delayAdd);
+			} );
 
 			// I'm the new slide now
 			self.currentSlide = slide;
 
-			// On start (if any)
-			self.currentState = {};
-			if(slide.onstart) slide.onstart(self, self.currentState);
-
-			// Transition done... sorta!
-			_setTimeout(function(){
-				self.IS_TRANSITIONING = false;
-			},800);
-
-		}, _delayNewSlide);
-
-		// Tell everyone it's a new chapter
-		if(slide.chapter && slide.chapter.indexOf("-")<0){ // is chapter and not sub-chapter
-			publish("slideshow/goto/",[slide.chapter]);
-		}
+		});
 
 	};
 	var _setTimeout = function(callback, delay){
@@ -152,18 +112,6 @@ function Slideshow(){
 			return slide.chapter == chapterID;
 		});
 		self.goto(index, true);
-	};
-	self.next = function(){
-		if(self.slideIndex >= SLIDES.length-1) return; // there's no next
-		self.goto(self.slideIndex+1);
-	};
-
-	// Clear out the DOM
-	self.clear = function(){
-		self.boxes.clear();
-		self.simulations.clear();
-		self.dom.innerHTML = "";
-		pencil.gotoFrame(0);
 	};
 
 	// Update

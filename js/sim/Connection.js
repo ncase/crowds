@@ -5,7 +5,6 @@ function Connection(config){
 	// Properties
 	self.from = config.from;
 	self.to = config.to;
-	self.uncuttable = config.uncuttable || false;
 	self.sim = config.sim;
 
 	// Line Sprite
@@ -49,7 +48,6 @@ function Connection(config){
 		}
 
 		self.sprite.scaleX = dist/300;
-		self.sprite.scaleY = self.uncuttable ? 1 : 0.5; // thick=uncuttable
 		//self.sprite.scaleY *= s;
 		//self.sprite.rotation = a;
 		self.sprite.draw(ctx);
@@ -125,10 +123,6 @@ function Connection(config){
 
 		}
 
-	};
-	self.shaking = -1;
-	self.shake = function(){
-		self.shaking = 0;
 	};
 
 }

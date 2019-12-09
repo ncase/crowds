@@ -4,7 +4,7 @@ function SandboxUI(container) {
   self.container.classList.add("sandbox_ui");
 
   //////////////////////
-  // Contagion Slider //
+  // Slider //
   //////////////////////
 
   var contagionLabel = document.createElement("div");
@@ -24,8 +24,6 @@ function SandboxUI(container) {
     event.stopPropagation(); // AHHHH MOBILE
   };
   var _labelContagion0 = getWords("sandbox_contagion");
-  var _labelContagion1 = getWords("sandbox_contagion_simple");
-  var _labelContagion2 = getWords("sandbox_contagion_complex");
   var _updateContagion = function() {
     // update sim
     var contagion = contagionInput.value;
@@ -43,57 +41,7 @@ function SandboxUI(container) {
     _updateContagion();
   }, 1);
 
-  ////////////////////////////
-  // Choose Tool for Pencil //
-  ////////////////////////////
 
-//   var toolChooserLabel = document.createElement("div");
-//   toolChooserLabel.innerHTML = getWords("sandbox_tool_chooser");
-//   toolChooserLabel.style.marginTop = "0.25em";
-//   var tools = ["pencil", "add", "add_infected", "move", "delete", "clear"];
-//   var toolChooser = new ChooseOne({
-//     options: tools,
-//     makeButton: function(value) {
-//       var button = document.createElement("div");
-//       button.className = "choose_tool";
-
-//       // Icon
-//       var buttonImage = document.createElement("div");
-//       button.appendChild(buttonImage);
-//       buttonImage.id = "icon";
-//       var frame = tools.indexOf(value);
-//       buttonImage.style.backgroundPosition = -16 * frame + "px 0px";
-
-//       // Label
-//       var buttonLabel = document.createElement("span");
-//       button.appendChild(buttonLabel);
-//       buttonLabel.innerHTML = getWords("sandbox_tool_" + value);
-
-//       return button;
-//     },
-//     oninput: function(value) {
-//       // update sim
-//       var sandbox_state = tools.indexOf(value);
-//       slideshow.simulations.sims[0].connectorCutter.sandbox_state = sandbox_state;
-//     }
-//   });
-//   container.appendChild(toolChooserLabel);
-//   container.appendChild(toolChooser.dom);
-
-  ////////////////////////
-  // Keyboard Shortcuts //
-  ////////////////////////
-
-  var shortcutsLabel = document.createElement("div");
-  shortcutsLabel.innerHTML = getWords("sandbox_shortcuts_label");
-  shortcutsLabel.id = "sandbox_shortcuts_label";
-  shortcutsLabel.style.marginTop = "0.5em";
-  shortcutsLabel.style.lineHeight = "1.2em";
-  var shortcuts = document.createElement("div");
-  shortcuts.innerHTML = getWords("sandbox_shortcuts");
-  shortcuts.id = "sandbox_shortcuts";
-  container.appendChild(shortcutsLabel);
-  container.appendChild(shortcuts);
 
   // HEY IT'S SANDBOX MODE //
   slideshow.simulations.sims[0].SANDBOX_MODE = true;

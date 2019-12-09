@@ -39,14 +39,8 @@ subscribe("prepreload/done", function(){
 	window.requestAnimationFrame(update);
 
 	// Go to THE SPLASH
-	slideshow.gotoChapter("Preloader");
+	slideshow.gotoChapter("Sandbox");
 
-	// HACK - MOBILE IS HORRIBLE
-	$all("a").forEach(function(a){
-		a.ontouchstart = function(event){
-			event.stopPropagation();
-		}; // so you CAN click links
-	});
 
 });
 

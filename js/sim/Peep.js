@@ -177,21 +177,7 @@ function Peep(config) {
       }
     }
     self.sprite.rotation = bodyRotation;
-    // if (self.isPastThreshold) {
-    //   // highlight! glow!
 
-    //   _glowAnim += 0.03;
-    //   var _glowScale = 1 + Math.sin(_glowAnim) * 0.04;
-    //   ctx.globalAlpha = 0.35;
-    //   self.sprite.scale = _initSpriteScale * 2 * _glowScale;
-
-    //   self.sprite.gotoFrame(infectedFrame);
-    //   self.sprite.draw(ctx);
-
-    //   // undo
-    //   ctx.globalAlpha = 1;
-    //   self.sprite.scale = _initSpriteScale;
-    // }
     self.sprite.gotoFrame(myFrame);
     self.sprite.draw(ctx);
 
@@ -234,13 +220,6 @@ function Peep(config) {
     // DON'T show bar if simple contagion
     if (self.sim.contagion > 0) {
       ctx.save();
-
-      // SHAKE
-      if (self._shakeAnim >= 0) {
-        var shake = Math.sin(self._shakeAnim * 10) * 3;
-        ctx.translate(shake, 0);
-        self._shakeAnim -= 0.05;
-      }
 
       var bgColor = "#ddd";
       var uiColor = "#333";
@@ -334,11 +313,5 @@ function Peep(config) {
   // Infect
   self.infect = function() {
     self.infected = true;
-  };
-
-  // Shake
-  self._shakeAnim = -1;
-  self.shake = function() {
-    self._shakeAnim = 1;
   };
 }

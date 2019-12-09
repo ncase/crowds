@@ -1,10 +1,3 @@
-/* FONT FACE */
-@font-face {
-	font-family: "calibri";
-	font-style: normal;
-	font-weight: 400;
-	/* src: url(PatrickHand-Regular.ttf) format('truetype'); */
-} 
 
 /* HTML & BODY */
 html, body{
@@ -16,8 +9,7 @@ html, body{
 body{
 	background: #fff;
 	margin:0;
-
-	font-family: "PatrickHand", Helvetica, Arial;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	font-size: 23px;
 	line-height: 1.5em;
 
@@ -70,31 +62,7 @@ a:hover{
 #slideshow .box.image{
 	background-size: 100% 100%;
 }
-#slideshow .next_button{
-	/*display: inline-block;*/
-	margin: 0 auto;
-	position: relative;
-	top: -10px;
-	width: 300px;
-    height: 20px;
-    padding: 37px 0 43px 0;
-	background-image: url(../sprites/button_large.png);
-	background-size: 100% auto;
-	text-align: center;
-	line-height: 25px;
-}
-#slideshow .next_button:hover{
-	background-position: 0 -100px;
-}
-#slideshow .next_button[disabled]{
-	pointer-events: none;
-	opacity: 0.3;
-}
-.transitionable{
-	transition: opacity 0.3s ease-in-out,
-			    left 0.3s ease-in-out,
-			    top 0.3s ease-in-out;
-}
+
 
 #scratch{
 	position: absolute;
@@ -104,30 +72,7 @@ a:hover{
 	width: 100%; height: 100%;
 }
 
-/* Skip */
-#container > #skip{
-	
-	display: none;
 
-	position: absolute;
-	right:10px;
-	bottom:10px;
-	width: auto;
-	height: 25px;
-	font-size: 25px;
-	line-height: 25px;
-	color: #aaa;
-	text-align: right;
-
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none; 
-	
-}
-#container > #skip:hover{
-	color: #ccc;
-}
 
 /* Peep Icon */
 .peep_icon{
@@ -192,46 +137,7 @@ a:hover{
 	width: 100%;
 	cursor: none;
 }
-.choose_one{
-	overflow: hidden;
-}
-.choose_one > div{
-	float: left;
-	margin: 3px;
-	opacity: 0.25;
-}
-.choose_one > div[selected]{
-	opacity: 1;
-}
-.choose_color{
-	width: 40px;
-	height: 40px;
-	background: url(../sprites/peeps.png);
-	background-size: auto 100%;
-	transform: scale(1.2);
-}
-.choose_tool{
-	background: #fff;
-	font-size: 16px;
-	line-height: 16px;
-	border: 1px solid black;
-	padding: 3px;
-	border-radius: 5px;
-}
-.choose_tool > #icon{
-	display: inline-block;
-	width:16px; height:16px;
-	background: url(../sprites/sandbox_tools.png);
-	background-size: auto 100%;
-}
-#sandbox_shortcuts_label{
-	font-size: 22px;
-}
-#sandbox_shortcuts{
-	font-size: 20px;
-    line-height: 1.2em;
-    color: #999;
-}
+
 
 /* MODAL */
 #modal_container{
@@ -295,185 +201,7 @@ a:hover{
 	letter-spacing: 1px;
 }
 
-/* NAVIGATION */
-#navigation_container{
-	position: absolute;
-	bottom:0;
-	background: #222;
-	width: 100%;
-	height:60px;
 
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none; 
-}
-#sound{
-	position: absolute;
-	left:0; top:0;
-	color: #fff;
-	width: 150px;
-    font-size: 30px;
-    height: 60px;
-}
-#sound[mute=yes]{
-	opacity: 0.5;
-}
-#sound_icon{
-	background: url(../sprites/ui/sound.png);
-	background-size: auto 100%; 
-	width: 60px; height: 60px;
-	position: absolute;
-}
-#sound_on, #sound_off{
-	position: absolute;
-	left:65px;
-	padding: 15px 0;
-    display: block;
-    line-height: 28px;
-    display: none;
-    letter-spacing: 2px;
-}
-#sound[mute=no] > #sound_icon{
-	/*background: rgba(255,255,255,0.5);*/
-	background-position: 0px 0px;
-}
-#sound[mute=yes] > #sound_icon{
-	/*background: rgba(255,255,255,0.25);*/
-	background-position: -60px 0px;
-}
-#sound[mute=no] > #sound_on{
-	display: block;
-}
-#sound[mute=yes] > #sound_off{
-	display: block;
-}
-#sharing{
-	position: absolute;
-	right:10px; top:0;
-	width: 150px;
-	overflow: hidden;
-}
-#sharing > a{
-	float: left;
-	display: block;
-	width: 50px;
-	height: 60px;
-	background: url(../sprites/ui/sharing.png);
-	background-size: auto 100%; 
-}
-#sharing #fb{
-	background-position: 0px 0px;
-}
-#sharing #tw{
-	background-position: -50px 0px;
-}
-#sharing #em{
-	background-position: -100px 0px;
-}
-#share_title{
-	display: none;
-}
-#share_desc{
-	display: none;
-}
-#translations{
-	position: absolute;
-    top: 12px;
-    left: calc(50% - 400px);
-    width: 800px;
-    text-align: center;
-    color: #fff;
-    font-size: 16px;
-    line-height: 17px;
-    letter-spacing: 0.5px;
-}
-#navigation{
-
-	display: none;
-
-	position: absolute;
-	top: 10px;
-	left: calc(50% - 300px);
-	width: 600px;
-	text-align: center;
-}
-#navigation > div{
-	width: 35px;
-	height: 35px;
-	background: #222;
-	color:#fff;
-	border-radius: 20px;
-	display: inline-block;
-	border: 1px solid #fff;
-	margin: 0 1px;
-	text-align: center;
-	overflow: hidden;
-	line-height: 34px;
-	position: relative;
-}
-#navigation > div[highlight]{
-	background: #fff;
-	color: #222;
-}
-#navigation > div > span:nth-child(1){
-	display: block;
-	position: absolute;
-	width: 100%;
-}
-#navigation > div > span:nth-child(2){
-	display: none;
-}
-#navigation > div:hover{
-	background: rgba(255,255,255,0.25);
-}
-#navigation > div[highlight]:hover{
-	background: #fff;
-}
-#navigation > span.nav_divider{
-	width: 2px;
-	height: 40px;
-	background: rgba(255,255,255,0.2);
-	border-radius: 20px;
-	display: inline-block;
-	margin: 0 8px;
-}
-#navigation > span#nav_bubble{
-	
-	transition: opacity 0.2s ease-in-out,
-			    left 0.2s ease-in-out,
-			    top 0.2s ease-in-out;
-
-	display: none;
-	opacity: 0;
-	
-	position: absolute;
-	top:-80px;
-	left:0;
-	
-	background: rgba(0,0,0,0.8);
-	color: #fff;
-	text-align: center;
-	border-radius: 20px;
-    
-    width: 220px;
-    padding: 6px 0;
-
-}
-#navigation > span#nav_bubble:after{
-	top: 100%;
-	left: 50%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-	border-color: rgba(0, 0, 0, 0);
-	border-top-color: rgba(0,0,0,0.8);
-	border-width: 15px;
-    margin-left: -15px;
-}
 
 /* PENCIL */
 #pencil_container{
@@ -516,97 +244,5 @@ words, bonus, reference{
 	display: none;
 }
 
-/* BONUS BOX */
-bon{
-    margin: 0.75em auto;
-    display: block;
-    
-    background: #ccc;
-    color: #444;
-    text-align: left;
 
-    width: 300px;
-    height: 56px;
-    padding: 23px 20px 17px 80px;
-    border-bottom: 4px solid rgba(0,0,0,0.25);
-    border-radius: 5px;
 
-    line-height: 1.1em;
-    background-size: 400px auto;
-
-    position: relative;
-    transition: top 0.1s ease-in-out;
-    top:0;
-}
-bon:before{
-	content: '';
-	display: block;
-    position: absolute;
-    
-    left: 25px;
-    top: 14px;
-    width: 35px;
-    height: 70px;
-
-	background: url(../sprites/ui/bonus.png);
-	background-size: 100% 100%;
-}
-bon:hover{
-	top:-3px;
-}
-
-/* REFERENCES */
-ref{
-	position: relative;
-    display: inline-block;
-    padding-left: 2px;
-    width: 21px;
-}
-ref:before{
-	content: '*';
-    background: #ddd;
-    color: #444;
-    padding: 3px;
-    width: 15px;
-    height: 15px;
-    display: block;
-    line-height: 26px;
-    border-radius: 20px;
-    font-size: 30px;
-    position: absolute;
-    text-align: center;
-    top: -25px;
-}
-ref:hover:before{
-	background: #eee;
-	color: #999;
-}
-
-/* TO SEE LAYOUT */
-/*.box, #simulations{
-	border: 1px solid #eee;
-}*/
-
-/* A NICE CIRCLE */
-/* Thanks to: https://skeate.github.io/2015/07/13/Wrapping-Text-to-Fit-Shaped-Containers-with-CSS.html */
-.circle {
-  /*background: #accede;*/
-  text-align: center;
-  width: 540px;
-  height: 540px;
-  border-radius: 100%;
-}
-.circle::before {
-	content: '';
-	height: 100%;
-	width: 50%;
-	float: left;
-	shape-outside: polygon(0 0, 100% 0, 60% 4%, 40% 10%, 20% 20%, 10% 28.2%, 5% 34.4%, 0 50%, 5% 65.6%, 10% 71.8%, 20% 80%, 40% 90%, 60% 96%, 100% 100%, 0% 100%);
-}
-.circle > span::before {
-	content: '';
-	height: 100%;
-	width: 50%;
-	float: right;
-	shape-outside: polygon(100% 0, 0 0, 40% 4%, 60% 10%, 80% 20%, 90% 28.2%, 95% 34.4%, 100% 50%, 95% 65.6%, 90% 71.8%, 80% 80%, 60% 90%, 40% 96%, 0 100%, 100% 100%);
-}
