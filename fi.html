@@ -1,0 +1,2147 @@
+<!--
+
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+
+- - - - - - - - - - -
+
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 3600+ WORDS to translate, including
+the Bonus Boxes and References.
+
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+
+Good luck, and thanks again!
+
+<3,
+~ Nicky Case
+
+-->
+
+<!DOCTYPE html>
+<html lang="fi"> <!-- lang="(TRANSLATE: set your language code here, same as the page name!) e.g: es, es-ES, pt-BR, ja, it, fr-CA, de, ..." -->
+<head>
+
+	<!-- Meta Info -->
+	<title>Joukossa tyhmyys ja/tai viisaus tiivistyy</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="interaktiivinen johdatus inhimillisiin verkostoihin"/> <!-- content="(TRANSLATE this part only)" -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/cs.html"    hreflang="cs">
+	<link rel="alternate" href="http://ncase.me/crowds/de.html"    hreflang="de">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="Joukossa tyhmyys ja/tai viisaus tiivistyy"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="interaktiivinen johdatus inhimillisiin verkostoihin"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="Joukossa tyhmyys ja/tai viisaus tiivistyy"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="interaktiivinen johdatus inhimillisiin verkostoihin"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="Joukossa tyhmyys ja/tai viisaus tiivistyy"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="interaktiivinen johdatus inhimillisiin verkostoihin"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=7">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">Ohita &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">⨯</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on">PÄÄLLÄ</span> <!-- TRANSLATE -->
+			<span id="sound_off">POIS</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			Joukossa tyhmyys ja/tai viisaus tiivistyy <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Miksi väkijoukot toimivat fiksusti, typerästi, ystävällisesti tai julmasti? Interaktiivinen johdatus inhimillisiin verkostoihin: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Johdanto</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Yhteydet</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Tartunnat</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Kompleksiset tartunnat</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Siteet ja sillat</span> <!-- note: &amp; is html for the "and" sign -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. Maailma pieni paikka on</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. Yhteenvetona</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Tekijät</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>★</span>
+				<span>★ Hiekkalaatikkotila! ★</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+			
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Bonuslaatikot!</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Linkit ja viitteet</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">あ</span></span>
+				<span>Käännökset</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+			
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+	
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>Ladataan...</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/inobounce.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js?v=5"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js?v=5"></script>
+
+<script src="js/sim/Peep.js?v=2"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js?v=2"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!-- 
+
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span style="font-size: 100px">Joukossa</span>
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">tyhmyys</span>
+		<span style="position:relative;top: -10px;">ja/tai</span>
+		<span style="font-size: 60px;">viisaus</span>
+		<br>
+<!--		<span style="position: relative;top: -11px;"></span>
+		<br> -->
+		<span style="font-size: 60px;line-height: 80px;position: relative;top: -15px; display:block;">tiivistyy</span>
+	</div>
+
+	<div style="color:#999">
+		<!-- TRANSLATE note: comment out the line below... -->
+		<!-- playing time: 30 min • by nicky case, april 2018 -->
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		simulaatio: Nicky Case • käännös: Ville Koljonen • <a href='.'>alkuperäinen</a>
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	Ladataan...
+</words>
+
+<words id="preloader_play">
+	Aloitetaan! <div class="rarr"></div> 
+</words>
+
+<!-- Introduction -->
+<!--
+
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+
+-->
+
+<words id="intro">
+
+	<br><br>
+
+<!--	Sir Isaac Newton was pretty sure he was a -->
+	Sir Isaac Newton uskoi vakaasti omiin
+	<br>
+<!--	smart cookie. I mean, after inventing calculus and -->
+	kykyihinsä. Kyllähän nyt differentiaalilaskennan ja
+	<br>
+<!--	a theory of gravity, he should be clever enough to do -->
+	painovoimateorian kehittäjän pitäisi olla riittävän älykäs
+	<br>
+<!--	some financial investing, right? Anyway, long story short, he -->
+	menestymään myös sijoittajana! Lopputuloksena herra Newton
+	<br>
+<!--	lost $4,600,000 (in today's dollars) in the nationwide -->
+	päätyi häviämään yli neljä miljoonaa nykyeuroa vuonna 1720
+	<br>
+<!--	speculation frenzy known as the South Sea Bubble of 1720. -->
+	Etelänmeren kuplana tunnetussa spekulaatiovillityksessä.
+
+	<br><br>
+
+<!--	As Mr. Newton later said: <i>“I can calculate the motion of -->
+	Jälkikäteen Newtonin kerrotaan sanoneen pystyvänsä "ennustamaan
+	<br>
+<!--	heavenly bodies, but not the madness of people.”</i> -->
+	taivaankappaleiden liikkeet, mutta ei ihmisten tyhmyyttä."
+
+	<next>Ikävämpi juttu hänelle <div class="rarr"></div> </next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+
+<!--	Of course, that's not the only -->
+	Markkinat, instituutiot tai jopa
+	<br>
+<!--	time markets, institutions, or entire -->
+	kokonaiset kansakunnat ovat toki muulloinkin
+	<br>
+<!--	democracies went haywire &mdash; the <i>madness</i> of -->
+	menneet sekaisin &mdash; <i>joukossa tyhmyys tiivistyy.</i>
+	<br>
+<!--	crowds. And yet, just when you lose hope in humanity, -->
+	Mutta juuri kun usko ihmiskuntaan on hiipumassa, kuullaan
+	<br>
+<!--	you see citizens coordinating to rescue each other in -->
+	uutisia yhteistyöstä katastrofien keskellä, yhteisöistä
+	<br>
+<!--	hurricanes, communities creating solutions to problems, -->
+	innovoimassa ratkaisuja ongelmiin ja yhteisestä taistelusta
+	<br>
+<!--	people fighting for a better world &mdash; the <i>wisdom</i> of crowds! -->
+	paremman maailman puolesta &mdash; <i>joukossa viisaus tiivistyy!</i>
+
+	<div style="height:0.9em"></div>
+
+<!--	<b>But <i>why</i> do some crowds turn to madness, or wisdom?</b> No theory -->
+	<b>Miksi jotkut ihmisjoukot saavat aikaan hyvää ja toiset pahaa?</b>
+	<br>
+<!--	can explain everything, but I think a new field of study, -->
+	Kaikenkattavaa selitystä ei tietenkään löydy, mutta ilmiötä
+	<br>
+<!--	<b>network science</b>, can guide us! And its core idea is this: to -->
+	voidaan yrittää ymmärtää <i>verkostotieteen</i> avulla. Sovellettuna
+	<br>
+<!--	understand crowds, we should look not at the <i>individual -->
+	ryhmäkäyttäytymiseen sen perusajatuksena on keskittyä
+	<br>
+<!--	people</i>, but at... -->
+	yksilöiden sijaan heidän...
+
+	<next>...<i>yhteyksiinsä.</i> <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>Piirretäänpä ihmisten verkosto!</b>
+	Jokainen viiva edustaa kahden ihmisen välistä ystävyyttä:
+</words>
+
+<words id="networks_tutorial_connect">
+	piirrä välille lisätäksesi
+</words>
+
+<words id="networks_tutorial_disconnect">
+<!--	scratch to&nbsp;&nbsp;&nbsp;disconnect -->
+	piirrä poikki&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;poistaaksesi
+</words>
+
+<words id="networks_tutorial_end">
+
+	Kun olet piirrellyt ja kokeillut riittävästi, niin
+	<next wiggle>jatketaan. <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_threshold">
+
+<!--	Now, social connections are for more than just making pretty pictures.
+	People <i>look to</i> their social connections to understand their world.
+	For example, people look to their peers to
+	find out <b>what % of their friends (not counting themselves)</b> are,
+	say, binge-drinkers. <icon name="yellow"></icon> -->
+
+	Sosiaalisista verkostoista saa toki irti muutakin kuin kivoja kuvia.
+	Ihmisillä on tapana <i>tutkia</i> kontaktejaan ympäröivän maailman ymmärtämiseen.
+	Viereisen verkoston jäsenet esimerkiksi pohtivat, <b>mikä osuus heidän
+	ystävistään</b> on alkoholin liikakuluttajia.
+
+</words>
+
+<words id="networks_threshold_instruction">
+	<b>Tutki mitä tapahtuu, kun lisäät ja poistat yhteyksiä. <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>Tajusin!</next>
+</words>
+
+<words id="networks_pre_puzzle">
+<!--	However, networks can <i>fool</i> people.
+	Just like how the earth seems flat because we're on it,
+	people may get wrong ideas about society because they're <i>in</i> it. -->
+	Verkostot voivat kuitenkin <i>johtaa harhaan</i>.
+	Samaan tapaan kuin Maa näyttää sen päältä katsottuna litteältä,
+	yhteisön tarkasteleminen <i>sisältä käsin</i> voi saada aikaan vääriä käsityksiä.
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		lue halutessasi tästä lisää &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		linkkejä ja viittauksia &darr;
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+	
+	<bon id="books"></bon>
+
+	<br>
+
+<!--	For example, a 1991 study<ref id="drunk"></ref> showed that 
+	“virtually all [college] students reported that their friends drank more than they did.”
+	But that seems impossible!
+	How can that be?
+	Well, you're about to invent the answer yourself, by drawing a network.
+	It's time to... -->
+
+	Erään vuonna 1991 julkaistun tutkimuksen<ref id="drunk"></ref> mukaan "lähes kaikki
+	[yliopisto-]opiskelijat uskovat ystäviensä juovan enemmän kuin he"!
+	Miten näin mahdottomalta kuulostavaan tilanteeseen voidaan päätyä?
+	Kokeile löytää ratkaisu itse piirtämällä verkosto, jossa...
+
+	<next>...KAIKKIA HUIJATAAN <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">PÄHKINÄ</b>
+	<br>
+	Yhdistä kolme alkoholin liikakuluttajaa ja kuusi muuta verkostoksi,
+	jossa <i>jokainen</i> uskoo enemmistön (yli 50 %) ystävistään
+	olevan liikakuluttajia <icon name="yellow"></icon>
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>HUIJATTUJA</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	/ 9
+</words>
+<words id="networks_puzzle_end">
+	Onnittelut! Sait juuri opiskelijaporukan hyväksymään hyvin
+	epäterveellisen sosiaalisen normin. Jatka samaan malliin!
+<!--	Congrats! You manipulated a group of students into believing
+	in the prevalance of an incredibly unhealthy social norm! Good going! -->
+	<next wiggle>...kiitos?</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+<!--	What you just created is called The Majority Illusion<ref id="majority"></ref>,
+	which also explains why people think their political views are consensus,
+	or why extremism seems more common than it actually is.
+	<i>Madness.</i> -->
+	Edellä havaittiin <i>enemmistöharhan</i><ref id="majority"></ref>
+	toimintaa käytännössä. Samasta syystä myös omat poliittiset näkemykset tai
+	ääriajattelu voivat vaikuttaa yleisemmiltä kuin ne ovatkaan. <i>Mielipuolista!</i>
+
+	<bon id="connections"></bon>
+
+<!--	But people don't just passively <i>observe</i> others' ideas and behaviors,
+	they actively <i>copy</i> them.
+	So now, let's look at something network scientists call... -->
+	Ihmiset eivät kuitenkaan vain <i>havainnoi</i> toisten ajatuksia ja käytöstä,
+	vaan myös aktiivisesti <i>kopioivat</i> niitä. Verkostotieteessä
+	tämän ilmiön yhteydessä puhutaan...
+
+	<next>...tartunnoista! <div class="rarr"></div> </next>
+
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+<!--	<i>Let's put aside the "threshold" thing for now.</i>
+	Below: we have a person <icon name="red"></icon> with some information.
+	Some <i>mis</i>information. "Fake news", as the cool kids say.
+	And every day, that person spreads the rumor, like a virus, to their friends.
+	And they spread it to <i>their</i> friends. And so on.
+	<br>
+	<b>
+	Start the simulation! <div class="darr"></div>
+	(p.s: you can't draw <i>while</i> the sim's running)
+	</b> -->
+	Alla olevalla henkilöllä <icon name="red"></icon> on hallussaan tietoa.
+	Vaikkapa <i>valeuutinen</i> paremman sanan puutteessa. Kyseinen
+	henkilö levittää valeuutistaan ystävilleen joka päivä, ja samoin tekee
+	jokainen sen kuullut. Väärä tieto pääsee leviämään verkostossa viruksen lailla.
+	<br>
+	<b>Kokeile mitä tapahtuu! <div class="darr"></div>
+	Et voi piirtää, kun simulaatio on käynnissä.</b>
+</words>
+
+<words id="simple_simple_2">
+<!--	Note: despite the negative name, "contagions" can be good or bad (or neutral or ambiguous). 
+	There's strong statistical evidence<ref id="contagion"></ref> that
+	smoking, health, happiness, voting patterns, and cooperation levels
+	are all "contagious" --
+	and even some evidence that suicides<ref id="suicides"></ref> and mass shootings<ref id="shootings"></ref> are, too. -->
+	Huomaa, että nimestään huolimatta tartunnat voivat olla hyviä, huonoja, neutraaleja tai
+	vaikka kaikkia! Ainakin tupakoinnin, onnellisuuden, äänestämisen ja yhteistyön
+	tiedetään<ref id="contagion"></ref> toimivan tartunnanomaisesti. Vastaavaa näyttöä liittyy
+	myös itsemurhiin<ref id="suicides"></ref> ja joukkoampumisiin<ref id="shootings"></ref>.
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle>Kuulostaa masentavalta... <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_cascade">
+	Sitähän se on, mutta nyt on toisen <b>PÄHKINÄN</b> aika.
+	<br>
+	Piirrä verkosto, jossa kaikki saavat tartunnan.
+	Kun uskot olevasi valmis, käynnistä simulaatio.
+	Sovitaan lisäksi, että <i>paksuja</i> yhteyksiä ei voi katkaista.
+<!--	Draw a network &amp; run the simulation,
+	so that <i>everyone</i> gets infected with the "contagion".
+	<br>
+	(new rule: you can't cut the <i>thick</i> connections) -->
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle>Loistavaa! <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_post_cascade">
+<!--	This madness-spreading is called an <b>"information cascade"</b>.
+	Mr. Newton fell for such a cascade in 1720.
+	The world's financial institutions fell for such a cascade in 2008.<ref id="subprime"></ref>
+	<br><br>
+	However: <i>this simulation is wrong.</i>
+	Most ideas <i>don't</i> spread like viruses.
+	For many beliefs and behaviors, you need to be "exposed" to the contagion more than just once
+	in order to be "infected".
+	So, network scientists have come up with a new, better way to 
+	describe how ideas/behaviors spread, and they call it... -->
+	Juuri tällaisen mielipuolisuutta levittävän tapahtumasarjan uhriksi
+	herra Newton joutui vuonna 1720. Samoin kävi maailman finanssiyhtiöille
+	vuonna 2008<ref id="subprime"></ref>.
+	<br><br>
+	Tämä ei luonnollisestikaan ole koko totuus!
+	Monet ajatukset eivät leviä viruksen lailla
+	kertakosketuksesta, vaan niiden tarttuminen vaatii pidempiaikaisen altistuksen.
+	Verkostotieteilijät ovatkin kehittäneet paremman tavan kuvata
+	käyttäytymismallien leviämistä, ja kutsuvat tällaisia tartuntoja...
+	<next wiggle><i>kompleksisiksi!</i> <div class="rarr"></div> </next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+
+<!--	Let's bring back "thresholds" and the binge-drinking <icon name="yellow"></icon> example!
+	When you played with this the first time, people didn't change their behavior. -->
+	Palautetaanpa mieleen aiempi esimerkki alkoholin liikakulutuksesta <icon name="yellow"></icon>.
+	Edellisellä kerralla ihmisten käyttäytyminen ei muuttunut enemmistöedustuksesta huolimatta. 
+
+	<br><br>
+
+<!--	Now, let's simulate what happens if people start drinking
+	<i>when 50%+ of their friends do!</i> 
+	<b>Before you start the sim, ask yourself what you think <i>should</i> happen.</b> -->
+	Tutkitaan siis mitä tapahtuu, jos ihmiset alkavat juoda,
+	<i>kun yli 50 % heidän ystävistään juo</i>.
+	<b>Yritä ensin ennustaa, mitä pitäisi tapahtua.</b>
+
+	<br><br>
+	
+	<b>Käynnistä sitten simulaatio, ja katso olitko oikeassa! <div class="rarr"></div> </b>
+
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+		
+<!--		Unlike our earlier "fake news" <icon name="red"></icon> contagion,
+		this contagion <icon name="yellow"></icon> does <i>not</i> spread to everyone!
+		The first few people get "infected", because although they're only exposed to one
+		binge-drinker, that binge-drinker is 50% of their friends. (yeah, they're lonely)
+		In contrast, the person near the end of the chain did <i>not</i> get "infected",
+		because while they were exposed to a binge-drinking friend,
+		they did not pass the 50%+ threshold. -->
+		Toisin kuin valeuutiset <icon name="red"></icon> aiemmin,
+		liikajuominen <icon name="yellow"></icon> ei leviä kaikkialle! Ensimmäinen tartutus
+		onnistuu, sillä alkuperäinen liikakuluttaja muodostaa 50 % ystävänsä lähipiiristä.
+		Vastaavasti lähelle ketjun toista päätä sijoittuva ihminen ei ala juomaan, sillä
+		yksi tartunnan saanut ei riitä ylittämään vaadittua kynnystä.
+
+		<div style="height:0.75em"></div>
+
+<!--		The <i>relative</i> % of "infected" friends matters.
+		<i>That's</i> the difference between the <b>complex contagion</b> theory<ref id="complex"></ref>,
+		and our naive it-spreads-like-a-virus <b>simple contagion</b> theory.
+		(you could say "simple contagions" are just contagions with a "more than 0%" infection threshold) -->
+		Tässä mallissa tartunnan saaneiden ystävien <i>suhteellinen</i> määrä ratkaisee.
+		Tämä on <b>kompleksisen</b> tartunnan teorian<ref id="complex"></ref> ero
+		aiempaan leviämiseen. (Virusmaista tartuntaa voisi myös kuvata kompleksisena tartuntana,
+		jossa leviämiskynnys on 0 % lähipiiristä.)
+
+		<div style="height:0.75em"></div>
+
+<!--		However, contagions aren't necessarily bad &mdash;
+		so enough about crowd <i>madness</i>, what about... -->
+		Tartunnat eivät ole aina huonoja, joten paneudutaan
+		seuraavaksi joukkotyhmyyden sijaan...
+		<next>...<i>joukkoviisauteen</i>.</next>
+
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+<!--	Here, we have a person <icon name="blue"></icon> who volunteers to... I don't know,
+	rescue people in hurricanes, or tutor underprivileged kids in their local community, or something cool like that.
+	Point is, it's a "good" complex contagion.
+	This time, though, let's say the threshold is only 25% &mdash;
+	people are willing to volunteer, but only if 25% or more of their friends do so, too.
+	Hey, goodwill needs a bit of social encouragement. -->
+	Tässä on <icon name="blue"></icon>, ja hän toimii vapaaehtoisena... oikeastaan
+	missä tahansa: katastrofiavustuksessa, kaupunkinsa vähäosaisten lasten läksykerhossa tai muussa kivassa toiminnassa.
+	Pääasia on, että hän tartuttaa jotakin positiivista.
+	Ajatellaan, että tällä kertaa leviämiskynnys on 25 % &mdash;
+	ihmiset tekevät siis vapaaehtoistyötä, kunhan vähintään 25 % kavereistakin tekee niin.
+	(Hyvän tekeminen vaatii loppujen lopuksi rohkaisua.)
+
+	<br><br>
+
+<!--	<b>&larr; Get everyone "infected" with the good vibes!</b> -->
+	<b>&larr; "Tartuta" kaikkiin hyväntahtoinen asenne!</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+<!--		<b>NOTE:</b> Volunteering is just <i>one</i> of many complex contagions!
+		Others include: voter turnout, lifestyle habits, 
+		challenging your beliefs,
+		taking time to understand an issue deeply &mdash; anything
+		that needs more than one "exposure".
+		Complex contagions aren't <i>necessarily</i> wise,
+		but being wise is a complex contagion. -->
+		<b>MUISTUTUS:</b> Vapaaehtoisaktiivisuus on vain <i>esimerkki</i> kompleksisesta tartunnasta!
+		Myös äänestysaktiivisuus, elämäntavat,
+		uskomusten kriittinen tarkastelu
+		ja asioihin paneutuminen &mdash; mikä tahansa
+		pikku hiljaa opittava &mdash; on sellainen.
+		Kompleksinen tartunta ei <i>välttämättä</i> ole viisas,
+		mutta viisaus on kompleksinen tartunta.
+
+		<div style="height:0.75em"></div>
+
+<!--		(So what's a real-life <i>simple</i> contagion?
+		Usually bits of trivia, like, "the possum has 13 nipples"<ref id="possum"></ref>) -->
+		(Entä oikeat <i>yksinkertaiset</i> tartunnat?
+		Esimerkkejä ovat hauskat triviatiedot, kuten "opossumilla on 13 nisää"<ref id="possum"></ref>.)
+
+		<bon id="contagions"></bon>
+
+<!--		Now, to <i>really</i> show the power and weirdness of complex contagions, let's revisit... -->
+		Kompleksisten tartuntojen voiman ja outouden ymmärtämiseksi palataan...
+
+<!--		<next>...an earlier puzzle <div class="rarr"></div> </next> -->
+		<next>...aikaisempaan tehtävään. <div class="rarr"></div> </next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+<!--	Remember this? This time, with a <i>complex</i> contagion <icon name="blue"></icon>, it'll be a bit tougher... -->
+	Muistatko vielä tämän? <i>Kompleksisen</i> tartunnan <icon name="blue"></icon> levittäminen onkin hiukan hankalampaa...
+	<br>
+<!--	<b>Try to "infect" everyone with complex wisdom! <div class="darr"></div></b> -->
+	<b>Yritä "tartuttaa" viisaus kaikkiin! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+<!--	(feel free to just hit 'start' and <i>try</i> as many solutions as you want) -->
+	(Voit kokeilla niin montaa ratkaisua kuin haluat.)
+</words>
+
+<words id="complex_cascade_end">
+<!--	<next wiggle>HOT DANG <div class="rarr"></div> </next> -->
+	<next wiggle>LOISTAVAA! <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+<!--	Now, you may think that you just need to keep adding connections to spread any contagion,
+	"complex" or "simple", good or bad, wise or mad.
+	But is that really so? Well, let's revisit... -->
+	Lisäämällä siis vain riittävästi yhteyksiä voidaan levittää mitä vain tartuntaa,
+	oli se sitten "kompleksinen", "yksinkertainen", viisas tai tyhmä.
+	Vai voidaanko? Palataanpa jälleen...
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle>...aikaisempaan tehtävään. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_prevent">
+<!--	If you hit "start" below, the complex contagion <icon name="blue"></icon> will just spread to everyone.
+	No surprise there.
+	But now, let's do the <i>opposite</i> of everything we've done before: -->
+	Jos käynnistät tämän simulaation, kompleksinen tartunta <icon name="blue"></icon> leviää kaikkin.
+	Ei mitään yllättävää.
+	Yritetään sitten jotakin täysin <i>päinvastaista</i>:
+<!--	<b>draw a network to <i>prevent</i> the contagion from spreading to everyone! <div class="darr"></div></b> -->
+	<b>piirrä verkosto <i>estääksesi</i> tartuntaa leviämästä kaikkiin! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+<!--	You see?
+	While more connections will always help the spread of <i>simple</i> ideas,
+	<b>more connections can hurt the spread of <i>complex</i> ideas!</b>
+	(makes you wonder about the internet, hm?)
+	And this isn't just a theoretical problem. This can be a matter of life... -->
+	Huomaatko mitä tapahtui?
+	Yhteyksien lisääminen auttaa aina <i>yksinkertaisten</i> ajatusten liikkumista,
+	mutta se <b>voi jopa haitata <i>monimutkaisten</i> leviämistä!</b>
+	(Mietipä vain Internetissä leviävää tietoa.)
+	Tämä ilmiö ei ole vain teoreettinen ongelma, vaan voi olla myös elämän ja...
+</words>
+
+<words id="complex_prevent_end">
+<!--	<next wiggle>...or death. <div class="rarr"></div> </next> -->
+	<next wiggle>...kuoleman kysymys. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_groupthink">
+		
+<!--	The people at NASA were smart cookies.
+	I mean, they'd used Newton's theories to get us to the moon.
+	Anyway, long story short, in 1986,
+	<i>despite warnings from the engineers</i>,
+	they launched the <i>Challenger</i>,
+	which blew up and killed 7 people.
+	The immediate cause: 
+	it was too cold that morning. -->
+	Yhdysvaltain ilmailu- ja avaruushallinto
+	NASA:lla työskenteli fiksuja ihmisiä, jotka olivat vieneet ihmisen Kuuhun
+	Newtonin teorioilla. Kuitenkin vuonna 1986,
+	<i>huolimatta insinöörien varoituksista</i>,
+	avaruussukkula Challenger laukaistiin.
+	Alus räjähti tappaen seitsemän henkilöä,
+	koska laukaisupäivän aamu oli liian kylmä.
+
+	<div style="height:0.9em"></div>
+
+<!--	The less immediate cause: the managers ignored the engineers' warnings.
+	Why? Because of <b>groupthink</b><ref id="groupthink"></ref>.
+	When a group is <i>too</i> closely knit, (as they tend to be at the top of institutions)
+	they become resistant to complex ideas that challenge their beliefs or ego. -->
+	Epäsuorempi syy onnettomuuteen oli johtajien päätös sivuuttaa insinöörien varoitukset.
+	He sortuivat <b>ryhmäajatteluun</b><ref id="groupthink"></ref>.
+	Kun ryhmän jäsenet ovat <i>liian lähellä</i> toisiaan organisaatioiden johtoportaiden tapaan,
+	he alkavat vastustaa omat uskomukset haastavia ajatuksia.
+
+	<div style="height:0.9em"></div>
+
+<!--	So, that's how institutions can fall to crowd madness.
+	But how can we "design" for crowd <i>wisdom?</i>
+	In short, two words: -->
+	Tämän vuoksi organisaatiot joutuvat joskus joukkotyhmyyden valtaan.
+	Voitaisiinko samaan tapaan pyrkiä <i>joukkoviisauteen</i>?
+	Kyllä, käyttämällä
+
+	<next>siteitä ja siltoja. <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+<!--	&larr; Too few connections, and an idea can't spread. -->
+	&larr; Liian vähän yhteyksiä: ajatus ei pääse leviämään.
+	<br>
+<!--	Too many connections, and you get groupthink. <div class="rarr"></div> -->
+	Liian paljon yhteyksiä: päädytään ryhmäajatteluun. &rarr;
+</words>
+
+<words id="bonding_2">
+<!--	<b>
+	Draw a group that hits the sweet spot:
+	just connected enough to spread a complex idea!
+	<div class="darr"></div>
+	</b> -->
+	<b>
+	Piirrä juuri sopiva verkosto, jossa
+	monimutkainen ajatus pääsee leviämään!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+<!--	Simple enough!
+	The number of connections <i>within</i> a group is called <b>bonding social capital</b><ref id="social_capital"></ref>.
+	But what about the connections... -->
+	Eihän ollut vaikeaa?
+	Ryhmän <i>sisäisten</i> yhteyksien lukumäärää kutsutaan <b>sitovaksi sosiaaliseksi pääomaksi</b><ref id="social_capital"></ref>.
+	Entäpä yhteydet...
+<!--	<next wiggle>...<i>between</i> groups?</next> -->
+	<next wiggle>...ryhmien <i>välillä</i>?</next>
+</words>
+
+<words id="bridging_1">
+<!--	As you may have already guessed, 
+	the number of connections <i>between</i> groups is called
+	<b>bridging social capital</b>.
+	This is important, because it helps groups break out of their insular echo chambers! -->
+	Ryhmien <i>välisten</i> yhteyksien lukumäärää kutsutaan
+	<b>yhdistäväksi sosiaaliseksi pääomaksi</b>.
+	Sen tärkeys käy ilmi, kun ryhmä pyrkii ulos ahdasmielisestä siilostaan.
+	<br>
+<!--	<b>Build a bridge, to "infect" everyone with complex wisdom:</b> -->
+	<b>Piirrä silta, jonka avulla "tartutat" kaikki viisaudella!</b>
+</words>
+
+<words id="bridging_end">
+<!--	Like bonding, there's a sweet spot for bridging, too.<ref id="bridge"></ref>
+	(extra challenge: try drawing a bridge so thick that the complex contagion
+	<i>can't</i> pass through it!)
+	Now that we know how to "design" connections <i>within</i> and <i>between</i> groups, let's... -->
+	Kuten siteitä, myös siltoina toimivia yhteyksiä voi olla liikaa.<ref id="bridge"></ref>
+	(Ylimääräinen haaste: piirrä niin tiheä silta, että tartunta
+	<i>ei pääse</i> leviämään sen läpi!)
+	Nyt kun ryhmien <i>sisäisiä</i> ja <i>välisiä</i> yhteyksiä osataan hyödyntää erikseen, tutkitaan...
+<!--	<next wiggle>...do BOTH at the same time!</next> -->
+	<next wiggle>...niitä yhtäaikaa!</next>
+</words>
+
+<words id="bb_1">
+
+<!--	<b style="font-size:2em">FINAL PUZZLE!</b> -->
+	<b style="font-size:2em">Loppu häämöttää... </b>
+	<br>
+<!--	Draw connections within groups (bonding) and between groups (bridging)
+	to spread wisdom to the whole crowd: -->
+	Piirrä yhteyksiä ryhmien sisälle (siteet) ja välille (sillat)
+	levittääksesi tartunnan koko joukkoon.
+
+</words>
+<words id="bb_2">
+
+<!--	Congrats, you've just drawn a very special kind of network!
+	Networks with the right mix of bonding and bridging
+	are profoundly important, and they're called... -->
+	Onnittelut, rakensit juuri hyvin erityisen verkoston!
+	Juuri sopivasti siteitä ja siltoja sisältävät verkostoissa
+	huomattaan, kuinka
+<!--	<next wiggle>“Small World Networks” <div class="rarr"></div> </next> -->
+	<next wiggle><i>maailma on pieni</i>. <div class="rarr"></div> </next>
+
+</words>
+<words id="bb_small_world_1">
+
+<!--	<i>"Unity without uniformity". "Diversity without division". "E Pluribus Unum: out of many, one".</i> -->
+	<i>"Moninaisuudessaan yhtenäinen". "E pluribus unum", eli "monesta yksi".</i>
+	<br>
+<!--	No matter how it's phrased,
+	people across times and cultures often arrive at the same piece of wisdom:
+	<b>
+	a healthy society needs a sweet spot of bonds <i>within</i> groups
+	and bridges <i>between</i> groups.
+	</b>
+	That is: -->
+	Erilaiset sanalliset muotoilut,
+	kautta aikain ja kulttuurien tunnettu yhtenäinen viisaus:
+	<b>
+	terve sosiaalinen verkosto tarvitsee sopivasti yhteyksiä sen muodostavien
+	ryhmien <i>sisällä</i> ja <i>välillä</i>.
+	</b>
+	Toisin sanoen
+
+</words>
+<words id="bb_small_world_2">
+<!--	Not this... -->
+	ei tätä...
+	<br>
+<!--	(because ideas can't spread) -->
+	(ajatukset eivät leviä)
+</words>
+<words id="bb_small_world_3">
+<!--	nor this... -->
+	...eikä tätä...
+	<br>
+<!--	(because you'll get groupthink) -->
+	(sorrutaan ryhmäajatteluun)
+</words>
+<words id="bb_small_world_4">
+<!--	...but <i>THIS:</i> -->
+	...vaan <i>TÄTÄ</i>.
+</words>
+<words id="bb_small_world_5">
+	
+<!--	Network scientists now have a mathematical definition for this ancient wisdom:
+	the <b>small world network</b><ref id="small_world"></ref>.
+	This optimal mix of bonding+bridging describes how
+	our neurons are connected<ref id="swn_neurons"></ref>,
+	fosters collective creativity<ref id="swn_creativity"></ref>
+	and problem-solving<ref id="swn_social_physics"></ref>,
+	and even once helped US President John F. Kennedy (barely) avoid nuclear war!<ref id="swn_jfk"></ref>
+	So, yeah, small worlds are a big deal. -->
+	Verkostotieteessä tämä viisaus muotoillaan matemaattisesti
+	<b>pieni maailma -verkostona</b><ref id="small_world"></ref>.
+	Siteiden ja siltojen optimaalinen yhdistelmä kuvaa
+	neuronien muodostamaa verkostoa<ref id="swn_neurons"></ref>,
+	kollektiivista luovuutta<ref id="swn_creativity"></ref>
+	ja ongelmanratkaisua<ref id="swn_social_physics"></ref>,
+	sekä kuinka Yhdysvaltain presidentti John F. Kennedy vältti ydinsodan!<ref id="swn_jfk"></ref>
+	Pienet maailmat ovat erittäin tärkeitä.
+
+</words>
+<words id="bb_small_world_end">
+<!--	<next>ok, let's wrap this up... <div class="rarr"></div> </next> -->
+	<next>Yhteenvedon aika! <div class="rarr"></div> </next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+<!--	(pst... wanna know a secret?<ref id="sandbox"></ref>) -->
+	(Haluatko kuulla salaisuuden?<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+<!--	Contagion: -->
+	Tartunta:
+</words>
+<words id="sandbox_contagion_simple">
+	yksinkertainen
+</words>
+<words id="sandbox_contagion_complex">
+	kompleksinen
+</words>
+<words id="sandbox_color_chooser">
+<!--	The Contagion's Color: -->
+	Tartunnan väri:
+</words>
+<words id="sandbox_tool_chooser">
+<!--	Select a tool... -->
+	Valitse työkalu:
+</words>
+
+<words id="sandbox_tool_pencil">
+<!--	Draw Network -->
+	Piirrä
+</words>
+<words id="sandbox_tool_add">
+<!--	Add Person -->
+	Lisää henkilö
+</words>
+<words id="sandbox_tool_add_infected">
+<!--	Add "Infected" -->
+	Lisää "tartuttaja"
+</words>
+<words id="sandbox_tool_move">
+<!--	Drag Person -->
+	Siirrä henkilöä
+</words>
+<words id="sandbox_tool_delete">
+<!--	Delete Person -->
+	Poista henkilö
+</words>
+<words id="sandbox_tool_clear">
+<!--	<b>CLEAR IT ALL</b> -->
+	<b>POISTA KAIKKI</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+<!--	(...or, use keyboard shortcuts!) -->
+	(...tai käytä pikanäppäimiä!)
+</words>
+
+<words id="sandbox_shortcuts">
+<!--	[1]: Add Person &nbsp;&nbsp;&nbsp; [2]: Add "Infected" -->
+	[1]: Henkilö &nbsp;&nbsp;&nbsp; [2]: "Tartuttaja"
+	<br>
+<!--	[Space]: Drag &nbsp;&nbsp;&nbsp; [Backspace]: Delete -->
+	[Space]: Siirrä &nbsp;&nbsp;&nbsp; [Backspace]: Poista
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+	
+	<div style="font-size: 30px;">
+<!--		IN CONCLUSION: it's all about... -->
+		YHTEENVETONA: kaikki riippuu
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 88px;
+	    top: 20px;
+	    line-height: 100px; display:block;
+	">
+<!--	    Contagions &amp; Connections -->
+	    tartunnoista ja yhteyksistä.
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 125px;
+	    left: 250px;
+	">
+<!--		<b>Contagions:</b>
+		Like how neurons pass signals in a brain,
+		people pass beliefs &amp; behaviors in a society.
+		Not only do we influence our friends,
+		we also influence our friends' friends, and even our friends' friends' friends!<ref id="three_degrees"></ref>
+		(“be the change you wanna see in the world” etc etc)
+		But, like neurons, it's not just signals that matter, it's also... -->
+		<b>Tartunnat:</b>
+		Niin kuin neuronit siirtävät signaaleja aivoissa,
+		ihmiset siirtävät uskomuksia yhteiskunnassa.
+		Ystäviemme lisäksi vaikutamme heidän
+		ystäviinsä, ja jopa heidän ystäviinsä!<ref id="three_degrees"></ref>
+		("Ole muutos, jonka haluat nähdä maailmassa" ja niin edelleen.)
+		Tämä ei kuitenkaan riitä, vaan ilmiöön vaikuttavat myös...
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 275px;
+	    left: 250px;
+	">
+<!--		<b>Connections:</b>
+		Too few connections and complex ideas can't spread.
+		Too <i>many</i> connections and complex ideas get crushed by groupthink.
+		The trick is to build a small world network, the optimal mix of
+		bonding and bridging: <i>e pluribus unum.</i> -->
+		<b>Yhteydet:</b>
+		Liian harvat yhteydet estävät ajatusten leviämisen.
+		Liian <i>monet</i> yhteydet hukuttavat uudet ideat ryhmäajatteluun.
+		Niksinä on rakentaa pieni maailma -verkosto, jossa on juuri sopivasti
+		siteitä ja siltoja: <i>moninaisuudessaan yhtenäinen</i>.
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #999;
+	">
+<!--		(wanna make your own simulations?
+		check out Sandbox Mode, by clicking the (★) button below!) -->
+		(Kiinnostaako kokeilla omia simulaatioita?
+		Kurkista hiekkalaatikkotilaa (★)-painikkeesta!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+<!--		So, what about our question from the very beginning?
+		Why <i>do</i> some crowds turn to... -->
+		Mistä edellä pohditussa olikaan oikein kyse?
+		Joukoissa <i>tiivistyy</i> joskus...
+	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 460px;
+	    right: 0px;
+	">
+<!--		<next>...wisdom and/or madness?</next> -->
+		<next>...tyhmyys ja/tai viisaus.</next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+<!--		From Newton to NASA to -->
+		Newtonista NASA:n kautta
+		<br>
+<!--		network science, we've covered a lot here -->
+		verkostotieteeseen: tänään on opittu paljon
+		<br>
+<!--		today. Long story short, the madness of crowds -->
+		uutta. Kaikessa lyhykäisyydessään joukkotyhmyys
+		<br>
+<!--		is not necessarily due to the <i>individual people</i>, but due -->
+		ei välttämättä johdu <i>yksittäisistä</i> ihmisistä, vaan siitä,
+		<br>
+<!--		to how we're trapped in a network's sticky web. -->
+		kuinka olemme osa ihmisten <i>verkostoa</i>.
+
+		<div style="height:0.9em"></div>
+
+<!--		That <i>does NOT</i> mean abandoning personal responsibility, for -->
+		Tämä ei tarkoita, että henkilökohtainen vastuu toimista voidaan
+		<br>
+<!--		we're also the <i>weavers</i> of that web. So, improve your contagions: -->
+		unohtaa, sillä ihmiset <i>vaikuttavat</i> keskinäisiin verkostoihinsa.
+		<br>
+<!--		be skeptical of ideas that flatter you<ref id="flatter"></ref>, spend time understanding -->
+		Suhtaudu siis kriittisesti imarteleviin ajatuksiin<ref id="flatter"></ref> ja käytä aikaa
+		<br>
+<!--		complex ideas. And, improve your connections: bond with similar -->
+		monimutkaisten ajatuksien ymmärtämiseen. Paranna lisäksi yhteyksiäsi:
+		<br>
+<!--		folk, but also build bridges across cultural/political divides. -->
+		luo siteitä lähelle ja siltoja yli kulttuuristen jakolinjojen.
+
+		<div style="height:0.9em"></div>
+
+<!--		We can weave a wise web. Sure, it's harder than doodling -->
+		Me pystymme rakentamaan turvallisen verkoston. Vaikka se
+		<br>
+<!--		lines on a screen... -->
+		onkin vaikeaa, niin
+
+<!--		<next>...but so, so worth it.</next> -->
+		<next>...se on arvokas tavoite.</next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+<!--		“The great triumphs and tragedies of history are caused,
+		not by people being fundamentally good or fundamentally bad,
+		but by people being fundamentally people.” -->
+		"Suurin osa historian suurista voitoista ja tragedioista johtuu
+		ihmisten perimmäisen hyvyyden tai pahuuden sijaan
+		heidän perimmäisestä inhimillisyydestään."
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Terry Pratchett &amp; Neil Gaiman
+	<div style="height:0.8em"></div>
+	<next small>&lt;3</next>
+</words>
+
+<!-- Credits --> 
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+	
+		<span style="color:#777; position:relative; top:5px;">
+			suunnitellut ja toteuttanut</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			tutki muita jutskiani</a> ·
+		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
+			seuraa Tweetterissä</a>
+		
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			Lämpimät kiitokset kuuluvat</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			PATREON-TUKIJOILLENI</div>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+			Tue muita projektejani &lt;3</a>
+		<br>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			tutustu tukijoihin</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			tutustu testaajiin</a>
+
+		<br><br>
+
+		<span style="display: inline-block; margin-top: 15px;">
+			♫ musiikki: Komiku,
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" ja "Friends 2068"</a>
+			<br>
+			&lt;/&gt; <i>Joukot</i> on
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				avointa lähdekoodia</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	JEE!
+</words>
+<words id="sim_start">
+<!--	start simulation -->
+	Käynnistä
+</words>
+<words id="sim_stop">
+<!--	reset &amp; re-draw -->
+	Yritä uudelleen
+</words>
+<words id="translations_exist">
+<!--	Fan-made translations: -->
+	Käännökset:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	What the, no fan-made translations exist yet?!
+</words>
+<words id="translations_add">
+<!--	(add your own!) -->
+	(lisää omasi!)
+</words>
+<words id="translations_original">
+	<!-- No need to translate this, because, I assume, -->
+	<!-- if someone wants to play the game in English, they can read English -->
+	(original)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+<!--	A quick response to James Surowiecki's <i>The Wisdom of Crowds</i> -->
+	Vastaus James Surowieckin <i>The Wisdom of Crowds</i> -teokselle
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+	
+<!--	First off, I'm not dissing
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	this book.</a>
+	It's a good book, and Surowiecki was trying to tackle the same question I am:
+	<b>“why do some crowds turn to madness, or wisdom?”</b> -->
+	Tarkoituksenani ei ole haukkua
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	teosta</a>.
+	Kyseessä on hyvä kirja, jossa Surowiecki pohtii samaa kysymystä kuin tässäkin.
+	<b>Miksi ihmisryhmät päätyvät hullutuksiin tai viisauteen?</b>
+
+	<br><br>
+
+<!--	Surowiecki's answer: crowds make good decisions when everybody is as independent as possible.
+	He gives the story of a county fair,
+	where the townsfolk were invited to guess the weight of an ox.
+	Surprisingly, the average of <i>all</i> their guesses was better than any <i>one</i> guess</i>.
+	But, here's the rub: the people have to guess <i>independently</i> of each other.
+	Otherwise,
+	they'd be influenced by earlier incorrect guesses,
+	and the average answer would be highly skewed. -->
+	Surowieckin mukaan joukot tekevät hyviä päätöksiä, kun niiden jäsenet ovat mahdollisimman itsenäisiä.
+	Hän kuvailee maalaismarkkinoita,
+	joilla kävijät arvuuttelivat esillä olleen härän painoa.
+	Paras arvaus ei yllättäen ollutkaan kenenkään yksittäisen ihmisen, vaan saatiin kaikkien
+	vastanneiden keskiarvona. Tämä toimii kuitenkin vain, kun ihmiset vastaavat <i>toisistaan riippumatta</i>.
+	Muuten aikaisemmat väärät arvaukset johdattelisivat
+	tulevia harhaan, ja tällöin keskiarvokaan ei anna hyvää tulosta.
+
+	<br><br>
+
+<!--	But... I don't think "make everyone as independent as possible" is the full answer.
+	Even geniuses, who we mischaracterize as the most independent thinkers,
+	are deeply influenced by others. As Sir Isaac Newton said,
+	<i>“If I have seen further, it is by standing on the shoulders of Giants.”</i> -->
+	En kuitenkaan usko, että mahdollisimman suuren riippumattomuuden ajaminen on koko totuus.
+	Myös nerot, joiden virheellisesti ajatellaan olevat itsenäisiä ajattelijoita,
+	ottavat vastaan vaikutteita muilta. Newtonin sanoin,
+	<i>"jos olen nähnyt muita kauemmas, se johtuu siitä, että olen seissyt jättiläisten olkapäillä"</i>.
+
+	<br><br>
+
+<!--	So, which idea is correct?
+	Does wisdom come from thinking for yourself, or thinking with others?
+	The answer is: "yes". -->
+	Kumpi on siis oikein?
+	Syntyykö viisaus ajattelemalla itsenäisesti vai muiden kanssa?
+	Vastaus molempiin kysymyksiin on kyllä.
+
+	<br><br>
+
+<!--	So that's what I'll try to explain in this explorable explanation:
+	how to get that sweet spot between independence and interdependence &mdash;
+	that is, how to get a wise crowd. -->
+	Tätä ajatusta pyritään selventämään tässä simulaatiossa &mdash;
+	kuinka saavuttaa sopiva riippumattomuuden ja riippuvuuden välimaasto, ja
+	siten viisaasti toimiva ihmisryhmä.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+<!--	What other kinds of connections are there? -->
+	Minkälaisia yhteyksiä oikein on olemassa?
+	</h3>
+
+	<div>
+
+<!--	For the sake of simplicity,
+	my simulations pretend that people can only be connected through friendships,
+	and that all friendships are equal.
+	But network scientists <i>do</i> consider other ways we can be connected, such as: -->
+	Yksinkertaisuuden vuoksi
+	tässä simulaatiossa kuvitellaan, että ihmiset liittyvät toisiinsa vain ystävyyden kautta
+	ja että kaikki ystävyyssuhteet ovat samanlaisia.
+	Verkostotieteessä tunnistetaan kuitenkin muunkinlaisia yhteyksiä ihmisten välillä.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+<!--	<b>Directional connections.</b> Alice is the boss of Bob, but Bob is not the boss of Alice.
+	Carol is the parent of Dave, but Dave is not the parent of Carol.
+	"Boss" &amp; "parent" are <i>directional</i> relationships:
+	the relationship only goes one way.
+	In contrast, "friends" is a <i>bidirectional</i> relationship:
+	the relationship goes both ways. (well, hopefully) -->
+	<b>Suunnattu yhteys.</b> Liisa on Peten pomo, mutta Pete ei ole Liisan pomo.
+	Karoliina on Taavin vanhempi, mutta Taavi ei ole Karoliinan vanhempi.
+	"Pomous" ja "vanhemmuus" ovat <i>suunnattuja</i> ihmissuhteita,
+	eli suhde on olemassa vain toiseen suuntaan.
+	"Ystävyys" puolestaan on (toivottavasti) kaksisuuntainen, eli
+	<i>suuntaamaton</i> ihmissuhde.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+<!--	<b>Weighted connections.</b> Elinor and Frankie are mere acquaintances.
+	George and Harry are Best Friends Forever.
+	Even though there's a "friendship" connection in both cases, the second one is stronger.
+	We say that these two connections have different "weights". -->
+	<b>Painotetut yhteydet</b> Elina ja Frans ovat tuttavia.
+	Jyrki ja Harri ovat parhaat ystävät.
+	Vaikka molemmissa tapauksissa ihmissuhde on eräänlainen ystävyys, jälkimmäinen on vahvempi.
+	Tätä kuvaillaan sanomalla, että yhteyksillä on erisuuruiset <i>painot</i>.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+<!--	Just remember: <b>all these simulations are wrong.</b> The same way any map is "wrong".
+	You see the map on the left? Buildings aren't gray featureless blocks!
+	Words don't float above the city! However, maps are useful not <i>despite</i> being simplified,
+	but <i>because</i> they're simplified. Same goes for simulations, or any scientific theory.
+	Of <i>course</i> they're "wrong" &mdash; that's what makes them <i>useful</i>. -->
+	On hyvä muistaa, että <b>mikään simulaatio ei ole oikein</b> samaan tapaan kuin mikään
+	kartta ei ole aivan tarkka. Esimerkiksi vasemmalla oleva kuva esittää rakennukset
+	harmaina piirteettöminä laatikoina ja sanoja kellumassa kaupunkin yllä!
+	Kartat eivät kuitenkaan ole hyödyllisiä yksinkertaistuksistaan <i>huolimatta</i>,
+	vaan <i>niiden takia</i>. Sama pätee simulaatioihin ja kaikkiin tieteellisiin teorioihin.
+	<i>Tietenkään</i> ne eivät ole täysin oikein &mdash; sen vuoksi ne ovat <i>hyödyllisiä</i>.
+	
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+<!--	What other kinds of contagions are there? -->
+	Mitä muita tartuntatyyppejä on olemassa?
+	</h3>
+
+	<div>
+	
+<!--	There are so, so many ways that network scientists can simulate "contagions"!
+	I picked the simplest one, for educational purposes.
+	But here's other ways you could do it: -->
+	Verkostotieteessä on monia tapoja mallintaa tartuntoja. Pedagogisista syistä
+	tähän on valittu niistä yksinkertaisin,
+	mutta muita esimerkkejä ovat seuraavat.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+<!--	<b>Contagions with Randomness</b>.
+	Being "exposed" to a contagion doesn't <i>guarantee</i> you'll be infected,
+	it only makes it more <i>likely</i>. -->
+	<b>Tartunnan satunnaisuus</b>.
+	Tartunnalle altistuminen ei kaikissa tapauksissa <i>takaa</i> tartuntaa,
+	vaan tekee sen <i>todennäköisemmäksi</i>.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+<!--	<b>People have different contagion thresholds.</b> 
+	My simulations pretend that everyone has the same threshold for binge-drinking (50%) or
+	volunteering (25%) or misinformation (0%). 
+	Of course, that's not true in real life, and you could make your sim reflect that. -->
+	<b>Tartuntakynnyksen vaihteleminen.</b>
+	Tässä simulaatiossa oletetaan, että kaikilla on sama kynnys alkoholin liikakäytölle (50 %),
+	vapaaehtoistyölle (25 %) tai valeuutisille (0 %).
+	Oikeassa maailmassa eri ihmisillä on eri tartuntakynnykset samallekin asialle,
+	mikä voitaisiin ottaa huomioon simulaatiota rakennettaessa.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+<!--	<b>An ecology of contagions.</b>
+	What if there were <i>multiple</i> contagions, with <i>different</i> thresholds?
+	For example, a simple "madness" contagion and a complex "wisdom" contagion.
+	If someone's infected with madness, can they still be infected with wisdom?
+	Or vice versa?
+	Can someone be infected with both? -->
+	<b>Monet samanaikaiset tartunnat.</b>
+	Entäpä jos liikkeellä on <i>useita</i> tartuntoja, joilla on erilaiset tartuntakynnykset, kuten
+	esimerkiksi yksinkertainen "hulluus" ja kompleksinen "viisaus"?
+	Tällöin on ratkaistava lisäkysymyksiä, kuten
+	voiko "hulluudelle" tarttunut ihminen saada "viisauden" tai toisinpäin, ja
+	voiko molemmat tartunnat saada samaan aikaan.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+<!--	<b>Contagions that mutate and evolve.</b>
+	Ideas don't pass perfectly from one person to another the way a virus does.
+	Like a game of Telephone, the message gets mutated with each re-telling &mdash;
+	and sometimes the mutant will be more infectious than the original!
+	So, over time, ideas "evolve" to be more catchy, copy-able, contagious. -->
+	<b>Tartuntojen kehittyminen.</b>
+	Ajatukset eivät liiku ihmisten välillä muuttumattomina, kuten virus (useimmiten),
+	vaan rikkinäisen puhelimen tapaan viesti muuttuu matkan varrella.
+	Joskus muuttunut versio on houkuttelevampi kuin alkuperäinen!
+	Ajan kanssa ajatukset voivat siis kehittyä tarttuvammiksi.
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+	
+	<h3>
+<!--	I wanna learn more! What else can I read and/or play? -->
+	Lisää! Mitä muuta voin lukea ja/tai pelata?
+	</h3>
+	
+	<div>
+	
+<!--	This explorable explanation was just a springboard for your curiosity,
+	so you can dive deeper into a vast pool of knowledge!
+	Here's more stuff on networks or social systems: -->
+	Toivottavasti simulaatio toimi ponnahduslautana kiinnostuksellesi,
+	jotta voit sukeltaa syvemmälle tiedon valtamereen!
+	Näissä teoksissa käsitellään lisää verkostoja ja sosiaalisia järjestelmiä.
+
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+<!--	<b>Book:</b> -->
+	<b>Kirja:</b>
+	Nicholas Christakisin ja James Fowlerin
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>
+<!--	by Nicholas Christakis and James Fowler (2009).
+	An accessible tour of how our networks affect our lives, for good or ill. -->
+	(2009). Helposti lähestyttävä kiertomatka verkostojen hyviin ja pahoihin
+	vaikutuksiin elämässämme.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+<!--	Here's an excerpt: Preface &amp; Chapter 1 -->
+	Täältä löydät esipuheen ja ensimmäisen luvun.
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+<!--	<b>Interactive:</b> -->
+	<b>Simulaatio:</b>
+	Nicky Casen
+	<a target="_blank" href="http://ncase.me/trust/">
+	The Evolution of Trust</a> <!-- by Nicky Case (me) (2017).
+	A game about the game theory of how cooperation is built... or destroyed. -->
+	(2017, myös <a target="https://1luap.github.io/trust/">suomeksi</a>).
+	Peliteoriaa yhteistyön rakentamiseksi... tai tuhoamiseksi.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+<!--	<b>Interactive:</b> -->
+	<b>Simulaatio:</b>
+	Vi Hartin ja Nicky Casen
+	<a target="_blank" href="http://ncase.me/polygons/">
+	Parable of the Polygons</a> <!-- by Vi Hart and Nicky Case (also me) (2014).
+	A story about how harmless choices can create a harmful world. -->
+	(2014). Tarina harmittomien valintojemme aiheuttamasta harmillisesta maailmasta.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+<!--	Or, if you just want to see a whole gallery of interactive edu-things, here's -->
+	Muita pelillisiä opetuksellisia juttuja varten voit kurkistaa
+	<a target="_blank" href="http://explorabl.es/">
+	Explorable Explanations</a><!--,
+	a hub for learning through play! -->
+	-sivustolle.
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+<!--	“virtually all [college] students reported that their friends drank more than they did.” -->
+	"&mdash; &mdash; [L]ähes kaikki [yliopisto-]opiskelijat uskovat ystäviensä juovan enemmän kuin he &mdash; &mdash;."
+	</h3>
+
+	<div>
+	Baer et al (1991),
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	“Biases in the perception of drinking norms among college students”</a>.<!-- by Baer et al (1991) -->
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+<!--	“The Majority Illusion” -->
+	Enemmistöharha
+	</h3>
+
+	<div>
+	Lerman et al (2016),
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	“The Majority Illusion in Social Networks”</a>.<!-- by Lerman et al (2016). -->
+	<br>
+<!--	Related: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+	The Friendship Paradox</a>. -->
+	Tutustu myös <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+	ystävyysharhaan</a>.
+	</div>
+</reference>
+<reference id="contagion">
+	
+	<h3>
+<!--	“strong statistical evidence that
+	smoking, health, happiness, voting patterns, and cooperation levels
+	are all contagious” -->
+	"&mdash; &mdash; [T]upakoinnin, onnellisuuden, äänestämisen ja yhteistyön tiedetään toimivan
+	tartunnanomaisesti."
+	</h3>
+
+	<div>
+	
+<!--	From Nicholas Christakis and James Fowler's
+	wonderfully-written, layperson-accessible book,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009). -->
+	Nicholas Christakisin ja James Fowlerin
+	hienosti kirjoitettu ja helposti lähestyttävä
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>-teos (2009).
+
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+<!--	“some evidence that suicides are [contagious], too” -->
+	"Vastaavaa näyttöä liittyy myös itsemurhiin &mdash; &mdash;."
+	</h3>
+
+	<div>
+	O'Carroll et al (1994),
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	“Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop”</a>.
+<!--	by O'Carroll et al (1994), endorsed by the frickin' Centers for Disease Control &amp; Prevention (CDC). -->
+	<br><br>
+	Yhdysvaltain tautikeskuksen hyväksymä.
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+<!--	“some evidence that mass shootings are [contagious], too” -->
+	"Vastaavaa näyttöä liittyy myös &mdash; &mdash; joukkoampumisiin."
+	</h3>
+
+	<div>
+	Towers et al (2015),
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	“Contagion in Mass Killings and School Shootings”</a>.<!-- by Towers et al (2015). -->
+
+	<br><br>
+
+<!--	Also see: the -->
+	Katso myös
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Don't Name Them</a> <!-- campaign,
+	which urges that news outlets <i>DO NOT</i> air mass murderers' names, manifestos, and social media feeds.
+	This spreads the contagion.
+	Instead, news outlets should focus on the victims, first responders, civilian heroes,
+	and the grieving, healing community. -->
+	-kampanja, joka vaatii uutislähteitä olemaan raportoimatta massamurhaajien nimiä, manifesteja ja
+	julkituloja sosiaalisessa mediassa.
+	Tämän tartunnan levittämisen sijaan tulisi keskittyä uhreihin, ensihoitajien työhön,
+	sankarillisiin siviileihin ja sureviin yhteisöihin.
+
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+<!--	“The world's financial institutions fell for such a cascade in 2008.” -->
+	"Samoin kävi maailman finanssiyhtiöille vuonna 2008."
+	</h3>
+
+	<div>
+	Cass Sunsteinin nopealukuinen ja yleistajuinen
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	“Lemmings of Wall Street”</a> <!-- by Cass Sunstein, is a quick, non-technical read.
+	Published in Oct 2008, right in the wake of the crash. -->
+	(lokakuu 2008) julkaistiin juuri romahduksen tapahduttua.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+<!--	“the complex contagion theory.” -->
+	Kompleksisen tartunnan teoria
+	</h3>
+
+	<div>
+	Granovetter (1978),
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	“Threshold Models of Collective Behavior”</a>.<!-- by Granovetter (1978)
+	was the first time, as far as I know, anyone described a "complex contagion" model.
+	(although he didn't use that specific name) -->
+	Tiettävästi ensimmäinen kuvaus kompleksisista tartunnoista, joskin eri nimellä.
+
+	<br><br>
+
+	Centola &amp; Macy (2007),
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a>. <!-- by Centola &amp; Macy (2007)
+	coined the phrase "complex contagion", and
+	showed the important differences between that and "simple contagion". -->
+	Esittelee termin 'kompleksinen tartunta' ja sen oleelliset erot yksinkertaiseen
+	tartuntaan verrattuna.
+
+	<br><br>
+
+	Sprague &amp; House (2017),
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	“Evidence for complex contagion models of social contagion from observational data”</a>.
+<!--	by Sprague &amp; House (2017)
+	empirically showed that complex contagions do, in fact, exist. (at least, in the social media data they looked at) -->
+	Empiirinen todistusaineisto kompleksisten tartuntojen esiintymiselle sosiaalisessa mediassa.
+
+	<br><br>
+
+<!--	Finally, -->
+	Dodds &amp; Watts (2004),
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	“Universal behavior in a generalized model of contagion”</a>.<!-- by Dodds &amp; Watts (2004)
+	proposes a model that unifies <i>all</i> kinds of contagions: 
+	simple and complex, biological and social! -->
+	Tartuntamalli, joka pyrkii kuvaamaan <i>kaikkia</i> tartuntatyyppejä
+	yksinkertaisista kompleksisiin ja biologisista sosiaalisiin.
+
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+<!--	“the possum has 13 nipples” -->
+	"&mdash; &mdash; [O]possumilla on 13 nisää."
+	</h3>
+	<div>
+<!--	arranged in a ring of 12 nipples, plus one in the middle -->
+	Järjestäytyneenä 12 nisän renkaaksi, jonka keskellä on vielä yksi.
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+<!--	“groupthink” -->
+	Ryhmäajattelu
+	</h3>
+
+	<div>
+<!--	This Orwell-inspired phrase was coined by Irving L. Janis in 1971. -->
+	Tämän Orwellin inspiroiman nimen keksi Irving L. Janis vuonna 1971.
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+<!--	In his original article</a>,
+	Janis investigates cases of groupthink, lists its causes, and &mdash; thankfully &mdash;
+	some possible remedies. -->
+	Alkuperäisessä artikkelissaan</a>
+	Janis tutkii ryhmäajattelun yksittäistapauksia, sekä listaa sen syitä ja (onneksi)
+	mahdollisia ratkaisuja.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+<!--	“bonding and bridging social capital” -->
+	Sitova ja yhdistävä sosiaalinen pääoma
+	</h3>
+
+	<div>
+<!--	These two types of social capital &mdash; "bonding" and "bridging" &mdash;
+	were named by Robert Putnam in his insightful 2000 book, -->
+	Nämä sosiaalisen pääoman tyypit nimesi Robert Putnam vuonna 2000
+	oivaltavassa kirjassaan
+	<a target="_blank" href="http://bowlingalone.com/">
+	Bowling Alone</a>. <!-- His discovery:
+	across almost <i>all</i> empirical measures of social connectiveness,
+	Americans are more alone than ever.
+	Golly. -->
+	Hänen päähavaintonsa oli, että amerikkalaiset ovat enemmän yksin kuin koskaan
+	riippumatta sosiaalisten yhteyksien määrän mittarista.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+<!--	“bridging social capital has a sweet spot” -->
+	"&mdash; &mdash; [S]iltoina toimivia yhteyksiä voi olla liikaa."
+	</h3>
+
+	<div>
+	Granovetter (1973,
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	“The Strength of Weak Ties”</a>)<!-- by Granovetter (1973)
+	showed that connections across groups helps spread simple contagions (like information),
+	but -->
+	osoitti, että ryhmien väliset yhteydet auttavat yksinkertaisten tartuntojen leviämistä, mutta
+	Centola ja Macy (2007,
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a>)<!-- by Centola &amp; Macy (2007)
+	showed that connections across groups may not help complex contagions,
+	and it fact, can hurt their spread! -->
+	havaitsivat, että ne eivät välttämätta auta kompleksisia tartuntoja,
+	ja voivat jopa haitata niiden leviämistä.
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+<!--	“the small world network” -->
+	Pieni maailma -verkosto
+	</h3>
+
+	<div>
+
+<!--	The idea of the "small world" was popularized by -->
+	Pienen maailman ajatuksen popularisoi
+	<a target="_blank" href="http://www.jstor.org/stable/2786545"><!--Travers &amp; Milgram's 1969 experiment</a>,
+	which showed that, on average, any two random people in the United States
+	were just six friendships apart &mdash; "six degrees of separation"! -->
+	Traversin ja Milgramin koe</a> vuodelta 1969,
+	jonka mukaan kaksi satunnaisesti valittua yhdysvaltalaista ovat keskimäärin vain
+	kuuden ystävyyssuhteen päässä toisistaan (kuusi erottavaa askelta).
+
+	<br><br>
+
+<!--	The small-world network got more mathematical meat on its bones with -->
+	Pieni maailma -verkosto sai matemaattisemman tulkinnan Wattsin ja Strogatzin (1998,
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	“Collective dynamics of small-world networks”</a>)<!-- by Watts &amp; Strogatz (1998),
+	which proposed an algorithm for creating networks
+	with both low average path length (low degree of separation)
+	and high clustering (friends have lots of mutual friends) &mdash;
+	that is, a network that hits the sweet spot! -->
+	myötä. Heidän algoritmillaan voidaan muodostaa
+	verkosto, jossa keskimääräinen etäisyys solmujen välillä on lyhyt (vähän erottavia askelia)
+	ja johon muodostuu tiheitä ryppäitä (yhteisiä ystäviä on paljon) &mdash;
+	siis juuri sopiva kompleksisen tartunnan leviämiselle!
+
+	<br><br>
+
+<!--	You can also play with -->
+	Voit myös leikkiä Bret Victorin (2011) kehittämällä kyseisen julkaisun
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+<!--	the visual, interactive adaptation of that paper</a> by Bret Victor (2011). -->
+	visuaalisella ja interaktiivisella versiolla</a>.
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+<!--	“[small world networks] describe how our neurons are connected” -->
+	"&mdash; &mdash; [Y]hdistelmä kuvaa neuronien muodostamaa verkostoa &mdash; &mdash;."
+	</h3>
+
+	<div>
+	Bassett &amp; Bullmore (2006),
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	“Small-world brain networks”</a>.<!-- by Bassett &amp; Bullmore (2006). -->
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+<!--	“[small world networks] give rise to collective creativity” -->
+	"&mdash; &mdash; [Y]hdistelmä kuvaa &mdash; &mdash; kollektiivista luovuutta &mdash; &mdash;."
+	</h3>
+
+	<div>
+
+	Uzzi &amp; Spiro (2005),
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	“Collaboration and Creativity: The Small World Problem”</a>.<!-- by Uzzi &amp; Spiro (2005).
+	This paper analyzed the social network of the Broadway scene over time,
+	and discovered that, yup, the network's most creative when it's a "small world" network! -->
+	Artikkelissa analysoidaan Broadwayn sosiaalisen verkoston kehittymistä
+	ja havaitaan, että verkosto on luovimmillaan kun se on pieni maailma -verkosto.
+
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+<!--	“[small world networks] give rise to collective problem-solving” -->
+	"&mdash; &mdash; [Y]hdistelmä kuvaa &mdash; &mdash; kollektiivista &mdash; &mdash; ongelmanratkaisua &mdash; &mdash;."
+	</h3>
+
+	<div>
+<!--	See -->
+	MIT:n professori Alex "Sandy" Petland kuvaa kollektiivista
+	älykkyyttä datalähtöisesti teoksessaan
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	“Social Physics”</a> <!-- by MIT Professor Alex "Sandy" Pentland (2014)
+	for a data-based approach to collective intelligence. -->
+	(2014).
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+<!--	“[small world networks] helped John F. Kennedy (barely) avoid nuclear war!” -->
+	"&mdash; &mdash; [Y]hdistelmä kuvaa &mdash; &mdash;, kuinka Yhdysvaltain presidentti John F. Kennedy vältti ydinsodan!"
+	</h3>
+
+	<div>
+
+<!--	Besides the NASA Challenger explosion, the most notorious example of groupthink
+	was the Bay of Pigs fiasco.
+	In 1961, US President John F. Kennedy and his team of advisors thought
+	&mdash; for some reason &mdash;
+	it would be a good idea to secretly invade Cuba and overthrow Fidel Castro.
+	They failed.
+	Actually, worse than failed: it led to the Cuban Missile Crisis of 1962,
+	<i>the closest the world had ever been to full-scale nuclear war.</i> -->
+	NASA:n Challenger-sukkulan räjähdyksen lisäksi pahamaineisin esimerkki ryhmäajattelusta
+	oli Sikojenlahden maihinnousu.
+	Vuonna 1961 presidentti John F. Kennedy neuvonantajineen ajatteli
+	&mdash; jostain syystä &mdash;
+	että kannattaisi hyökätä salaa Kuubaan ja syöstä Fidel Castro vallasta.
+	Yritys epäonnistui ja johti Yhdysvallat vuoden 1962 Kuuban ohjuskriisiin,
+	<i>lähemmäksi täyden mittakaavan ydinsotaa kuin koskaan</i>.
+
+	<br><br>
+
+<!--	Yup, JFK really screwed up on that one. -->
+	Ei ollut JFK:n parhaita ajatuksia.
+
+	<br><br>
+
+<!--	But, having learnt some hard lessons from the Bay of Pigs fiasco,
+	JFK re-organized his team to avoid groupthink.
+	Among many things, he:
+	1) actively encouraged people to voice criticism,
+	thus lowering the "contagion threshold" for alternate ideas.
+	And
+	2) he broke his team up into sub-groups before reconvening,
+	which gave their group a "small world network"-like design!
+	Together, this arrangement allowed for a healthy diversity of opinion,
+	but without being too fractured &mdash; a wisdom of crowds. -->
+	Opittuaan kuitenkin Sikojenlahden fiaskosta JFK järjesti hallintonsa
+	uudelleen välttämään ryhmäajattelua. Muiden päätösten
+	joukossa hän
+	1) kannusti ihmisiä ilmaisemaan kritiikkinsä ja näin
+	laski vaihtoehtoisten ajatusten tartuntakynnystä, sekä
+	2) hajotti tiiminsä pienempiin ryhmiin ennen uudelleenjärjestäytymistä
+	luoden sille pieni maailma -verkostomaisen rakenteen!
+	Nämä järjestelyt sallivat terveen vaihtelun mielipiteissä ilman
+	liiallista pilkkoutumista. Näin joukossa viisaus tiivistyi.
+
+	<br><br>
+
+<!--	And so, with the same <i>individuals</i> who decided the Bay of Pigs,
+	but re-arranged <i>collectively</i> to decide on the Cuban Missile Crisis...
+	JFK's team was able to reach a peaceful agreement with Soviet leader Nikita Khrushchev.
+	The Soviets would remove their missiles from Cuba, and in return,
+	the US would promise not to invade Cuba again.
+	(and also agreed, in secret, to remove the US missiles from Turkey) -->
+	Tällä tavoin uudistuneena samat, Sikojenlahden maihinnoususta päättäneet ihmiset
+	käsittelivät Kuuban ohjuskriisiä ja onnistuivat pääsemään rauhanomaiseen sopuun
+	Neuvostoliiton johdon kanssa. Neuvostoliitto vetäisi ohjuksensa Kuubasta, ja
+	vastineeksi Yhdysvallat lupaisi olla hyökkäämättä Kuubaan
+	ja vetää omat ohjuksensa Turkista.
+
+	<br><br>
+
+<!--	And that's the story of how all of humanity almost died.
+	But a small world network saved the day! Sort of. -->
+	Näin ihmiskunta päätyi lähestulkoon tuhon partaalle ja
+	pieni maailma -verkosto pelasti päivän! Ainakin melkein.
+
+	<br><br>
+
+<!--	You can read more about this -->
+	Lue lisää aiheesta Harvard Business Reviewn
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+<!--	on Harvard Business Review</a>, -->
+	artikkelista</a>, tai alkuperäisestä ryhmäajattelua käsittelevästä
+<!--	or from -->
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+<!--	the original article on groupthink</a>. -->
+	artikkelista</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+<!--	“we influence [...] our friends' friends' friends!” -->
+	Vaikutamme jopa ystävien ystävien ystäviin.
+	</h3>
+
+	<div>
+<!--	Again, from Nicholas Christakis and James Fowler's
+	wonderful book, -->
+	Tämäkin mainitaan Nicholas Christakisin ja James Fowlerin kirjassa
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+<!--	“be skeptical of ideas that flatter you” -->
+	Suhtaudu siis kriittisesti imarteleviin ajatuksiin,
+	</h3>
+	<div>
+<!--	yes, including the ideas in <i>this</i> explorable explanation. -->
+	mukaan lukien <i>tässä</i> simulaatiossa esitettyihin.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+<!--	★ Sandbox Mode ★ -->
+	★ Hiekkalaatikkotila ★
+	</h3>
+
+	<div>
+<!--	The keyboard shortcuts (1, 2, space, backspace)
+	work in <i>all</i> the puzzles, not just Sandbox Mode!
+	Seriously, you can go back to a different chapter,
+	and edit the simulation right there.
+	In fact, that's how <i>I</i> created all these puzzles. Have fun! -->
+	Pikanäppäimet (1, 2, välilyönti, askelpalautin)
+	toimivat <i>kaikissa</i> tehtävissä, eivät vain hiekkalaatikolla.
+	Voit mennä takaisin mihin vain lukuun ja muokata tehtävää
+	siinä paikassa. Pidä hauskaa!
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+<!--	Dear Patreon supporters:
+	Your generosity <i>literally</i> feeds me and pays my rent.
+	You give me the freedom to make these weird educational games,
+	so, from the bottom of my heart, thank you. &lt;3 -->
+	Rakkaat Patreon-tukijani:
+	anteliaisuutenne kirjaimellisesti elättää minua.
+	Teidän ansiostanne saan luoda näitä outoja opetuksellisia pelejä,
+	ja siksi haluan kiittää teitä sydämeni pohjasta. &lt;3
+	<br>
+	<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+<!--		(want to support me in making more stuff like this? check out my Patreon!)</a> -->
+		(Haluatko tukea muita projektejani? Kurkista Patreoniini!)
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+<!--	Thank you, everyone who playtested <i>Crowds</i>
+	during its many stages of life! -->
+	Kiitokset kaikille <i>Joukkojen</i> testipelaajille
+	sen eri kehitysvaiheissa.
+	
+	<br><br>
+<!--	<b>The Prototype:</b> -->
+	<b>Prototyyppi:</b>
+	<br>
+	Maria ·
+	Monica Srivastava
+
+	<br><br>
+<!--	<b>The Alpha:</b> -->
+	<b>Alpha-versio:</b>
+	<br>
+	Glen Chiacchieri ·
+	Kalli Repzeti ·
+	Mali Akmanalp ·
+	Toph Tucker
+
+	<br><br>
+<!--	<b>The Beta:</b> -->
+	<b>Beta-versio:</b>
+	<br>
+	Alex Dytrych ·
+	Amit Patel ·
+	Cassandra McClure ·
+	Catherine Ray ·
+	Josh Comeau ·
+	Kayle Sawyer ·
+	Matthew Conlen ·
+	Srini Kadamati ·
+	Vanessa Shen ·
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+
+And that's it! That's the last of what needed to a TRANSLATE
+
+Thank you so, so much for doing this again, wow.
+
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+
+-->
