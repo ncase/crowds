@@ -380,11 +380,11 @@ a:hover{
 #translations{
 	position: absolute;
     top: 12px;
-    left: calc(50% - 400px);
-    width: 800px;
+    left: calc(50% - 450px);
+    width: 900px;
     text-align: center;
     color: #fff;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 17px;
     letter-spacing: 0.5px;
 }
