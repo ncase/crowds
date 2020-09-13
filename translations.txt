@@ -28,6 +28,7 @@
 /////////////////////////////
 
 en: English
+nl: Nederlands
 de: Deutsch
 pt: Português
 it: Italiano

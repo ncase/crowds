@@ -1,0 +1,1691 @@
+<!--
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+- - - - - - - - - - -
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 3600+ WORDS to translate, including
+the Bonus Boxes and References.
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+Good luck, and thanks again!
+<3,
+~ Nicky Case
+-->
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+	<!-- Meta Info -->
+	<title>De Wijsheid en/of Waanzin van Groepen</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="een interactieve gids voor sociale netwerken"/> <!-- content="(TRANSLATE this part only)" -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/cs.html"    hreflang="cs">
+	<link rel="alternate" href="http://ncase.me/crowds/de.html"    hreflang="de">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="De Wijsheid en/of Waanzin van Groepen"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="een interactieve gids voor sociale netwerken"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="De Wijsheid en/of Waanzin van Groepen"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="een interactieve gids voor sociale netwerken"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="De Wijsheid en/of Waanzin van Groepen"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="een interactieve gids voor sociale netwerken"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=7">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">overslaan &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">?</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on">AAN</span> <!-- TRANSLATE -->
+			<span id="sound_off">UIT</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			De Wijsheid en/of Waanzin van Groepen <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Waarom gedragen groepen mensen zich slim, dom, vriendelijk of gemeen? Een interactieve gids voor sociale netwerken: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Introductie</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Verbindingen</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Infecties</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Complexe Infecties</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Verbinden &amp; Overbruggen</span> <!-- note: &amp; is html for the "and" sign -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. Het is een kleine wereld</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. Dus...</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Met dank aan</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>?</span>
+				<span>? Experimentele Modus! ?</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+			
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Extra Boxen!</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Links &amp; Referenties</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">?</span></span>
+				<span>Vertalingen</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+			
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+	
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>aan het laden...</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/inobounce.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js?v=5"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js?v=5"></script>
+
+<script src="js/sim/Peep.js?v=2"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js?v=2"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!-- 
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span>de</span>
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">WIJSHEID</span>
+		<span style="position:relative;top: -10px;">en/of</span>
+		<span style="font-size: 60px;">WAANZIN</span>
+		<br>
+		<span style="position: relative;top: -11px;">van</span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">GROEPEN</span>
+	</div>
+
+	<div style="color:#999;font-size: 18px;">
+		<!-- TRANSLATE note: comment out the line below... -->
+		<!-- speeltijd: 30 min ï gemaakt door nicky case, april 2018 -->
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		gemaakt door nicky case & vertaald door Sjanne van der Stappen met hulp van Esra de Groot 
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	aan het laden...
+</words>
+
+<words id="preloader_play">
+	laten we beginnen! <div class="rarr"></div> 
+</words>
+
+<!-- Introduction -->
+<!--
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+-->
+
+<words id="intro">
+
+	<br><br>
+
+	Sir Isaac Newton was er vrij zeker van dat hij
+	<br>
+	een knappe kop was. Nadat hij de wiskunde en een zwaartekrachttheorie
+	<br>
+	had uitgevonden, zou hij toch slim genoeg moeten zijn
+	<br>
+	om geld te investeren? Hoe dan ook, om een lang verhaal
+	<br>
+	kort te maken, verloor hij $4.600.000 (huidige dollarwaarde) in de 
+	<br>
+	nationale speculatie gekte genaamd de South Sea Bubble van 1720.
+
+	<br><br>
+
+	Zoals Dhr. Newton later zei: <i>"Ik kan de beweging van hemel-
+	<br>
+	lichamen berekenen, maar niet de waanzin van mensen."</i>
+
+	<next>tja, jammer voor hem <div class="rarr"></div> </next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+
+	Dat is natuurlijk niet de enige
+	<br>
+	tijd waarin markten, instellingen of hele
+	<br>
+	democratieÎn doorsloegen &mdash; de <i>waanzin</i> van 
+	<br>
+	groepen. En toch, juist wanneer je de hoop in de mensheid
+	<br>
+	verliest, zie je inwoners samenwerken om elkaar te redden bij
+	<br>
+	wervelstormen, gemeenschappen oplossingen creÎren voor problemen,
+	<br>
+	mensen vechten voor een betere wereld &mdash; de <i>wijsheid</i> van groepen!
+
+	<div style="height:0.9em"></div>
+
+	<b>Maar <i>waarom</i> veranderen sommige groepen in waanzin, of wijsheid?</b>
+	<br>
+	Geen theorie kan alles verklaren, maar ik denk dat een nieuw
+	<br>
+	onderzoeksgebied, de <b>wetenschap van netwerken</b>, ons kan leiden! 
+	<br>
+	Het kernidee is: om groepen te begrijpen, moeten we niet naar
+	<br>
+	<i>losse individuen</i> kijken, maar naar...
+
+	<next>...hun <i>verbindingen.</i> <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>Laten we een netwerk tekenen!</b>
+	Elke verbinding staat voor een vriendschap tussen twee mensen:
+</words>
+
+<words id="networks_tutorial_connect">
+	teken om te verbinden
+</words>
+
+<words id="networks_tutorial_disconnect">
+	doorkras om&nbsp;&nbsp;&nbsp;te verbreken
+</words>
+
+<words id="networks_tutorial_end">
+
+	als je klaar bent met krabbelen en tekenen, 
+	<next wiggle>klik hier om verder te gaan <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_threshold">
+
+	Nu worden sociale verbindingen voor meer gebruikt dan alleen het maken van mooie tekeningen.
+	Mensen <i>kijken naar</i> hun sociale verbindingen om hun wereld te begrijpen.
+	Bijvoorbeeld, mensen kijken naar hun leeftijdsgenoten om uit te zoeken
+	<b>welk % van hun vrienden (exclusief zijzelf)</b> 
+	erg veel alcohol drinkt. <icon name="yellow"></icon>
+
+</words>
+
+<words id="networks_threshold_instruction">
+	<b>Teken/verwijder verbindingen, en kijk wat er gebeurt! <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>cool, ik snap het</next>
+</words>
+
+<words id="networks_pre_puzzle">
+	Desalniettemin kan een netwerk mensen <i>foppen</i>.
+	Precies zoals de aarde plat lijkt omdat we erop staan,
+	kunnen mensen onjuiste ideeÎn over de maatschappij krijgen omdat ze er <i>midden in</i> zitten.
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		<i>optionele</i> extra aantekeningen! &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		&darr; links en referenties
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+	
+	<bon id="books"></bon>
+
+	<br>
+
+	Een onderzoek<ref id="drunk"></ref> uit 1991 liet bijvoorbeeld zien dat
+	"vrijwel alle [universiteits]studenten aangaven dat hun vrienden meer dronken dan zij deden."
+	Maar dat lijkt onmogelijk!
+	Hoe kan dat nou?
+	Nou, je gaat het antwoord zodadelijk zelf uitvinden, door het tekenen van een netwerk.
+	Het is tijd om...
+	
+	<next>IEDEREEN TE FOPPEN <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">PUZZEL TIJD!</b>
+	<br>
+	Fop <i>iedereen</i> zodat ze denken dat 
+	de meerderheid van hun vrienden (50% of meer, de drempelwaarde) meer drinken dan zij <icon name="yellow"></icon>
+	(terwijl de stevige drinkers in de minderheid zijn!)
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>GEFOPT:</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	van de 9 mensen
+</words>
+<words id="networks_puzzle_end">
+	Gefeliciteerd! Je hebt een groep studenten laten geloven
+	in de aanwezigheid van een ongelofelijk ongezonde sociale norm! Goed bezig! 
+	<next wiggle>...uh. bedankt?</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+	Wat je zojuist gemaakt hebt wordt De Illusie van de Meerderheid genoemd<ref id="majority"></ref>,
+	wat ook verklaart waarom mensen denken dat hun politieke voorkeur een consensus is, 
+	of waarom extremisme gebruikelijker lijkt dan het eigenlijk is.
+	<i>Waanzin.</i>
+
+	<bon id="connections"></bon>
+
+	Maar mensen <i>observeren</i> niet alleen passief ideeÎn en gedrag van anderen,
+	ze <i>doen</i> ze actief <i>na</i>.
+	Laten we daarom gaan kijken naar iets dat netwerk onderzoekers noemen...
+
+	<next>ìInfecties!î <div class="rarr"></div> </next>
+
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+	<i>Laten we voor nu het "drempelwaarde" ding parkeren.</i>
+	Hieronder hebben we een persoon <icon name="red"></icon> met informatie.
+	<i>Incorrecte</i> informatie. "Nepnieuws", zoals de coole mensen het noemen.
+	En deze persoon verspreidt elke dag de roddel onder zijn vrienden, zoals een virus.
+	En zij vertellen het aan <i>hun</i> vrienden. Ga zo maar door.
+	<br>
+	<b>
+	Start de simulatie! <div class="darr"></div>
+	(p.s: je kunt niet tekenen <i>tijdens</i> dat de simulatie bezig is)
+	</b>
+</words>
+
+<words id="simple_simple_2">
+	Opmerking: ondanks de negatieve benaming, kunnen "infecties" goed of slecht zijn (of neutraal of ambigu). 
+	Er is sterk statistisch bewijs<ref id="contagion"></ref> dat
+	roken, gezondheid, geluk, stemvoorkeuren en niveaus van samenwerken
+	allemaal "besmettelijk" zijn -
+	en er is zelfs bewijs dat zelfmoord<ref id="suicides"></ref> en massale schietpartijen<ref id="shootings"></ref> dat ook zijn.
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle>nou dat is deprimerend <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_cascade">
+	Dat is het inderdaad.
+	Hoe dan ook, <b>TIJD OM TE PUZZELEN!</b>
+	<br>
+	Teken een netwerk &amp; start de simulatie,
+	zodat <i>iedereen</i> besmet wordt met de "infectie".
+	<br>
+	(nieuwe regel: je kunt de <i>dikke</i> verbindingen niet doorkrassen)
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle>fan-tas-tisch <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_post_cascade">
+	Deze waanzin-verspreiding wordt een <b>"informatie cascade"</b> genoemd.
+	Dhr. Newton viel voor zo'n cascade in 1720.
+	FinanciÎle instituten in de hele wereld vielen voor zo'n cascade in 2008.<ref id="subprime"></ref>
+	<br><br>
+	Toch <i>is deze simulatie onjuist.</i>
+	De meeste ideeÎn worden <i>niet</i> als virussen verspreid.
+	Aan veel overtuigingen en gedrag moet je meer dan een keer "blootgesteld" worden 
+	voordat je "geÔnfecteerd" bent.
+	Dus hebben netwerk onderzoekers een nieuwe, betere manier bedacht 
+	om te beschrijven hoe ideeÎn/gedrag zich verspreidt, en ze noemen het...
+	<next wiggle>ì<i>Complexe</i> Infecties!î <div class="rarr"></div> </next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+
+	Laten we de "drempelwaardes" en het stevige-drinkersvoorbeeld <icon name="yellow"></icon> opnieuw bekijken! 
+	Toen je het de eerste keer speelde, veranderden de personen hun gedrag niet.
+	
+	<br><br>
+
+	Nu gaan we kijken wat er gebeurt als mensen beginnen met drinken 
+	<i>zodra 50%+ van hun vrienden dat doet!</i> 
+	<b>Bedenk, voordat je de simulatie start, wat er <i>zou moeten</i> gebeuren.</b>
+
+	<br><br>
+	
+	<b>Start nu de simulatie en zie wat er echt gebeurt! <div class="rarr"></div> </b>
+
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+		
+		Anders dan in de eerdere "nepnieuws" <icon name="red"></icon> infectie,
+		verspreidt deze infectie <icon name="yellow"></icon> zich <i>niet</i> naar iedereen!
+		De eerste paar mensen worden "geÔnfecteerd", want ondanks het feit dat ze slechts aan ÈÈn stevige drinker
+		blootgesteld zijn, is die stevige drinker 50% van hun vrienden. (jup, ze zijn eenzaam)
+		Daarentegen wordt de persoon aan het einde van de keten <i>niet</i> "geÔnfecteerd",
+		want ondanks dat ze blootgesteld zijn aan een stevige drinker,
+		gaan ze niet over de 50%+ drempelwaarde.
+
+		<div style="height:0.75em"></div>
+
+		Het <i>relatieve</i> % "geÔnfecteerde" vrienden is van belang.
+		
+		<i>Dat</i> is het verschil tussen de <b>complexe infectie</b> theorie<ref id="complex"></ref>,
+		en onze naÔeve het-verspreidt-als-een-virus <b>simpele infectie</b> theorie.
+		(je kunt zeggen dat "simpele infecties" gewoon infecties zijn met een "meer dan 0%" drempelwaarde voor infectie)
+
+		<div style="height:0.75em"></div>
+
+		Infecties zijn echter niet persÈ slecht &mdash;
+		dus genoeg over de <i>waanzin</i> van groepen, hoe zit het met de...
+		<next>...<i>wijsheid</i> van groepen?</next>
+
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+	Hier hebben we een persoon <icon name="blue"></icon> die als vrijwilliger... Geen idee,
+	mensen redt in wervelstormen, of bijles geeft aan kansarme kinderen in zijn lokale samenleving, of iets anders cools.
+	Het punt is, dat het een "goede" complexe infectie is.
+	Laten we deze keer echter zeggen dat de drempelwaarde maar 25% is &mdash;
+	mensen willen wel vrijwilliger worden, maar alleen als 25% of meer van hun vrienden ook vrijwilliger is.
+	Tja, welwillendheid heeft een beetje sociale aanmoediging nodig.
+
+	<br><br>
+
+	<b>&larr; "Infecteer" iederen met de goede voornemens!</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+		<b>OPMERKING:</b> Vrijwilliger zijn is maar <i>een</i> van vele complexe infecties!
+		Andere zijn bijvoorbeeld: opkomst bij verkiezingen, leefstijl gewoontes, 
+		je eigen overtuigingen uit te dagen,
+		de tijd nemen om een probleem goed te begrijpen &mdash; alles
+		waarvoor meer dan ÈÈn "blootstelling" nodig is.
+		Complexe infecties zijn niet <i>persÈ</i> verstandig,
+		maar verstandig zijn is een complexe infectie.
+
+		<div style="height:0.75em"></div>
+
+		(Wat is dan een voorbeeld van een <i>simpele</i> infectie in het dagelijks leven?
+		Meestal kleine feitjes, zoals "een buidelrat heeft 13 tepels"<ref id="possum"></ref>)
+
+		<bon id="contagions"></bon>
+
+		Om <i>echt</i> de kracht en gekheid van complexe infecties te laten zien, gaan we opnieuw kijken naar...
+
+		<next>...een eerdere puzzel <div class="rarr"></div> </next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+	Herinner je dit nog? Deze keer, met een <i>complexe</i> infectie <icon name="blue"></icon>, wordt het iets moeilijker...
+	<br>
+	<b>Probeer iedereen te "infecteren" met complexe wijsheid! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+	(voel je vrij om op "start" te klikken en zoveel oplossingen te <i>proberen</i> als je wil)
+</words>
+
+<words id="complex_cascade_end">
+	<next wiggle>COOL <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+	Nou zou je kunnen denken dat je gewoon verbindingen moet blijven toevoegen om een infectie te verspreiden,
+	"complexe" of "simpele", goede of slechte, wijze of gekke.
+	Maar is dat wel zo? Laten we opnieuw kijken naar...
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle>...een andere eerdere puzzel <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_prevent">
+	Als je op "start" klikt, zal de complexe infectie <icon name="blue"></icon> naar iedereen verspreiden.
+	Dat is geen verrassing.
+	Maar laten we nu het <i>tegenovergestelde</i> doen van alles dat we eerder gedaan hebben:
+	<b>teken een netwerk om te <i>voorkomen</i> dat de infectie zich naar iedereen verspreidt! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+	Zie je dat?
+	Terwijl meer verbindingen altijd zullen helpen om <i>simpele</i> ideeÎn te verspreiden,
+	<b>kunnen meer verbindingen de verspreiding van <i>complexe</i> ideeÎn schaden!</b>
+	(dit zet je aan het denken over het internet, he?)
+	En dit is niet alleen een theoretisch probleem. Dit kan een zaak van leven...
+</words>
+
+<words id="complex_prevent_end">
+	<next wiggle>...of dood zijn. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_groupthink">
+		
+	De mensen bij NASA zijn knappe koppen.
+	Ik bedoel maar, ze gebruikten Newtons theorieÎn om ons naar de maan te krijgen.
+	Hoe dan ook, om een lang verhaal kort te maken, 
+	lanceerden ze in 1986, <i>ondanks waarschuwingen van de technici</i>,
+	de <i>Challenger</i>,
+	die ontplofte en 7 mensen doodde.
+	De directe oorzaak: 
+	het was te koud die ochtend.
+
+	<div style="height:0.9em"></div>
+
+	De indirecte oorzaak: de managers negeerden de waarschuwingen van de technici.
+	Waarom? Vanwege <b>groepsdenken</b><ref id="groupthink"></ref>.
+	Wanneer een groep <i>te</i> hecht is, (zoals vaak het geval is in de top van bedrijven)
+	worden ze resistent voor complexe ideeÎn die hun overtuigingen of ego uitdagen.
+	
+	<div style="height:0.9em"></div>
+
+	Dus, dat is hoe bedrijven tot de waanzin van groepen kunnen worden gedreven.
+	Maar hoe kunnen we <i>wijsheid</i> van groepen "maken"?
+	In het kort, twee woorden:
+
+	<next>Verbinden &amp; Overbruggen <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+	&larr; Te weinig verbindingen, en een idee kan zich niet verspreiden.
+	<br>
+	Te veel verbindingen, en je krijgt groepsdenken. <div class="rarr"></div> 
+</words>
+
+<words id="bonding_2">
+	<b>
+	Teken een groep die precies goed is:
+	net genoeg verbonden om een complex idee te verspreiden!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+	Makkelijk!
+	Het aantal verbindingen <i>binnen</i> een groep wordt <b>verbindend sociaal kapitaal<ref id="social_capital"></ref> genoemd.
+	Maar hoe zit het met de verbindingen...
+	<next wiggle>...<i>tussen</i> groepen?</next>
+</words>
+
+<words id="bridging_1">
+	Zoals je misschien al geraden hebt, 
+	wordt het aantal verbindingen <i>tussen</i> groepen 
+	<b>overbruggend sociaal kapitaal</b> genoemd.
+	Dit is belangrijk, omdat het groepen helpt om uit hun <i>bubbel</i> te ontsnappen.
+	<br>
+	<b>Bouw een brug, om iedereen te "infecteren" met complexe wijsheid:</b>
+</words>
+
+<words id="bridging_end">
+	Net als bij verbinden is er een optimale manier voor overbruggen.<ref id="bridge"></ref>
+	(extra uitdaging: probier een brug te tekenen die zo dik is dat de complexe infectie
+	er <i>niet</i> doorheen kan!)
+	Nu we weten hoe we verbindingen kunnen "maken" <i>binnen</i> en <i>tussen</i> groepen, kunnen we...
+	<next wiggle>...BEIDE tegelijk doen!</next>
+</words>
+
+<words id="bb_1">
+
+	<b style="font-size:2em">FINAL PUZZLE!</b>
+	<br>
+	Teken verbindingen binnen groepen (verbinden) en tussen groepen (overbruggen)
+	om wijsheid over de hele menigte te verspreiden:
+	
+</words>
+<words id="bb_2">
+
+	Gefeliciteerd, je hebt zojuist een heel speciaal type netwerk getekend!
+	Netwerken met de juiste combinatie van verbinden en overbruggen
+	zijn enorm belangrijk, en ze heten...
+	<next wiggle>ìKleine Wereld Netwerkenî <div class="rarr"></div> </next>
+
+</words>
+<words id="bb_small_world_1">
+
+	<i>"Eenheid zonder uniformiteit". "Verscheidenheid zonder verdeling". "E Pluribus Unum: uit velen, ÈÈn".</i>
+	<br>
+	Hoe het ook verwoord wordt,
+	mensen vanuit alle tijden en culturen komen vaak tot dezelfde wijsheid:
+	<b>
+	een gezonde samenleving heeft een optimaal aantal verbindingen <i>binnen</i>
+	en overbruggingen <i>tussen</i> groepen nodig.
+	</b>
+	Dat is:
+
+</words>
+<words id="bb_small_world_2">
+	Niet dit...
+	<br>
+	(want de ideeÎn kunnen zich niet verspreiden)
+</words>
+<words id="bb_small_world_3">
+	ook niet dit...
+	<br>
+	(want dan krijg je groepsdenken)
+</words>
+<words id="bb_small_world_4">
+	...maar <i>DIT:</i>
+</words>
+<words id="bb_small_world_5">
+	
+	Netwerk onderzoekers hebben nu wiskundige definities voor deze eeuwenoude wijsheid:
+	het <b>kleine wereld netwerk</b><ref id="small_world"></ref>.
+	Deze optimale combi van verbinden+overbruggen beschrijft hoe
+	onze neuronen verbonden zijn<ref id="swn_neurons"></ref>,
+	voedt collectieve creativiteit<ref id="swn_creativity"></ref>
+	en het oplossen van problemen<ref id="swn_social_physics"></ref>,
+	en hielp zelfs president John F. Kennedy van de VS (ternauwernood) een kernoorlog te voorkomen!<ref id="swn_jfk"></ref>
+	Dus ja, kleine werelden zijn van groot belang.
+
+</words>
+<words id="bb_small_world_end">
+	<next>okÈ, laten we gaan afronden... <div class="rarr"></div> </next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+	(psst... wil je een geheim weten?<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+	Infectie:
+</words>
+<words id="sandbox_contagion_simple">
+	simpel
+</words>
+<words id="sandbox_contagion_complex">
+	complex
+</words>
+<words id="sandbox_color_chooser">
+	De Kleur van de Infectie:
+</words>
+<words id="sandbox_tool_chooser">
+	Selecteer gereedschap...
+</words>
+
+<words id="sandbox_tool_pencil">
+	Teken Netwerk
+</words>
+<words id="sandbox_tool_add">
+	Voeg Persoon toe
+</words>
+<words id="sandbox_tool_add_infected">
+	Voeg "Besmet" toe
+</words>
+<words id="sandbox_tool_move">
+	Verplaats Persoon
+</words>
+<words id="sandbox_tool_delete">
+	Verwijder Persoon
+</words>
+<words id="sandbox_tool_clear">
+	<b>VERWIJDER ALLES</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+	(...of, gebruik de toetsenbord shortcuts!)
+</words>
+
+<words id="sandbox_shortcuts">
+	[1]: Voeg Persoon toe &nbsp;&nbsp;&nbsp; [2]: Voeg "Besmet" toe
+	<br>
+	[Spatie]: Verplaats &nbsp;&nbsp;&nbsp; [Backspace]: Verwijder
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+	
+	<div style="font-size: 30px;">
+		CONCLUSIE: het draait allemaal om...
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 88px;
+	    top: 20px;
+	    line-height: 100px; display:block;
+	">
+	    Infecties &amp; Verbindingen
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 125px;
+	    left: 250px;
+	">
+		<b>Infecties:</b>
+		Net zoals neuronen signalen in een brein doorsturen,
+		sturen mensen opvattingen &amp; gedrag door naar een samenleving.
+		We beÔnvloeden niet alleen onze vrienden, 
+		maar ook vrienden van onze vrienden en zelfs vrienden van vrienden van onze vrienden!<ref id="three_degrees"></ref>
+		("wees de verandering die je wil zien in de wereld" etc. etc.)
+		Maar, zoals bij neuronen, draait het niet alleen om de signalen, maar ook om...
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 275px;
+	    left: 250px;
+	">
+		<b>Verbindingen:</b>
+		Met te weinig verbindingen kunnen complexe ideeÎn niet verspreiden.
+		Met te <i>veel</i> verbindingen worden complexe ideeÎn verpletterd door groepsdenken.
+		De truc is om een kleine wereld netwerk te bouwen, de optimale mix van
+		verbinden en overbruggen: <i>e pluribus unum.</i>
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #999;
+	">
+		(wil je je eigen simulaties maken? 
+		Ga dan naar de Experimentele Modus, door hieronder op (?) te klikken!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+		Maar hoe zit het met de vraag van het begin?
+		Waarom veranderen sommige groepen in...
+	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 460px;
+	    right: 0px;
+	">
+		<next>...wijsheid en/of waanzin?</next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+		Van Newton tot NASA tot
+		<br>
+		netwerk onderzoek, we hebben veel besproken
+		<br>
+		vandaag. Om een lang verhaal kort te maken, de waanzin
+		<br>
+		van groepen komt niet door <i>individuele mensen</i>, maar door
+		<br>
+		hoe we gevangen zitten in het kleverige web van een netwerk.
+
+		<div style="height:0.9em"></div>
+
+		Dit <i>betekent NIET</i> dat we alle persoonlijke verantwoordelijkheid
+		<br>
+		moeten laten varen, aangezien we ook de <i>wevers</i> van het web zijn.
+		<br>
+		Dus, verbeter infecties: wees kritisch over ideeÎn die je vleien<ref id="flatter"></ref>, probeer
+		<br>
+		complexe ideeÎn te begrijpen. En verbeter verbindingen: verbind met 
+		<br>
+		gelijken, maar bouw ook bruggen over culturele/politieke scheidingen.
+
+		<div style="height:0.9em"></div>
+
+		We kunnen een wijs web weven. Zeker, het is moeilijker dan 
+		<br>
+		lijnen tekenen op een scherm...
+
+		<next>...maar het is het zÛ waard.</next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+		"De grote triomfen en tragedies in de geschiedenis zijn veroorzaakt,
+		niet door mensen die fundamenteel goed of fundamenteel slecht zijn,
+		maar door mensen die fundamenteel mensen zijn."
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Neil Gaiman &amp; Terry Pratchett
+	<div style="height:0.8em"></div>
+	<next small>&lt;3</next>
+</words>
+
+<!-- Credits --> 
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+	
+		<span style="color:#777; position:relative; top:5px;">
+			gemaakt door</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			speel mijn andere spellen</a> ∑
+		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
+			volg mijn twitter</a>
+		
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			veel liefde en dank aan</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			MIJN PATREON SUPPORTERS</div>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+			help me om meer dingen zoals dit te maken! &lt;3</a>
+		<br>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			zie mijn supporters</a> ∑
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			zie mijn speltesters</a>
+
+		<br><br>
+
+		<span style="display: inline-block; margin-top: 15px;">
+			? muziek is
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" en "Friends 2068"</a>
+			door Komiku
+			<br>
+			&lt;/&gt; <i>Groepen</i> is
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				compleet open source</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	WIN
+</words>
+<words id="sim_start">
+	start simulatie
+</words>
+<words id="sim_stop">
+	opnieuw proberen
+</words>
+<words id="translations_exist">
+	Vertalingen door fans:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	What the, no fan-made translations exist yet?!
+</words>
+<words id="translations_add">
+	(voeg je eigen toe!)
+</words>
+<words id="translations_original">
+	<!-- No need to translate this, because, I assume, -->
+	<!-- if someone wants to play the game in English, they can read English -->
+	(original in English)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+	Een snelle reactie op James Surowiecki's <i>De Wijsheid van Groepen</i>
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+	
+	Allereerst, dis dit boek 
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	niet.</a>
+	Het is een goed boek, en Surowiecki probeerde dezelfde vraag te beantwoorden als ik:
+	<b>ìwaarom veranderen sommige groepen in waanzin, of in wijsheid?î</b>
+
+	<br><br>
+
+	Surowiecki's antwoord: groepen maken goede keuzes als iedereen zo onafhankelijk mogelijk is.
+	Hij vertelt het verhaal van een jaarmarkt,
+	waar de dorpelingen uitgenodigd werden het gewicht van een os te raden.
+	Verrassend genoeg was het gemiddelde van <i>alle</i> gokken beter dan elke <i>losse</i> gok</i>.
+	Maar, hier is de crux: de mensen moeten <i>onafhankelijk</i> van elkaar gokken.
+	Anders worden ze beÔnvloed door elkaars incorrecte gokken,
+	en wijkt het gemiddelde hierdoor erg af.
+
+	<br><br>
+
+	Maar... Ik denk niet dat "maak iedereen zo onafhankelijk mogelijk" het hele antwoord is.
+	Zelfs genieÎn, die we onterecht als de meest onafhankelijke denkers zien,
+	worden erg beÔnvloed door anderen. Zoals Sir Isaac Newtoon zei,
+	<i>ìAls ik verder heb gezien dan anderen, dan was dit doordat ik op de schouders van reuzen stond.î</i>
+
+	<br><br>
+
+	Dus, welk idee is correct?
+	Komt wijsheid van zelf nadenken, of door nadenken met anderen?
+	Het antwoord is: "ja".
+
+	<br><br>
+
+	Dus dat is wat ik zal proberen uit te leggen in deze verkennende verklaring: 
+	hoe de balans tussen onafhankelijkheid en wederzijdse afhankelijkheid ontstaat &mdash;
+	dat wil zeggen, hoe je een wijze menigte krijgt.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+	Welke andere types verbindingen bestaan er?
+	</h3>
+
+	<div>
+
+	Om het eenvoudig te houden,
+	mijn simulaties doen alsof mensen alleen met elkaar verbonden kunnen zijn door vriendschap, 
+	en dat alle vriendschappen gelijk zijn.
+	Maar netwerk onderzoekers <i>beschouwen</i> ook andere manieren waarop we verbonden kunnen zijn, zoals:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Directionele verbindingen.</b> Alice is Bobs baas, maar Bob is niet Alice's baas.
+	Carol is de moeder van Dave, maar Dave is niet Carols moeder.
+	"Baas" &amp; "moeder" zijn <i>directionele</i> relaties:
+	de relatie gaat maar ÈÈn kant op.
+	Daarentegen is "vrienden" een <i>bidirectionele</i> relatie: 
+	de relatie gaat twee kanten op. (tenminste, hopelijk)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Gewogen verbindingen.</b> Elinor en Frankie zijn vage kennissen.
+	George en Harry zijn beste vrienden voor altijd.
+	Ondanks het feit dat er een "vriendschap" verbinding is in beide gevallen, is de tweede sterker.
+	We zeggen dat deze twee verbindingen een verschillend "gewicht" hebben.
+	
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Onthoud: <b>al deze simulaties zijn onjuist.</b> Op dezelfde manier als elke kaart "onjuist" is.
+	Zie je de kaart links? Gebouwen zijn geen grijze kenmerkloze blokken!
+	Er vliegen geen woorden boven een stad! Toch zijn kaarten nuttig, niet <i>ondanks</i> de vereenvoudiging,
+	maar <i>omdat</i> ze vereenvoudigd zijn. Hetzelfde geldt voor simulaties, of voor elke wetenschappelijke theorie.
+	<i>Natuurlijk</i> zijn ze "onjuist" &mdash; dat is wat ze <i>nuttig</i> maakt.
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	Welke andere soorten infecties zijn er?
+	</h3>
+
+	<div>
+	
+	Er zijn zo, zoveel manieren waarop netwerk onderzoekers "infecties" kunnen simuleren!
+	Ik heb de simpelste gekozen, voor onderwijsdoeleinden. 
+	Maar hier zijn andere manieren waarop het kan:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Infecties met Willekeurigheid</b>.
+	"Blootgesteld" worden aan een infectie <i>garandeert</i> niet dat je geÔnfecteerd wordt,
+	het maakt het alleen <i>waarschijnlijker</i>.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Mensen hebben verschillende drempelwaardes voor infectie.</b> 
+	Mijn simulaties doen alsof iederen dezelfde drempelwaarde voor veel drinken (50%) of
+	vrijwilligerswerk (25%) of onjuiste informatie (0%) heeft. 
+	Natuurlijk is dat niet waar in het echte leven, en kun je dat terug laten komen in je simulatie.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Een ecologie van infecties.</b>
+	Wat als er <i>meerdere</i> infecties zijn, met <i>verschillende</i> drempelwaardes?
+	Bijvoorbeeld, een simpele "waanzin" infectie en een complexe "wijsheid" infectie.
+	Als iemand geÔnfecteerd is met waanzin, kunnen ze dan nog steeds geÔnfecteerd worden door wijsheid?
+	Of vice versa?
+	Kan iemand geÔnfecteerd worden met beide?
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Infecties die veranderen en evolueren.</b>
+	IdeeÎn worden niet perfect overgebracht van een persoon naar de ander zoals een virus.
+	Het bericht wordt met elke keer vertellen een beetje aangepast &mdash;
+	en soms is de aangepaste versie besmettelijker dan het origineel!
+	Dus, na verloop van tijd, "evolueren" ideeÎn in meer pakkende, makkelijk te kopiÎren, infecties.
+	
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+	
+	<h3>
+	Ik wil meer leren! Wat kan ik nog meer lezen en/of spelen?
+	</h3>
+	
+	<div>
+	
+	Deze verkennende verklaring was alleen een springplank voor je nieuwsgierigheid,
+	zodat je dieper in de poel van kennis kan duiken!
+	Hier is nog meer informatie over netwerken of sociale systemen:
+	
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Boek:</b>
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>
+	door Nicholas Christakis en James Fowler (2009).
+	Een toegankelijke toer over hoe netwerken onze levens beÔnvloeden, goed en slecht.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	Hier is een fragment: Voorwoord &amp; Hoofdstuk 1
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interactief:</b>
+	<a target="_blank" href="http://ncase.me/trust/">
+	De Evolutie van Vertrouwen</a> door Nicky Case (ik) (2017).
+	Een spel over de speltheorie van hoe samenwerking is opgebouwd... of kapotgemaakt.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interactief:</b>
+	<a target="_blank" href="http://ncase.me/polygons/">
+	Parabel van de Veelhoeken</a> door Vi Hart en Nicky Case (ook ik) (2014).
+	Een verhaal over hoe onschuldige keuzes kunnen leiden tot een onverdraagzame wereld.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Of, als je gewoon een hele gallerij aan interactieve educatieve dingen wil zien, is hier
+	<a target="_blank" href="http://explorabl.es/">
+	Explorable Explanations</a>,
+	een hub waarop je kunt leren door te spelen!
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+	ìvrijwel alle [universiteits]studenten gaven aan dat hun vrienden meer dronken dan zij deden.î
+
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	ìBiases in the perception of drinking norms among college studentsî</a> door Baer et al. (1991)
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+	ìDe Illusie van de Meerderheidî
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	ìThe Majority Illusion in Social Networksî</a> door Lerman et al. (2016).
+	<br>
+	Gerelateerd: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+	De Vriendschap Paradox</a>.
+	</div>
+</reference>
+<reference id="contagion">
+	
+	<h3>
+	ìsterke statistische evidentie dat 
+	roken, gezondheid, geluk, stemvoorkeuren en niveaus van samenwerken
+	allemaal besmettelijk zijnî
+	</h3>
+
+	<div>
+	
+	Uit Nicholas Christakis en James Fowlers
+	geweldig-geschreven, voor-leken-toegankelijke boek,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009). 
+
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+	ìenige evidentie dat zelfmoord ook [besmettelijk] isî
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	ìSuicide Contagion and the Reporting of Suicide: Recommendations from a National Workshopî</a>
+	door O'Carroll et al. (1994), onderschreven door Centers for Disease Control &amp; Prevention (CDC).
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+	ìenige evidentie dat massale schietpartijen ook [besmettelijk] zijnî
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	ìContagion in Mass Killings and School Shootingsî</a> door Towers et al. (2015).
+
+	<br><br>
+
+	Zie ook: de
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Benoem Hun Niet</a> campagne,
+	die benadrukt dat nieuwsuitzendingen <i>NIET</i> de naam van massa moordenaars, manifests, en sociale media feeds moeten noemen.
+	Dit verspreidt de infectie.
+	In plaats daarvan zouden uitzendingen moeten focussen op slachtoffers, degenen die als eerste reageerden, burgerhelden,
+	en de rouwende, helende gemeenschap.
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+	ìFinanciÎle instituten in de hele wereld vielen voor zo'n cascade in 2008.î
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	ìLemmings of Wall Streetî</a> door Cass Sunstein, is een snel, niet-technische stuk.
+	Gepubliseerd in Oktober 2008, midden in het begin van de crash.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+	ìde complexe infectie theorie.î
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	ìThreshold Models of Collective Behaviorî</a> door Granovetter (1978)
+	was de eerste keer, zover ik weet, dat iemand een "complexe infectie" model beschreef.
+	(al gebruikte hij niet die specifieke naam)
+
+	<br><br>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	ìComplex Contagions and the Weakness of Long Tiesî</a> door Centola &amp; Macy (2007)
+	smeedden de benaming "complexe infectie", en
+	toonden de belangrijke verschillen tussen dat en een "simpele infectie".
+
+	<br><br>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	ìEvidence for complex contagion models of social contagion from observational dataî</a>
+	door Sprague &amp; House (2017)
+	lieten empirisch zien dat complexe infecties echt bestaan. (tenminste, in de sociale media gegevens die ze onderzochten)
+
+	<br><br>
+
+	Als laatste,
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	ìUniversal behavior in a generalized model of contagionî</a> door Dodds &amp; Watts (2004)
+	draagt een model aan dat <i>alle</i> types infecties samenvoegt: 
+	simpele en complexe, biologische and sociale!
+
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+	ìeen buidelrat heeft 13 tepelsî
+	</h3>
+	<div>
+	geordend in een ring van 12 tepels, plus een in het midden
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+	ìgroepsdenkenî
+	</h3>
+
+	<div>
+	Deze door Orwell geÔnspireerde naam werd bedacht door Irving L. Janis in 1971.
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	In zijn originele artikel</a>,
+	bestudeert Janis voorbeelden van groepsdenken, noemt zijn oorzaken op, en &mdash; gelukkig &mdash;
+	enkele mogelijke remedies.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+	ìverbindend en overbruggend sociaal kapitaalî
+	</h3>
+
+	<div>
+	Deze twee typen van sociaal kapitaal &mdash; "verbindend" en "overbruggend" &mdash;
+	werden door Robert Putnam genoemd in zijn inzichtelijke boek uit 2000,
+	<a target="_blank" href="http://bowlingalone.com/">
+	Alleen Bowlen</a>. Zijn ontdekking:
+	genomen over bijna <i>alle</i> empirische maten van sociale verbondenheid,
+	zijn Amerikanen meer alleen dan ooit.
+	Verdorie.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+	ìeen optimale manier voor het overbruggen van sociaal kapitaalî
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	ìThe Strength of Weak Tiesî</a> door Granovetter (1973)
+	liet zien dat verbindingen tussen groepen helpen bij het verspreiden van simpele infecties (zoals informatie), 
+	maar
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	ìComplex Contagions and the Weakness of Long Tiesî</a> door Centola &amp; Macy (2007)
+	liet zien dat verbindingen tussen groepen mogelijk niet helpen bij complexe infecties,
+	en zelfs hun verspreiding kunnen aantasten!
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+	ìhet kleine wereld netwerkî
+	</h3>
+
+	<div>
+
+	Het idee van de "kleine wereld" werd populair gemaakt door
+	<a target="_blank" href="http://www.jstor.org/stable/2786545">Travers &amp; Milgram's experiment in 1969</a>,
+	die aantoonde dat, gemiddeld gezien, elke twee willekeurige mensen in de Verenigde Staten
+	maar zes friendschappen van elkaar verwijderd zijn &mdash; "zes graden van scheiding"!
+
+	<br><br>
+
+	Het kleine wereld netwerk kreeg meer wiskundig vlees op zijn botten met
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	ìCollective dynamics of small-world networksî</a> door Watts &amp; Strogatz (1998),
+	die een algoritme voorstelden voor het creÎren van netwerken
+	met zowel een korte gemiddelde padlengte (laag scheidingsniveau)
+	als veel clusters (vrienden hebben veel gedeelde vrienden) &mdash;
+	dat is een netwerk met de perfecte combinatie!
+
+	<br><br>
+
+	Je kunt ook spelen met
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	de visuele, interactieve versie van het artikel</a> door Bret Victor (2011).
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+	ì[kleine wereld netwerken] beschrijven hoe onze neuronen verbonden zijnî
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	ìSmall-world brain networksî</a> door Bassett &amp; Bullmore (2006).
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+	ì[kleine wereld netwerken] voeden collectieve creativiteitî
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	ìCollaboration and Creativity: The Small World Problemî</a> door Uzzi &amp; Spiro (2005).
+	Dit artikel analyseerde het sociale netwerk van de Broadway-scene in de loop van tijd,
+	en ontdekte dat, jup, het netwerk het meest creatief is als het een "kleine wereld" netwerk is!
+
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+	ì[kleine wereld netwerken] ontlokken het collectief oplossen van problemenî
+	</h3>
+
+	<div>
+	Zie
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	ìSocial Physicsî</a> door MIT Professor Alex "Sandy" Pentland (2014)
+	voor een op cijfers gebaseerde aanpak van collectieve intelligentie.
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+	ì[kleine wereld netwerken] hielpen president John F. Kennedy (ternauwernood) een kernoorlog te voorkomen!î
+	</h3>
+
+	<div>
+
+	Naast de explosie van de NASA Challenger, was het meest roemrijke voorbeeld van groepsdenken
+	de invasie van de Varkensbaai.
+	In 1961 dachten VS President John F. Kennedy en zijn team van adviseurs
+	&mdash; om de een of andere reden &mdash;
+	dat het een goed idee zou zijn om in het geheim Cuba binnen te vallen en Fidel Castro ten val te brengen.
+	Ze faalden.
+	Eigenlijk is het slechter dan falen: het leidde tot de Cubacrisis van 1962,
+	<i>dichterbij een complete kernoorlog is de wereld nooit geweest.</i>
+
+	<br><br>
+
+	Jup, JFK heeft het toen echt verprutst.
+
+	<br><br>
+
+	Maar nadat hij harde lessen geleerd had van de invasie van de Varkensbaai,
+	heeft JFK zijn team gereorganiseerd om groepsdenken te vermijden.
+	Hij heeft onder andere:
+	1) actief mensen aangemoedigd om kritiek te uiten,
+	waardoor de "infectie drempelwaarde" voor alternatieve ideeÎn verlaagd werd.
+	En
+	2) hij deelde zijn team op in subgroepen voordat ze herenigd werden,
+	waardoor hun groep een "kleine wereld netwerk"-achtig design had!
+	Samengenomen hebben deze regelingen gezorgd voor een gezonde verdeling in meningen,
+	maar zonder te gefragmenteerd te zijn &mdash; een wijsheid van groepen.
+
+	<br><br>
+
+	En dus, met dezelfde <i>individuen</i> die besluiten namen bij de Varkensbaai, 
+	maar gereorganiserd om <i>samen</i> te besluiten over de Cubacrisis...
+	heeft JFKs team een vreedzaam akkoord gesloten met Sovjet leider Nikita Khrushchev.
+	De Sovjects zouden hun raketten uit Cuba verwijderen, en als tegenprestatie
+	zou de VS beloven Cuba niet opnieuw binnen te vallen.
+	(en in het geheim werd ook besloten om de VS raketten uit Turkije te verwijderen)
+
+	<br><br>
+
+	Dat is het verhaal hoe heel de mensheid bijna doodging.
+	Maar een kleine wereld netwerk heeft ons gered! Soort van.
+
+	<br><br>
+
+	Je kunt meer hierover lezen
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	in Harvard Business Review</a>,
+	of van
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	het originele artikel over groepsdenken</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+	ìwe beÔnvloeden [...] de vrienden van vrienden van onze vrienden!î
+	</h3>
+
+	<div>
+	Dit komt opnieuw van Nicholas Christakis en James Fowlers
+	geweldige boek,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+	ìben kritisch over ideeÎn die je vleienî
+	</h3>
+	<div>
+	ja, dit geldt ook voor ideeÎn in <i>deze</i> verkennende verklaring.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	? Experimentele Modus ?
+	</h3>
+
+	<div>
+	De toetsenbord shortcuts (1, 2, spatie, backspace)
+	werken in <i>alle</i> puzzels, niet alleen in Experimentele Modus!
+	Echt waar, je kunt teruggaan naar een ander hoofdstuk,
+	en daar de simulatie aanpassen.
+	Dat is hoe <i>ik</i> al deze puzzels gemaakt heb. Veel plezier!
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+	Beste Patreon supporters:
+	Jullie vrijgevigheid voedt me en betaalt mijn huur <i>letterlijk</i>.
+	Jullie geven me de vrijheid om deze rare educatieve spellen te maken,
+	dus, van de bodem van mijn hart, dankjulliewel! &lt;3
+	<br>
+	<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+		(wil je mij steunen in het maken van meerdere spellen zoals deze? Bekijk mijn Patreon!)</a>
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+	Bedankt, iedereen die <i>Groepen</i> uitgetest heeft
+	gedurende zijn vele levensfases!
+	
+	<br><br>
+	<b>Het Prototype:</b>
+	<br>
+	Maria ∑
+	Monica Srivastava
+
+	<br><br>
+	<b>De Alpha:</b>
+	<br>
+	Glen Chiacchieri ∑
+	Kalli Repzeti ∑
+	Mali Akmanalp ∑
+	Toph Tucker
+
+	<br><br>
+	<b>De Beta:</b>
+	<br>
+	Alex Dytrych ∑
+	Amit Patel ∑
+	Cassandra McClure ∑
+	Catherine Ray ∑
+	Josh Comeau ∑
+	Kayle Sawyer ∑
+	Matthew Conlen ∑
+	Srini Kadamati ∑
+	Vanessa Shen ∑
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+And that's it! That's the last of what needed to a TRANSLATE
+Thank you so, so much for doing this again, wow.
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+-->
