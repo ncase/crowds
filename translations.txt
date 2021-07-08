@@ -49,3 +49,4 @@ hr: Hrvatski
 pl: Polski
 he: Hebrew
 fi: suomi
+fa: فارسی
