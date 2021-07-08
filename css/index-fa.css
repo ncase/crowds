@@ -1,0 +1,620 @@
+/* FONT FACE */
+@font-face {
+	font-family: "PatrickHand";
+	font-style: normal;
+	font-weight: 400;
+	src: url(PatrickHand-Regular.ttf) format('truetype');
+}
+@font-face {
+	font-family: "B Koodak";
+	font-style: normal;
+	font-weight: 400;
+	src: url(BKoodak.ttf) format('truetype');
+}
+
+/* HTML & BODY */
+html, body{
+	width:100%;
+	height:100%;
+	overflow: hidden;
+	cursor: none;
+}
+body{
+	background: #fff;
+	margin:0;
+
+	font-family: "B Koodak", PatrickHand, Arial;
+	font-size: 22px;
+	line-height: 1.5em;
+}
+/* fake bold */
+b, strong{
+	font-weight: normal;
+	text-shadow:1px 0 0 currentColor;
+}
+a{
+	color: #ff4040;
+}
+a:hover{
+	color: #ff6060;
+}
+
+/* SIMULATION and SLIDESHOW */
+#container{
+	position: absolute;
+	top:0; left:0;
+	width: 100%;
+	height: calc(100% - 60px);
+	cursor: none;
+	overflow: hidden; /* modal's being awful */
+}
+#container[sim_is_running]{
+	background: #eee;
+}
+#container > div{
+	position: absolute;
+	width: 100%; height: 100%;
+	overflow: hidden;
+	cursor: none;
+}
+#simulations, #slideshow{
+	position: absolute;
+	width: 960px;
+	height: 540px;
+	margin: auto;
+	top:0; left:0; right:0; bottom:0;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
+}
+#simulations canvas, #slideshow > div{
+	position: absolute;
+}
+#slideshow .box.image{
+	background-size: 100% 100%;
+}
+#slideshow .next_button{
+    /*display: inline-block;*/
+    margin: 0 auto;
+    position: relative;
+    top: -10px;
+    width: 300px;
+    height: 20px;
+    padding: 37px 0 43px 0;
+    background-image: url(../sprites/button_large.png);
+    background-size: 100% auto;
+    text-align: center;
+    line-height: 25px;
+}
+#slideshow .next_button:hover{
+    background-position: 0 -100px;
+}
+#slideshow .next_button[disabled]{
+    pointer-events: none;
+    opacity: 0.3;
+}
+.transitionable{
+    transition: opacity 0.3s ease-in-out,
+    left 0.3s ease-in-out,
+    top 0.3s ease-in-out;
+}
+
+#scratch{
+	position: absolute;
+	cursor: none;
+	display: none;
+	pointer-events: none;
+	width: 100%; height: 100%;
+}
+
+/* Skip */
+#container > #skip{
+	
+	display: none;
+
+	position: absolute;
+	left:10px;
+	bottom:10px;
+	width: auto;
+	height: 25px;
+	font-size: 25px;
+	line-height: 25px;
+	color: #aaa;
+	text-align: left;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
+	
+}
+#container > #skip:hover{
+	color: #ccc;
+}
+
+/* Peep Icon */
+.peep_icon{
+	height:1em;
+	position: relative;
+    top: 3px;
+    transform: scale(1.2);
+}
+
+/* Right & Left & Down Arrows */
+.rarr, .larr, .darr{
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background: url(../sprites/ui/arrow.png);
+	background-size: 100% auto;
+	position: relative;
+	top: 3px;
+}
+.darr{
+	transform: rotate(90deg);
+}
+.larr{
+	transform: rotate(180deg);
+}
+
+/* Sim UI */
+.sim_ui{
+	position: absolute;
+	width: 200px;
+	height: 100px;
+	border: none !important;
+}
+.sim_ui > div{
+	position: absolute;
+	color: #fff;
+	text-align: center;
+	border-radius: 10px;
+}
+.sim_ui > #start_button{
+	width: 200px;
+	padding: 0.5em 0;
+	background-image: url(../sprites/red_button.png);
+	background-size: 100% auto;
+
+	position: relative;
+	top:0;
+	transition: top 0.1s ease-in-out;
+}
+.sim_ui[active] > #start_button{
+	background-position: 0 -62.5px;
+}
+.sim_ui > #start_button:hover{
+	top:-3px;
+}
+.sim_ui > #start_button:active{
+	top:3px;
+}
+
+/* Sandbox UI */
+.sandbox_ui{
+	width: 270px;
+    left: 0px;
+}
+.sandbox_ui input[type="range"]{
+	width: 100%;
+	cursor: none;
+}
+.choose_one{
+	overflow: hidden;
+}
+.choose_one > div{
+	float: left;
+	margin: 3px;
+	opacity: 0.25;
+}
+.choose_one > div[selected]{
+	opacity: 1;
+}
+.choose_color{
+	width: 40px;
+	height: 40px;
+	background: url(../sprites/peeps.png);
+	background-size: auto 100%;
+	transform: scale(1.2);
+}
+.choose_tool{
+	background: #fff;
+	font-size: 16px;
+	line-height: 16px;
+	border: 1px solid black;
+	padding: 3px;
+	border-radius: 5px;
+}
+.choose_tool > #icon{
+	display: inline-block;
+	width:16px; height:16px;
+	background: url(../sprites/sandbox_tools.png);
+	background-size: auto 100%;
+}
+#sandbox_shortcuts_label{
+	font-size: 22px;
+}
+#sandbox_shortcuts{
+	font-size: 20px;
+    line-height: 1.2em;
+    color: #999;
+}
+
+/* MODAL */
+#modal_container{
+	top:100%;
+	transition: top 0.4s ease-in-out;
+}
+#modal_container[show]{
+	top:0%;
+}
+#modal_bg{
+	width: 100%;
+	height: 100%;
+}
+#modal{
+
+	position: absolute;
+	margin: auto;
+    top:0; left:0; right:0; bottom:0;
+
+	background: #444;
+	color: #fff;
+
+}
+#modal #modal_content > div:first-child > h3{
+	border-top: none;
+}
+#modal #modal_content > h3{
+	border-top: none;
+}
+#modal h3{
+	font-size: 1.3em;
+    margin-bottom: 0.7em;
+    padding-top: 0.7em;
+    margin-top: 1em;
+    border-top: 5px solid #282828;
+}
+#modal[size=small]{
+	width: 700px;
+	height: 300px;
+}
+#modal[size=large]{
+	width: 800px;
+	height: 540px;
+}
+#modal_close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+	font-family: PatrickHand;
+    text-align: center;
+    line-height: 25px;
+}
+#modal_content_container{
+	overflow: auto;
+	width: 100%; height:100%;
+}
+#modal_content{
+	margin:1.5em;
+}
+
+/* NAVIGATION */
+#navigation_container{
+	position: absolute;
+	bottom:0;
+	background: #222;
+	width: 100%;
+	height:60px;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
+}
+#sound{
+	position: absolute;
+	left:0; top:0;
+	color: #fff;
+	width: 150px;
+    font-size: 30px;
+    height: 60px;
+}
+#sound[mute=yes]{
+	opacity: 0.5;
+}
+#sound_icon{
+	background: url(../sprites/ui/sound.png);
+	background-size: auto 100%; 
+	width: 60px; height: 60px;
+	position: absolute;
+}
+#sound_on, #sound_off{
+	position: absolute;
+	left:65px;
+	padding: 15px 0;
+    display: block;
+    line-height: 28px;
+    display: none;
+}
+#sound[mute=no] > #sound_icon{
+	/*background: rgba(255,255,255,0.5);*/
+	background-position: 0px 0px;
+}
+#sound[mute=yes] > #sound_icon{
+	/*background: rgba(255,255,255,0.25);*/
+	background-position: -60px 0px;
+}
+#sound[mute=no] > #sound_on{
+	display: block;
+}
+#sound[mute=yes] > #sound_off{
+	display: block;
+}
+#sharing{
+	position: absolute;
+	right:10px; top:0;
+	width: 150px;
+	overflow: hidden;
+}
+#sharing > a{
+	float: left;
+	display: block;
+	width: 50px;
+	height: 60px;
+	background: url(../sprites/ui/sharing.png);
+	background-size: auto 100%; 
+}
+#sharing #fb{
+	background-position: 0px 0px;
+}
+#sharing #tw{
+	background-position: -50px 0px;
+}
+#sharing #em{
+	background-position: -100px 0px;
+}
+#share_title{
+	display: none;
+}
+#share_desc{
+	display: none;
+}
+#translations{
+    position: absolute;
+    top: 12px;
+    left: calc(50% - 350px);
+    width: 700px;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+    line-height: 15px;
+}
+#navigation{
+
+	display: none;
+
+	position: absolute;
+	top: 10px;
+	left: calc(50% - 300px);
+	width: 600px;
+	text-align: center;
+}
+#navigation > div{
+	width: 35px;
+	height: 35px;
+	background: #222;
+	color:#fff;
+	border-radius: 20px;
+	display: inline-block;
+	border: 1px solid #fff;
+	margin: 0 1px;
+	text-align: center;
+	overflow: hidden;
+	line-height: 34px;
+	position: relative;
+}
+#navigation > div[highlight]{
+	background: #fff;
+	color: #222;
+}
+#navigation > div > span:nth-child(1){
+	display: block;
+	position: absolute;
+	width: 100%;
+}
+#navigation > div > span:nth-child(2){
+	display: none;
+}
+#navigation > div:hover{
+	background: rgba(255,255,255,0.25);
+}
+#navigation > div[highlight]:hover{
+	background: #fff;
+}
+#navigation > span.nav_divider{
+	width: 2px;
+	height: 40px;
+	background: rgba(255,255,255,0.2);
+	border-radius: 20px;
+	display: inline-block;
+	margin: 0 8px;
+}
+#navigation > span#nav_bubble{
+	
+	transition: opacity 0.2s ease-in-out,
+			    left 0.2s ease-in-out,
+			    top 0.2s ease-in-out;
+
+	display: none;
+	opacity: 0;
+	
+	position: absolute;
+	top:-80px;
+	left:0;
+	
+	background: rgba(0,0,0,0.8);
+	color: #fff;
+	text-align: center;
+	border-radius: 20px;
+    
+    width: 220px;
+    padding: 6px 0;
+
+}
+#navigation > span#nav_bubble:after{
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(0, 0, 0, 0);
+	border-top-color: rgba(0,0,0,0.8);
+	border-width: 15px;
+    margin-left: -15px;
+}
+
+/* PENCIL */
+#pencil_container{
+	position: absolute;
+	top:0; left:0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	pointer-events: none;
+	cursor: none;
+}
+#pencil{
+	position: absolute;
+	width:100px;
+	height:100px;
+	pointer-events: none;
+	cursor: none;
+}
+
+/* PRE-PRELOADER */
+#pre_preloader{
+	position: absolute;
+	background: #fff;
+	width:100%;
+	height: 100%;
+	cursor: default;
+}
+#pre_preloader > div{
+	text-align: center;
+	width:300px; height:40px;
+	line-height: 40px;
+	font-size: 40px;
+	margin: auto;
+	position: absolute;
+	top:-40px; left:0; right:0; bottom:0;
+}
+
+/* THIS THING'S WORDS */
+words, bonus, reference{
+	display: none;
+}
+
+/* BONUS BOX */
+bon{
+    margin: 0.75em auto;
+    display: block;
+    
+    background: #ccc;
+    color: #444;
+    text-align: right;
+
+    width: 300px;
+    height: 56px;
+    padding: 23px 20px 17px 80px;
+    border-bottom: 4px solid rgba(0,0,0,0.25);
+    border-radius: 5px;
+
+    line-height: 1.3em;
+    background-size: 400px auto;
+
+    position: relative;
+    transition: top 0.1s ease-in-out;
+    top:0;
+}
+bon:before{
+	content: '';
+	display: block;
+    position: absolute;
+    
+    left: 25px;
+    top: 14px;
+    width: 35px;
+    height: 70px;
+
+	background: url(../sprites/ui/bonus.png);
+	background-size: 100% 100%;
+}
+bon:hover{
+	top:-3px;
+}
+
+/* REFERENCES */
+ref{
+	position: relative;
+    display: inline-block;
+    padding-left: 2px;
+    width: 21px;
+}
+ref:before{
+	content: '*';
+	font-family: PatrickHand;
+    background: #ddd;
+    color: #444;
+    padding: 3px;
+    width: 15px;
+    height: 15px;
+    display: block;
+    line-height: 26px;
+    border-radius: 20px;
+    font-size: 30px;
+    position: absolute;
+    text-align: center;
+    top: -25px;
+}
+ref:hover:before{
+	background: #eee;
+	color: #999;
+}
+
+/* TO SEE LAYOUT */
+/*.box, #simulations{
+	border: 1px solid #eee;
+}*/
+
+/* A NICE CIRCLE */
+/* Thanks to: https://skeate.github.io/2015/07/13/Wrapping-Text-to-Fit-Shaped-Containers-with-CSS.html */
+.circle {
+  /*background: #accede;*/
+  text-align: center;
+  width: 540px;
+  height: 540px;
+  border-radius: 100%;
+}
+.circle::before {
+	content: '';
+	height: 100%;
+	width: 50%;
+	float: left;
+	shape-outside: polygon(0 0, 100% 0, 60% 4%, 40% 10%, 20% 20%, 10% 28.2%, 5% 34.4%, 0 50%, 5% 65.6%, 10% 71.8%, 20% 80%, 40% 90%, 60% 96%, 100% 100%, 0% 100%);
+}
+.circle > span::before {
+	content: '';
+	height: 100%;
+	width: 50%;
+	float: right;
+	shape-outside: polygon(100% 0, 0 0, 40% 4%, 60% 10%, 80% 20%, 90% 28.2%, 95% 34.4%, 100% 50%, 95% 65.6%, 90% 71.8%, 80% 80%, 60% 90%, 40% 96%, 0 100%, 100% 100%);
+}
