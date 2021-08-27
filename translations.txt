@@ -50,3 +50,4 @@ pl: Polski
 he: Hebrew
 fi: suomi
 fa: فارسی
+tr: Türkçe
