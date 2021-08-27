@@ -1,0 +1,1713 @@
+<!--
+
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+
+- - - - - - - - - - -
+
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 3600+ WORDS to translate, including
+the Bonus Boxes and References.
+
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+
+Good luck, and thanks again!
+
+<3,
+~ Nicky Case
+
+-->
+
+<!DOCTYPE html>
+<html lang="tr"> <!-- lang="(TRANSLATE: set your language code here, same as the page name!) e.g: es, es-ES, pt-BR, ja, it, fr-CA, de, ..." -->
+<head>
+
+	<!-- Meta Info -->
+	<title>Toplulukların Bilgeliği ve/veya Deliliği</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="insan ağları için etkileşimli bir rehber"/> <!-- content="(TRANSLATE this part only)" -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<link rel="alternate" href="http://ncase.me/crowds/"           hreflang="en">
+	<link rel="alternate" href="http://ncase.me/crowds/cs.html"    hreflang="cs">
+	<link rel="alternate" href="http://ncase.me/crowds/nl.html"    hreflang="nl">
+	<link rel="alternate" href="http://ncase.me/crowds/de.html"    hreflang="de">
+	<link rel="alternate" href="http://ncase.me/crowds/es.html"    hreflang="es-ES">
+	<link rel="alternate" href="http://ncase.me/crowds/fr.html"    hreflang="fr">
+	<link rel="alternate" href="http://ncase.me/crowds/it.html"    hreflang="it">
+	<link rel="alternate" href="http://ncase.me/crowds/ja.html"    hreflang="ja">
+	<link rel="alternate" href="http://ncase.me/crowds/pt.html"    hreflang="pt">
+	<link rel="alternate" href="http://ncase.me/crowds/ru.html"    hreflang="ru">
+	<link rel="alternate" href="http://ncase.me/crowds/uk.html"    hreflang="uk">
+	<link rel="alternate" href="http://ncase.me/crowds/vi.html"    hreflang="vi">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-CN.html" hreflang="zh-CN">
+	<link rel="alternate" href="http://ncase.me/crowds/zh-TW.html" hreflang="zh-TW">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="Toplulukların Bilgeliği ve/veya Deliliği"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="insan ağları için etkileşimli bir rehber"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="Toplulukların Bilgeliği ve/veya Deliliği"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="insan ağları için etkileşimli bir rehber"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="Toplulukların Bilgeliği ve/veya Deliliği"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="insan ağları için etkileşimli bir rehber"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=7">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">atla &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">⨯</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on">AÇIK</span> <!-- TRANSLATE -->
+			<span id="sound_off">KAPALI</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			Toplulukların Bilgeliği ve/veya Deliliği <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Neden insan grupları akıllı, aptal, kibar ve zalim davranır? İnsan ağları için etkileşimli bir rehber: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Giriş</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Bağlantılar</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Yayılma</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Karmaşık Yayılma</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Bağ &amp; Köprü Kurma</span> <!-- note: &amp; is html for the "and" sign -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. Bu Küçük Bir Dünya</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. Sonuç Olarak...</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Jenerik</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>★</span>
+				<span>★ Kum Havuzu Modu! ★</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+			
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Ek Kutuları!</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Linkler &amp; Referanslar</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">あ</span></span>
+				<span>Çeviriler</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+			
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+	
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>yükleniyor...</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/inobounce.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js?v=5"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js?v=5"></script>
+
+<script src="js/sim/Peep.js?v=2"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js?v=2"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!-- 
+
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span>TOPLULUKLARIN</span>
+		<br>
+		<span style="font-size: 60px;letter-spacing: 4px;">BİLGELİĞİ</span>
+		<span style="font-size: 60px;">ve/veya</span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">DELİLİĞİ</span>
+	</div>
+
+	<div style="color:#999">
+		<!-- TRANSLATE note: comment out the line below... -->
+		<!-- oynanış süresi: 30 dk • nicky case, nisan 2018 -->
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		
+		
+		yapımcı nicky case • çeviri [gokdumano] • <a href='.'>orijinal İngilizce dilinde</a>
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	yükleniyor...
+</words>
+
+<words id="preloader_play">
+	başlayalım! <div class="rarr"></div> 
+</words>
+
+<!-- Introduction -->
+<!--
+
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+
+-->
+
+<words id="intro">
+
+	<br><br>
+
+	Sör Isaac Newton akıllı olduğundan çok emindi
+	<br>
+	Yani, cebiri ve yerçekimi teorisini bulduysa
+	<br>
+	başka işler için de yeterince akıllı olmalı
+	<br>
+	yatırım yapmak gibi mesela? Neyse, uzun lafın kısası
+	<br>
+	1720'de ülke çapında Güney Denizi Balonu olarak bilinen
+	<br>
+	çılgın borsa hareketinde 4,600,000$ (bugünün parasıyla) kaybetti.
+
+	<br><br>
+
+	Newton'un söylediği gibi: <i>“Gök cisimlerinin hareketlerini
+	<br>
+	hesaplayabildim ama insanların deliliğini hesaplayamadım.”</i>
+
+	<next>kendisi için kötü olmuş <div class="rarr"></div> </next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+
+	Tabii ki, piyasaların, kurumların veya
+	<br>
+	devletlerin kontrolden çıktığı ve 
+	<br>
+	kalabalıkların <i>çıldırdığı</i> ilk örnek bu değil.
+	<br>
+	Yine de, insanlığa olan umudunuzu kaybettiğinizde, 
+	<br>
+	kasırgalarda birbirini kurtarmak için koordineli çalışan yurttaşlar,
+	<br>
+	sorunlara çözüm üreten topluluklar, daha iyi bir dünya için
+	<br>
+	savaşan insanlar & kalabalıkların <i> bilgeliğini </i> görürsünüz!
+
+	<div style="height:0.9em"></div>
+
+	<b>Fakat topluluklar <i>neden</i> delilik veya bilgelik gösterir?</b> Hiçbir teori
+	<br>
+	her şeyi açıklayamaz ama bence yeni bir çalışma alanı, <b>ağ bilimi</b>
+	<br>
+	bize rehberlik edebilir! Ana fikri: toplulukları anlamak için
+	<br>
+	<i>bireylere</i> değil, aksine...
+
+	<next>... <i>bağlantılarına</i> bakmalıyız. <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>Bir ağ çizelim!</b>
+	Her bağlantı, iki kişi arasındaki bir dostluğu temsil eder:
+</words>
+
+<words id="networks_tutorial_connect">
+	bağlamak için çiz
+</words>
+
+<words id="networks_tutorial_disconnect">
+	keserek&nbsp;&nbsp;&nbsp;bağlantıyı kopar
+</words>
+
+<words id="networks_tutorial_end">
+
+	karalamalar yapmayı ve oynamayı bitirdiğinde,
+	<next wiggle>devam edelim <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_threshold">
+
+	Sosyal bağlantılar sadece güzel resimler yapmaktan daha fazlasını yapabilir.
+	İnsanlar dünyalarını anlamak için sosyal bağlantılarına <i>bakarlar</i>.
+	Örneğin, insanlar <b>arkadaşlarının yüzde kaçının (kendilerini saymazsak)</b>
+	diyelim ki, aşırı içki içtiğini öğrenmek için 
+	akranlarına bakarlar. <icon name="yellow"></icon>
+
+</words>
+
+<words id="networks_threshold_instruction">
+	<b>Bağlantıları çiz/sil ve ne olduğunu bak! <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>güzel, çözdün işi</next>
+</words>
+
+<words id="networks_pre_puzzle">
+	Ancak, ağlar insanları <i>kandırabilir</i>.
+	Tıpkı biz üzerinde olduğumuz için dünyanın düz görünmesi gibi, 
+	insanlar <i>içinde</i> toplum hakkında yanlış fikirlere sahip olabilirler.
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		<i>seçmeli</i> ek notlar! &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		&darr; bağlantılar ve referanslar
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+	
+	<bon id="books"></bon>
+
+	<br>
+
+	Örneğin, 1991'de yapılan bir araştırma<ref id="drunk"></ref> gösterdi ki
+	"Neredeyse tüm [üniversite] öğrencileri arkadaşlarının kendilerinden 
+	daha fazla içtiğini söyledi." 
+	Ama bu imkansız görünüyor!
+	Nasıl olabilir?
+	Bir ağ çizerek cevabınızı bulmak üzeresiniz.
+	O zaman hadi
+
+	<next>HERKESİ KANDIRALIM<div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">BULMACA ZAMANI!</b>
+	<br>
+	<i>Herkesi</i> arkadaşlarının çoğunun daha fazla
+	(%50'den fazlasını) içki içtiğine <icon name="yellow"></icon> inandır
+	(gerçekte oranları 1'e 2'den daha az olsa da!) 
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>KANDIRILDI:</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	9 kişiden
+</words>
+<words id="networks_puzzle_end">
+	Tebrikler! Bir grup öğrenciyi inanılmaz derecede sağlıksız bir
+	sosyal normun yaygınlığına inanmaları için manipüle ettiniz!
+	<next wiggle>...uh. teşekkürler?</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+	Az önce yarattığınız şeye Çoğunluk Yanılsaması<ref id="majority"></ref> deniyor 
+	ve bu da insanların neden siyasi görüşlerinin doğru olduğunu düşündüklerini veya 
+	aşırılığın neden gerçekte olduğundan daha yaygın göründüğünü açıklıyor.
+	<i>Delilik.</i>
+
+	<bon id="connections"></bon>
+
+	Ancak insanlar başkalarının fikir ve davranışlarını yalnızca pasif bir şekilde <i>gözlemlemez</i>,
+	onları aktif olarak <i>kopyalarlar</i>.
+	Şimdi, bakacağımız şey ağ bilimcilerinin tabiri ile... 
+
+	<next>“Yayılma!” <div class="rarr"></div> </next>
+
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+	<i>Şimdilik "eşik" olayını bir kenara bırakalım.</i>
+	Aşağıda: <icon name="red"></icon> bazı bilgilere sahip bir kişi var.
+	Bazı <i>yanlış</i>bilgiler. Havalı çocukların dediği gibi "balon haberler".
+	Ve o kişi her gün bir virüs gibi dedikoduyu arkadaşlarına yayıyor.
+	Ve bunu <i>arkadaşlarına</i> yayacak. Gibi gibi.
+	<br>
+	<b>
+	Simülasyonu başlat! <div class="darr"></div>
+	(not: simülasyon <i>çalışırken</i> değişiklik yapamazsın)
+	</b>
+</words>
+
+<words id="simple_simple_2">
+	Not: Kulağa olumsuz gelse de, "yayılmalar" iyi veya kötü (veya tarafsız veya belirsiz) olabilir.
+	Sigara içmenin, sağlığın, mutluluğun, oy verme biçimlerinin ve işbirliklerinin
+	hepsinin "bulaşıcı" olduğuna dair güçlü istatistiksel 
+	kanıtlar<ref id="contagion"></ref>  var --
+	hatta bu örneklere intihar<ref id="suicides"></ref> ve silahlı saldırı<ref id="shootings"></ref> da eklenebilir.
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle>peki bu iç karartıcı <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_cascade">
+	Kesinlikle öyle
+	Neyse, <b>BULMACA ZAMANI!</b>
+	<br>
+	Öyle bir ağ çiz ki, <i> herkes </i> 
+	"yayılmadan" etkilensin
+	<br>
+	(yeni kural: <i>kalın</i>  bağlantıları kesemezsin)
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle>fevkalade <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_post_cascade">
+	Bu çılgınlığın yayılmasına <b>"bilgi şelalesi"</b> denir.
+	Newton da 1720'de böyle bir şelaleye düştü.
+	Dünya genelinde finans kurumları da 2008'de böyle bir çağlayana düştü.<ref id="subprime"></ref>
+	<br><br>
+	Fakat: <i>bu simülasyon yanlış.</i>
+	Çoğu fikir virüs gibi <i>yayılmaz</i>.
+	Birçok inanç ve davranış için, "enfekte" olabilmek için bulaşmaya 
+	bir kereden fazla "maruz kalmanız" gerekir.
+	Ağ bilimciler, fikirlerin/davranışların nasıl yayıldığını tanımlamanın 
+	yeni ve daha iyi bir yolunu buldular ve buldukları isim...
+	<next wiggle>“<i>Karmaşık</i> Yayılma!” <div class="rarr"></div> </next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+
+	"Eşiklere" ve aşırı içenler <icon name="yellow"></icon> örneğine geri dönersek!
+	Simülasyonu ilk çalıştırmanızda, insanlar davranışlarını değiştirmmeyecek.
+
+	<br><br>
+
+	Şimdi, <i>arkadaşlarının %50'sinden fazlası içmeye başladığında</i> 
+	insanlar içmeye başlarsa ne olacağını simüle edelim!
+	<b>Simülasyonu başlatmadan önce <i>ne olabilir</i> sorusuna kafanızda yanıt arayın.</b>
+
+	<br><br>
+	
+	<b>Şimdi simülasyonu çalıştırın ve gerçekte ne olduğunu görün! <div class="rarr"></div> </b>
+
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+		
+		Önceki "sahte haber" <icon name="red"></icon> yayılımının aksine, 
+		bu yayılım <icon name="yellow"></icon> herkese <i>bulaşmadı</i>! 
+		İlk birkaç kişi "enfekte" oldu, çünkü sadece bir alkolikle 
+		karşılaşmış olsalar da, o alkolik arkadaşlarının %50'siydi (evet, yalnızlar).
+		Buna karşılık, zincirin sonuna yakın olan kişi <i>enfekte olmadı</i>, 
+		yayılıma maruz kalsalar da %50+ eşiği geçmedi.
+
+		<div style="height:0.75em"></div>
+
+		"Enfekte" arkadaşların <i>göreceli</i> yüzdesi önemlidir.
+		<i>İşte</i> <b>karmaşık yayılım</b> teorisi<ref id="complex"></ref> ve 
+		virüs-gibi-yayılan <b> basit yayılım</b> teorileri arasındaki fark budur.
+		("basit yayılımı" "%0'dan fazla" bulaşma eşikli "karmaşık yayılım" olarak görebilirsiniz.)
+
+		<div style="height:0.75em"></div>
+
+		Ancak, yayılımlar kötü olacak diye bir kaide yok &mdash;
+		bu kadar topluluğun <i>deliliği</i> yeter, peki ya...
+		<next>...topluluğun <i>bilgeliği?</i></next>
+
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+	Elimizde gönüllü biri <icon name="blue"></icon> biri olsun, neye gönüllü olsun...
+	afetten insanları kurtarmaya, ya da mahallesindeki fakir çocuklara ders vermek
+	gibi havalı bi'şey için.
+	Yani, bu "iyi" bir karmaşık yayılım.
+	Ancak bu sefer, eşiğin yalnızca %25 olduğunu varsayalım &mdash;
+	insanlar arkadaşlarının %25'i veya daha fazlası da gönüllü ise yardıma katılacaklar. 
+	İyi niyetin dışarıdan biraz teşvike ihtiyacı vardır.
+
+	<br><br>
+
+	<b>&larr; Herkesin iyi niyetle "enfekte" olmasını sağla!</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+		<b>NOT:</b> Gönüllülük, birçok karmaşık yayılımdan sadece <i>biri</i>!
+		Diğer örnekler: seçmen katılımı, yaşam tarzı, 
+		inançlarınıza meydan okumak, bir konuyu derinlemesine
+		anlamak için zaman ayırmak &mdash; birden fazla "maruz"
+		kalınması gereken şeyler.
+		Karmaşık yayılım <i>her zaman</i> bilgece değildir,
+		ama bilge olmak karmaşık yayılımdır.
+
+		<div style="height:0.75em"></div>
+
+		(Peki gerçek hayattan <i>basit</i> yayılımlar ne olabilir?
+		Genellikle sincapların 13 meme ucu vardır gibi önemsiz şeyler<ref id="possum"></ref>)
+
+		<bon id="contagions"></bon>
+
+		Şimdi, karmaşık yayılımların gücünü ve tuhaflığını <i>gerçekten</i> göstermek için...
+
+		<next>...deminki bulmacayı hatırlayalım <div class="rarr"></div> </next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+	Hatırladın mı? Bu sefer, <i>karmaşık</i> yayılımla <icon name="blue"></icon>, biraz daha zorlayacak...
+	<br>
+	<b>Herkese karmaşık bilgelik "bulaştırmaya" çalış! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+	(direkt 'başlat' düğmesine basıp istediğin kadar deneme yapmaktan çekinme)
+</words>
+
+<words id="complex_cascade_end">
+	<next wiggle>VAY CANINA <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+	Şimdi, "karmaşık" veya "basit", iyi veya kötü, akıllı veya çılgın herhangi bir yayılımı
+	bulaştırmak için bağlantı eklemeye devam etmemiz gerektiğini düşünebilirsiniz.
+	Ama gerçekten öyle mi? Peki, tekrar gözden geçirelim...
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle>...geçmiş bir bulmacaya dönelim <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_prevent">
+	Aşağıdaki "başlat"a basarsanız, karmaşık yayılım <icon name="blue"></icon> herkese bulaşacak.
+	Beklenmedik bi'şey değil.
+	Ama şimdi, daha önce yaptığımız her şeyin <i>tersini</i> yapalım:
+	<b>bulaşmanın herkese yayılmasını <i>önlemek</i> için bir ağ çizin! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+	Kaptın mı?
+	Fazla bağlantı her zaman <i>basit</i> yayılımları kolaylaştırırken,
+	<b><i>karmaşık</i> fikirlerin yayılımını kötü yönde etkiler!</b>
+	(aklınıza interneti getirdi mi, hmm?)
+	Ve bu sadece teorik bir problem değil. Mevzu bahis bir hayat..
+</words>
+
+<words id="complex_prevent_end">
+	<next wiggle>...ya da ölüm olabilir. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_groupthink">
+		
+	NASA'daki insanlar kurabiyelerdi kişilerdi.
+	Bizi Ay'a götürmek için Newton'un teorilerini kullandılar.
+	Her neyse, uzun lafın kısası, 1986'da,
+	<i>mühendislerden gelen uyarılara rağmen</i>,
+	<i>Challenger</i>'ı fırlattılar,
+	ki devamında mekik patladı ve 7 kişi öldü.
+	İlk incelemeler: 
+	o sabah hava fazla soğuktu.
+
+	<div style="height:0.9em"></div>
+
+	İleri incelemeler: yöneticiler mühendislerin uyarılarını görmezden geldi.
+	Neden? Nedeni <b>grup düşüncesi</b><ref id="groupthink"></ref>.
+	Bir grup <i>fazla</i> yakın bağlanınca, (kurumların yüksek mevkilerine gelmek istediklerinden)
+	inançlarına veya egolarına karşı gelen karmaşık fikirlere karşı dirençli hale gelirler.
+
+	<div style="height:0.9em"></div>
+
+	İşte kurumlar bu şekilde topluluğun deliliğine düşebilir.
+	Peki topluluğun <i>bilgeliği</i>ni nasıl "hayata geçirebiliriz"?
+	Kısaca, iki kelime:
+
+	<next>Bağ &amp; Köprü kurarak <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+	&larr; Çok az bağlantı fikrin yayılımını engeller
+	<br>
+	Çok fazla bağlantı ise grup düşüncesine yol açacaktır. <div class="rarr"></div> 
+</words>
+
+<words id="bonding_2">
+	<b>
+	Dengeyi sağlayacak bir grup çizin:
+	karmaşık bir fikri yaymaya yetecek kadar bağ çizin!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+	Bu kadar basit!
+	Bir grup <i>içindeki</i> bağlantıların sayısına <b>bağ sosyal değeri</b><ref id="social_capital"></ref> denir.
+	Ama ya 
+	<next wiggle>...gruplar <i>arasındaki</i> bağlar?</next>
+</words>
+
+<words id="bridging_1">
+	Tahmin edebileceğiniz gibi,
+	gruplar <i>arasındaki</i> bağlantıların sayısına
+	<b>köprü sosyal değeri</b> denir.
+	Bu önemlidir, çünkü grupların izole bölmelerden çıkmasına yardımcı olur!
+	<br>
+	<b>Herkese karmaşık yayılım "bulaştırmak" için bir köprü kur:</b>
+</words>
+
+<words id="bridging_end">
+	Bağ gibi, köprüler için de tam bir denge noktası mevcuttur.<ref id="bridge"></ref>
+	(ek zorluk: karmaşık yayılımın üzerinden <i>geçemeyeceği</i>
+	kadar kalın bir köprü çizmeyi dene!) 
+	Artık grupların <i>içi</i> ve <i>arası</i> bağlantıları nasıl "tasarlayacağımızı" biliyoruz, öyleyse...
+	<next wiggle>...İKİSİNİ birden yap!</next>
+</words>
+
+<words id="bb_1">
+
+	<b style="font-size:2em">SON BULMACA!</b>
+	<br>
+	Bilgeliği tüm kalabalığa yaymak için gruplar içinde (bağ) ve
+	arasında (köprü) bağlantılar kurun: 
+
+</words>
+<words id="bb_2">
+
+	Tebrikler, çok özel bir ağ türü çizdiniz!
+	Dengeli bağ ve köprü karışımına sahip ağlar 
+	son derece önemlidir, ve onlara verilen isim...
+	<next wiggle>“Küçük Dünya Ağları” <div class="rarr"></div> </next>
+
+</words>
+<words id="bb_small_world_1">
+
+	<i>"Tekdüzesiz birlik". "Bölünmemiş çeşitlilik". "E Pluribus Unum: onlardan biri, tek".</i>
+	<br>
+	Nasıl ifade edilirse edilsin,
+	farklı zamanlardan ve kültürlerden insanlar genellikle aynı bilgiye ulaşır:
+	<b>
+	sağlıklı bir toplumun gruplar <i>içinde</i> ve <i>arasında</i> 
+	dengeli sayıda bağlara ve köprülere ihtiyacı vardır.
+	</b>
+	Yani:
+
+</words>
+<words id="bb_small_world_2">
+	Ne bu...
+	<br>
+	(çünkü fikirler yayılamaz)
+</words>
+<words id="bb_small_world_3">
+	ne de bu...
+	<br>
+	(çünkü grup düşüncesi oluşacak)
+</words>
+<words id="bb_small_world_4">
+	...işte <i>BU:</i>
+</words>
+<words id="bb_small_world_5">
+	
+	Ağ bilimciler artık bu eski bilgi için matematiksel bir tanıma sahipler:
+	<b>Küçük dünya ağı</b><ref id="small_world"></ref>.
+	Bu optimum bağ + köprü karşımı, 
+	nöronlarımızın nasıl bağlantılı olduğunu<ref id="swn_neurons"></ref>,
+	ortak yaratıcılığı<ref id="swn_creativity"></ref>
+	ve promlem çözmeyi<ref id="swn_social_physics"></ref>, hatta ve hatta 
+	ABD Başkanı John F. Kennedy'nin nasıl nükleer savaşı (ucu ucuna) engellediğini(!)<ref id="swn_jfk"></ref> açıklar.
+	Yani evet, küçük dünyalar çok önemli.
+
+</words>
+<words id="bb_small_world_end">
+	<next>konuyu özetleyelim... <div class="rarr"></div> </next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+	(shh... bir sır bilmek ister misin?<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+	Yayılım:
+</words>
+<words id="sandbox_contagion_simple">
+	basit
+</words>
+<words id="sandbox_contagion_complex">
+	karmaşık
+</words>
+<words id="sandbox_color_chooser">
+	Yayılımın rengi:
+</words>
+<words id="sandbox_tool_chooser">
+	Bir araç seç...
+</words>
+
+<words id="sandbox_tool_pencil">
+	Ağ Çiz
+</words>
+<words id="sandbox_tool_add">
+	Kişi ekle
+</words>
+<words id="sandbox_tool_add_infected">
+	"Enfekte" ekle
+</words>
+<words id="sandbox_tool_move">
+	Kişiyi Sürükle
+</words>
+<words id="sandbox_tool_delete">
+	Kişiyi Sil
+</words>
+<words id="sandbox_tool_clear">
+	<b>HER ŞEYİ TEMİZLE</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+	(...veya, klavye kısayollarını kullan!)
+</words>
+
+<words id="sandbox_shortcuts">
+	[1]: Kişi ekle &nbsp;&nbsp;&nbsp; [2]: "Enfekte" ekle
+	<br>
+	[Boşluk]: Sürükle &nbsp;&nbsp;&nbsp; [Geri Tuşu]: Sil
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+	
+	<div style="font-size: 30px;">
+		SONUÇ OLARAK: her şeyin dönüp geldiği nokta...
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 88px;
+	    top: 20px;
+	    line-height: 100px; display:block;
+	">
+	    Yayılım &amp; Bağlantılar
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 125px;
+	    left: 250px;
+	">
+		<b>Yayılım:</b>
+		Nöronların beyindeki sinyalleri iletmesi gibi,
+		insanlar da bir toplumda inançları &amp; davranışları iletir.
+		Sadece arkadaşlarımızı etkilemekle kalmıyoruz,
+		arkadaşlarımızın arkadaşlarını ve hatta arkadaşlarımızın 
+		arkadaşlarının arkadaşlarını da etkileriz!<ref id="three_degrees"></ref>
+		(“dünyada görmek istediğin değişiklik ol” vs vs)
+		Ama nöronlar gibi, önemli olan sadece sinyaller değildir, ayrıca...
+		<br>
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 275px;
+	    left: 250px;
+	">
+		<b>Bağlantılar:</b>
+		Çok az bağlantı karmaşık fikirlerin yayılımını engeller.
+		Çok <i>fazla</i> bağlantı ve karmaşık fikirler grup düşüncesine yenilir.
+		Küçük bir dünya ağı kurmanın püf noktası, bağların ve
+		köprülerin optimum karışımıdır: <i>e pluribus unum.</i>
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #999;
+	">
+		(kendi simülasyonunu yapmak ister misin,
+		aşağıdaki (★)'ı tıklayarak Kumhavuzu Moduna göz atın!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+		Peki başta sorduğumuz soru ne olacak?
+		Neden günün sonuda toplulukların <i>durağı</i>...
+	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 460px;
+	    right: 0px;
+	">
+		<next>...bilgelik ve/veya deliliktir?</next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+		Newton'dan NASA'ya, oradan Ağ Bilimi'ne
+		<br>
+		Bugün burada pek çok şey işledik.
+		<br>
+		Uzun lafın kısası, toplulukların deliliği
+		<br>
+		<i>bireyler davranış</i> kaynaklı olabileceği gibi
+		<br>
+		bireylerin ağ içerisinde nasıl sıkıştığına da bağlıdır.
+
+		<div style="height:0.9em"></div>
+
+		Bu demek <i>değildir</i> ki, bireysel sorumluluklarımızı unutalım,
+		<br>
+		çünkü günün sonunda bu ağı <i>örenler</i> biziz. Yani yayılımınızı geliştirin:
+		<br>
+		sizi pohpohlayan fikirlere şüpheyle yaklaşın<ref id="flatter"></ref>,
+		<br>
+		karmaşık fikirleri anlamak için zaman harcayın. Ve bağlantılarınızı geliştirin:
+		<br>
+		sadece benzer insanlarla bağ kurmakla kalmayın, aynı zamanda kültürel/politik 
+		<br>
+		farklılıklara sahip kişilerle de köprüler kurun.
+
+		<div style="height:0.9em"></div>
+
+		Ağımızı bilgece örebiliriz. Elbet de, ekrana alelade karalamalar
+		<br>
+		yapmaktan daha zor olacaktır...
+
+		<next>...ama buna değecektir.</next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+		“Tarihin büyük zaferleri ve trajedilerinden
+		<br>
+		özünde iyi veya kötü insanlar değil
+		<br>
+		özünde insan olanlar sorumludur.”
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Neil Gaiman &amp; Terry Pratchett
+	<div style="height:0.8em"></div>
+	<next small>&lt;3</next>
+</words>
+
+<!-- Credits --> 
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+	
+		<span style="color:#777; position:relative; top:5px;">
+			yapımcı</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			diğer islerimi oyna</a> ·
+		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
+			tweeter'ımı takip et</a>
+		
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			sevgiler ve teşekkürler</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			PATREON DESTEKÇİLERİME</div>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+			bundan daha fazlasını yapmamı sağla! &lt;3</a>
+		<br>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			destekçilerimi gör</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			oyun testçilerimi gör</a>
+
+		<br><br>
+
+		<span style="display: inline-block; margin-top: 15px;">
+			♫ müzik
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" and "Friends 2068"</a>
+			Komiku
+			<br>
+			&lt;/&gt; <i>Crowds</i>
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				tamamen açık kaynaklıdır</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	KAZANDIN
+</words>
+<words id="sim_start">
+	simülasyonu başlat
+</words>
+<words id="sim_stop">
+	sıfırla &amp; yeniden çiz
+</words>
+<words id="translations_exist">
+	Hayran yapımı çeviriler:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	What the, no fan-made translations exist yet?!
+</words>
+<words id="translations_add">
+	(add your own!)
+</words>
+<words id="translations_original">
+	<!-- No need to translate this, because, I assume, -->
+	<!-- if someone wants to play the game in English, they can read English -->
+	(original in English)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+	James Surowiecki'in <i>Toplumun Bilgeliği</i>'ne kısa bir yanıt
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+	
+	Öncelikle bu kitabı
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	eleştirmiyorum.</a>
+	Bu iyi bir kitap ve Surowiecki de benimle aynı soruyu çözmeye çalışıyordu::
+	<b>“Neden bazı kalabalıklar deliliğe ya da bilgeliğe yönelir?”</b>
+
+	<br><br>
+
+	Surowiecki'nin cevabı: Kalabalıklar, herkes mümkün olduğunca bağımsız olduğunda iyi kararlar verir.
+	Kasaba halkının bir öküzün ağırlığını tahmin etmeye 
+	davet edildiği bir ilçe panayırının hikayesini veriyor.
+	Şaşırtıcı bir şekilde, <i>tüm</i> tahminlerinin ortalaması, herhangi <i>bir</i> tahminden</i> daha iyiydi.
+	Ancak işin püf noktası şu: insanlar birbirlerinden <i>bağımsız</i> tahminlerde bulunmak durumunda.
+	Aksi takdirde,
+	daha önceki yanlış tahminlerden etkilenirler 
+	ve ortalama cevap oldukça çarpık olur.
+
+	<br><br>
+
+	Ama... "Herkesi olabildiğince bağımsız yap"ın tam cevap olduğunu düşünmüyorum.
+	En bağımsız düşünürler zannettiğimiz dahiler bile başkalarından derinden etkilenir. 
+	Isaac Newton'nun dediği gibi,
+	<i>“Daha ilerisini görebiliyorsam, devlerin omuzlarında durduğumdandır.”</i>
+
+	<br><br>
+
+	Peki, hangi fikir doğru?
+	Bilgelik kendin için düşünmekten mi yoksa başkalarıyla düşünmekten mi gelir?
+	Cevap: "evet".
+
+	<br><br>
+
+	Bu derinine inebileceğiniz bu örnekte açıklamaya çalışacağım şey tam da bu:
+	dış-bağımsızlık ve iç-bağımsızlık arasındaki o tatlı noktaya nasıl ulaşılır 
+	ve ulaşılırsa, bilge bir topluluk nasıl oluşturulur.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+	Başka ne tür bağlantılar var?
+	</h3>
+
+	<div>
+
+	Basitlik adına, simülasyonlarda, insanların yalnızca 
+	arkadaşlıklar aracılığıyla birbirine bağlanabileceğini 
+	ve tüm arkadaşlıkların eşit olduğu kabul ediliyor.
+	Ancak ağ bilimciler, bağlantı kurabileceğimiz diğer yolların <i>varlığını</i> hesaba katıyor, örneğin:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Yönlü Bağlantılar.</b> Alice, Bob'un patronudur, ancak Bob, Alice'in patronu değildir.
+	Carol, Dave'in babasıdır, ancak Dave, Carol'ın babası değildir.
+	"Patron" &amp; "Babalık" <i>yönlü</i> bağlantılardır:
+	ilişki sadece bir yönlüdür.
+	Buna karşılık, "arkadaşlık" <i>çift yönlü</i> bir ilişkidir: 
+	ilişki iki yönlüdür. (yani, umarım)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Ağırlıklı Bağlantılar.</b> Elinor ve Frankie sadece tanıdıklar.
+	George ve Harry Ebedi En İyi Arkadaşlardır.
+	Her iki durumda "arkadaşlık" bağlantısı olsa da, ikincisi daha güçlüdür.
+	Bu iki bağlantının farklı "ağırlığı" olduğunu söylüyoruz.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Hatırlar: <b>tüm bu simülasyonlar yanlış.</b> Tüm haritaların "yanlış" olduğu gibi.
+	Soldaki haritayı görüyor musun? Binalar gri basit bloklar değildir!
+	Kelimeler şehirlerin üzerinde uçmaz! Haritalar basitleştirilmiş olsalar <i>bile</i> değil,
+	basitleştirildikleri <i>için</i> kullanışlıdırlar. Aynı şey simülasyonlar için ya da herhangi 
+	bir teori için de geçerlidir. <i>Tabii ki</i> "yanlışlar" &mdash; onları <i>kullanışlı</i> yapan şey bu.
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	Başka ne tür yayılımlar var?
+	</h3>
+
+	<div>
+	
+	Ağ bilimcilerinin "yayılımları" simüle edebilmelerinin 
+	o kadar çok yolu var ki! Eğitim amaçlı an basitini seçtim. 
+	Ama işte bunu yapmanın başka yolları:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Rassal Yayılım</b>.
+	Bir bulaşmaya "maruz kalmak", enfekte olacağınızı <i>garanti etmez</i>,
+	yalnızca daha <i>olası</i> yapar.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>İnsanların farklı bulaşma eşikleri vardır.</b> 
+	Aşırı içki içme (%50), gönüllü olma (%25) veya yanlış bilgilendirme (%0) simülasyonlarımda herkesin 
+	aynı eşiğe sahip olduğunu varsayıyor. Tabii ki, bu gerçek hayatta doğru değil ve 
+	simülasyonunuzun bunu yansıtmasını sağlayabilirsiniz.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Bir yayılım ekolojisi.</b>
+	Ya <a>farklı</i> eşiklerle <i>birden fazla</i> yayılım varsa?
+	Örneğin, basit bir "delilik" yayılımı ve karmaşık bir "bilgelik" yayılımı.
+	Birine delilik bulaşmışsa, yine de bilgelikle enfekte olabilir mi?
+	Ya da tam tersi?
+	Her ikisi de bulaşmış birisi olabilir mi?
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Mutasyona uğrayan ve gelişen yayılımlar.</b>
+	Fikirler bir kişiden diğerine bir virüsün yaptığı gibi mükemmel bir şekilde geçmez.
+	Kulaktan kulağa gibi, mesaj her yeniden anlatımda mutasyona uğruyor &mdash; 
+	bazen mutant orijinalinden daha bulaşıcı oluyor!
+	Böylece, zamanla fikirler daha inandırıcı, kopyalanabilir ve bulaşıcı olacak şekilde "evrimleşir".
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+	
+	<h3>
+	Dahasın öğrenmek istiyorum! Başka ne okuyabilirim ve/veya oynayabilirim?
+	</h3>
+	
+	<div>
+	
+	Bu anlatım merakınız için sadece bir sıçrama tahtasıydı, 
+	böylece geniş bir bilgi havuzuna daha derine dalabilirsiniz! 
+	İşte ağlar veya sosyal sistemler hakkında daha fazla bilgi:
+
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Kitap:</b>
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Bağlı</a>
+	Nicholas Christakis and James Fowler (2009).
+	Ağlarımızın hayatımızı iyi ya da kötü nasıl etkilediğine dair erişilebilir bir inceleme.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	İşte bir alıntı: Önsöz &amp; Bölüm 1
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Etkileşimli:</b>
+	<a target="_blank" href="http://ncase.me/trust/">
+	Güvenin Evrimi</a> by Nicky Case (şahsım) (2017).
+	İşbirliğinin nasıl kurulduğuna veya yok edildiği oyun teorisi hakkında bir oyun.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Etkileşimli:</b>
+	<a target="_blank" href="http://ncase.me/polygons/">
+	Çokgenler Anlatısı</a> Vi Hart ve Nicky Case (yine şahsım) (2014).
+	Zararsız seçimlerin nasıl zararlı bir dünya yaratabileceğine dair bir hikaye.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Veya, etkileşimli eğitici şeyler galerisinin tamamını görmek istiyorsanız, işte burada
+	<a target="_blank" href="http://explorabl.es/">
+	Keşfedilebilir Açıklamalar</a>,
+	oyun yoluyla öğrenebileceğiniz bir merkez!
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+	“neredeyse tüm [üniversite] öğrencileri arkadaşlarının kendilerinden daha fazla içtiğini bildirdi.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	“Üniversite öğrencileri arasında içme normlarının algılanmasındaki önyargılar”</a> Baer et al (1991)
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+	“Çoğunluk Yanılsaması”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	“Sosyal Ağlarda Çoğunluk Yanılsaması”</a> Lerman et al (2016).
+	<br>
+	Bağlantılı: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+	Arkadaşlık Paradoksu</a>.
+	</div>
+</reference>
+<reference id="contagion">
+	
+	<h3>
+	“sigara içmenin, sağlığın, mutluluğun, oy verme biçimlerinin ve 
+	işbirliği düzeylerinin hepsinin bulaşıcı 
+	olduğuna dair güçlü istatistiksel kanıtlar”
+	</h3>
+
+	<div>
+	
+	Nicholas Christakis ve James Fowler'ın harika, erişime açık, kitabından,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Bağlı</a> (2009). 
+
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+	“intiharların da [bulaşıcı] olduğuna dair bazı kanıtlar”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	“İntihar Bulaşması ve İntiharın Bildirilmesi: Ulusal Bir Çalıştaydan Öneriler”</a>
+	O'Carroll et al (1994), Hastalık Kontrol ve Önleme Merkezi (CDC) tarafından onaylanmıştır.
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+	“silahlı saldırıların da [bulaşıcı] olduğuna dair bazı kanıtlar”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	“Kitlesel Cinayetlerde ve Okul Saldırılarında Yayılım”</a> Towers et al (2015).
+
+	<br><br>
+
+	Ayrıca bakın:
+	<a target="_blank" href="http://www.dontnamethem.org/">
+	Onlara Ad Vermeyin</a> seferberliği,
+	haber kuruluşlarının katillerin isimlerini, amaçlarını ve sosyal medya haberlerini 
+	<i>YAYINLAMAMASINI</i> teşvik ediyor.
+	Yayılıma bu neden oluyor.
+	Bunun yerine, haber kaynakları kurbanlara, ilk müdahale ekiplerine, 
+	sivil kahramanlara ve yas tutan, iyileşen topluma odaklanmalıdır.
+
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+	“Dünyanın finans kurumları 2008'de böyle bir çağlayana düştü.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	“Wall Street'in Yaban Sıçanları”</a> Cass Sunstein, kısa, teknik olmayan bir metin.
+	Kazadan hemen sonra, Ekim 2008'de yayınlandı.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+	“karmaşık yayılım teorisi.”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	“Kolektif Davranışın Eşik Modelleri”</a> Granovetter (1978)
+	"Karmaşık bulaşma" modelini tanımlayan, bildiğim kadarıyla, ilk kişi. 
+	(her ne kadar direkt o ismi kullanmamış olsa da)
+
+	<br><br>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Karmaşık Yayılımlar ve Uzun Bağların Zayıf Yönü”</a> Centola &amp; Macy (2007)
+	"karmaşık bulaşma" ifadesini icat etti ve
+	"basit bulaşma" arasındaki önemli farkları gösterdi.
+
+	<br><br>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	“Gözlemsel verilerden sosyal yayılımın karmaşık bulaşma modelleri için kanıtı”</a>
+	Sprague &amp; House (2017)
+	ampirik olarak karmaşık yayılımların varlığını gösterdi. (en azından kullandıkları sosyal medya verilerinde)
+
+	<br><br>
+
+	Son olarak,
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	“Genelleştirilmiş bir yayılım modelinde evrensel davranış”</a> Dodds &amp; Watts (2004)
+	<i>tüm</i> yayılım türlerini birleştiren bir model önerir: 
+	basit ve karmaşık, biyolojik ve sosyal !
+
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+	“sıçanın 13 memesi var”
+	</h3>
+	<div>
+	12 meme başı, artı bir ortada bir halka şeklinde
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+	“grup düşüncesi”
+	</h3>
+
+	<div>
+	Orwell'den ilham alan bu ifade, 1971'de Irving L. Janis tarafından icat edildi.
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	Orijinal makalesinde</a>,
+	Janis grup düşüncesi vakalarını araştırır, nedenlerini ve &mdash; sağolsun &mdash;
+	bazı olası çözümleri listeler.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+	“bağ ve köprü sosyal değerleri”
+	</h3>
+
+	<div>
+	Bu iki sosyal değer türü &mdash; "bağ" and "köprü" &mdash;, Robert Putnam tarafından 
+	2000 yılında kaleme aldığı kapsamlı kitabında şöyle adlandırılmıştır:
+	<a target="_blank" href="http://bowlingalone.com/">
+	Yalnız Bowling</a>. Onun keşfi:
+	neredeyse <i>tüm</i> ampirik yöntemlerle sosyal bağlantıyı ölçer,
+	Amerikalılar her zamankinden daha yalnız.
+	Amanın.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+	“Köprü sosyal değerinin dengesi vardır”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	“Zayıf Bağların Gücü”</a> Granovetter (1973)
+	gruplar arasındaki bağlantıların basit yayılımların (bilgi gibi) yayılmasına yardımcı olduğunu gösterdi,
+	ama
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Karmaşık Bulaşmalar ve Uzun Bağların Zayıf Yönü”</a> Centola &amp; Macy (2007)
+	gruplar arasındaki bağlantıların karmaşık yayılımlara yardımcı olmayabileceğini gösterdi,
+	ve gerçekte, yayılmalarına zarar verebilir!
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+	“küçük dünya ağı”
+	</h3>
+
+	<div>
+
+	"Küçük dünya" fikrini popülerleştiren,
+	<a target="_blank" href="http://www.jstor.org/stable/2786545">Travers &amp; Milgram'ın 1969 deneyi</a>,
+	ortalama olarak Amerika Birleşik Devletleri'ndeki herhangi iki rastgele 
+	insanın yalnızca altı arkadaşlık olduğunu gösterdi &mdash; "altıncı derecen ayrılık"!
+	<br><br>
+
+	Küçük dünya ağı, kemiklerinde daha fazla matematiksel ete büründü.
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	“Küçük dünya ağlarının kolektif dinamikleri”</a> Watts &amp; Strogatz (1998),
+	hem düşük ortalama yol uzunluğuna (düşük ayırma derecesi) 
+	hem de yüksek kümelemeye (arkadaşların çok sayıda ortak arkadaşı vardır) 
+	sahip ağlar oluşturmak için bir algoritma önerdi &mdash; 
+	yani, denge noktasına ulaşan bir ağ!
+
+	<br><br>
+
+	Ayrıca oynayabileceğiniz
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	görsel, etkileşimli uyarlama</a> Bret Victor (2011).
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+	“[küçük dünya ağları] nöronlarımızın nasıl bağlandığını açıklar”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	“Küçük dünya beyin ağları”</a> Bassett &amp; Bullmore (2006).
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+	“[küçük dünya ağları] kolektif yaratıcılığa yol açar”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	“İşbirliği ve Yaratıcılık: Küçük Dünya Sorunu”</a> Uzzi &amp; Spiro (2005).
+	Bu makale, zaman içinde Broadway sahnesinin sosyal ağını analiz etti ve evet, 
+	"küçük dünya" ağı olduğunda ağın en yaratıcı olduğunu keşfetti!
+
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+	“[küçük dünya ağları] toplu problem çözmeye yol açar”
+	</h3>
+
+	<div>
+	Kaynak
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	“Sosyal Fizik”</a> MIT Profesörü Alex "Sandy" Pentland (2014)
+	toplu zekaya veri tabanlı bir yaklaşım için.
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+	“[küçük dünya ağları] John F. Kennedy'nin nükleer savaştan (ucu ucuna) kaçınmasına yardımcı oldu”
+	</h3>
+
+	<div>
+
+	NASA Challenger patlamasının yanı sıra, grup düşüncesinin 
+	en kötü bilinen örneği Domuzlar Körfezi fiyaskosuydu.
+	1961'de ABD Başkanı John F. Kennedy ve danışmanlarından oluşan ekibi 
+	&mdash; nedense &mdash; Küba'yı gizlice işgal etmenin ve 
+	Fidel Castro'yu devirmenin iyi bir fikir olduğunu düşündü.
+	Başarısız oldular.
+	Aslında başarısız olmaktan da beter: 1962 Küba Füze Krizine yol açtılar, 
+	<i>dünyanın şimdiye kadar tam ölçekli nükleer savaşa en yakın olduğu olay.</i>
+
+	<br><br>
+
+	Evet, JFK bunu gerçekten berbat etti.
+
+	<br><br>
+
+	Ancak Domuzlar Körfezi fiyaskosundan bazı dersler alan JFK, 
+	grup düşüncesinden kaçınmak için ekibini yeniden organize etti.
+	Pek çok şeyin arasında, o:
+	1) insanları aktif olarak eleştirileri dile getirmeye teşvik etti, 
+	böylece alternatif fikirler için "yayılım eşiğini" düşürdü.
+	Ve
+	2) tekrar bir araya gelmeden önce ekibini alt gruplara ayırdı 
+	ve bu da gruplarına "küçük dünya ağı" benzeri bir tasarım kazandırdı!
+	Birlikte, bu düzenleme çok fazla kırılmadan sağlıklı bir fikir 
+	çeşitliliğini sağladı, &mdash; topluluk bilgeliği.
+
+	<br><br>
+
+	Ve böylece, Domuzlar Körfezi'ne karar veren, ancak Küba Füze Krizi'ne 
+	karar vermek için <i>toplu olarak</i> yeniden düzenleyen aynı <i>kişiler</i> ile...
+	JFK'nin ekibi, Sovyet lideri Nikita Kruşçev ile barışçıl bir anlaşmaya varmayı başardı.
+	Sovyetler füzelerini Küba'dan çekecek ve karşılığında, ABD Küba'yı tekrar 
+	işgal etmeyeceğine söz verecekti.
+	(ve ayrıca gizlice ABD füzelerini Türkiye'den çıkarmayı kabul etti.)
+
+	<br><br>
+
+	Ve bu, tüm insanlığın ölümden nasıl döndüğünün hikayesi. 
+	Bir küçük dünya ağı dahagünü kurtardı! Sayılır.
+
+	<br><br>
+
+	Bu konuda daha fazlasını okuyabilirsiniz
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	Harvard Business Review'da</a>,
+	ya da
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	grup düşüncesi hakkındaki orijinal makale</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+	“[...] arkadaşlarımızın arkadaşlarının arkadaşlarını etkileriz!”
+	</h3>
+
+	<div>
+	Yine Nicholas Christakis ve James Fowler'ın harika kitabından,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Bağlı</a> (2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+	“sizi pohpohlayan fikirlere şüpheyle yaklaşın”
+	</h3>
+	<div>
+	evet, <i>bu</i> keşfedilebilir açıklamadaki fikirler dahil.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	★ Kumhavuzu Modu ★
+	</h3>
+
+	<div>
+	Klavye kısayolları (1, 2, boşluk, geri tuşu) yalnızca 
+	Kumhavuzu Modunda değil, <i>tüm</i> bulmacalarda çalışır!
+	Cidden, farklı bir bölüme geri dönebilir ve 
+	simülasyonu orada düzenleyebilirsiniz.
+	Aslında, tüm bu bulmacaları böyle <i>yarattım</i>. İyi eğlenceler!
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+	Sevgili Patreon destekçileri::
+	Cömertliğiniz <i>gerçekten</i> yemeğimi ve kiramı ödüyor.
+	Bana bu tuhaf eğitici oyunları yapma özgürlüğü veriyorsunuz,
+	kalbimin derinliklerinden, teşekkür ederim. &lt;3
+	<br>
+	<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+		(Bunun gibi daha fazla şey yapmam için bana destek olmak ister misin? Patreon'uma uğra!)</a>
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+	Birçok aşamada <i>Crowds</i> oyununu 
+	test eden herkese teşekkürler!
+	
+	<br><br>
+	<b>Prototip:</b>
+	<br>
+	Maria ·
+	Monica Srivastava
+
+	<br><br>
+	<b>Alfa:</b>
+	<br>
+	Glen Chiacchieri ·
+	Kalli Repzeti ·
+	Mali Akmanalp ·
+	Toph Tucker
+
+	<br><br>
+	<b>Beta:</b>
+	<br>
+	Alex Dytrych ·
+	Amit Patel ·
+	Cassandra McClure ·
+	Catherine Ray ·
+	Josh Comeau ·
+	Kayle Sawyer ·
+	Matthew Conlen ·
+	Srini Kadamati ·
+	Vanessa Shen ·
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+
+And that's it! That's the last of what needed to a TRANSLATE
+
+Thank you so, so much for doing this again, wow.
+
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+
+-->
