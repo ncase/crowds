@@ -62,7 +62,7 @@ a:hover{
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
-	user-select: none; 
+	user-select: none;
 }
 #simulations canvas, #slideshow > div{
 	position: absolute;
@@ -106,7 +106,7 @@ a:hover{
 
 /* Skip */
 #container > #skip{
-	
+
 	display: none;
 
 	position: absolute;
@@ -122,8 +122,8 @@ a:hover{
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
-	user-select: none; 
-	
+	user-select: none;
+
 }
 #container > #skip:hover{
 	color: #ccc;
@@ -306,7 +306,7 @@ a:hover{
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
-	user-select: none; 
+	user-select: none;
 }
 #sound{
 	position: absolute;
@@ -321,7 +321,7 @@ a:hover{
 }
 #sound_icon{
 	background: url(../sprites/ui/sound.png);
-	background-size: auto 100%; 
+	background-size: auto 100%;
 	width: 60px; height: 60px;
 	position: absolute;
 }
@@ -360,7 +360,7 @@ a:hover{
 	width: 50px;
 	height: 60px;
 	background: url(../sprites/ui/sharing.png);
-	background-size: auto 100%; 
+	background-size: auto 100%;
 }
 #sharing #fb{
 	background-position: 0px 0px;
@@ -384,7 +384,7 @@ a:hover{
     width: 900px;
     text-align: center;
     color: #fff;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.5px;
 }
@@ -439,23 +439,23 @@ a:hover{
 	margin: 0 8px;
 }
 #navigation > span#nav_bubble{
-	
+
 	transition: opacity 0.2s ease-in-out,
 			    left 0.2s ease-in-out,
 			    top 0.2s ease-in-out;
 
 	display: none;
 	opacity: 0;
-	
+
 	position: absolute;
 	top:-80px;
 	left:0;
-	
+
 	background: rgba(0,0,0,0.8);
 	color: #fff;
 	text-align: center;
 	border-radius: 20px;
-    
+
     width: 220px;
     padding: 6px 0;
 
@@ -520,7 +520,7 @@ words, bonus, reference{
 bon{
     margin: 0.75em auto;
     display: block;
-    
+
     background: #ccc;
     color: #444;
     text-align: left;
@@ -542,7 +542,7 @@ bon:before{
 	content: '';
 	display: block;
     position: absolute;
-    
+
     left: 25px;
     top: 14px;
     width: 35px;
