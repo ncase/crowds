@@ -1,0 +1,1662 @@
+<!--
+THE WISDOM AND/OR MADNESS OF CROWDS
+by Nicky Case | apr 2018
+- - - - - - - - - - -
+FAN TRANSLATION GUIDE:
+https://github.com/ncase/crowds#how-to-translate-this-thing
+Hello fan-translaters! Thank you so, so much for your help.
+I hope you know what you've gotten yourself into.
+There's about 3600+ WORDS to translate, including
+the Bonus Boxes and References.
+To make things easier (or less painful, anyway) I've marked
+what needs to be translated and how with big "TRANSLATE" comments.
+Ctrl+F for "TRANSLATE" in uppercase to see what needs to be translated!
+BUT BEFORE YOU TRANSLATE ANYTHING, DO THIS:
+1) Look up the two-letter code of the language you're translating to:
+   https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+2) *COPY* index.html, and name the copy [two-letter-code].html
+   For example: de.html, ar.html, zh.html, etc...
+3) Translate *THAT* page. Do NOT modify the original index.html!
+And once you're done, go to "translations.txt", and follow the
+instructions there to let this game "know" your translation exists.
+Good luck, and thanks again!
+<3,
+~ Nicky Case
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- Meta Info -->
+	<title>Kebijaksanaan dan/atau Kegilaan Kerumunan</title> <!-- <title>(TRANSLATE this part only)</title> -->
+	<meta name="description" content="sebuah panduan interaktif untuk jaringan manusia"/> <!-- content="(TRANSLATE this part only)" -->
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="favicon.png">
+
+	<!-- Sharing -->
+	<meta itemprop="name" content="Kebijaksanaan dan/atau Kegilaan Kerumunan"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="description" content="sebuah panduan interaktif untuk jaringan manusia"> <!-- content="(TRANSLATE this part only)" -->
+	<meta itemprop="image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta name="twitter:title" content="Kebijaksanaan dan/atau Kegilaan Kerumunan"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:description" content="sebuah panduan interaktif untuk jaringan manusia"> <!-- content="(TRANSLATE this part only)" -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@ncasenmare">
+	<meta name="twitter:creator" content="@ncasenmare">
+	<meta name="twitter:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<meta property="og:title" content="Kebijaksanaan dan/atau Kegilaan Kerumunan"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:description" content="sebuah panduan interaktif untuk jaringan manusia"> <!-- content="(TRANSLATE this part only)" -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://ncase.me/crowds/">
+	<meta property="og:image" content="http://ncase.me/crowds/social/thumb.png">
+
+	<!-- Styles -->
+	<link rel="stylesheet" type="text/css" href="css/index.css?v=3">
+
+</head>
+<body>
+
+	<!-- THE SLIDESHOW -->
+	<div id="container">
+
+		<!-- Simulation(s) in background -->
+		<div id="simulations_container">
+			<div id="simulations"></div>
+		</div>
+
+		<!-- Slideshow: words & buttons -->
+		<div id="slideshow_container">
+			<div id="slideshow"></div>
+		</div>
+
+		<!-- Scratch Transition -->
+		<canvas id="scratch" width="711" height="400"></canvas>
+
+		<!-- Skip -->
+		<div id="skip">lewat &gt;</div> <!-- TRANSLATE -->
+
+		<!-- Modal -->
+		<div id="modal_container">
+			<div id="modal_bg"></div>
+			<div id="modal">
+				<div id="modal_close">⨯</div>
+				<div id="modal_content_container">
+					<div id="modal_content"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<!-- Navigation: Audio, Contents, Share, Translations -->
+	<div id="navigation_container">
+		<div id="sound" mute="no">
+			<div id="sound_icon"></div>
+			<span id="sound_on">NYALA</span> <!-- TRANSLATE -->
+			<span id="sound_off">MATI</span> <!-- TRANSLATE -->
+		</div>
+		<div id="sharing">
+			<a id="fb" target="_blank" href="TODO"></a>
+			<a id="tw" target="_blank" href="TODO"></a>
+			<a id="em" target="_blank" href="TODO"></a>
+			<span id="share_title">
+			Kebijaksanaan dan/atau Kegilaan Kerumunan <!-- TRANSLATE -->
+			</span>
+			<span id="share_desc">
+			<!-- TRANSLATOR: keep this on ONE LINE or the social sharing will break! -->
+			Kenapa berkelompok-kelompok orang bertindak pintar, bodoh, baik, jahat? Sebuah panduan interaktif untuk jaringan manusia: <!-- TRANSLATE -->
+			</span>
+		</div>
+		<div id="navigation">
+
+			<!-- The chapters -->
+			<!-- TRANSLATE all the Chapter names! -->
+			<div chapter="Introduction">
+				<span>0</span>
+				<span>0. Perkenalan</span>
+			</div>
+			<div chapter="Networks">
+				<span>1</span>
+				<span>1. Hubungan</span>
+			</div>
+			<div chapter="Simple">
+				<span>2</span>
+				<span>2. Penularan</span>
+			</div>
+			<div chapter="Complex">
+				<span>3</span>
+				<span>3. Penularan Kompleks</span>
+			</div>
+			<div chapter="BB">
+				<span>4</span>
+				<span>4. Mengikat &amp; Menjembatani</span> <!-- note: &amp; is html for the "and" sign -->
+			</div>
+			<div chapter="SmallWorld">
+				<span>5</span>
+				<span>5. Dunia Ini Sempit</span>
+			</div>
+			<div chapter="Conclusion">
+				<span>6</span>
+				<span>6. Kesimpulannya...</span>
+			</div>
+			<div chapter="Credits">
+				<span>7</span>
+				<span>7. Pengakuan</span>
+			</div>
+			<div chapter="Sandbox">
+				<span>★</span>
+				<span>★ Mode Sandbox! ★</span>
+			</div>
+
+			<!-- A divider -->
+			<span class="nav_divider"></span>
+			
+			<!-- Bonus Notes & References -->
+			<div modal="bonus">
+				<span>?</span>
+				<span>Kotak-Kotak Bonus!</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="references">
+				<span style="margin-top: 7px; font-size: 35px;">*</span>
+				<span>Tautan &amp; Rujukan</span> <!-- TRANSLATE -->
+			</div>
+			<div modal="translations">
+			<span style="margin-top:5px; position:relative;"><span style="
+				    position: absolute;
+				    top: -8px;
+				    left: 6px;
+				">A</span><span style="
+				    position: absolute;
+				    font-size: 16px;
+				    top: -1px;
+				    left: 16px;
+				">あ</span></span>
+				<span>Terjemahan</span> <!-- TRANSLATE -->
+			</div>
+
+			<!-- The hover bubble -->
+			<span id="nav_bubble"></span>
+			
+		</div>
+		<div id="translations"></div>
+		<div id="social"></div>
+	</div>
+	
+	<!-- The Pencil -->
+	<div id="pencil_container">
+		<canvas id="pencil"></canvas>
+	</div>
+
+	<!-- Preloader -->
+	<div id="pre_preloader">
+		<div>memuat...</div> <!-- TRANSLATE -->
+	</div>
+
+</body>
+</html>
+
+<!-- - - - - -->
+<!-- SCRIPTS -->
+<!-- - - - - -->
+
+<script src="js/lib/helpers.js"></script>
+<script src="js/lib/minpubsub.src.js"></script>
+<script src="js/lib/howler.min.js"></script>
+<script src="js/lib/Key.js"></script>
+<script src="js/lib/Mouse.js"></script>
+<script src="js/lib/Sprite.js"></script>
+
+<script src="js/slideshow/Slideshow.js"></script>
+<script src="js/slideshow/Pencil.js"></script>
+<script src="js/slideshow/Boxes.js"></script>
+<script src="js/slideshow/Scratch.js"></script>
+<script src="js/slideshow/Navigation.js"></script>
+<script src="js/slideshow/SimUI.js"></script>
+<script src="js/slideshow/SandboxUI.js"></script>
+<script src="js/slideshow/Modal.js"></script>
+<script src="js/slideshow/Preloader.js"></script>
+<script src="js/slideshow/Translations.js?v=2"></script>
+
+<script src="js/sim/Peep.js?v=2"></script>
+<script src="js/sim/Connection.js"></script>
+<script src="js/sim/ConnectorCutter.js"></script>
+<script src="js/sim/Simulations.js"></script>
+
+<script src="js/chapters/A_Preloader.js"></script>
+<script src="js/chapters/B_Introduction.js"></script>
+<script src="js/chapters/C_Networks.js"></script>
+<script src="js/chapters/D_Simple_Contagion.js"></script>
+<script src="js/chapters/E_Complex_Contagion.js"></script>
+<script src="js/chapters/F_Bonding_And_Bridging.js"></script>
+<script src="js/chapters/G_Small_World.js"></script>
+<script src="js/chapters/H_Conclusion.js"></script>
+<script src="js/chapters/I_Credits.js"></script>
+<script src="js/chapters/J_Sandbox.js?v=2"></script>
+
+<script src="js/main.js"></script>
+
+
+<!-- - - - - - - - - - - - -->
+<!-- THE SLIDESHOW'S WORDS -->
+<!-- - - - - - - - - - - - -->
+
+<!-- 
+This is the bulk of what you need to TRANSLATE!
+Translate just the text that's within the <tag></tags>
+If you're using a code editor (like Sublime Text https://www.sublimetext.com/),
+it should automatically highlight what the text is (usually in white).
+-->
+
+<span style="display:none">
+
+<!-- Preloader -->
+
+<words id="preloader_title">
+
+	<div style="font-size: 30px;">
+		<span style="font-size: 60px;letter-spacing: 4px;">KEBIJAKSANAAN</span>
+		<span style="position:relative;top: -10px;">dan/atau</span>
+		<span style="font-size: 60px;">KEGILAAN</span>
+		<br>
+		<span style="font-size: 100px;line-height: 80px;position: relative;top: -15px; display:block;">KERUMUNAN</span>
+	</div>
+
+	<div style="color:#999">
+		<!-- TRANSLATE note: comment out the line below... -->
+		<!--playing time: 30 min • by nicky case, april 2018-->
+		<!-- ...and UN-comment + TRANSLATE this line! -->
+		oleh nicky case • diterjemahkan oleh emmanuella rumanti • <a href='/'>versi asli bahasa Inggris</a> -->
+	</div>
+
+</words>
+
+<words id="preloader_button">
+	<next></next>
+</words>
+
+<words id="preloader_loading">
+	memuat...
+</words>
+
+<words id="preloader_play">
+	ayo bermain! <div class="rarr"></div> 
+</words>
+
+<!-- Introduction -->
+<!--
+TRANSLATE note: to make the text stay in a circle, I added lots of <br> breaks.
+You may have to re-arrange the <br>'s in order to do your translation.
+It shouldn't look too bad if they're slightly off, though!
+Also, <b></b> bolds a word/phrase, and <i></i> italicizes a word/phrase.
+-->
+
+<words id="intro">
+
+	<br><br>
+	
+	Sir Isaac Newton lumayan yakin dia seseorang
+	<br>
+	yang pandai. Maksudku, setelah menciptakan kalkulus
+	<br>
+	dan teori gravitasi, dia seharusnya cukup pintar untuk
+	<br>
+	melakukan sedikit investasi keuangan, kan? Tapi, singkatnya, dia
+	<br>
+	rugi $4.600.000 (dalam dolar hari ini) dalam sebuah kegilaan
+	<br>
+	spekulasi nasional yang bernama South Sea Bubble of 1720.
+
+	<br><br>
+
+	Seperti yang kemudian dikatakan Pak Newton: <i>“Aku bisa menghitung
+	<br>
+	pergerakan benda-benda langit, tetapi bukan kegilaan orang.”</i>
+
+	<next>iyaaa kasihan<div class="rarr"></div> </next>
+
+</words>
+
+<words id="intro_2">
+
+	<div style="height:0.5em"></div>
+
+	Tentu saja, itu bukan satu-satunya
+	<br>
+	waktu pasar, institusi, atau segenap
+	<br>
+	demokrasi menjadi berantakan &mdash; <i>kegilaan</i>
+	<br>
+	kerumunan. Namun saat kamu mulai kehilangan harapan dengan
+	<br>
+	umat manusia, kamu melihat orang-orang bekerja sama untuk
+	<br>
+	menyelamatkan satu sama lain dalam badai, komunitas-komunitas membuat
+	<br>
+	solusi untuk masalah-masalah, orang-orang berjuang untuk dunia yang lebih baik
+	<br>
+	&mdash; <i>kebijaksanaan</i> kerumunan!
+
+	<div style="height:0.9em"></div>
+
+	<b>Namun <i>kenapa kah</i> sebagian kerumunan berubah menjadi kegilaan, atau kebijaksanaan?</b>
+	<br>
+	Tidak ada teori yang bisa menjelaskan semuanya, tapi menurutku sebuah
+	<br>
+	bidang studi baru, <b>ilmu jaringan</b> (<i>network science</i>), bisa memandu kita! Intinya
+	<br>
+	adalah: untuk mengerti kerumunan, yang mesti kita lihat bukan para
+	<br>
+	<i>individu</i>, tetapi...
+
+	<next>...<i>hubungan-hubungan</i> mereka. <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Networks -->
+
+<words id="networks_tutorial_start">
+	<b>Ayo gambar sebuah jaringan!</b>
+	Setiap hubungan menunjukkan sebuah persahabatan antara dua orang:
+</words>
+
+<words id="networks_tutorial_connect">
+	gambar untuk menghubungkan
+</words>
+
+<words id="networks_tutorial_disconnect">
+	coret untuk&nbsp;&nbsp;&nbsp;memutuskan
+</words>
+
+<words id="networks_tutorial_end">
+
+	ketika kamu sudah selesai corat-coret dan bermain-main,
+	<next wiggle>ayo lanjut <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_threshold">
+
+	Nah, hubungan-hubungan sosial bukan hanya untuk membuat gambar-gambar cantik.
+	Orang-orang <i>bergantung</i> pada hubungan-hubungan sosial mereka untuk memahami dunia
+	mereka. Sebagai contoh, orang-orang melihat ke teman sebaya mereka untuk
+	mencari tahu <b>berapa % dari dari teman-teman mereka</b> (tidak menghitung diri
+	sendiri) adalah, misalnya, pemabuk. <icon name="yellow"></icon>
+
+</words>
+
+<words id="networks_threshold_instruction">
+	<b>Gambar/hapus hubungan-hubungan, dan lihat apa yang terjadi! <div class="rarr"></div> </b>
+</words>
+
+<words id="networks_threshold_end">
+	<next>oke, ngerti</next>
+</words>
+
+<words id="networks_pre_puzzle">
+	Meskipun begitu, jaringan-jaringan bisa <i>menipu</i> orang. Seperti
+	bagaimana bumi terkesan datar karena kita berada di atasnya, orang bisa
+	mendapatkan pemahaman yang salah tentang masyarakat karena mereka <i>bagian darinya</i>.
+</words>
+
+<words id="optional_reading">
+	<div style="position:absolute; top:5px;">
+		catatan bonus ekstra <i>opsional</i>! &uarr;
+	</div>
+	<div style="position:absolute; left:216px; top:10px;">
+		&darr; link dan referensi
+	</div>
+</words>
+
+<words id="networks_pre_puzzle_2">
+	
+	<bon id="books"></bon>
+
+	<br>
+
+	Sebagai contoh, sebuah penelitian tahun 1991<ref id="drunk"></ref>menunjukkan bahwa
+	“hampir semua mahasiswa melaporkan bahwa teman dia minum lebih banyak daripada dia.”
+	Namun, itu kedengarannya mustahil!
+	Kok bisa begitu?
+	Nah, kamu bakal menemukan jawabannya sendiri, dengan menggambar sebuah jaringan.
+	Waktunya...
+
+	<next>MENIPU SEMUA ORANG <div class="rarr"></div> </next>
+
+</words>
+
+<words id="networks_puzzle">
+
+	<b style="font-size:2em">WAKTUNYA MAIN TEKA-TEKI!</b>
+	<br>
+	Buat <i>semua orang</i> berpikir
+	bahwa mayoritas teman mereka (ambang minimal 50%) adalah pemabuk <icon name="yellow"></icon>
+	(meskipun pemabuk kalah jumlah dengan perbandingan 1:2!)
+
+</words>
+<words id="networks_puzzle_metric">
+	<b>TERTIPU:</b>
+</words>
+<words id="networks_puzzle_metric_2">
+	dari 9 orang
+</words>
+<words id="networks_puzzle_end">
+	Selamat! Kamu berhasil memanipulasi sekumpulan mahasiswa sampai mereka percaya
+	bahwa sebuah perilaku yang sangat tidak sehat itu sebetulnya umum! Bagus!
+	<next wiggle>...uh, makasih?</next>
+</words>
+
+<words id="networks_post_puzzle">
+
+	Apa yang baru saja kamu buat disebut Ilusi Mayoritas<ref id="majority"></ref>,
+	yang juga menjelaskan kenapa orang berpikir pandangan politik mereka adalah
+	konsensus, atau kenapa radikalisme terkesannya lebih umum daripada yang sesungguhnya.
+	<i>Kegilaan.</i>
+
+	<bon id="connections"></bon>
+
+	Namun orang-orang tidak hanya <i>mengamati</i> pendapat dan perilaku orang lain
+	secara pasif, mereka aktif <i>meniru</i>nya.
+	Sekarang, mari kita lihat sesuatu yang ilmuwan jaringan sebut...
+
+	<next>“Penularan!” <div class="rarr"></div> </next>
+
+
+</words>
+
+<!-- Simple Contagions -->
+
+<words id="simple_simple">
+	<i>Mari kita singkirkan "ambang minimal" untuk sekarang.</i>
+	Di bawah ini: kita punya seseorang <icon name="red"></icon> dengan informasi.
+	<i>Mis</i>informasi. "<i>Fake news</i>", kalau kata anak gaul.
+	Dan setiap hari, orang tersebut menyebarkan rumor, seperti virus, ke teman-temannya.
+	Dan kemudian mereka menyebarkannya ke teman-teman <i>mereka</i>. Dan seterusnya.
+	<br>
+	<b>
+	Mulai simulasinya! <div class="darr"></div>
+	(p.s: kamu tidak bisa menggambar <i>sementara</i> simnya berjalan)
+	</b>
+</words>
+
+<words id="simple_simple_2">
+	Catatan: meskipun memiliki nama negatif, "penularan" bisa baik atau buruk (netral atau ambigu).
+	Ada bukti statistik kuat<ref id="contagion"></ref> bahwa
+	merokok, kesehatan, kebahagiaan, pola pilihan politik, dan tingkat kerja sama
+	semuanya "menular" --
+	dan bahkan sedikit bukti bahwa begitu pula untuk bunuh diri <ref id="suicides"></ref> dan penembakan massal.<ref id="shootings"></ref>
+</words>
+
+<words id="simple_simple_end">
+	<next wiggle>itu menyedihkan <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_cascade">
+	Memang benar.
+	Namun demikian, <b>WAKTUNYA BERMAIN TEKA-TEKI!</b>
+	<br>
+	Gambar sebuah jaringan &amp; jalankan simulasinya,
+	agar <i>semua orang</i> tertular "penularan"-nya.
+	<br>
+	(aturan baru: kamu tidak bisa memotong hubungan <i>tebal</i>)
+</words>
+
+<words id="simple_cascade_end">
+	<next wiggle>fantastis, sungguh luar biasa <div class="rarr"></div> </next>
+</words>
+
+<words id="simple_post_cascade">
+	Penyebaran kegilaan ini disebut <b>"<i>information cascade</i>"</b>.
+	Pak Newton tertipu sebuah <i>cascade</i> sepertinya pada 1720.
+	Institusi-institusi keuangan dunia tertipu sebuah <i>cascade</i> sepertinya pada 2008.<ref id="subprime"></ref>
+	<br><br>
+	Meskipun begitu: <i>simulasi ini salah.</i>
+	Kebanyakan ide <i>tidak</i> menyebar seperti virus.
+	Dengan banyak kepercayaan dan perilaku, kamu perlu "diekspos" ke penularnya lebih dari sekali
+	sebelum "tertular".
+	Jadi, ilmuwan jaringan (<i>network scientists</i>) telah menciptakan sebuah cara lebih baru dan
+	baik untuk menjelaskan bagaimana ide/perilaku menyebar, dan mereka menyebutnya...
+	<next wiggle>“Penularan <i>Kompleks</i>!” <div class="rarr"></div> </next>
+</words>
+
+<!-- Complex Contagions -->
+
+<words id="complex_complex">
+
+	Mari kita kembalikan "ambang" dan contoh mabuk-mabukan <icon name="yellow"></icon>!
+	Ketika kamu pertama kali bermain dengan ini, orang-orang tidak mengubah perilaku mereka.
+
+	<br><br>
+
+	Sekarang, mari kita simulasikan apa yang terjadi jika orang-orang
+	mulai minum <i>saat 50%+ dari teman-teman dia melakukannya!</i>
+	<b>Sebelum kamu memulai, tanyakan kepada dirimu apa yang menurutmu <i>seharusnya</i> terjadi.</b>
+
+	<br><br>
+	
+	<b>Sekarang, jalankan simulasinya, dan lihat apa yang sebetulnya terjadi! <div class="rarr"></div> </b>
+
+</words>
+
+<words id="complex_complex_2">
+	<span style="line-height:1.3em; display:block;">
+		
+		Tidak seperti penularan "<i>fake news</i>" <icon name="red"></icon> kita sebelumnya,
+		penular ini <icon name="yellow"></icon> <i>tidak</i> menyebar ke semua orang!
+		Beberapa orang pertama menjadi "terinfeksi" karena meskipun mereka hanya diekspos
+		ke satu pemabuk, pemabuk tersebut 50% dari pertemanan mereka. (ya, mereka kesepian)
+		Sebaliknya, orang yang berada di dekat akhir rantai tersebut <i>tidak</i> "terinfeksi"
+		karena meskipun mereka diekspos ke seorang teman pemabuk,
+		ambang 50%+ tidak dilewati.
+
+		<div style="height:0.75em"></div>
+
+		% <i>relatif</i> dari teman "terinfeksi" berpengaruh.
+		<i>Itulah</i> perbedaan teori <b>penularan kompleks</b><ref id="complex"></ref> dan
+		teori <b>penularan sederhana</b> ia-menyebar-seperti-virus naif kita.
+		(bisa dibilang "penularan sederhana" hanyalah penularan dengan ambang batas infeksi "lebih dari 0%")
+
+		<div style="height:0.75em"></div>
+
+		Namun, penularan tidak selalu buruk &mdash;
+		jadi cukup dengan <i>kegilaan</i> kerumunan, bagaimana dengan...
+		jadi cukuplah dengan <i>kegilaan</i> kerumunan, bagaimana dengan...
+		<next>...<i>kebijaksanaan</i> kerumunan?</next>
+
+	</span>
+</words>
+
+<words id="complex_complex_3">
+
+	Sekarang, ada seseorang <icon name="blue"></icon> relawan yang... aku tidak tahu,
+	terjun ke lokasi puting beliung, atau mengajar anak-anak kurang mampu, atau sesuatu yang keren seperti itu.
+	Pokoknya, kegiatannya adalah penular kompleks "baik".
+	Tapi kali ini, coba kita bilang ambang batasnya hanya 25% &mdash;
+	orang rela menjadi relawan, tapi hanya jika 25% atau lebih dari teman mereka juga melakukannya.
+	Hei, perbuatan baik perlu sedikit dorongan sosial.
+
+	<br><br>
+
+	<b>&larr; "Tular" semua orang dengan <i>good vibes</i>!</b>
+
+</words>
+
+<words id="complex_complex_3_end">
+	<span style="line-height:1.3em; display:block;">
+
+		<b>CATATAN:</b> Sukarela hanyalah <i>satu</i> dari banyak penular kompleks!
+		Contoh lainnya: jumlah orang yang menggunakan hak pilihnya,
+		gaya hidup, menantang pemikiran diri,
+		menghabiskan waktu untuk mendalami sebuah isu &mdash; apa pun
+		yang memerlukan lebih dari satu kali "pengeksposan".
+		Penular kompleks tidak <i>selalu</i> bijaksana,
+		tapi kebijaksanaan adalah sebuah penular kompleks.
+
+		<div style="height:0.75em"></div>
+
+		(Jadi apa yang merupakan contoh penular <i>sederhana</i> dunia nyata?
+		Biasanya potongan trivia, seperti "oposum memiliki 13 puting"<ref id="possum"></ref>)
+
+		<bon id="contagions"></bon>
+
+		Sekarang, untuk <i>sungguh-sungguh</i> menunjukkan kekuatan dan keanehan penularan kompleks, kita balik lagi...
+
+		<next>...ke sebuah teka-teki dari sebelumnya <div class="rarr"></div> </next>
+
+	</span>
+</words>
+
+<words id="complex_cascade">
+	Ingat ini? Kali ini, dengan sebuah penularan <i>kompleks</i> <icon name="blue"></icon>, ini sedikit lebih susah...
+	<br>
+	<b>Coba "tularkan" semua orang dengan kebijaksanaan kompleks! <div class="darr"></div></b>
+</words>
+
+<words id="complex_cascade_feel_free">
+	(silakan klik 'mulai' dan <i>coba</i> solusi sebanyak yang kamu mau)
+</words>
+
+<words id="complex_cascade_end">
+	<next wiggle>MANTUL <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_post_cascade">
+	Nah, kamu mungkin berpikir kamu mesti terus menambah hubungan untuk menyebarkan penularan apapun,
+	"kompleks" atau "sederhana", baik atau buruk, bijaksana atau gila.
+	Tapi apakah itu benar? Mari kita balik ke...
+</words>
+<words id="complex_post_cascade_end">
+	<next wiggle>...sebuah teka-teki dari sebelumnya <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_prevent">
+	Jika kamu mengklik "mulai" di bawah, penularan kompleks <icon name="blue"></icon> bakal menyebar ke semua orang.
+	Tidak mengejutkan.
+	Tapi sekarang, ayo kita lakukan <i>kebalikan</i> dari semua yang telah kita lakukan sebelumnya:
+	<b>gambar sebuah jaringan untuk <i>mencegah</i> penularan menyebar ke semua orang! <div class="darr"></div></b>
+</words>
+
+<words id="complex_prevent_2">
+	Kamu lihat?
+	Meskipun hubungan yang lebih banyak selalu membantu penyebaran ide <i>sederhana</i>,
+	<b>jumlah hubungan yang lebih besar menghalangi penyebaran ide <i>kompleks</i>!</b>
+	(membuatmu bertanya-tanya tentang internet, hm?)
+	Dan ini bukan hanya sebuah soal teoretis. Ini bisa menjadi soal hidup...
+</words>
+
+<words id="complex_prevent_end">
+	<next wiggle>...atau mati. <div class="rarr"></div> </next>
+</words>
+
+<words id="complex_groupthink">
+		
+	Orang-orang di NASA pintar-pintar.
+	Toh, mereka mampu menggunakan teori-teori Newton untuk membawa kita ke bulan.
+	Namun, singkatnya, pada 1986,
+	<i>meskipun sudah diperingatkan oleh para insinyurnya</i>,
+	mereka meluncurkan <i>Challenger</i>
+	yang meledak dan menyebabkan korban jiwa tujuh orang.
+	Penyebab langsungnya:
+	pagi itu terlalu dingin.
+
+	<div style="height:0.9em"></div>
+
+	Penyebabnya yang tidak begitu langsung: para manajer tidak mendengarkan peringatan insinyur.
+	Kenapa? Karena <b>pemikiran kelompok</b><ref id="groupthink"></ref>.
+	Ketika suatu kelompok <i>terlalu</i> erat, (seperti bagaimana mereka biasanya di puncak institusi)
+	mereka menjadi kebal terhadap ide-ide kompleks yang menantang keyakinan atau ego mereka.
+
+	<div style="height:0.9em"></div>
+
+	Jadi, itulah bagaimana institusi-institusi bisa dijatuhkan oleh kegilaan kerumunan.
+	Namun bagaimana caranya agar kita bisa "merancang" untuk <i>kebijaksanaan</i> kerumunan?
+	Singkatnya, dua kata:
+
+	<next>Pengikatan &amp; Penjembatanan <div class="rarr"></div> </next>
+
+</words>
+
+<!-- Bonding & Bridging -->
+
+<words id="bonding_1">
+	&larr; Terlalu sedikit hubungan, dan sebuah ide tidak bakal bisa menyebar.
+	<br>
+	Terlalu banyak hubungan, dan kamu bakal mendapatkan pemikiran kelompok. <div class="rarr"></div> 
+</words>
+
+<words id="bonding_2">
+	<b>
+	Gambar sebuah kelompok yang pas kena:
+	tepat cukup terhubung untuk menyebarkan ide kompleks!
+	<div class="darr"></div>
+	</b>
+</words>
+
+<words id="bonding_end">
+	Cukup sederhana!
+	Jumlah hubungan yang ada <i>dalam</i> suatu kelompok disebut <b>modal sosial terikat</b><ref id="social_capital"></ref>.
+	Namun bagaimana dengan hubungan ...
+	<next wiggle>...<i>antar</i>kelompok?</next>
+</words>
+
+<words id="bridging_1">
+	Seperti yang mungkin sudah kamu tebak,
+	jumlah hubungan <i>antara</i> kelompok disebut
+	<b>modal sosial menjembatani</b>.
+	Ini penting, karena ini membantu kelompok-kelompok keluar dari <i>echo chamber</i> yang tertutup!
+	<br>
+	<b>Bangun sebuah jembatan, untuk "menulari" semua orang dengan kebijakan kompleks:</b>
+</words>
+
+<words id="bridging_end">
+	Seperti dengan pengikatan, ada titik pas untuk penjembatanan juga.<ref id="bridge"></ref>
+	(tantangan tambahan: coba gambar jembatan sedemikian tebalnya penularan kompleks
+	<i>tidak bisa</i> melewatinya!)
+	Sekarang setelah kita tahu cara "merancang" hubungan <i>dalam</i> dan <i>antara</i> kelompok, ayo...
+	<next wiggle>...lakukan KEDUANYA pada saat yang bersamaan!</next>
+</words>
+
+<words id="bb_1">
+
+	<b style="font-size:2em">FINAL PUZZLE!</b>
+	<br>
+	Gambar hubungan dalam kelompok (pengikatan) dan antara kelompok (penjembatanan)
+	untuk menularkan kebijaksanaan ke seluruh kerumunan:
+
+</words>
+<words id="bb_2">
+
+	Selamat, kamu telah menggambar suatu jenis jaringan yang sangat istimewa!
+	Jaringan dengan campuran tepat pengikatan dan penjembatanan
+	sangatlah penting, dan mereka disebut...
+	<next wiggle>“Jaringan Dunia Kecil” <div class="rarr"></div> </next>
+
+</words>
+<words id="bb_small_world_1">
+
+	<i>"Unity without uniformity". "Diversity without division". "E Pluribus Unum: out of many, one".</i>
+	<br>
+	Tidak peduli bagaimana orang mengatakannya,
+	orang-orang dari lintas waktu dan budaya sering mendapatkan hikmah yang sama:
+	<b>
+	masyarakat yang sehat perlu jumlah ikatan <i>dalam</i> kelompok dan
+	jembatan <i>antara</i> kelompok yang pas.
+	</b>
+	Itu adalah:
+
+</words>
+<words id="bb_small_world_2">
+	Bukan ini...
+	<br>
+	(karena ide tidak bakal bisa menular)
+</words>
+<words id="bb_small_world_3">
+	atau pun ini...
+	<br>
+	(karena kamu bakal mendapatkan pemikiran kelompok)
+</words>
+<words id="bb_small_world_4">
+	...tetapi <i>INI:</i>
+</words>
+<words id="bb_small_world_5">
+	
+	Ilmuwan jaringan sekarang punya definisi matematis untuk kearifan ini:
+	<b>jaringan dunia kecil</b><ref id="small_world"></ref>.
+	Campuran optimal dari pengikatan+penjembatanan ini menjelaskan
+	bagaimana neuron kita terhubung<ref id="swn_neurons"></ref>
+	mengembangkan kreativitas kolektif<ref id="swn_creativity"></ref>
+	dan pemecahan masalah<ref id="swn_social_physics"></ref>
+	serta bahkan satu kali membantu Presiden AS John F. Kennedy menghindari perang nuklir!<ref id="swn_jfk"></ref>
+	Jadi, ya, dunia kecil ini adalah hal besar.
+
+</words>
+<words id="bb_small_world_end">
+	<next>oke, ayo kita simpulkan ini... <div class="rarr"></div> </next>
+</words>
+
+<!-- Sandbox -->
+
+<words id="sandbox_caption">
+	(pst... mau tahu rahasia?<ref id="sandbox"></ref>)
+</words>
+
+<words id="sandbox_contagion">
+	Penularan:
+</words>
+<words id="sandbox_contagion_simple">
+	sederhana
+</words>
+<words id="sandbox_contagion_complex">
+	kompleks
+</words>
+<words id="sandbox_color_chooser">
+	Warna Penularan:
+</words>
+<words id="sandbox_tool_chooser">
+	Pilih alat...
+</words>
+
+<words id="sandbox_tool_pencil">
+	Gambar Jaringan
+</words>
+<words id="sandbox_tool_add">
+	Tambahkan Orang
+</words>
+<words id="sandbox_tool_add_infected">
+	Tambahkan "Tertular"
+</words>
+<words id="sandbox_tool_move">
+	Seret Orang
+</words>
+<words id="sandbox_tool_delete">
+	Hapus Orang
+</words>
+<words id="sandbox_tool_clear">
+	<b>HAPUS SEMUANYA</b>
+</words>
+
+<words id="sandbox_shortcuts_label">
+	(...atau, gunakan shortcut keyboard!)
+</words>
+
+<words id="sandbox_shortcuts">
+	[1]: Tambahkan Orang &nbsp;&nbsp;&nbsp; [2]: Tambahkan "Tertular"
+	<br>
+	[Spasi]: Seret &nbsp;&nbsp;&nbsp; [Tombol Hapus]: Hapus
+</words>
+
+<!-- Conclusion -->
+
+<words id="conclusion_1">
+	
+	<div style="font-size: 30px;">
+		KESIMPULANNYA: ini semua soal...
+	</div>
+	<div style="
+		width: 100%;
+	    position: absolute;
+	    font-size: 88px;
+	    top: 20px;
+	    line-height: 100px; display:block;
+	">
+	    Penularan &amp; Hubungan
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 125px;
+	    left: 250px;
+	">
+		<b>Penularan:</b>
+		Seperti bagaimana neuron-neuron meneruskan impuls listrik di otak,
+		orang-orang meneruskan kepercayan &amp; perilaku dalam suatu masyarakat.
+		Kita tidak hanya memengaruhi teman-teman kita,
+		tetapi juga teman dari teman kita, dan bahkan teman dari teman dari teman kita!<ref id="three_degrees"></ref>
+		(“jadilah perubahan yang ingin kamu lihat di dunia” dst dst)
+		Namun, seperti dengan neuron, yang penting bukan hanya impuls listrik tetapi juga...
+	</div>
+
+	<div style="
+	    width: 710px;
+	    position: absolute;
+	    top: 275px;
+	    left: 250px;
+	">
+		<b>Hubungan:</b>
+		Terlalu sedikit hubungan dan ide kompleks tidak bakal bisa menyebar.
+		Terlalu <i>banyak</i> hubungan dan ide kompleks dihancurkan oleh pemikiran kelompok.
+		Triknya adalah untuk membuat jaringan dunia kecil, sebuah campuran optimal
+		dari pengikatan dan penjembatanan: <i>e pluribus unum.</i>
+	</div>
+
+	<div style="
+	    width: 350px;
+	    position: absolute;
+	    top: 410px;
+	    left: 220px;
+	    text-align: center;
+	    color: #999;
+	">
+		(mau bikin simulasimu sendiri?
+		coba cek Mode Sandbox dengan cara mengklik tombol (★) di bawah!)
+	</div>
+
+	<div style="
+	    width: 400px;
+	    position: absolute;
+	    top: 395px;
+	    right: 0px;
+	    text-align: right;
+	">
+		Jadi, bagaimana dengan pertanyaan-pertanyaan kita dari awal?
+		Kenapa <i>kah</i> sebagian kerumunan berubah menjadi ...
+	</div>
+	<div style="
+	    width: 300px;
+	    position: absolute;
+	    top: 460px;
+	    right: 0px;
+	">
+		<next>...kebijakan dan/atau kegilaan?/next>
+	</div>
+
+</words>
+
+<words id="conclusion_2">
+	<span style="line-height:1.4em; display:block;">
+
+		<div style="height:0.5em"></div>
+
+		Dari Newton sampai NASA sampai ilmu
+		<br>
+		jaringan, kita telah membahas banyak soal ini
+		<br>
+		hari ini. Singkatnya, kegilaan kerumunan tidak
+		<br>
+		serta-merta disebabkan para individu, tetapi disebabkan
+		<br>
+		oleh bagaimana kita semua terjerat satu sama lain dalam jaringan.
+
+		<div style="height:0.9em"></div>
+
+		Hal tersebut <i>TIDAK</i> berarti menanggalkan kewajiban, karena
+		<br>
+		kita semua juga turut <i>merajut</i> jaringan tersebut. Jadi, tingkatkanlah penularanmu:
+		<br>
+		biasakan skeptis terhadap ide-ide yang merayumu<ref id="flatter"></ref>, habiskan waktu
+		<br>
+		mempelajari ide kompleks. Dan, tingkatkan hubungan-hubunganmu: akrabi orang-orang
+		<br>
+		yang sefrekuensi, tetapi tetap bangun jembatan menyebrangi kesenjangan budaya dan politik.
+
+		<div style="height:0.9em"></div>
+
+		Kita bisa merajut jaringan yang bijak. Tentu saja, lebih susah
+		<br>
+		daripada mencorat-coret garis pada sebuah layar...
+
+		<next>...tapi hasilnya sangat, sangat setimpal.</next>
+
+	</span>
+</words>
+
+<words id="conclusion_3">
+	<i>
+		“Keberhasilan dan tragedi besar sejarah disebabkan
+		tidak oleh manusia yang pada dasarnya baik atau jahat,
+		tetapi oleh manusia yang pada dasarnya manusia.”
+	</i>
+	<br>
+	<span style="position:relative; top:5px">~</span> Neil Gaiman &amp; Terry Pratchett
+	<div style="height:0.8em"></div>
+	<next small>&lt;3</next>
+</words>
+
+<!-- Credits --> 
+
+<words id="credits">
+
+	<div style="text-align:center; color:#fff; letter-spacing: 1px; font-size: 24px; line-height: 27px;">
+	
+		<span style="color:#777; position:relative; top:5px;">
+			dibuat oleh</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			NICKY CASE</div>
+		<a target="_blank" href="http://ncase.me" style="text-decoration:none">
+			mainkan buatanku yg lain</a> ·
+		<a target="_blank" href="https://twitter.com/ncasenmare" style="text-decoration:none">
+			ikuti twt aku</a>
+		
+		<br><br>
+
+		<span style="color:#777; position:relative; top:5px; display: inline-block; margin-top: 15px;">
+			banyak cinta untuk dan terima kasih kepada</span>
+		<div style="font-size: 3em; line-height: 1.0em;">
+			PENDUKUNG PATREONKU</div>
+		<a onclick='publish("reference/show", ["supporters"]);'>
+			lihat nama &amp; dan gambar dari para pendukung</a> ·
+		<a onclick='publish("reference/show", ["playtesters"]);'>
+			lihat playtester</a>
+		<br>
+		<a target="_blank" href="https://www.patreon.com/ncase" style="text-decoration:none">
+			bantu aku buat lebih banyak yang seperti ini! &lt;3</a>
+
+		<br><br>
+
+		<span style="display: inline-block; margin-top: 15px;">
+			♫ musiknya adalah
+			<a target="_blank" href="http://freemusicarchive.org/music/Komiku/Tale_on_the_Late/" style="text-decoration:none">
+				"Friends 2018" dan "Friends 2068"</a>
+			oleh Komiku
+			<br>
+			&lt;/&gt; <i>Crowds</i> is
+			<a target="_blank" href="https://github.com/ncase/crowds" style="text-decoration:none">
+				sepenuhnya open source</a>
+		</span>
+
+		<br>
+
+		<bon id="further_reading"></bon>
+
+	</div>
+
+</words>
+
+<!-- x. misc -->
+<words id="WIN">
+	MENANG
+</words>
+<words id="sim_start">
+	mulai simulasi
+</words>
+<words id="sim_stop">
+	reset &amp; gambar ulang
+</words>
+<words id="translations_exist">
+	Terjemahan oleh fans:
+</words>
+<words id="translations_do_not_exist">
+	<!-- There's no need to TRANSLATE this line since, well, -->
+	<!-- it'll only show up if no translations exist -->
+	What the, no fan-made translations exist yet?!
+</words>
+<words id="translations_add">
+	(tambahkan punyamu!)
+</words>
+
+<!-- - - - - - - -->
+<!-- BONUS BOXES -->
+<!-- - - - - - - -->
+
+<!--
+Sorry, not done yet! These Bonus Boxes need you to TRANSLATE, too:
+(And then afterwards, the final thing, translate the References)
+-->
+
+<bonus id="books">
+
+	<h3>
+	Sebuah respons terhadap <i>The Wisdom of Crowds</i> karya James Surowiecki
+	</h3>
+
+	<div>
+
+	<img src="sprites/bonus/surowieki.jpg" width="200" height="300" style="float:left; margin-right:1em"/>
+	
+	Pertama-tama, aku tidak mengejek
+	<a target="_blank" href="https://en.wikipedia.org/wiki/The_Wisdom_of_Crowds">
+	buku ini.</a>
+	Ini buku yang bagus, dan Surowiecki sedang mencoba menghadapi pertanyaan yang juga aku mmiliki:
+	<b>“kenapa sebagian kerumunan berubah menjadi kegilaan, atau kebijaksanaan?“</b>
+
+	<br><br>
+
+	Jawaban Surowiecki: kerumunan membuat keputusan bagus saat setiap orang sebebas-bebasnya.
+	Dia memberikan sebuah kisah pekan raya,
+	tempat penduduk diundang untuk menebak berat seekor lembu.
+	Tidak disangka, rata-rata dari <i>semua</i> tebakan mereka lebih akurat daripada <i>satu</i> tebakan mana pun.
+	Namun ini intinya: orang-orang tersebut harus menebak <i>secara mandiri</i> dan bebas dari satu sama lain.
+	Jika tidak, mereka bakal dipengaruhi oleh tebakan salah sebelumnya
+	dan jawaban rata-ratanya bakal menjadi amat condong.
+
+	<br><br>
+
+	Tapi... Menurutku "buat semua orang sebebas mungkin" adalah jawaban lengkapnya.
+	Bahkan para jenius, yang kita salah mengartikan sebagai pemikir yang paling independen,
+	amat dipengaruhi oleh satu sama lain. Seperti yang dikatakan oleh Sir Isaac Newton,
+	<i>“Jika saya melihat lebih jauh, itu karena saya berdiri di atas pundak para Raksasa.”</i>
+
+	<br><br>
+
+	Jadi, ide yang mana yang benar?
+	Apakah kebijaksanaan datang dari berpikir sendirian, atau berpikir bersama orang lain?
+	Jawabannya: "iya"
+
+	<br><br>
+
+	Jadi itulah yang aku bakal coba jelaskan di penjelasan yang bisa dieksplorasi ini:
+	bagaimana caranya menemukan titik yang pas di antara kemerdekaan dan ketergantungan &mdash;
+	yaitu, cara mendapatkan kerumunan yang bijaksana.
+
+	</div>
+
+</bonus>
+<bonus id="connections">
+
+	<h3>
+	Apa saja jenis hubungan yang ada?
+	</h3>
+
+	<div>
+
+	Untuk menyederhanakan,
+	simulasi-simulasiku menganggap orang-orang hanya bisa dihubungkan oleh pertemanan
+	dan semua pertemanan bisa disamaratakan.
+	Namun, ilmuwan jaringan <i>juga</i> mempertimbangkan cara-cara lain kita bisa terhubung:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Hubungan direksional.</b> Alice adalah bos Bob, tetapi Bob bukan bos Alice.
+	Carol adalah orang tua Dave, tetapi Dave bukan orang tua Carol.
+	"Bos" &amp; "orang tua" adalah hubungan <i>direksional</i>:
+	hubungannya hanya searah.
+	Sebaliknya, "teman" adalah hubungan <i>bidireksional</i>:
+	hubungan tersebut dua arah. (ya, semoga)
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/connection2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Hubungan terberatkan.</b> Elinor dan Frankie hanyalah kenalan.
+	George dan Harry adalah Sahabat Selamanya.
+	Meskipun kedua kasus tersebut sama-sama melibatkan "pertemanan", yang kedua lebih kuat.
+	Kita mengatakan bahwa kedua hubungan ini memiliki "berat" yang berbeda.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/map.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Ingat saja: <b>semua simulasi ini salah.</b> Sebagaimana semua peta itu "salah".
+	Kamu lihat peta di kiri? Bangunan-bangunan tidak berwujud balok-balok kelabu polos!
+	Kata-kata tidak mengambang di atas perkotaan! Namun, peta berguna tidak <i>meskipun<i> disederhanakan,
+	tetapi <i>karena</i> disederhanakan. Begitu pula untuk simulasi, atau teori ilmiah apa pun.
+	<i>Tentu saja</i> mereka "salah" &mdash; itulah yang membuat mereka <i>berguna</i>.
+
+	</div>
+
+</bonus>
+<bonus id="contagions">
+
+	<h3>
+	Apa saja jenis penularan yang ada?
+	</h3>
+
+	<div>
+	
+	Ada banyak sekali cara ilmuwan jaringan bisa menyimulasikan "penularan"!
+	Aku memilih yang paling sederhana, untuk menjelaskan.
+	Namun inilah cara-cara lain kamu bisa melakukannya:
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion1.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Penularan dengan Ketidakteraturan</b>.
+	"Terekspos" ke suatu penularan tidak <i>menjamin</i> kamu bakal tertular,
+	hanya membuatnya lebih <i>mungkin terjadi</i>.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion2.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Orang-orang memiliki ambang batas penularan yang berbeda.</b>
+	Simulasi-simulasiku menganggap semua orang memiliki ambang batas yang sama untuk mabuk-mabukan (50%)
+	atau bersuka rela (25%)% atau misinformasi (0%).
+	Tentu saja, itu bukan kasusnya di dunia nyata, dan kamu bisa membuat simulasimu mencerminkan itu.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion3.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Suatu ekologi penularan.</b>
+	Bagaimana jika ada <i>banyak</i> penularan, dengan ambang batas yang <i>berbeda-beda</i>?
+	Sebagai contoh, dengan sebuah penularan "kegilaan" sederhana dan sebuah penularan "kebijaksanaan" kompleks.
+	Jika seseorang sudah tertular kegilaan, masih bisakah dia tertular kebijaksanaan?
+	Atau sebaliknya?
+	Bisakah seseorang tertular keduanya?
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/contagion4.png" width="250" height="150" style="float:left; margin-right:1em"/>
+	<b>Penularan yang bermutasi dan berevolusi.</b>
+	Ide-ide tidak diteruskan dari satu orang ke orang lain sebagaimana sebuah virus.
+	Seperti sebuah permainan Telepon, pesan tersebut bermutasi setiap diceritakan ulang &mdash;
+	dan terkadang, mutasinya menjadi lebih menular daripada yang aslinya!
+	Jadi, selang waktu, ide-ide "berevolusi" menjadi lebih mudah diingat, lebih mudah disalin, lebih menular.
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+<bonus id="further_reading">
+	
+	<h3>
+	Aku ingin belajar lebih banyak! Apa lagi yang bisa aku baca dan/atau mainkan?
+	</h3>
+	
+	<div>
+	
+	Penjelasan yang bisa dieksplorasi ini hanyalah batu loncatan untuk rasa penasaranmu,
+	agar kamu bisa menyelami pengetahuannya lebih jauh!
+	Beberapa sumber tentang jaringan atau sistem sosial:
+
+	<br><br>
+
+	<img src="sprites/bonus/connected.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Buku:</b>
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a>
+	oleh Nicholas Christakis dan James Fowler (2009).
+	Sebuah tur yang mudah dimengerti tentang bagaimana jaringan memengaruhi hidup kita, baik atau buruk.
+	<a target="_blank" href="http://www.connectedthebook.com/pdf/excerpt.pdf">
+	Sebuah cuplikan: Preface &amp; Chapter 1
+	</a>
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/trust.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interaktif:</b>
+	<a target="_blank" href="http://ncase.me/trust/">
+	The Evolution of Trust</a> oleh Nicky Case (aku) (2017).
+	Sebuah permainan tentang teori permainan mengenai bagaimana kerja sama dibangun... atau dihancurkan.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/polygons.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	<b>Interaktif:</b>
+	<a target="_blank" href="http://ncase.me/polygons/">
+	Parable of the Polygons</a> oleh Vi Hart dan Nicky Case (aku juga) (2014).
+	Sebuah cerita tentang bagaimana pilihan-pilihan tidak berbahaya bisa mencipatakan sebuah dunia berbahaya.
+
+	<div style="clear:both"></div>
+	<br>
+
+	<img src="sprites/bonus/ee.png" width="200" height="200" style="float:left; margin-right:1em"/>
+	Atau, jika kamu hanya ingin melihat sebuah galeri lengkap penuh hal-hal interaktif edukatif, ada
+	<a target="_blank" href="http://explorabl.es/">
+	Explorable Explanations</a>,
+	sebuah pusat untuk belajar lewat bermain!
+
+	<div style="clear:both"></div>
+
+	</div>
+
+</bonus>
+
+<!-- - - - - - - -->
+<!-- REFERENCES  -->
+<!-- - - - - - - -->
+
+<!--
+Final thing! These references also need you to TRANSLATE:
+-->
+
+<reference id="drunk">
+
+	<h3>
+	“hampir semua mahasiswa melaporkan bahwa teman dia minum lebih banyak daripada dia sendiri.”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/1758185">
+	“Biases in the perception of drinking norms among college students”</a> oleh Baer et al (1991)
+	</div>
+
+</reference>
+<reference id="majority">
+
+	<h3>
+	“Ilusi Mayoritas”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147617">
+	“The Majority Illusion in Social Networks”</a> oleh Lerman et al (2016).
+	<br>
+	Terkait: <a target="_blank" href="https://en.wikipedia.org/wiki/Friendship_paradox">
+	Paradoks Pertemanan</a>.
+	</div>
+</reference>
+<reference id="contagion">
+	
+	<h3>
+	“ada bukti statistik kuat bahwa
+	kebiasaan merokok, kesehatan, kebahagiaan, pola pemungutan suara, dan tingkat kerja sama
+	semuanya bersifat menular”
+	</h3>
+
+	<div>
+	
+	Dari buku Nicholas Christakis dan James Fowler
+	yang ditulis secara gemilang dan bisa dimengerti orang awam,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009). 
+
+	</div>
+</reference>
+<reference id="suicides">
+
+	<h3>
+	“beberapa bukti bahwa begitu pula untuk bunuh diri [yang juga menular]”
+	</h3>
+
+	<div>
+	<a target="_blank" href="http://www.jstor.org/stable/42000514?seq=4#page_scan_tab_contents">
+	“Suicide Contagion and the Reporting of Suicide: Recommendations from a National Workshop”</a>
+	oleh O'Carroll et al (1994), disahkan oleh Centers for Disease Control &amp; Prevention (CDC).
+	</div>
+
+</reference>
+<reference id="shootings">
+
+	<h3>
+	“beberapa bukti bahwa begitu pula untuk penembakan massal [yang juga menular]”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0117259">
+	“Contagion in Mass Killings and School Shootings”</a> oleh Towers et al (2015).
+
+	<br><br>
+
+	Lihat juga:
+	gerakan <a target="_blank" href="http://www.dontnamethem.org/">
+	Don't Name Them</a>,
+	yang mendorong agar media pemberitaan <i>TIDAK</i> mempublikasikan nama, manifesto, dan isi media sosial pembunuh massal.
+	Ini menyebarkan penularannya.
+	Sebagai gantinya, media pemberitaan mestinya fokus terhadap korban, responden pertama, pahlawan sipil,
+	dan masyarakat yang berduka dan dalam proses penyembuhan.
+
+	</div>
+
+</reference>
+<reference id="subprime">
+
+	<h3>
+	“Institusi-institusi keuangan dunia tertipu sebuah <i>cascade</i> sepertinya pada 2008”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://newrepublic.com/article/63023/wall-streets-lemmings">
+	“Lemmings of Wall Street”</a> oleh Cass Sunstein adalah sebuah bacaan yang non-teknis dan singkat.
+	Diterbitkan pada Oct 2008, tepat setelah kejatuhan itu.
+	</div>
+
+</reference>
+<reference id="complex">
+
+	<h3>
+	“teori penularan kompleks.”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="https://www.unc.edu/~fbaum/teaching/articles/Granovetter_AJS_1978.pdf">
+	“Threshold Models of Collective Behavior”</a> oleh Granovetter (1978)
+	adalah pertama kalinya, setahuku, seseorang mendeskripsikan sebuah model "penularan kompleks".
+	(meskipun dia tidak menggunakan nama spesifik itu)
+
+	<br><br>
+
+	<a target="_blank" href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0180802">
+	“Evidence for complex contagion models of social contagion from observational data”</a>
+	oleh Sprague &amp; House (2017)
+	menunjukkan bahwa penularan kompleks memang benar adanya. (setidaknya, dalam data media sosial yang mereka teliti)
+
+	<br><br>
+
+	Dan yang terakhir,
+	<a target="_blank" href="https://arxiv.org/pdf/cond-mat/0403699.pdf">
+	“Universal behavior in a generalized model of contagion”</a> oleh Dodds &amp; Watts (2004)
+	mengajukan sebuah model yang menyatukan <i>semua</i> jenis penularan: 
+	sederhana dan kompleks, biologis dan sosial!
+
+	</div>
+
+</reference>
+<reference id="possum">
+	<h3>
+	“oposum memiliki 13 puting”
+	</h3>
+	<div>
+	tersusun membentuk sebuah cincin yang terdiri dari 12 puting, plus satu lagi di tengah
+	</div>
+</reference>
+<reference id="groupthink">
+
+	<h3>
+	“pemikiran kelompok”
+	</h3>
+
+	<div>
+	Istilah yang terinspirasi oleh Orwell ini diciptakan oleh Irving L. Janis pada 1971.
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	Dalam artikel aslinya</a>,
+	Janis menyelidiki kasus-kasus pemikiran kelompok, membuat daftar penyebabnya, dan &mdash; untungnya &mdash;
+	beberapa penyelesaian yang mungkin.
+	</div>
+
+</reference>
+<reference id="social_capital">
+
+	<h3>
+	“mengikat dan menjembatani modal sosial”
+	</h3>
+
+	<div>
+	Dua jenis modal sosial ini &mdash; "pengikatan" (<i>bonding</i>) dan "penjembatanan" (<i>bridging<i>) &mdash;
+	dinamakan oleh Robert Putnam dalam bukunya yang mencerahkan dari 2000,
+	<a target="_blank" href="http://bowlingalone.com/">
+	Bowling Alone</a>. Penemuannya:
+	lintas hampir <i>semua</i> pengukuran empiris terhadap keterhubungan sosial,
+	orang Amerika lebih kesepian daripada yang pernah sebelumnya.
+	Golly.
+	</div>
+
+</reference>
+<reference id="bridge">
+
+	<h3>
+	“ada titik pas untuk penjembatanan”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://sociology.stanford.edu/sites/default/files/publications/the_strength_of_weak_ties_and_exch_w-gans.pdf">
+	“The Strength of Weak Ties”</a> oleh Granovetter (1973)
+	menunjukkan bahwa hubungan lintas kelompok membantu menyebarkan penularan sederhana (seperti informasi),
+	tetapi
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/521848?seq=1#page_scan_tab_contents">
+	“Complex Contagions and the Weakness of Long Ties”</a> oleh Centola &amp; Macy (2007)
+	menunjukkan bahwa hubungan lintas kelompok tidak membantu penularan kompleks,
+	dan sebenarnya, bahkan bisa menghambatnya!
+	</div>
+
+</reference>
+<reference id="small_world">
+
+	<h3>
+	“jaringan dunia kecil”
+	</h3>
+
+	<div>
+
+	Ide suatu "dunia kecil" dipopulerkan oleh
+	<a target="_blank" href="http://www.jstor.org/stable/2786545">eksperimen Travers &amp; Milgram pada 1969</a>,
+	yang menunjukkan bahwa, rata-rata, dua individu yang dipilih secar acak di Amerika Serikat hanya
+	berjarak enam pertemanan dari satu sama lain &mdash; "<i>six degrees of separation</i>"!
+
+	<br><br>
+
+	Ide jaringan dunia kecil mendapatkan lebih banyak matematika setelah
+	<a target="_blank" href="http://leonidzhukov.net/hse/2014/socialnetworks/papers/watts-collective_dynamics-nature_1998.pdf">
+	“Collective dynamics of small-world networks”</a> oleh Watts &amp; Strogatz (1998),
+	yang mengajukan sebuah algoritma untuk membuat jaringan
+	dengan jarak garis yang rata-rata kecil (<i>low degree of separation</i>)
+	dan banyak pengelompokkan (para teman memiliki banyak teman mutual) &mdash;
+	atau, dalam kata lain, sebuah jaringan yang mencapai titik yang pas!
+
+	<br><br>
+
+	Kamu juga bisa bermain dengan
+	<a target="_blank" href="http://worrydream.com/ScientificCommunicationAsSequentialArt/">
+	sebuah adaptasi visual, interaktif dari makalah tersebut</a> karya Bret Victor (2011).
+
+	</div>
+
+</reference>
+<reference id="swn_neurons">
+
+	<h3>
+	“[jaringan dunia kecil] menjelaskan bagaimana neuron kita terhubung”
+	</h3>
+
+	<div>
+	<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/17079517">
+	“Small-world brain networks”</a> oleh Bassett &amp; Bullmore (2006).
+	</div>
+
+</reference>
+<reference id="swn_creativity">
+
+	<h3>
+	“[small world networks] give rise to collective creativity”
+	</h3>
+
+	<div>
+
+	<a target="_blank" href="http://www.jstor.org/stable/10.1086/432782?seq=1#page_scan_tab_contents">
+	“Collaboration and Creativity: The Small World Problem”</a> by Uzzi &amp; Spiro (2005).
+	This paper analyzed the social network of the Broadway scene over time,
+	and discovered that, yup, the network's most creative when it's a "small world" network!
+
+	</div>
+
+</reference>
+<reference id="swn_social_physics">
+
+	<h3>
+	“[jaringan dunia kecil] mengembangkan kreativitas kolektif”
+	</h3>
+
+	<div>
+	Lihat
+	<a target="_blank" href="http://socialphysics.media.mit.edu/">
+	“Social Physics”</a> oleh profesor MIT Alex "Sandy" Pentland (2014)
+	untuk sebuah pendekatan berbasis data terhadap kecerdasan kolektif.
+	</div>
+
+</reference>
+<reference id="swn_jfk">
+
+	<h3>
+	“[jaringan dunia kecil] membantu Presiden AS John F. Kennedy menghindari perang nuklir!”
+	</h3>
+
+	<div>
+
+	Selain ledakan NASA Challenger, contoh paling terkenal dari pemikiran kelompok
+	Besides the NASA Challenger explosion, the most notorious example of groupthink
+	adalah kegagalan Bay of Pigs.
+	Pada 1961, Presiden AS John F. Kennedy dan dan tim penasihatnya berpikir
+	&mdash; entah kenapa &mdash;
+	bahwa merupakan ide yang bagus untuk diam-diam menginvasi Kuba dan menggulingkan Fidel Castro.
+	Mereka gagal.
+	Sebenarnya, lebih buruk daripada gagal: kejadian tersebut berujung pada Krisis Rudal Kuba pada 1962,
+	<i>saat dunia amat sangat nyaris mengalami perang nuklir total.</i>
+
+	<br><br>
+
+	Yep, JFK sangat membuat sebuah kesalahan pada titik itu.
+		
+	<br><br>
+
+	Namun, setelah mendapatkan beberapa pelajaran keras dari insiden Bay of Pigs,
+	JFK mengatur ulang timnya untuk menghindari pemikiran kelompok.
+	Di antaranya, dia:
+	1) aktif mendorong orang-orang untuk menyuarakan kritik,
+	sehingga menurunkan "ambang penularan" untuk ide alternatif.
+	Dan
+	2) dia memecahkan timnya menjadi subkelompok sebelum mengumpulkan mereka kembali,
+	yang membentuk wujudnya menjadi mirip "jaringan dunia kecil"!
+	Serentak, pengaturan ini memberikan ruang bagi keberagaman opini yang sehat,
+	tetapi tanpa menjadikannya terlalu terpecah-pecah &mdash; kebijakan kerumunan.
+
+	<br><br>
+
+	Dengan demikian, melibatkan <i>individu</i> yang sama dengan yang membuat keputusan mengenai Bay of Pigs,
+	tetapi mengatur ulangnya secara <i>kolektif</i> untuk membuat kebijakan terhadap Krisis Rudal Kuba...
+	tim JFK berhasil mencapai kesepakatan damai dengan pemimpin Soviet Nikita Khrushchev.
+	Para Soviet akan menyingkirkan rudal-rudal mereka dari Kuba, dan sebagai imbalannya,
+	AS berjanji untuk tidak menginvasi Kuba lagi.
+	(dan juga setuju, secara diam-diam, untuk menyingkirkan rudal AS dari Turki)
+
+	<br><br>
+
+	Dan itulah cerita bagaimana hampir seluruh dari umat manusia hampir meninggal.
+	Namun sebuah jaringan dunia kecil berhasil menyelamatkan semuanya! Semacamnya.
+
+	<br><br>
+
+	Kamu bisa baca lebih banyak soal ini
+	<a target="_blank" href="https://hbr.org/2013/11/how-john-f-kennedy-changed-decision-making">
+	di Harvard Business Review</a>,
+	atau dari
+	<a target="_blank" href="https://web.archive.org/web/20100401033524/http://apps.olin.wustl.edu/faculty/macdonald/GroupThink.pdf">
+	artikel aslinya mengenai pemikiran kelompok</a>.
+
+	</div>
+
+</reference>
+<reference id="three_degrees">
+
+	<h3>
+	“kita memengaruhi ... teman dari teman dari teman kita”
+	</h3>
+
+	<div>
+	Lagi-lagi, dari buku karya Nicholas Christakis dan James Fowler
+	yang gemilang,
+	<a target="_blank" href="http://www.connectedthebook.com/">
+	Connected</a> (2009).
+	</div>
+
+</reference>
+<reference id="flatter">
+	<h3>
+	“biasakan skeptis terhadap ide-ide yang merayumu”
+	</h3>
+	<div>
+	ya, termasuk ide-ide di penjelasan yang bisa dieksplorasi <i>ini</i>.
+	</div>
+</reference>
+<reference id="sandbox">
+
+	<h3>
+	★ Mode Sandbox ★
+	</h3>
+
+	<div>
+	Shortcut keyboard-nya (1, 2, spasi, hapus/backspace)
+	dapat digunakan untuk <i>semua</i> teka-tekinya, tidak hanya dalam Mode Sandbox!
+	Serius, kamu bisa balik ke sebuah bab berbeda
+	dan langsung ubah-ubah simulasinya di sana.
+	Sebetulnya, itulah bagaimana <i>aku</i> membuat semua teka-teki ini. Selamat bersenang-senang!
+	</div>
+
+</reference>
+<reference id="supporters" hidden=yes large=yes>
+	<div>
+	Kepada 
+	<a target="_blank" href="https://www.patreon.com/ncase">pendukungku di Patreon</a>:
+	Aku sangat bersyukur.
+	Kemurahan hati kalian <i>betulan</i> memberi aku makan dan membayar biaya sewaku
+	dan memberikanku kebebasan kreatif untuk membuat permainan matematika/ilmu sosial aneh-aneh ini.
+	Dari lubuk hatiku yang paling dalam, terima kasih!
+	</div>
+</reference>
+<reference id="playtesters" hidden=yes large=yes>
+	<div>
+
+	Terima kasih kepada semua orang yang nge-playtest <i>Crowds</i>
+	selama berbagai tahap kehidupannya!
+	
+	<br><br>
+	<b>Prototype:</b>
+	<br>
+	Maria ·
+	Monica Srivastava
+
+	<br><br>
+	<b>Alfa:</b>
+	<br>
+	Glen Chiacchieri ·
+	Kalli Repzeti ·
+	Mali Akmanalp ·
+	Toph Tucker
+
+	<br><br>
+	<b>Beta:</b>
+	<br>
+	Alex Dytrych ·
+	Amit Patel ·
+	Cassandra McClure ·
+	Catherine Ray ·
+	Josh Comeau ·
+	Kayle Sawyer ·
+	Matthew Conlen ·
+	Srini Kadamati ·
+	Vanessa Shen ·
+	Wick Perry
+
+	</div>
+</reference>
+
+</span>
+
+<!--
+And that's it! That's the last of what needed to a TRANSLATE
+Thank you so, so much for doing this again, wow.
+Finally, go to "translations.txt" and follow the instructions there,
+in order to let this game "know" your translation exists.
+-->
